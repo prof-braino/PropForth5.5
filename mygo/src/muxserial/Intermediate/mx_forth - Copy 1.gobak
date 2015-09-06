@@ -1,0 +1,442 @@
+package muxserial
+
+/*
+fl
+
+build_BootOpt :rasm
+		spush
+		jmpret	__serfkeyq_ret , # __serfkeyq
+		spush
+		muxz	$C_stTOS , $C_fLongMask
+		jexit
+
+\
+\ enter - $C_stTOS - don't care
+\ exit  - $C_stTOS - char
+\       - zflag    - set if the char is valid
+\
+\
+__serfkeyq
+		mov	$C_stTOS , par 
+		add	$C_stTOS , # hD8
+		rdword	$C_treg1 , $C_stTOS
+		test	$C_treg1 , # h100	wz
+
+	if_nz	jmp	# __sfqn
+		mov	$C_treg2 , # h100
+		wrword	$C_treg2 , $C_stTOS
+__sfqn
+		mov	$C_stTOS , $C_treg1
+__serfkeyq_ret
+		ret
+;asm a_serfkey?
+
+
+build_BootOpt :rasm
+		spush
+		jmpret	__serkey_ret , # __serkey
+		jexit
+\
+\ - enter - $C_stTOS - don't care
+\ - exit  - $C_stTOS - char
+\
+__serkey
+		mov	$C_treg1 , par 
+		add	$C_treg1 , # hD8
+__sklp
+		rdword	$C_stTOS , $C_treg1
+
+		test	$C_stTOS , # h100	wz
+	if_nz	jmp	# __sklp
+		mov	$C_treg2 , # h100
+		wrword	$C_treg2 , $C_treg1
+__serkey_ret
+		ret
+;asm a_serkey
+
+
+
+*/
+
+
+var scode string = `
+fl
+\
+\ serial line protocol - 
+\ b011X_XXXX count cc - X is chan number count is number of characters following + h20
+\ b010Y_YYYY - ack Y is chan number
+\
+\
+
+
+
+
+lockdict create a_serfkey? forthentry
+$C_a_lxasm w, h121  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyJQL l, z1Sy[4O l, z1SyJQL l, z1riPR6 l, z1SV01X l, z2WiPVj l, z20yPRO l, z4iPZB l,
+z1YVP[0 l, z1SL04V l, z2WyPf0 l, z4FPeB l, z2WiPRC l, z1SV000 l,
+freedict
+
+
+lockdict create a_serkey forthentry
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyJQL l, z1SyZfM l, z1SV01X l, z2WiPaj l, z20yPZO l, z4iPRC l, z1YVPS0 l, z1SL04O l,
+z2WyPf0 l, z4FPeC l, z1SV000 l,
+freedict
+
+
+[ifndef $C_rsPtr
+    hCA wconstant $C_rsPtr
+]
+\
+\ These constants will be sent by muxserial
+[ifndef _MX_BSHIFT
+d_4	wconstant _MX_BSHIFT
+d_16	wconstant _MX_BSIZE
+d_15	wconstant _MX_BMASK
+d_32	wconstant _MX_NUM_CHAN
+d_128	wconstant _MX_BUF_OFFSET
+]
+\
+\
+\
+0 wconstant _slicearray
+: slice
+	dup
+	$C_rsPtr COG@ 1+ COG@
+	over 2* _slicearray + W!
+	1+ h3 and 2* _slicearray + W@
+	$C_rsPtr COG@ 1+ COG!
+\
+	$C_stTop $C_stPtr COG@ - 3 -
+	dup 1 <>
+	if
+		." ERROR " . ." items on stack -- task " . cr cr cr
+		100 delms
+		reset
+	else
+		2drop
+	then
+;
+\
+\ 0			- _MX_NUM_CHAN * head tail
+\ _MX_BUF_OFFSET	- _MX_NUM_CHAN*2 * 16 byte buffer
+\ _MX_BUF_OFFSET+d_1024	- end
+\
+\
+0 wconstant _iobuf
+0 variable _stateflags
+\
+\
+\ _serchan ( -- addr)
+: _serchan
+	hD8 _p+
+;
+\
+\ _emit? ( ioaddr -- t/f )
+: _emit?
+	2+ W@ dup
+	if
+		W@ h100 and 
+	else
+		drop -1
+	then
+;
+\
+\ _iochan ( chan -- addr)
+: _iochan
+	4* io +
+;
+\ _iofkey? ( chan -- char t/f) get a char from the io channel chan
+: _iofkey?
+	_iochan _fkey?
+;
+\ _iofemit? ( char chan -- t/f) emit a char to the io channel chan
+: _iofemit?
+	_iochan _femit?
+;
+\ _ioemit? ( chan -- t/f) is the channel ready for a characteremit a char to the io channel chan
+: _ioemit?
+	_iochan _emit?
+;
+\
+\ _iobufcount? ( buf# -- count) true if buffer is empty
+: _iobufcount?
+	2* _iobuf +
+\ ( htptr -- )
+	dup C@ swap 1+ C@
+\ ( head tail -- )
+	- _MX_BMASK and
+;
+
+
+\ _iobufempty? ( buf# -- t/f) true if buffer is empty
+: _iobufempty?
+	_iobufcount? 0=
+;
+
+\ _iobuffull? ( buf# -- t/f) true if buffer is full
+: _iobuffull?
+	_iobufcount? _MX_BMASK =
+;
+
+\ _iobufkey? ( buf# -- char t/f) get a char from the buffer
+: _iobufkey?
+	dup 2* _iobuf +
+
+\ ( buf# htptr -- )
+	dup C@ over 1+ C@
+
+\ ( buf# htptr head tail -- )
+	2dup =
+	if
+		3drop 0
+	else
+		nip
+\ ( buf# htptr tail -- )
+		rot _MX_BSHIFT lshift _MX_BUF_OFFSET + + _iobuf +
+		C@
+\
+\ ( htptr char -- )
+		swap 1+ dup C@ 1+ _MX_BMASK and swap C!
+		-1
+	then
+;
+
+\ _iobufemit? ( char buf# -- t/f ) store a char in the buffer
+: _iobufemit?
+	dup 2* _iobuf +
+
+\ ( char buf# htptr -- )
+	dup C@ over 1+ C@
+
+\ ( char buf# htptr head tail -- )
+	over 1+ _MX_BMASK and =
+	if
+
+\ ( char buf# htptr head -- )
+		2drop 2drop 0
+
+	else
+		rot _MX_BSHIFT lshift _MX_BUF_OFFSET + + _iobuf +
+
+\ ( char htptr ptr -- )
+		rot swap C!
+		dup C@ 1+ _MX_BMASK and swap C!
+		-1
+	then
+;
+\ _serfemit?( char -- t/f)
+: _serfemit?
+	_serchan _femit?
+;
+\
+\ _seremit ( char -- )
+: _seremit
+	begin
+		dup _serfemit?
+		if
+			drop -1
+		else
+			0
+		then
+	until
+;
+	
+\ _c2c_ioin ( -- ) if the stateflag bit is 1, are characters in the buffer
+\		send them, and set the stateflag bit to 0 indicating we are waiting for an acknowledgement
+: _c2c_ioin
+	begin
+		0 slice
+		_MX_NUM_CHAN 0
+		do
+			_stateflags L@ i >m and
+			if
+				i _MX_NUM_CHAN + _iobufcount? dup
+				if
+					dup
+					i h60 + _seremit h20 + _seremit
+\ grab up to _MX_BMASK characters
+					0
+					do
+						j _MX_NUM_CHAN + _iobufkey?
+						if
+							_seremit
+						else
+							h33 ERR
+						then
+					loop
+					_stateflags L@ i >m andn _stateflags L!
+				else
+					drop
+				then
+			then
+  		loop
+	0 until
+;
+\ _c2c_serin ( -- ) process input chars from the serial channel
+\ 	     if it is an ack, set the stateflag bit back to 1
+\	     if it is a data byte, buffer it 
+: _c2c_serin
+	begin
+		1 slice
+		begin
+			a_serfkey?
+			if
+				dup hE0 and h40 =
+				if
+					h1F and >m _stateflags L@ or _stateflags L!
+				else
+					dup hE0 and h60 =
+					if
+						h1F and
+						a_serkey h20 - 0
+						do
+							a_serkey over
+							_iobufemit? 0=
+							if
+								h9A ERR
+							then
+						loop
+						drop
+					else
+					        h99 ERR
+					then
+				then
+				0
+			else
+				drop
+				-1
+			then
+		until
+	0 until
+;
+
+\ _c2c_ioout ( -- ) process the buffered chars and send an ack 
+: _c2c_ioout
+	begin
+		2 slice
+
+		_MX_NUM_CHAN 0
+		do
+			_MX_BMASK 0
+			do
+				j _iochan _emit?
+				if
+					j _iobufkey?
+					if
+						j _iofemit?
+						if
+							j _iobufempty?
+							if
+								j h40 + _seremit
+							then
+						else
+							h9B ERR
+						then
+					else
+						drop leave
+					then
+				else
+					leave
+				then
+			loop
+		loop
+	0 until
+;
+
+\ _c2c_ioinbuf ( -- )  see if there is a byte to accept from the channel in, if there is space, buffer it
+: _c2c_ioinbuf
+	begin
+		3 slice
+		_MX_NUM_CHAN 0
+		do
+			_MX_BMASK 0
+			do
+				j _MX_NUM_CHAN + _iobuffull?
+				if
+					leave
+				else
+					j _iofkey?
+					if
+						j _MX_NUM_CHAN + _iobufemit? 0=
+						if
+							h44 ERR
+						then
+					else
+						drop leave
+					then
+				then
+			loop
+  		loop
+
+
+	0 until
+;
+
+: gos
+	lockdict here W@ _MX_BUF_OFFSET d_1024 + allot freedict c" _iobuf" find
+	if
+		2+ W!
+	else
+		hFC ERR
+	then
+	_iobuf _MX_BUF_OFFSET 0 fill
+\
+	lockdict here W@ 8 allot freedict c" _slicearray" find
+	if
+		2+ W!
+	else
+		hFC ERR
+	then
+\
+	c" _c2c_ioin" find drop 0 2* _slicearray + W!
+	c" _c2c_serin" find drop 1 2* _slicearray + W!
+	c" _c2c_ioout" find drop 2 2* _slicearray + W!
+	c" _c2c_ioinbuf" find drop 3 2* _slicearray +  W!
+\	
+	1 7 sersetflags
+	cogid iodis
+\
+\ set the cog to busy
+	c" MX_SERIAL" cds W!
+	4 state andnC!
+	hE0 state orC!
+\
+\ set up channels as input to this cog
+	_MX_NUM_CHAN 0
+	do
+		h100 i _iochan L!
+	loop
+
+	_MX_NUM_CHAN 6 min 0
+	do
+		cogid i i 0 (ioconn)
+	loop
+	_MX_NUM_CHAN 6 >
+	if
+		_MX_NUM_CHAN 4* io + d_6 4* io +
+		do
+			i dup 2+ W!
+		4 +loop
+	then
+\
+\ set up the serial io channel and connect it
+	7 cogio h100 _serchan L!
+	_serchan 2dup 2+ W! swap 2+ W!
+\
+\ flags for each channel, 0 indicates we have sent a byte and are waiting for an ack
+	-1 _stateflags L!
+\
+\ send a ! then wait for a !
+	h21 _seremit
+	begin
+		a_serkey
+		h21 =
+	until
+	_c2c_ioin
+;
+
+
+
+`

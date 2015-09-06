@@ -1,0 +1,70 @@
+\ Load BootOptimize Kernel
+	cps 1000
+						r	MAKE/scripts/InitSnetFsrd.txt
+
+						X	here W@ . cr
+						X	snet
+						X	here W@ . cr
+
+\ Here
+						X	hA state orC! c" hA state orC!" 5 cogx here W@ . cr
+\ Load sdcommon.f
+		 				scr fl
+						S	MAKE/results/outputFiles/sdcommon.f
+\ Loads sdinit.f
+						scr fl
+						S	MAKE/src/optimize/fs/sd/sdinit.f
+\ Loads sdrun.f
+						scr fl
+						S	MAKE/src/optimize/fs/sd/sdrun.f
+\ Loads sdfs.f
+						scr fl
+						S	MAKE/src/optimize/fs/sd/sdfs.f
+\ Loads sdfsInitScript.f
+	t 10000					S	MAKE/src/optimize/fs/sd/sdfsInitScript.f
+	t 1000					X	ls
+
+
+
+	t 3000					X	reboot
+	t 1000					X	here W@ . cr
+						X	fsls
+						X	fsload fswr.f
+						X	fsdrop fsls
+\ Load sdcommon.f
+						scr fl
+						scr fswrite sdcommon.f
+						scr	state C@ hA state orC!
+						S	MAKE/results/outputFiles/sdcommon.f
+						X	c" state C!~h0D..." 5 cogx
+\ Load sdinit.f
+						scr fl
+						scr fswrite sdinit.f
+						scr	state C@ hA state orC!
+						S	MAKE/src/optimize/fs/sd/sdinit.f
+						X	c" state C!~h0D..." 5 cogx
+\ Load sdrun.f + sdfs.f
+						scr fl
+						scr fswrite sdrun.f
+						scr	state C@ hA state orC!
+						S	MAKE/src/optimize/fs/sd/sdrun.f
+						X	c" state C!~h0D..." 5 cogx
+\ Load sdfs.f
+						scr fl
+						scr fswrite sdfs.f
+						scr	state C@ hA state orC!
+						S	MAKE/src/optimize/fs/sd/sdfs.f
+						X	c" state C!~h0D..." 5 cogx
+\ boot.f
+						S	MAKE/src/optimize/fs/sd/boot.f
+						X	fsls
+\ Reboot
+	t 3000					X	reboot
+	t 1000					X	here W@ . cr
+						x 10
+						X	here W@ . cr
+
+
+				
+
+

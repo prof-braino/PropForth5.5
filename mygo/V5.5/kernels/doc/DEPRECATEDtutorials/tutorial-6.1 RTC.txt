@@ -1,0 +1,110 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Run tutorial-5.1 IP+Telnet.txt on a Spinneret board with an SD card, and an ethernet connection.
+
+2. Start teraterm.
+
++++
+Reboot1
+---
+reboot 
+###
+reboot
+
+
+
+
+
+
+
+
+
+
+                              PropForth v5.0 2011DEC27 21:00 0
+~~~
+
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\ip\rtc\rtc.f
+into teraterm
+
+Configure the tiezone parameter if necessary
+\ variable timezone -8 timezone L!	\ Vancouver timezone
+variable timezone -6 timezone L!	\ Chicago  timezone
+
+
++++
+Load_rtc.f
+===
+rtc.f
+###
+fl
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+1 wconstant build_rtc
+SNET11 Cog5 ok
+~~~
+
+
+
++++
+Run_setdatetime
+---
+11 6 6 1 1 1 1 setdatetime datetime
+###
+11 6 6 1 1 1 1 setdatetime datetime
+2011-JUN-06 MON 01:01:01
+SNET11 Cog6 ok
+%%%
+
+
++++
+Run_setdatetime_utc
+---
+11 6 6 1 1 1 1 setdatetime_utc datetime
+###
+11 6 6 1 1 1 1 setdatetime_utc datetime
+2011-JUN-05 SUN 17:01:01
+SNET11 Cog6 ok
+%%%
+
+
++++
+Run_rtccorrect?_1
+---
+rtccorrect? .
+###
+rtccorrect? .
+0 SNET11 Cog6 ok
+%%%
+
++++
+Run_rtccorrect
+###
+-1600 rtccorrect
+###
+-1600 rtccorrect
+SNET11 Cog6 ok
+%%%
+
++++
+Run_rtccorrect?_1
+---
+rtccorrect? .
+###
+rtccorrect? .
+-1608 SNET11 Cog6 ok
+%%%
+

@@ -1,0 +1,12 @@
+L TEST/results/runLogs/SnetIPTelnet2RunLog.txt
+R TEST/results/resultFiles/SnetIPTelnet2Result.txt
+
+			ipc	${PROPTELNET2}
+			r 	TEST/scripts/BasicFunctionality.txt
+			dis
+
+			ipc	${PROPTELNET2}
+			r 	TEST/scripts/BasicFunctionality.txt
+			dis
+
+			CR CL

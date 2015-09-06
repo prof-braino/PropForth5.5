@@ -1,0 +1,20 @@
+	t 1000
+
+\ Load term.f and norom.f
+		S MAKE/src/optimize/dev/term.f
+		scr fl
+		S MAKE/src/optimize/dev/norom.f
+
+		X 0 pinhi 1 pinhi 0 pinout 1 pinout
+	t 4000	X 8 9 10 11 rambootnx
+	t 1000	X c" 1 0 57600 serial" 4 cogx 100 delms 1 4 sersetflags
+		X 0 pinin 1 pinin 
+		X cog?
+		X 4 0 term
+		X 1 7 sersetflags
+		X cog?
+		x 10
+		X cog?
+
+
+

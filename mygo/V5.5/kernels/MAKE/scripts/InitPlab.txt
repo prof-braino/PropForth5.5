@@ -1,0 +1,63 @@
+R tmp/plabr.txt
+L tmp/plabl.txt
+
+e 1						r	MAKE/scripts/InitFsrdSD.txt
+						X	reboot
+\ Here
+						X	here W@ . cr
+						X	mountsys
+\ Load ipconfig.f
+	cps 500	 				scr 100 fwrite ipconfig.f
+						S	MAKE/results/outputFiles/ipconfig.f
+						X	d_2020 ' $S_ip_telnetport  2+ W!
+						X	h_0008 ' $S_ip_machi  2+ W!
+						X	h_DC16 ' $S_ip_macmid 2+ W!
+						X	h_EF2D ' $S_ip_maclo  2+ W!
+						X	h_0090 ' $S_ip_addrlo 2+ W!
+						X	...
+\ Load norom.f
+		 				scr 100 fwrite norom.f
+						S	MAKE/src/optimize/dev/norom.f
+						X	...
+
+\ Load mcs.f
+		 				scr 100 fwrite mcs.f
+						S	MAKE/src/optimize/dev/mcs.f
+						X	...
+
+\ Load DevKernel.f
+		 				scr 100 fwrite DevKernel.f
+						S	MAKE/src/optimize/dev/DevKernel.f
+						X	...
+
+\ Load term.f
+		 				scr 100 fwrite term.f
+						S	MAKE/src/optimize/dev/term.f
+						X	...
+
+\ Load serial.f
+		 				scr 100 fwrite serial.f
+						S	MAKE/src/optimize/fs/serial.f
+						X	...
+
+\ Load PLAB23_boot.f
+		 				scr 100 fwrite PLAB23_boot.f
+						S	MAKE/src/optimize/ip/PLAB23_boot.f
+						X	...
+
+\ Load PLABmap.f
+		 				scr 100 fwrite PLABmap.f
+						S	MAKE/src/optimize/ip/PLABmap.f
+						X	...
+
+\ Load ip.f
+		 				scr 100 fwrite ip.f
+						S	MAKE/results/outputFiles/ip.f
+						X	...
+
+						X	fsload fswr.f
+						X	fsdrop
+\ Load boot.f
+						S	MAKE/src/optimize/ip/PLAB_boot.f
+
+

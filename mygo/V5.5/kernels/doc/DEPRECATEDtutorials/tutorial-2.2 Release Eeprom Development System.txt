@@ -1,0 +1,138 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Connect Propclip to any Prop Board with eeprom of 64k bytes or greater and load 
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\PropForthEEpromKernel.spin
+into eeprom.
+
+2. Start teraterm.
+
+
+IMPORTANT: if at any time you wish to boot the propeller without running boot.f,
+           hold down the ESC key while rebooting.
+           Type in:
+                       reboot
+              hit enter
+              hold down the ESC key until PropForth reboots
+
+
+            or
+              hold down the ESC key, and power cycle the board or hit reset
+
+            When the cursor starts moving horizontally across the screen, the reboot is
+            complete. This usually takes 3 - 4 seconds.
+
+            You should see something like this:
+
+Prop0 Cog6 ok
+                               <<CURSOR>>
+
+            If you do not hold escape key, or start holding it down too late after the reboot,
+            and you have a boot.f file in your eeprom, it will load, and you may not see the
+            above results.
+
+            This is necessary if you have previously installed files in the eeprom
+            file system.
+
+            For this process, boot while holding down the ESC key.
+
+
+
++++
+RebootESC
+---
+reboot
+((ESC))((ESC))((ESC))((ESC))
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+                   
+%%%
+
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\EEprom_boot.f
+into teraterm
+
++++
+Load_EEprom_boot.f
+===
+EEprom_boot.f
+###
+fl
+Prop0 Cog5 ok
+fsclear
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+fswrite boot.f
+~~~
+
++++
+Reboot1
+---
+reboot
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+Prop0 Cog5 RESET - last status: 0 ok
+Prop0 Cog5 ok
+
+
+boot.f - Finding top of eeprom, Top of eeprom at: 65536
+
+boot.f - DONE PropForth Loaded
+
+Prop0 Cog5 ok
+
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+%%%
+
+
++++
+Free
+---
+free
+###
+free
+13904 bytes free - 176 cog longs free
+Prop0 Cog6 ok
+%%%

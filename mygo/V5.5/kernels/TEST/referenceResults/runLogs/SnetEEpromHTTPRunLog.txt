@@ -1,0 +1,198 @@
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:34.8942982 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromHTTP.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPRunLog.txt
+resultFileName: 
+outputFileName: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:34.9463012 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromHTTP.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromHTTPResult.txt
+outputFileName: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:34.9563017 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:34.9563017 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:34.9563017 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:35.0713083 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:35.0713083 -0800 PST ECHOING: index.htm 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:35.0713083 -0800 PST DONE ECHOING: index.htm
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:35.1893151 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:35.1903151 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:35.2203168 -0800 PST SEND: [GET /index.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:35.4713312 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:38.4675026 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:38.4735029 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:38.4735029 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.4786748 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.4846751 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.4846751 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.4846751 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.6056821 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.6056821 -0800 PST ECHOING: testinvalid.htm 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.6056821 -0800 PST DONE ECHOING: testinvalid.htm
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.7236888 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.7456901 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:41.7816921 -0800 PST SEND: [GET /testinvalid.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:42.0487074 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:45.0428787 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:45.048879 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:45.048879 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.0540509 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.0600512 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.0600512 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.0600512 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.1810581 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.1810581 -0800 PST ECHOING: testgraphic.htm 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.1810581 -0800 PST DONE ECHOING: testgraphic.htm
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.2990649 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.300065 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.336067 -0800 PST SEND: [GET /testgraphic.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:48.5740806 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:51.5692519 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:51.5752523 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:51.5752523 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.5804242 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.5864245 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.5864245 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.5864245 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.7034312 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.7034312 -0800 PST ECHOING: invalid.htm 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.7034312 -0800 PST DONE ECHOING: invalid.htm
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.821438 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.822438 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:54.8544398 -0800 PST SEND: [GET /invalid.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:55.1574572 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:58.1516284 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:58.1576288 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:44:58.1576288 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.1628007 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.168801 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.168801 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.168801 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.2818075 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.2818075 -0800 PST ECHOING: invalid 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.2818075 -0800 PST DONE ECHOING: invalid
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.3998142 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.4008143 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.4288159 -0800 PST SEND: [GET /invalid HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:01.7238327 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:04.7200041 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:04.7260045 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:04.7260045 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.7311763 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.7371767 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.7371767 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.7371767 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.8541834 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.8541834 -0800 PST ECHOING: testfsp.htm 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.8541834 -0800 PST DONE ECHOING: testfsp.htm
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.9721901 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:07.9731902 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:08.005192 -0800 PST SEND: [GET /testfsp.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:08.267207 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:11.2633784 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:11.2693787 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:11.2693787 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.2745506 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.280551 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.280551 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.280551 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.3955575 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.3955575 -0800 PST ECHOING: test1.fsp 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.3955575 -0800 PST DONE ECHOING: test1.fsp
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.5135643 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.5145643 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.5445661 -0800 PST SEND: [GET /test1.fsp HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:14.9765908 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:17.9717621 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:17.9777624 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:17.9777624 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:20.9829343 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:20.9889346 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:20.9889346 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:20.9889346 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:21.1039412 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:21.1039412 -0800 PST ECHOING: test1.fsp 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:21.1039412 -0800 PST DONE ECHOING: test1.fsp
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:21.221948 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:21.222948 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:21.2529498 -0800 PST SEND: [GET /test1.fsp HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:21.6839744 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:24.6791457 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:24.6851461 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:24.6851461 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.6903179 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.6953182 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.6953182 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.6953182 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.8103248 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.8103248 -0800 PST ECHOING: test1.fsp 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.8103248 -0800 PST DONE ECHOING: test1.fsp
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.9283316 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.9293316 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:27.9593333 -0800 PST SEND: [GET /test1.fsp HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:28.4063589 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:31.4025303 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:31.4085306 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:31.4085306 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.4137025 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.4187028 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.4187028 -0800 PST ECHOING: 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.4187028 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.5337094 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.5337094 -0800 PST ECHOING: test1.fsp 
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.5337094 -0800 PST DONE ECHOING: test1.fsp
+
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.6517161 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.7107195 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:34.7407212 -0800 PST SEND: [GET /test1.fsp HTTP/1.1 ]+cr
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:35.1857467 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:38.1799179 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:38.1859183 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:38.1859183 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:41.1910901 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTP.txt::2013-02-21 15:45:41.2020908 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromHTTP.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPRunLog.txt
+resultFileName: 
+outputFileName: 
+

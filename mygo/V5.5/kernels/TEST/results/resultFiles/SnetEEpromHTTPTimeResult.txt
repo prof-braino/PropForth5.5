@@ -1,0 +1,388 @@
+
+ scriptFileName: TEST/scripts/SnetEEpromHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromHTTPTimeResult.txt
+outputFileName: 
+[ifndef rcogx
+Prop0 Cog6 ok
+\ rcogx ( cstr cog channel -- ) send cstr to the cog/channel
+Prop0 Cog6 ok
+: rcogx
+ io 2+ W@
+\ ( cstr cog channel oldio+2 -- )
+ rot cogio
+\ ( cstr channel oldio+2 cogio -- )
+ rot 4* +
+\ ( cstr oldio+2 chaddr -- )
+ io 2+ W!
+\ ( cstr oldio+2 -- )
+ swap .cstr cr
+ io 2+ W!
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_sdfs
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rfsend
+Prop0 Cog6 ok
+\ rfsend filename ( cog channel -- )
+Prop0 Cog6 ok
+: rfsend
+ 4* swap cogio +
+ _sd_fsp dup
+ if
+\ ( chaddr fname -- )
+  io 2+ W@
+\ ( chaddr fname oldio+2 -- )
+  rot io 2+ W!
+\ ( fname oldio+2 -- )
+  swap
+  sd_read
+  io 2+ W!
+ else
+  2drop _fnf
+ then
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef term
+Prop0 Cog6 ok
+: term
+ over cognchan min ." Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9~h0D~h0A"
+ >r >r cogid 0 r> r> (iolink)
+ begin
+  key dup h10 =
+  if
+   drop -1
+  else
+   dup h11 h19 between
+   if
+    1-
+   then
+   emit 0
+  then
+ until
+ cogid iounlink
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+\ sersetflags ( n2 n1 -- O ) for the serial driver running on cog n1, set the flags to n2
+Prop0 Cog6 ok
+[ifndef sersetflags
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ invert ( n1 -- n2 ) bitwise invert n1
+Prop0 Cog6 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinin ( n1 -- ) set pin # n1 to an input
+Prop0 Cog6 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinout ( n1 -- ) set pin # n1 to an output
+Prop0 Cog6 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinlo ( n1 -- ) set pin # n1 to lo
+Prop0 Cog6 ok
+[ifndef pinlo
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinhi ( n1 -- ) set pin # n1 to hi
+Prop0 Cog6 ok
+[ifndef pinhi
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ _snet ( -- ) load the serial driver, and start it on cog 4
+Prop0 Cog6 ok
+[ifndef _snet
+Prop0 Cog6 ok
+: _snet
+ 4 cogreset
+ h10 delms
+ c" hD hC hE100 serial" 4 cogx
+ h100 delms
+ 1 4 sersetflags 
+ 1 7 sersetflags 
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ snet ( -- ) reset the spinnret board, start a serial driver, and connect a terminal
+Prop0 Cog6 ok
+[ifndef snet
+Prop0 Cog6 ok
+: snet
+ _snet hE dup pinlo dup pinout 1 delms dup pinhi pinin
+ h10 delms h4 0 term 0 7 sersetflags
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ resnet ( -- ) start a serial driver and connect a terminal to the spinneret board
+Prop0 Cog6 ok
+[ifndef resnet
+Prop0 Cog6 ok
+: resnet
+ _snet h10 delms h4 0 term 0 7 sersetflags
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ nsnet ( n1 -- ) start a serial driver, send n1 characters
+Prop0 Cog6 ok
+[ifndef nsnet
+Prop0 Cog6 ok
+: nsnet
+ h10 delms
+ cogid 0 4 0 (iolink)
+ 0
+ do
+  key emit
+ loop
+ cogid iounlink
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+snet
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+CON:SNET0 Cog1 RESET - last status: 0 ok
+
+CON:SNET0 Cog2 RESET - last status: 0 ok
+
+CON:SNET0 Cog3 RESET - last status: 0 ok
+
+CON:SNET0 Cog4 RESET - last status: 0 ok
+
+CON:SNET0 Cog5 RESET - last status: 0 ok
+PropForth v5.5 2013Feb20 11:30 1
+
+
+boot.f - Finding top of eeprom, Top of eeprom at: 65536 
+boot.f - DONE PropForth Loaded
+
+SNET0 Cog5 ok
+
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+CON:SNET0 Cog1 RESET - last status: 0 ok
+
+CON:SNET0 Cog6 RESET - last status: 0 ok
+
+SNET0 Cog6 RESET - last status: 0 ok
+SNET0 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 1  0(0)->5(0)
+Cog:1  #io chan:1                      HTTP SERVER  1(0)->5(1)
+Cog:2  #io chan:1                     HTTP CHUNKER
+Cog:3  #io chan:1                         HTTP FSP
+Cog:4  #io chan:1                  HTTP FSP SERVER
+Cog:5  #io chan:4                        IP SERVER  5(0)->0(0)  5(1)->1(0)
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+SNET0 Cog6 ok
+6 iodis
+
+time.fsp
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html><head><title>time.fsp</title></head><body><h1>time.fsp</h1><p><a href="/index.htm">index.htm - the root page</a></p>
+80
+<pre>Running on: 0 SNET COG: 3 <br>REQDATA: length: 0  data: <br></pre><h4>cnt COG@ dup .</h4><pre>1436292616 </pre>
+80
+<h4>hA nfcog cogstate orC! fsload rtc.f fsload daytime.f hA nfcog cogstate andnC!</h4><pre></pre><pre></pre><p><form 
+80
+name="timeform1" action="/time.fsp" method="get" >TimeZone: <input type="text" name="timezone" value="-8 " />RTC Correction (1
+80
+00th of a second): <input type="text" name="rtccorrect" value="-1608 " /><input type="submit" value="Submit" /></form></p>
+80
+<h4> datetime rtccorrect? 0 ip_SOCKdaytime rtccorrect rtccorrect? 0 ip_SOCKtelnet </h4><pre>2013-FEB-21 THU 19:49:45-1608 FAI
+80
+LURE-1608 </pre><h4> cnt COG@ dup . swap - dup . </42><pre>2027063224 590770608 </pre><h4> d1_000_000 um* clkfreq um/mod
+40
+ nip . </h4><pre>7384632  microseconds</pre></body></html>
+0
+
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+time.fsp?timezone=11&rtccorrect=300
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html><head><title>time.fsp</title></head><body><h1>time.fsp</h1><p><a href="/index.htm">index.htm - the root page</a></p>
+80
+<pre>Running on: 0 SNET COG: 3 <br>REQDATA: length: 26  data: timezone=11&rtccorrect=300<br></pre><h4>cnt COG@ dup .</h
+80
+4><pre>-1244531336 </pre><h4>hA nfcog cogstate orC! fsload rtc.f fsload daytime.f hA nfcog cogstate andnC!</h4><pre></pre
+80
+><pre></pre><p><form name="timeform1" action="/time.fsp" method="get" >TimeZone: <input type="text" name="timezone" valu
+80
+e="11 " />RTC Correction (100th of a second): <input type="text" name="rtccorrect" value="290 " /><input type="submit" value="
+80
+Submit" /></form></p><h4> datetime rtccorrect? 0 ip_SOCKdaytime rtccorrect rtccorrect? 0 ip_SOCKtelnet </h4><pre>2013-FEB
+80
+-22 FRI 14:50:05290 FAILURE290 </pre><h4> cnt COG@ dup . swap - dup . </42><pre>-654383208 590148128 </pre><h4> d1_000_
+56
+000 um* clkfreq um/mod nip . </h4><pre>7376851  microseconds</pre></body></html>
+0
+
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+time.fsp?timezone=-7&rtccorrect=-1600
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html><head><title>time.fsp</title></head><body><h1>time.fsp</h1><p><a href="/index.htm">index.htm - the root page</a></p>
+80
+<pre>Running on: 0 SNET COG: 3 <br>REQDATA: length: 28  data: timezone=-7&rtccorrect=-1600<br></pre><h4>cnt COG@ dup .<
+80
+/h4><pre>369368792 </pre><h4>hA nfcog cogstate orC! fsload rtc.f fsload daytime.f hA nfcog cogstate andnC!</h4><pre></pre
+80
+><pre></pre><p><form name="timeform1" action="/time.fsp" method="get" >TimeZone: <input type="text" name="timezone" valu
+80
+e="-7 " />RTC Correction (100th of a second): <input type="text" name="rtccorrect" value="-1608 " /><input type="submit" value
+80
+="Submit" /></form></p><h4> datetime rtccorrect? 0 ip_SOCKdaytime rtccorrect rtccorrect? 0 ip_SOCKtelnet </h4><pre>2013-F
+80
+EB-21 THU 20:50:25-1608 FAILURE-1608 </pre><h4> cnt COG@ dup . swap - dup . </42><pre>959528680 590159888 </pre><h4> d1
+5B
+_000_000 um* clkfreq um/mod nip . </h4><pre>7376998  microseconds</pre></body></html>
+0
+
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+CON:SNET0 Cog0 RESET - last status: 0 ok
+
+ scriptFileName: TEST/scripts/SnetEEpromHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromHTTPTimeResult.txt
+outputFileName: 
+Prop0 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1                           SERIAL
+Cog:5  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/SnetEEpromHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromHTTPTimeResult.txt
+outputFileName: 

@@ -1,0 +1,12 @@
+L TEST/results/runLogs/SnetIPTelnet3RunLog.txt
+R TEST/results/resultFiles/SnetIPTelnet3Result.txt
+
+			ipc	${PROPTELNET3}
+			r 	TEST/scripts/BasicFunctionality.txt
+			dis
+
+			ipc	${PROPTELNET3}
+			r 	TEST/scripts/BasicFunctionality.txt
+			dis
+
+			CR CL

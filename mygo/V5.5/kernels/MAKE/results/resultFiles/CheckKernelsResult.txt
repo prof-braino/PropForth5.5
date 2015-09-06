@@ -1,0 +1,2868 @@
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DLoadInitialStartKernel~h0D" .cstr
+
+
+LoadInitialStartKernel
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 17596 
+
+NFA (Forth/Asm Immediate eXecute) Name
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadInitialStartKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: 416447296 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 13636 
+
+NFA (Forth/Asm Immediate eXecute) Name
+03_656 F   build_BootKernel     
+
+PropForth v5.3 2012JUN10 11:00 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DLoadStartKernel~h0D" .cstr
+
+
+LoadStartKernel
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 14220 
+
+NFA (Forth/Asm Immediate eXecute) Name
+03_656 F   build_BootKernel     
+
+PropForth v5.3 2012JUN10 11:00 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadStartKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: 736243306 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 13636 
+
+NFA (Forth/Asm Immediate eXecute) Name
+03_656 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DLoadBootKernel~h0D" .cstr
+
+
+LoadBootKernel
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 14220 
+
+NFA (Forth/Asm Immediate eXecute) Name
+03_656 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -1344342145 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 12668 
+
+NFA (Forth/Asm Immediate eXecute) Name
+02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DLoadBootOptimizeKernel~h0D" .cstr
+
+
+LoadBootOptimizeKernel
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 13252 
+
+NFA (Forth/Asm Immediate eXecute) Name
+02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -395973378 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 13238 
+
+NFA (Forth/Asm Immediate eXecute) Name
+10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DLoadDevKernel~h0D" .cstr
+
+
+LoadDevKernel
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 13822 
+
+NFA (Forth/Asm Immediate eXecute) Name
+10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadDevKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: 977719070 
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 17596 
+
+NFA (Forth/Asm Immediate eXecute) Name
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DInitSdfs~h0D" .cstr
+
+
+InitSdfs
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 17596 
+
+NFA (Forth/Asm Immediate eXecute) Name
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -395973378 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitSdfs.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx here W@ . cr
+13238 
+Loading sdcommon.f ...Loaded sdcommon.f
+Loading sdinit.f ...Loaded sdinit.f
+Loading sdrun.f ...Loaded sdrun.f
+Loading sdfs.f ...1 2 3 4 5 6 7 8 Loaded sdfs.f
+
+SDCard size:
+hA state orC! cr
+
+c" sdboot.f  -  initializing~h0D~h0D" .cstr
+1 sd_mount
+
+[ifndef mountsys
+: mountsys sd_init version W@  .cstr cr
+
+c" usrboot.f  -  initializing~h0D~h0D" .cstr
+
+1 sd_mount
+
+fread .sdcardinfo
+
+c" usrboot.f  -  DONE~h0D~h0D" .cstr
+
+here: 19448 
+
+NFA (Forth/Asm Immediate eXecute) Name
+16_458 F   build_sdfs           15_708 F   build_sdrun          14_162 F   build_sdinit         13_240 F   build_sdcommon       
+10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadSDKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -1438165473 
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+Prop0 Cog5 ok
+hA state orC! cr
+
+sdboot.f  -  initializing
+
+sdboot.f  -  Loading usrboot.f
+
+PropForth v5.5 2013Feb20 11:30 0
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+c" usrboot.f  -  initializing~h0D~h0D" .cstr
+usrboot.f  -  initializing
+
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+1 sd_mount
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+fread .sdcardinfo
+
+SDCard size:      1,964,032  Kbytes
+
+File System: sys
+                      Start Block:              1 
+                        End Block:         65,538 
+        File System Size (blocks):         65,537 
+        File System Size  (bytes):         32,768  Kbytes
+
+File System: usr
+                      Start Block:         65,538 
+                        End Block:      3,928,064 
+        File System Size (blocks):      3,862,526 
+        File System Size  (bytes):      1,931,263  Kbytes
+
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+c" usrboot.f  -  DONE~h0D~h0D" .cstr
+usrboot.f  -  DONE
+
+Prop0 Cog4 ok
+
+sdboot.f  -  DONE - PropForth Loaded 
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitSdfs.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+here W@ . cr
+23592 
+Prop0 Cog6 ok
+ls
+390 usrboot.f
+491 .partion-sys/
+130 .sdcardinfo
+133 sdboot.f
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 23592 
+
+NFA (Forth/Asm Immediate eXecute) Name
+20_566 F   build_sdfs           19_816 F   build_sdrun          18_366 F   build_sdinit         17_598 F   build_sdcommon       
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DInitFsrd~h0D" .cstr
+
+
+InitFsrd
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 23592 
+
+NFA (Forth/Asm Immediate eXecute) Name
+20_566 F   build_sdfs           19_816 F   build_sdrun          18_366 F   build_sdinit         17_598 F   build_sdcommon       
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -395973378 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitFsrd.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx here W@ . cr
+13238 
+
+
+
+
+1 wconstant build_fswr
+
+[ifndef eewritepage
+: eewritepage
+1lock
+1 max rot dup hFF and swap dup h8 rshift hFF and swap h10 rshift h7 and 1 lshift
+_eestart hA0 or _eewrite swap _eewrite or swap _eewrite or
+rot2 bounds
+do
+i C@ _eewrite or
+loop
+_eestop hA delms
+1unlock
+;
+]
+[ifndef EW@
+: EW@
+t0 h2 eereadpage
+if
+hB ERR
+then
+t0 W@
+; ]
+
+[ifndef EC@
+: EC@
+EW@ hFF and
+;
+]
+
+
+[ifndef EW!
+: EW!
+swap t0 W! t0 h2 eewritepage
+if
+hA ERR
+then
+;
+]
+: _fswr
+dup >r rot dup r> + fstop 1- >
+if
+hA ERR 
+then
+rot2 eewritepage
+if
+hA ERR
+then
+;
+: fsclear
+-1 fsbot EW!
+; 
+: fswrite
+_fsfree dup -1 <> parsenw dup rot and
+if
+0 pad W! dup C@ 2+ 1+ pad + swap pad 2+ ccopy
+0 swap key _fsk _fsk _fsk
+begin
+h2E2E2E0D over = if
+-1
+else
+tuck h18 rshift
+dup emit
+over C! 1+ tuck pad - fsps =
+if
+nip rot2 2dup + pad fsps _fswr fsps + rot pad swap
+then	
+_fsk 0
+then
+until
+drop pad - dup 0> if
+>r 2dup + pad r> dup >r _fswr r> +
+else 
+drop
+then
+2dup + hFFFF swap _fspa dup fstop 1- <
+if
+EW!
+else
+2drop
+then	
+over 2+ EC@ 2+ 1+ - swap EW!
+else
+2drop clearkeys 
+then
+padbl
+;
+
+: fsdrop
+_fslast dup -1 = 
+if
+drop
+else
+hFFFF swap EW!
+then
+;\
+\
+\ serial ( n1 n2 n3 -- ) 
+\ n1 - tx pin
+\ n2 - rx pin
+\ n3 - baud rate / 4 - the actual baud rate will be 4 * this number
+\
+\ _serial ( n1 n2 n3 -- )
+\ n1 - tx pin
+\ n2 - rx pin
+\ n3 - clocks/bit
+\
+\ h00 - h04 -- io channel
+\ h04 - h84 -- the receive buffer
+\ h84 - hC4 -- the transmit buffer
+\ hC4 - breaklength (long), if this long is not zero the driver will transmit a break breaklength cycles,
+\		the minmum length is 16 cycles, at 80 Mhz this is 200 nanoSeconds
+\ hC8 - flags (long)
+\	h_0000_0001 	- if this bit is 0, CR is transmitted as CR LF
+\			- if this bit is 1, CR is transmitted as CR
+\
+lockdict create _serial forthentry
+$C_a_lxasm w, h1B8  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z8Fryj l, z2WytCj l, z2WytLG l, z2WytTP l, z2Wyt\k l, z2Wyth6 l, z2Wytp] l, z1bixaB l,
+z1bixqB l, z1Sit7H l, z1YFsNl l, z1SL04S l, z2Wyub9 l, z2Wiuq8 l, z20iuqk l, z20iuq9 l,
+z1Sit7H l, z2WisiU l, z24isik l, z31Vsb0 l, z1SJ04Z l, z1XFsNl l, zjyuW1 l, z3[yufY l,
+z1SJ04S l, zbyuWN l, z1WyuZy l, z2WirqS l, z1SV04S l, z1SitFI l, z26Fw7e l, z1SQ04j l,
+z1bywY0 l, z1Gi]qf l, z2Wiuy5 l, z1Wiuyf l, zbiuyg l, z1SitFI l, z\yrb8 l, z38ywW0 l,
+z1WywXy l, z20ywb8 l, z20ywO1 l, z1WywVy l, z1SitFI l, z1byuv0 l, zfyur2 l, z1byur1 l,
+z2Wyv0B l, z1SitFI l, z2WivFk l, zcyur1 l, z1jixaB l, z20ivF9 l, z1SitFI l, z2WisiX l,
+z24isik l, z31Vsb0 l, z1SJ059 l, z3[yv56 l, z1SV04j l, z1SitNG l, z1SitNJ l, z1SitNG l,
+z1SitNK l, z1SitNG l, z1SitNL l, z1SitNG l, z1SitNM l, z1SV05G l, z1SitVI l, z1YVrn0 l,
+z1SL05P l, z2WityY l, z20ytr1 l, z1Wytyy l, z26Fty\ l, z1SQ05P l, z1SitVI l, z1Kig7Z l,
+z1KigFZ l, z2Wisi6 l, z2Wyrn0 l, zfisi[ l, z1Wisi2 l, z1[ivV2 l, z1bivVD l, z1SitVI l,
+z\yrG8 l, z38yvO0 l, z1WyvPy l, z20yvW8 l, z2WivNN l, z1SV05P l, z1SitaI l, z26FvN\ l,
+z1SQ05k l, z26VsW0 l, z4\syC l, z1YLsv0 l, z1SQ05k l, z1SitaI l, z1GiiV] l, z2Wisy3 l,
+z1Wisy] l, zbisya l, z4FsyC l, z1SitaI l, z\yrO8 l, z38yvj0 l, z1Wyvky l, z20yvr8 l,
+z20yvb1 l, z1Wyviy l, z1SV05k l, z1SitiI l, z4iuFj l, z1YVuC0 l, z1SL066 l, z1SitiI l,
+z2Wiu7b l, z20yu01 l, z1Wyu7y l, z26Fu7e l, z1SQ066 l, z1SitiI l, z1bywA0 l, z1Kilyc l,
+z1Kim7c l, z2WisiP l, zfisid l, z1Wisi4 l, z1[iwF4 l, z1biwFD l, z1SitiI l, z\yrW8 l,
+z38yw80 l, z1Wyw9y l, z20ywG8 l, z2Wiw7O l, z1SitiI l, z26Vu8D l, z1YQuO1 l, z45ryj l,
+z2WtsbA l, z4Asij l, z1SV066 l, z1SitqI l, z2WiuNj l, z20yuG2 l, z4isaQ l, z1SitqI l,
+z20yuJ2 l, zAisyQ l, z1SQ06n l, z8FwqQ l, z18ysrG l, z1[ixaB l, z20isyk l, z3rysr0 l,
+z1bixaB l, z1SitqI l, z20yuG4 l, z8iuVQ l, z1SV06] l,
+freedict
+\
+\
+: serial
+	4*
+	clkfreq swap u/ dup 2/ 2/
+\
+\ serial structure
+\
+\
+\ init 1st 4 members to hFF
+\
+	hFF h1C2 
+	2dup COG!
+	1+ 2dup COG!
+	1+ 2dup COG!
+	1+ tuck COG!
+\
+\ next 2 members to h100
+\
+	1+ h100 swap 2dup COG!
+	1+ tuck COG!
+\
+\ bittick/4, bitticks
+\
+	1+ tuck COG!
+	1+ tuck COG!
+\
+\ rxmask txmask
+\
+	1+ swap >m over COG!
+	1+ swap >m over COG!
+\ rest of structure to 0
+	1+ h1F0 swap
+	do
+		0 i COG!
+	loop
+\
+	c" SERIAL" numpad ccopy numpad cds W!
+	4 state andnC!
+	0 io hC4 + L!
+	0 io hC8 + L!
+	_serial
+;
+c" ..." 5 cogx
+fl
+
+fswrite boot.f
+hA state orC! version W@ .cstr cr cr cr
+\
+\
+\ (forget) ( cstr -- ) wind the dictionary back to the word which follows - caution
+[ifndef (forget)
+: (forget)
+	dup
+	if
+		find
+		if
+			pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+		else
+			_p?
+			if
+				.cstr h3F emit cr
+			then
+		then
+	else
+		drop
+	then
+;
+]
+\
+\
+\ forget ( -- ) wind the dictionary back to the word which follows - caution
+[ifndef forget
+: forget
+	parsenw (forget)
+;
+]
+\ findEETOP ( -- n1 ) the top of the eeprom + 1
+: findEETOP
+\
+\ search 32k block increments until we get a fail
+\
+	0
+	h100000 h8000
+	do
+		i t0 2 eereadpage
+		if
+			leave
+		else
+			i h7FFE + t0 3 eereadpage
+			if
+				leave
+			else
+				drop i h8000 +
+			then
+		then
+	h8000 +loop
+;
+c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! forget _serial c" Top of eeprom at: " .cstr fstop . cr
+c" boot.f - DONE PropForth Loaded~h0D~h0D" .cstr hA state andnC!
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 13238 
+
+NFA (Forth/Asm Immediate eXecute) Name
+10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadFsrdKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -849720220 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitFsrd.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+here W@ . cr
+15004 
+Prop0 Cog6 ok
+fsls
+
+0_000_032_768 01_105 fswr.f
+0_000_033_920 03_966 serial.f
+
+0_000_027_584 bytes free in EEPROM file system
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 15004 
+
+NFA (Forth/Asm Immediate eXecute) Name
+12_384 F   build_fsrd           10_330 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DInitEEprom~h0D" .cstr
+
+
+InitEEprom
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 15276 
+
+NFA (Forth/Asm Immediate eXecute) Name
+12_384 F   build_fsrd           10_330 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -395973378 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitEEprom.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx here W@ . cr
+13238 
+hA state orC! version W@ .cstr cr cr cr
+: findEETOP
+0
+h100000 h8000
+do
+i t0 2 eereadpage
+if
+leave
+else
+i h7FFE + t0 3 eereadpage
+if
+leave
+else
+drop i h8000 +
+then
+then
+h8000 +loop
+;
+c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! forget findEETOP c" Top of eeprom at: " .cstr fstop . cr
+c" boot.f - DONE PropForth Loaded~h0D~h0D" .cstr hA state andnC!
+
+here: 15576 
+
+NFA (Forth/Asm Immediate eXecute) Name
+15_006 F   build_fswr           13_240 F   build_fsrd           10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadEEpromKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: 1823732643 
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+Prop0 Cog5 RESET - last status: 0 ok
+Prop0 Cog5 ok
+hA state orC! version W@ .cstr cr cr cr
+PropForth v5.5 2013Feb20 11:30 0
+
+
+boot.f - Finding top of eeprom, Top of eeprom at: 196608 
+boot.f - DONE PropForth Loaded
+
+Prop0 Cog5 ok
+
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitEEprom.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+here W@ . cr
+18824 
+Prop0 Cog6 ok
+fsls
+
+0_000_032_768 00_378 boot.f
+
+0_000_163_392 bytes free in EEPROM file system
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 18824 
+
+NFA (Forth/Asm Immediate eXecute) Name
+18_446 F   build_fswr           17_598 F   build_fsrd           13_240 F   build_DevKernel      10_510 F   build_BootOpt        
+02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+c" ~h0D~h0DInitFsrdSD~h0D" .cstr
+
+
+InitFsrdSD
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 18824 
+
+NFA (Forth/Asm Immediate eXecute) Name
+18_446 F   build_fswr           17_598 F   build_fsrd           13_240 F   build_DevKernel      10_510 F   build_BootOpt        
+02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -395973378 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitSdfs.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx here W@ . cr
+13238 
+Loading sdcommon.f ...Loaded sdcommon.f
+Loading sdinit.f ...Loaded sdinit.f
+Loading sdrun.f ...Loaded sdrun.f
+Loading sdfs.f ...1 2 3 4 5 6 7 8 Loaded sdfs.f
+
+SDCard size:
+hA state orC! cr
+
+c" sdboot.f  -  initializing~h0D~h0D" .cstr
+1 sd_mount
+
+[ifndef mountsys
+: mountsys sd_init version W@  .cstr cr
+
+c" usrboot.f  -  initializing~h0D~h0D" .cstr
+
+1 sd_mount
+
+fread .sdcardinfo
+
+c" usrboot.f  -  DONE~h0D~h0D" .cstr
+
+here: 19448 
+
+NFA (Forth/Asm Immediate eXecute) Name
+16_458 F   build_sdfs           15_708 F   build_sdrun          14_162 F   build_sdinit         13_240 F   build_sdcommon       
+10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadSDKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -1438165473 
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+Prop0 Cog5 ok
+hA state orC! cr
+
+sdboot.f  -  initializing
+
+sdboot.f  -  Loading usrboot.f
+
+PropForth v5.5 2013Feb20 11:30 0
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+c" usrboot.f  -  initializing~h0D~h0D" .cstr
+usrboot.f  -  initializing
+
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+1 sd_mount
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+fread .sdcardinfo
+
+SDCard size:      1,964,032  Kbytes
+
+File System: sys
+                      Start Block:              1 
+                        End Block:         65,538 
+        File System Size (blocks):         65,537 
+        File System Size  (bytes):         32,768  Kbytes
+
+File System: usr
+                      Start Block:         65,538 
+                        End Block:      3,928,064 
+        File System Size (blocks):      3,862,526 
+        File System Size  (bytes):      1,931,263  Kbytes
+
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+c" usrboot.f  -  DONE~h0D~h0D" .cstr
+usrboot.f  -  DONE
+
+Prop0 Cog4 ok
+
+sdboot.f  -  DONE - PropForth Loaded 
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitSdfs.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+here W@ . cr
+23592 
+Prop0 Cog6 ok
+ls
+390 usrboot.f
+491 .partion-sys/
+130 .sdcardinfo
+133 sdboot.f
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitFsrdSD.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 23592 
+
+NFA (Forth/Asm Immediate eXecute) Name
+20_566 F   build_sdfs           19_816 F   build_sdrun          18_366 F   build_sdinit         17_598 F   build_sdcommon       
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -395973378 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitFsrd.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx here W@ . cr
+13238 
+
+
+
+
+1 wconstant build_fswr
+
+[ifndef eewritepage
+: eewritepage
+1lock
+1 max rot dup hFF and swap dup h8 rshift hFF and swap h10 rshift h7 and 1 lshift
+_eestart hA0 or _eewrite swap _eewrite or swap _eewrite or
+rot2 bounds
+do
+i C@ _eewrite or
+loop
+_eestop hA delms
+1unlock
+;
+]
+[ifndef EW@
+: EW@
+t0 h2 eereadpage
+if
+hB ERR
+then
+t0 W@
+; ]
+
+[ifndef EC@
+: EC@
+EW@ hFF and
+;
+]
+
+
+[ifndef EW!
+: EW!
+swap t0 W! t0 h2 eewritepage
+if
+hA ERR
+then
+;
+]
+: _fswr
+dup >r rot dup r> + fstop 1- >
+if
+hA ERR 
+then
+rot2 eewritepage
+if
+hA ERR
+then
+;
+: fsclear
+-1 fsbot EW!
+; 
+: fswrite
+_fsfree dup -1 <> parsenw dup rot and
+if
+0 pad W! dup C@ 2+ 1+ pad + swap pad 2+ ccopy
+0 swap key _fsk _fsk _fsk
+begin
+h2E2E2E0D over = if
+-1
+else
+tuck h18 rshift
+dup emit
+over C! 1+ tuck pad - fsps =
+if
+nip rot2 2dup + pad fsps _fswr fsps + rot pad swap
+then	
+_fsk 0
+then
+until
+drop pad - dup 0> if
+>r 2dup + pad r> dup >r _fswr r> +
+else 
+drop
+then
+2dup + hFFFF swap _fspa dup fstop 1- <
+if
+EW!
+else
+2drop
+then	
+over 2+ EC@ 2+ 1+ - swap EW!
+else
+2drop clearkeys 
+then
+padbl
+;
+
+: fsdrop
+_fslast dup -1 = 
+if
+drop
+else
+hFFFF swap EW!
+then
+;\
+\
+\ serial ( n1 n2 n3 -- ) 
+\ n1 - tx pin
+\ n2 - rx pin
+\ n3 - baud rate / 4 - the actual baud rate will be 4 * this number
+\
+\ _serial ( n1 n2 n3 -- )
+\ n1 - tx pin
+\ n2 - rx pin
+\ n3 - clocks/bit
+\
+\ h00 - h04 -- io channel
+\ h04 - h84 -- the receive buffer
+\ h84 - hC4 -- the transmit buffer
+\ hC4 - breaklength (long), if this long is not zero the driver will transmit a break breaklength cycles,
+\		the minmum length is 16 cycles, at 80 Mhz this is 200 nanoSeconds
+\ hC8 - flags (long)
+\	h_0000_0001 	- if this bit is 0, CR is transmitted as CR LF
+\			- if this bit is 1, CR is transmitted as CR
+\
+lockdict create _serial forthentry
+$C_a_lxasm w, h1B8  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z8Fryj l, z2WytCj l, z2WytLG l, z2WytTP l, z2Wyt\k l, z2Wyth6 l, z2Wytp] l, z1bixaB l,
+z1bixqB l, z1Sit7H l, z1YFsNl l, z1SL04S l, z2Wyub9 l, z2Wiuq8 l, z20iuqk l, z20iuq9 l,
+z1Sit7H l, z2WisiU l, z24isik l, z31Vsb0 l, z1SJ04Z l, z1XFsNl l, zjyuW1 l, z3[yufY l,
+z1SJ04S l, zbyuWN l, z1WyuZy l, z2WirqS l, z1SV04S l, z1SitFI l, z26Fw7e l, z1SQ04j l,
+z1bywY0 l, z1Gi]qf l, z2Wiuy5 l, z1Wiuyf l, zbiuyg l, z1SitFI l, z\yrb8 l, z38ywW0 l,
+z1WywXy l, z20ywb8 l, z20ywO1 l, z1WywVy l, z1SitFI l, z1byuv0 l, zfyur2 l, z1byur1 l,
+z2Wyv0B l, z1SitFI l, z2WivFk l, zcyur1 l, z1jixaB l, z20ivF9 l, z1SitFI l, z2WisiX l,
+z24isik l, z31Vsb0 l, z1SJ059 l, z3[yv56 l, z1SV04j l, z1SitNG l, z1SitNJ l, z1SitNG l,
+z1SitNK l, z1SitNG l, z1SitNL l, z1SitNG l, z1SitNM l, z1SV05G l, z1SitVI l, z1YVrn0 l,
+z1SL05P l, z2WityY l, z20ytr1 l, z1Wytyy l, z26Fty\ l, z1SQ05P l, z1SitVI l, z1Kig7Z l,
+z1KigFZ l, z2Wisi6 l, z2Wyrn0 l, zfisi[ l, z1Wisi2 l, z1[ivV2 l, z1bivVD l, z1SitVI l,
+z\yrG8 l, z38yvO0 l, z1WyvPy l, z20yvW8 l, z2WivNN l, z1SV05P l, z1SitaI l, z26FvN\ l,
+z1SQ05k l, z26VsW0 l, z4\syC l, z1YLsv0 l, z1SQ05k l, z1SitaI l, z1GiiV] l, z2Wisy3 l,
+z1Wisy] l, zbisya l, z4FsyC l, z1SitaI l, z\yrO8 l, z38yvj0 l, z1Wyvky l, z20yvr8 l,
+z20yvb1 l, z1Wyviy l, z1SV05k l, z1SitiI l, z4iuFj l, z1YVuC0 l, z1SL066 l, z1SitiI l,
+z2Wiu7b l, z20yu01 l, z1Wyu7y l, z26Fu7e l, z1SQ066 l, z1SitiI l, z1bywA0 l, z1Kilyc l,
+z1Kim7c l, z2WisiP l, zfisid l, z1Wisi4 l, z1[iwF4 l, z1biwFD l, z1SitiI l, z\yrW8 l,
+z38yw80 l, z1Wyw9y l, z20ywG8 l, z2Wiw7O l, z1SitiI l, z26Vu8D l, z1YQuO1 l, z45ryj l,
+z2WtsbA l, z4Asij l, z1SV066 l, z1SitqI l, z2WiuNj l, z20yuG2 l, z4isaQ l, z1SitqI l,
+z20yuJ2 l, zAisyQ l, z1SQ06n l, z8FwqQ l, z18ysrG l, z1[ixaB l, z20isyk l, z3rysr0 l,
+z1bixaB l, z1SitqI l, z20yuG4 l, z8iuVQ l, z1SV06] l,
+freedict
+\
+\
+: serial
+	4*
+	clkfreq swap u/ dup 2/ 2/
+\
+\ serial structure
+\
+\
+\ init 1st 4 members to hFF
+\
+	hFF h1C2 
+	2dup COG!
+	1+ 2dup COG!
+	1+ 2dup COG!
+	1+ tuck COG!
+\
+\ next 2 members to h100
+\
+	1+ h100 swap 2dup COG!
+	1+ tuck COG!
+\
+\ bittick/4, bitticks
+\
+	1+ tuck COG!
+	1+ tuck COG!
+\
+\ rxmask txmask
+\
+	1+ swap >m over COG!
+	1+ swap >m over COG!
+\ rest of structure to 0
+	1+ h1F0 swap
+	do
+		0 i COG!
+	loop
+\
+	c" SERIAL" numpad ccopy numpad cds W!
+	4 state andnC!
+	0 io hC4 + L!
+	0 io hC8 + L!
+	_serial
+;
+c" ..." 5 cogx
+fl
+
+fswrite boot.f
+hA state orC! version W@ .cstr cr cr cr
+\
+\
+\ (forget) ( cstr -- ) wind the dictionary back to the word which follows - caution
+[ifndef (forget)
+: (forget)
+	dup
+	if
+		find
+		if
+			pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+		else
+			_p?
+			if
+				.cstr h3F emit cr
+			then
+		then
+	else
+		drop
+	then
+;
+]
+\
+\
+\ forget ( -- ) wind the dictionary back to the word which follows - caution
+[ifndef forget
+: forget
+	parsenw (forget)
+;
+]
+\ findEETOP ( -- n1 ) the top of the eeprom + 1
+: findEETOP
+\
+\ search 32k block increments until we get a fail
+\
+	0
+	h100000 h8000
+	do
+		i t0 2 eereadpage
+		if
+			leave
+		else
+			i h7FFE + t0 3 eereadpage
+			if
+				leave
+			else
+				drop i h8000 +
+			then
+		then
+	h8000 +loop
+;
+c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! forget _serial c" Top of eeprom at: " .cstr fstop . cr
+c" boot.f - DONE PropForth Loaded~h0D~h0D" .cstr hA state andnC!
+Prop0 Cog6 ok
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 13238 
+
+NFA (Forth/Asm Immediate eXecute) Name
+10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadFsrdKernel.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -849720220 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitFsrd.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+here W@ . cr
+15004 
+Prop0 Cog6 ok
+fsls
+
+0_000_032_768 01_105 fswr.f
+0_000_033_920 03_966 serial.f
+
+0_000_027_584 bytes free in EEPROM file system
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/InitFsrdSD.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+here W@ . cr
+15004 
+Prop0 Cog6 ok
+fsload fswr.f
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_fswr
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef eewritepage
+Prop0 Cog5 ok
+: eewritepage
+1lock
+1 max rot dup hFF and swap dup h8 rshift hFF and swap h10 rshift h7 and 1 lshift
+_eestart hA0 or _eewrite swap _eewrite or swap _eewrite or
+rot2 bounds
+do
+i C@ _eewrite or
+loop
+_eestop hA delms
+1unlock
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef EW@
+Prop0 Cog5 ok
+: EW@
+t0 h2 eereadpage
+if
+hB ERR
+then
+t0 W@
+; ]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef EC@
+Prop0 Cog5 ok
+: EC@
+EW@ hFF and
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef EW!
+Prop0 Cog5 ok
+: EW!
+swap t0 W! t0 h2 eewritepage
+if
+hA ERR
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+: _fswr
+dup >r rot dup r> + fstop 1- >
+if
+hA ERR 
+then
+rot2 eewritepage
+if
+hA ERR
+then
+;
+Prop0 Cog5 ok
+: fsclear
+-1 fsbot EW!
+; 
+Prop0 Cog5 ok
+: fswrite
+_fsfree dup -1 <> parsenw dup rot and
+if
+0 pad W! dup C@ 2+ 1+ pad + swap pad 2+ ccopy
+0 swap key _fsk _fsk _fsk
+begin
+h2E2E2E0D over = if
+-1
+else
+tuck h18 rshift
+dup emit
+over C! 1+ tuck pad - fsps =
+if
+nip rot2 2dup + pad fsps _fswr fsps + rot pad swap
+then 
+_fsk 0
+then
+until
+drop pad - dup 0> if
+>r 2dup + pad r> dup >r _fswr r> +
+else 
+drop
+then
+2dup + hFFFF swap _fspa dup fstop 1- <
+if
+EW!
+else
+2drop
+then 
+over 2+ EC@ 2+ 1+ - swap EW!
+else
+2drop clearkeys 
+then
+padbl
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: fsdrop
+_fslast dup -1 = 
+if
+drop
+else
+hFFFF swap EW!
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl 
+hA state orC! 
+1 wconstant build_sdcommon
+c" Loading sdcommon.f ..." .cstr
+[ifndef $C_a_dovarl
+h4D wconstant $C_a_dovarl
+]
+[ifndef variable
+: variable
+lockdict create $C_a_dovarl w, 0 l, forthentry freedict
+;
+]
+[ifndef invert
+: invert
+-1 xor
+;
+]
+[ifndef pinin
+: pinin
+>m invert dira COG@ and dira COG!
+;
+]
+[ifndef pinout
+: pinout
+>m dira COG@ or dira COG!
+;
+]
+[ifndef pinlo
+: pinlo
+>m _maskoutlo
+;
+]
+[ifndef pinhi
+: pinhi
+>m _maskouthi
+;
+]
+[ifndef px?
+: px?
+>m _maskin
+;
+]
+coghere W@ wconstant v_sdbase
+v_sdbase	wconstant v_sd_do
+v_sd_do	1+	wconstant v_sd_di
+v_sd_di	1+	wconstant v_sd_clk
+v_sd_clk 1+	wconstant v_currentdir
+v_currentdir 1+	wconstant sd_cogbuf
+sd_cogbuf h80 +	wconstant _sd_cogend
+: sd_cogbufclr
+sd_cogbuf h80 bounds
+do
+0 i COG!
+loop
+;	
+wvariable _sd_initialized 0 _sd_initialized W!
+: sd_lock
+h3 lock
+;
+: sd_unlock
+h3 unlock
+;
+wvariable _sd_ccs 0 _sd_ccs W!
+wvariable _sd_hc 0 _sd_hc W!
+variable _sd_maxblock 0 _sd_maxblock L!
+[ifndef $S_sd_cs
+19 wconstant $S_sd_cs
+]
+[ifndef $S_sd_di
+20 wconstant $S_sd_di
+]
+[ifndef $S_sd_clk
+21 wconstant $S_sd_clk
+]
+[ifndef $S_sd_do
+16 wconstant $S_sd_do
+]
+: sd_uninit
+_sd_cogend v_sdbase
+do
+0 i COG!
+loop	
+v_sdbase coghere W!
+;
+
+: sd_init
+[ifdef _sd_debug
+cr ." sd_init ENTER~h0D" cr
+lock?
+]
+_sd_cogend coghere W!
+$S_sd_di  dup pinlo pinout
+$S_sd_clk dup pinlo pinout
+$S_sd_do            pinin
+$S_sd_cs  dup pinlo pinout
+$S_sd_di  >m v_sd_di COG!
+$S_sd_do  >m v_sd_do COG!
+$S_sd_clk >m v_sd_clk COG!
+lockdict
+_sd_initialized W@ 0=
+if
+c" _sd_init" find
+if
+sd_lock
+execute
+-1 _sd_initialized W!
+sd_unlock
+else
+drop
+then
+then
+freedict
+[ifdef _sd_debug
+cr ." sd_init EXIT" cr
+]
+;
+c" Loaded sdcommon.f~h0D" .cstr
+
+
+lockdict create a_shift forthentry
+$C_a_lxasm w, h133  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyLIZ l, z20yP[i l, z1SF03C l, z2WyQ88 l, zfyPOO l, z1SV04Q l, z2WyQ8W l, zoyPO1 l, 
+z1jix\1 l, z1bix\2 l, z1[ix\2 l, z3[yQCQ l, z1[ix\1 l, z1SyLI[ l, z1SV04h l, z2WyQ88 l, 
+z1SV04\ l, z2WyQ8W l, z1SyJQL l, z2WyPO0 l, z1bix\1 l, z1bix\2 l, z1XFb7l l, znyPO1 l, 
+z1[ix\2 l, z3[yQCb l, z1[ix\1 l, z1SV01X l, z1SV04M l, z1SV04P l, z1SV04Y l, z1SV04[ l, 
+
+freedict
+
+
+
+
+lockdict create mem>cog forthentry
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyLIZ l, z2WiPmC l, z1SyLIZ l, z8iPeB l, z1KiZJC l, z20yPW1 l, z20yPO4 l, z2WiPZD l, 
+z3[yPnM l, z1SyLI[ l, z1SV01X l, 
+freedict
+
+
+
+
+lockdict create cog>mem forthentry
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyLIZ l, z2WiPmC l, z1SyLIZ l, z1GiZ3C l, z20yPW1 l, z2WiPeC l, z8FPeB l, z20yPO4 l, 
+z3[yPnM l, z1SyLI[ l, z1SV01X l, 
+freedict
+
+Prop0 Cog6 ok
+c" hA state andnC!~h0D...~h0D" 5 cogx
+Prop0 Cog6 ok
+fl 
+hA state orC! 
+1 wconstant build_sdinit
+c" Loading sdinit.f ..." .cstr
+
+[ifndef (forget)
+: (forget)
+dup
+if
+find
+if
+pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+else
+_p?
+if
+.cstr h3F emit cr
+then
+then
+else
+drop
+then
+;
+]
+[ifndef forget
+: forget
+parsenw (forget)
+;
+]
+[ifndef 4/
+: 4/ _xasm2>1IMM h0002 _cnip h077 _cnip ;
+]
+: _sd_cs_out $S_sd_cs pinout ;
+: _sd_di_out $S_sd_di pinout ;
+: _sd_clk_out $S_sd_clk pinout ;
+: _sd_do_in $S_sd_do pinin ;
+: _sd_cs_out_l $S_sd_cs pinlo ;
+: _sd_cs_out_h $S_sd_cs pinhi ;
+: _sd_di_out_l $S_sd_di pinlo ;
+: _sd_di_out_h $S_sd_di pinhi ;
+: _sd_clk_out_l $S_sd_clk pinlo ;
+: _sd_clk_out_h $S_sd_clk pinhi ;
+: _sd_shift_out
+h80 h8 0
+do
+2dup and
+if
+_sd_di_out_h
+else
+_sd_di_out_l
+then
+1 rshift
+_sd_clk_out_l _sd_clk_out_h
+loop
+2drop
+_sd_clk_out_l
+_sd_di_out_l
+;
+: _sd_shift_outlong
+dup h18 rshift _sd_shift_out
+dup h10 rshift _sd_shift_out
+dup h8 rshift _sd_shift_out
+_sd_shift_out
+;
+: _sd_shift_in
+_sd_di_out_h
+0 h8 0
+do
+1 lshift
+_sd_clk_out_l _sd_clk_out_h
+$S_sd_do px?
+if
+1 or
+then
+loop
+_sd_clk_out_l
+_sd_di_out_l
+; 
+: _sd_shift_inlong
+_sd_shift_in h8 lshift
+_sd_shift_in or h8 lshift
+_sd_shift_in or h8 lshift
+_sd_shift_in or
+;
+: _sd_readdata
+[ifdef _sd_debug
+cr ." _sd_readdata readlen: " dup .
+]
+h200 min 4/
+0 h4000 0
+do
+_sd_shift_in
+hFE =
+if
+drop -1 leave
+then
+loop
+if
+sd_cogbuf swap bounds
+do
+_sd_shift_inlong i COG!
+loop
+_sd_shift_inlong hFFFF and hFFFF <>
+if
+hA2 ERR
+then
+else
+hA3 ERR
+then
+[ifdef _sd_debug
+sd_cogbuf h80 cogdump
+]
+;
+: _sd_writedata
+[ifdef _sd_debug
+cr ." _sd_writedata writelen: " dup . sd_cogbuf 80 cogdump
+]
+h200 min h4 max 4/
+hFE _sd_shift_out
+sd_cogbuf swap bounds
+do
+i COG@
+_sd_shift_outlong
+loop
+-1 dup _sd_shift_out _sd_shift_out
+h10000 0
+do
+_sd_shift_in
+dup hFF <>
+if
+leave
+else
+drop
+then	
+loop
+h7 and h5 <>
+if
+hA4 ERR
+then
+h10000 0
+do
+_sd_shift_in
+dup hFF =
+if
+leave
+else
+drop
+then	
+loop
+hFF <>
+if
+hA5 ERR
+then
+;
+: _sd_cmdr8
+[ifdef _sd_debug
+cr ." _sd_cmdr8 CMD: " dup . ." ARG: " over .
+]
+_sd_shift_in drop
+h3F and h40 or
+_sd_shift_out
+_sd_shift_outlong
+_sd_shift_out
+-1 h10 0
+do
+_sd_shift_in dup hFF <>
+if
+nip leave
+else
+drop
+then
+loop
+[ifdef _sd_debug
+." RESPONSE: " dup . cr
+]
+;
+: _sd_cmdr16
+[ifdef _sd_debug
+cr ." _sd_cmdr16 CMD: " dup . ." ARG: " over .
+]
+_sd_cmdr8 h8 lshift _sd_shift_in or
+[ifdef _sd_debug
+." RESPONSE: " dup . cr
+]
+;
+: _sd_cmdr8data
+[ifdef _sd_debug
+cr ." _sd_cmdr8data readlen: " >r >r >r dup . r> r> r>
+]
+_sd_cmdr8
+dup 0=
+if
+swap _sd_readdata
+then
+;
+: _sd_cmdr40
+[ifdef _sd_debug
+cr ." _sd_cmdr40 CMD: " dup . ." ARG: " over .
+]
+_sd_cmdr8 _sd_shift_inlong
+[ifdef _sd_debug
+." RESPONSE: " over . dup . cr
+]
+;
+: _sd_init
+[ifdef _sd_debug
+cr ." _sd_init ENTER" cr
+]
+-1 h8 0
+do
+_sd_di_out_h
+_sd_clk_out_h
+_sd_cs_out_h
+h1000 0
+do
+_sd_clk_out_l _sd_clk_out_h
+loop
+_sd_cs_out_l
+h95 0 0 _sd_cmdr8
+1 =
+if
+drop 0 leave
+then
+loop
+if
+hA6 ERR
+then
+-1 h8 0
+do
+h87 h1AA h8 _sd_cmdr40
+h1AA = swap 1 = and
+if
+drop 0 leave
+then
+loop
+if
+hA7 ERR
+then
+-1 h100 0
+do
+1 0 h37 _sd_cmdr8
+drop
+
+1 h40000000 h29 _sd_cmdr8
+0=
+if
+drop 0 leave
+then
+loop
+if
+-1 h100 0
+do
+1 0 h37 _sd_cmdr8
+drop
+1 0 h29 _sd_cmdr8
+0=
+if
+drop 0 leave
+then
+loop
+if
+hA8 ERR
+then
+then
+1 0 h3A _sd_cmdr40
+swap 0<> over h80000000 and 0= or
+if
+hA9 ERR
+then
+h40000000 and 0<> _sd_ccs W!
+
+_sd_ccs W@ 0=
+if
+1 h200 h10 _sd_cmdr8
+if
+hAA ERR
+then
+then
+h10 1 0 h9 _sd_cmdr8data
+if
+hAB ERR
+then
+sd_cogbuf COG@
+h40000000 and
+if
+1 _sd_hc W!
+sd_cogbuf 1+ COG@ h3F and h10 lshift
+sd_cogbuf 2+ COG@ h10 rshift or 1+
+hA lshift _sd_maxblock L! 
+else
+0 _sd_hc W!
+sd_cogbuf 1+ COG@ h10 rshift hF and >m
+sd_cogbuf 1+ COG@ h3FF and h2 lshift
+sd_cogbuf 2+ COG@ h1E rshift or 1+
+sd_cogbuf 2+ COG@ hF rshift h7 and 2+ >m
+u* u* h200 u/ _sd_maxblock L!
+then
+[ifdef _sd_debug
+_sd_hc W@
+if
+." SH"
+else
+." SD"
+then
+." SC initialize success # of Blocks: " _sd_maxblock L@ . cr
+cr ." _sd_init EXIT" cr
+]
+;
+c" Loaded sdinit.f~h0D" .cstr
+Prop0 Cog6 ok
+c" hA state andnC!~h0D...~h0D" 5 cogx
+Prop0 Cog6 ok
+fl 
+hA state orC! 
+1 wconstant build_sdrun
+c" Loading sdrun.f ..." .cstr
+
+[ifndef 4/
+: 4/ _xasm2>1IMM h0002 _cnip h077 _cnip ;
+]
+: sd_cogbufclr
+sd_cogbuf h80 bounds
+do
+0 i COG!
+loop
+;
+: _sd_shift_out
+0 a_shift
+;
+: _sd_shift_outlong
+1 a_shift
+;
+: _sd_shift_in
+h2 a_shift
+;
+: _sd_shift_inlong
+h3 a_shift
+;
+[ifdef _sd_debug
+lockdict variable _times h1C allot freedict
+]
+: _sd_readdata
+[ifdef _sd_debug
+cr ." _sd_readdata readlen: " dup .
+cnt COG@ _times h8 + L!
+]
+h200 min 4/
+0 h4000 0
+do
+_sd_shift_in
+hFE =
+if
+drop -1 leave
+then
+loop
+[ifdef _sd_debug
+cnt COG@ _times hC + L!
+]
+if
+sd_cogbuf swap bounds
+do
+_sd_shift_inlong i COG!
+loop
+[ifdef _sd_debug
+cnt COG@ _times h10 + L!
+]
+_sd_shift_inlong hFFFF and hFFFF <>
+if
+hA2 ERR
+then
+
+else
+hA3 ERR
+then
+[ifdef _sd_debug
+cnt COG@ _times h14 + L!
+sd_cogbuf h80 cogdump
+]
+;
+: _sd_writedata
+[ifdef _sd_debug
+cr ." _sd_writedata writelen: " dup . sd_cogbuf 80 cogdump
+cnt COG@ _times h8 + L!
+]
+h200 min h4 max 4/
+hFE _sd_shift_out
+sd_cogbuf swap bounds
+do
+i COG@
+_sd_shift_outlong
+loop
+-1 dup _sd_shift_out _sd_shift_out
+h10000 0
+do
+_sd_shift_in
+dup hFF <>
+if
+leave
+else
+drop
+then	
+loop
+h7 and h5 <>
+if
+hA4 ERR
+then
+[ifdef _sd_debug
+cnt COG@ _times hC + L!
+]
+h10000 0
+do
+_sd_shift_in
+dup hFF =
+if
+leave
+else
+drop
+then	
+loop
+hFF <>
+[ifdef _sd_debug
+cnt COG@ _times h10 + L!
+]
+if
+hA5 ERR
+then
+;
+: _sd_cmdr8
+[ifdef _sd_debug
+cr ." _sd_cmdr8 CMD: " dup . ." ARG: " over .
+]
+_sd_shift_in drop
+h3F and h40 or
+_sd_shift_out
+_sd_shift_outlong
+_sd_shift_out
+-1 h10 0
+do
+_sd_shift_in dup hFF <>
+if
+nip leave
+else
+drop
+then
+loop
+[ifdef _sd_debug
+." RESPONSE: " dup . cr
+]
+;
+: _sd_cmdr16
+[ifdef _sd_debug
+cr ." _sd_cmdr16 CMD: " dup . ." ARG: " over .
+]
+_sd_cmdr8 8 lshift _sd_shift_in or
+[ifdef _sd_debug
+." RESPONSE: " dup . cr
+]
+;
+: _sd_cmdr8data
+[ifdef _sd_debug
+cr ." _sd_cmdr8data readlen: " >r >r >r dup . r> r> r>
+cnt COG@ _times 4 + L!
+]
+_sd_cmdr8
+dup 0=
+if
+swap _sd_readdata
+then
+;
+: _sd_cmdr40
+[ifdef _sd_debug
+cr ." _sd_cmdr40 CMD: " dup . ." ARG: " over .
+]
+_sd_cmdr8 _sd_shift_inlong
+[ifdef _sd_debug
+." RESPONSE: " over . dup . cr
+]
+;
+: sd_blockread
+[ifdef _sd_debug
+cr ." sd_blockread ENTER Block: " dup . cr
+cnt COG@ _times L!
+]
+sd_lock
+h200 1
+rot _sd_ccs W@ 0=
+if
+h9 lshift
+then
+h11
+_sd_cmdr8data
+if
+hAC ERR
+then
+sd_unlock
+[ifdef _sd_debug
+cnt COG@ _times h18 + L!
+cnt COG@ _times h1C + L!
+cr ." sd_blockread EXIT" cr
+lock?
+]
+;
+: sd_blockwrite
+[ifdef _sd_debug
+cr ." sd_blockwrite ENTER Block: " dup . cr
+cnt COG@ _times L!
+]
+sd_lock
+h200 1
+rot _sd_ccs W@ 0=
+if
+h9 lshift
+then
+h18
+[ifdef _sd_debug
+cnt COG@ _times h4 + L!
+]
+
+_sd_cmdr8
+if
+hAD ERR
+else
+_sd_writedata
+then
+[ifdef _sd_debug
+cnt COG@ _times h14 + L!
+]
+1 0 hD _sd_cmdr16
+if
+hAE ERR
+then
+sd_unlock
+[ifdef _sd_debug
+cnt COG@ _times h18 + L!
+cnt COG@ _times h1C + L!
+cr ." sd_blockwrite EXIT" cr
+]
+;
+c" Loaded sdrun.f~h0D" .cstr
+
+Prop0 Cog6 ok
+c" hA state andnC!~h0D...~h0D" 5 cogx
+Prop0 Cog6 ok
+fl 
+hA state orC! 
+1 wconstant build_sdfs
+c" Loading sdfs.f ..." .cstr
+
+
+
+1 .
+
+
+
+2 .
+
+
+
+3 .
+
+[ifndef #C
+: #C
+-1 >out W+! pad>out C!
+
+;
+]
+[ifndef _nf
+: _nf
+<# bl #C # # # h2C #C # # # h2C #C # # #  h2C #C # # # #>
+dup C@++ bounds
+do
+i C@ dup isdigit swap todigit 0<> and  
+if
+leave
+
+else
+bl i C!
+then
+loop
+;
+]
+[ifndef .num
+: .num
+_nf .cstr
+;
+]
+[ifndef pad>cog
+: pad>cog 
+pad swap h20 mem>cog
+;
+]
+[ifndef tbuf>cog7
+: tbuf>cog7
+tbuf swap h7 mem>cog
+;
+]
+[ifndef cog>pad
+: cog>pad
+pad swap h20 cog>mem
+;
+]
+[ifndef cog>tbuf7
+: cog>tbuf7
+tbuf swap h7 cog>mem
+;
+]
+[ifndef _fnf
+: _fnf
+cr ." FILE NOT FOUND" cr
+;
+]
+4 .
+
+
+: sd_mount
+sd_init v_currentdir COG!
+;
+: sd_cwd
+v_currentdir COG@ sd_blockread
+sd_cogbuf cog>pad
+;
+: _sd_initdir
+sd_cogbuf h80 bounds
+do
+h20202020 i COG!
+loop
+sd_cogbuf h80 bounds
+do
+h20202000 i COG!
+0 i h7 + COG!
+h8 +loop
+1+ h80 bounds
+do
+i sd_blockwrite
+loop
+;
+: _sd_alloc
+v_currentdir COG@ sd_blockread
+sd_cogbuf h2E + COG@
+sd_lock
+dup sd_blockread swap
+sd_cogbuf h36 + COG@ tuck
++ dup sd_cogbuf h36 + COG!
+sd_cogbuf h33 + COG@ <
+if
+swap sd_blockwrite
+else
+hFD ERR		
+then
+sd_unlock
+;
+: _sd_hash
+tbuf h20 bl fill tbuf ccopy
+0 tbuf h1C bounds
+do
+i L@ xor 
+h4 +loop
+dup h10 rshift xor dup h8  rshift xor h7F and
+;
+: _sd_setdirentry
+over _sd_hash
+h80 0
+do
+dup i + h7F and v_currentdir COG@ 1+ +
+sd_lock
+dup sd_blockread
+sd_cogbuf h80 bounds
+do
+i COG@ h20202000 =
+if
+i tbuf>cog7
+rot i h7 + COG!
+dup sd_blockwrite
+0 rot2 leave
+then
+h8 +loop
+sd_unlock
+drop
+over 0=
+if
+leave
+then
+loop
+drop nip
+0<>
+if
+hFE ERR
+then
+;
+
+5 .
+
+: sd_find
+dup _sd_hash -1
+h80 0
+do        
+over i + h7F and v_currentdir COG@ 1+ +
+sd_blockread
+sd_cogbuf h80 bounds
+do
+i COG@ h20202000 =
+if
+drop 0 leave
+else
+i cog>tbuf7 rot dup tbuf cstr=
+if
+rot2 drop i h7 + COG@ leave
+else
+rot2
+then
+then
+h8 +loop
+dup -1 <>
+if
+leave
+then
+loop
+nip nip
+;
+: sd_createfile
+over sd_find dup
+if
+nip nip
+dup sd_blockread
+else
+drop
+
+tuck
+_sd_alloc tuck
+_sd_setdirentry
+v_currentdir COG@ sd_blockread
+sd_cogbuf cog>pad
+tbuf pad cappend
+sd_cogbuf pad>cog padbl
+sd_cogbuf h20 + tbuf>cog7
+0 sd_cogbuf h2A + COG! 
+swap sd_cogbuf h2B + COG!
+v_currentdir COG@ sd_cogbuf h2F + COG!
+h20202020 sd_cogbuf h36 + COG!
+dup sd_blockwrite
+then
+;
+: sd_createdir
+dup C@++ + 1- C@ h2F <>
+if
+hFA ERR
+then
+dup sd_find dup
+if
+nip
+else
+drop
+sd_lock
+h81 sd_createfile
+dup _sd_initdir
+sd_unlock
+then
+;
+: sd_ls
+v_currentdir COG@ 1+ h80 bounds
+do
+i sd_blockread
+sd_cogbuf h80 bounds
+do
+i COG@ h20202000 <>
+if
+i h7 + COG@ .
+tbuf i h7 bounds
+do i COG@ over L! 4+ loop drop
+tbuf .cstr cr
+then
+h8 +loop
+loop
+;
+: sd_cd..
+v_currentdir COG@ sd_blockread
+sd_cogbuf h2F + COG@ v_currentdir COG!
+;
+: sd_cd
+dup C@++ + 1- C@ h2F <>
+if
+hFA ERR
+then
+sd_find dup 0<>
+if
+v_currentdir COG!
+else
+drop
+then
+;
+[ifndef _fsk
+: _fsk
+h8 lshift key or
+;
+]
+
+6 .
+
+
+: sd_write
+0 t0 L!
+over 1+ sd_createfile
+sd_cogbuf h2B + COG@ 1- h200 u* tbuf L!
+dup 1+
+rot
+key _fsk _fsk _fsk
+rot2 bounds
+do
+sd_cogbuf h80 bounds
+do
+pad h80 bounds
+do
+h2E2E2E0D over =
+if
+leave
+else
+dup h18 rshift
+dup emit
+i C!
+t0 L@ dup tbuf L@ <
+if
+1+ t0 L! _fsk
+else
+2drop h2E2E2E0D leave
+then
+then
+loop
+i pad>cog
+h2E2E2E0D over =
+if
+leave
+then
+h20 +loop
+i sd_blockwrite
+h2E2E2E0D over =
+if
+leave
+then
+loop
+drop dup sd_blockread
+t0 L@ sd_cogbuf h2A + COG!
+sd_blockwrite
+padbl
+;
+: sd_readblk
+dup
+if
+dup sd_blockread 1+
+sd_cogbuf h2A + COG@
+h200 u/mod
+rot swap
+dup
+if
+2dup bounds
+do
+i sd_blockread
+sd_cogbuf h80 bounds
+do
+i cog>pad
+pad h80 .str
+h20 +loop
+loop
+then
++ sd_blockread
+sd_cogbuf h80 bounds
+do
+i
+cog>pad
+pad over h80 min
+.str
+h80 -
+dup 0 <=
+if
+leave
+then
+h20 +loop
+drop				
+else
+drop
+then
+padbl
+;
+: sd_read
+sd_find sd_readblk
+;
+: sd_load
+cogid nfcog iolink
+sd_read cr cr
+cogid iounlink
+;
+: sd_loadblk
+cogid nfcog iolink
+sd_readblk cr cr
+cogid iounlink
+;
+
+7 .
+
+: sd_trunc
+sd_find dup
+if
+dup sd_blockread
+swap sd_cogbuf h2B + COG@ h200 u* min
+sd_cogbuf h2A + COG!
+sd_blockwrite
+else
+drop
+then
+padbl
+;
+: sd_stat
+sd_find dup
+if
+sd_blockread
+." File Length:~h09~h09" sd_cogbuf h2A + COG@
+dup h200 u/mod swap if 1+ then .num ."  blocks " .num ."  bytes~h0D"
+." Num Blocks Allocated:~h09" sd_cogbuf h2B + COG@
+dup .num ."  blocks " h200 u* .num ."  bytes~h0D"
+else
+drop
+then
+;
+: _readlong
+dup h3 and
+if
+dup h3 + C@ h8 lshift
+over 2+ C@ or h8 lshift
+over 1+ C@ or h8 lshift
+swap C@ or
+else
+L@
+then
+;
+: _sd_appendbytes
+dup 0=
+if
+2drop
+else
+t0 W!
+t1 W!
+tbuf W!
+
+t1 W@ h3 and
+if
+h4 t1 W@ h3 and -
+-1 over h3 lshift rshift
+t1 W@ 4/ sd_cogbuf + tuck COG@
+and
+tbuf W@ _readlong t1 W@
+h3 and h3 lshift
+lshift or			
+swap COG!
+dup t1 W+!
+dup tbuf W+!
+negate t0 W+!
+then
+tbuf W@ t1 W@ 4/ sd_cogbuf + t0 W@ h4 u/mod swap
+if
+1+
+then
+bounds
+do
+dup _readlong
+i COG!
+h4 +
+loop
+drop
+tbuf W@ t0 W@ +
+then
+;
+8 .
+
+: sd_appendblk
+dup sd_blockread
+over sd_cogbuf h2A + COG@
++ dup sd_cogbuf h2B + COG@ h200 u*
+<
+if
+>r dup >r 1+
+sd_cogbuf h2A + COG@
+h200 u/mod rot +
+begin
+dup >r sd_blockread
+over >r rot swap
+h200 over - r> min
+dup >r _sd_appendbytes r>
+rot swap - 0
+over 0 <= r>
+dup sd_blockwrite
+1+
+swap
+until
+r> dup sd_blockread
+r> sd_cogbuf h2A + COG!
+sd_blockwrite
+then
+drop 3drop
+;
+: sd_append
+sd_find dup
+if
+sd_appendblk	
+else
+3drop
+then
+;
+: _sd_dn
+C@++ + 1- C@ h2F <>
+if
+." INVALID DIRNAME~h0D"
+0
+else
+-1
+then
+;
+: ls sd_ls ;
+: cd
+parsenw
+dup 0= 
+if
+drop
+else
+dup _sd_dn
+if
+sd_cd
+else
+drop
+then
+then
+;
+: cd.. sd_cd.. ;
+: cd/ v_currentdir COG@ sd_blockread sd_cogbuf h2E + COG@ v_currentdir COG! ;
+: cwd
+sd_cwd pad .cstr cr padbl
+;
+: mkdir
+parsenw dup 0=
+if
+drop
+else
+dup _sd_dn
+if
+sd_createdir drop
+else
+drop
+then
+then
+;
+: _sd_fsp
+parsenw dup
+if
+dup sd_find 0=
+if
+drop 0
+then
+then
+;
+: fread _sd_fsp dup if sd_read else drop _fnf then ;
+: fcreate parsenw dup if swap sd_createfile drop else 2drop then ;
+: fwrite parsenw dup if sd_write else 2drop then ;
+: fstat _sd_fsp dup if sd_stat else drop _fnf then ;
+: fload _sd_fsp dup if sd_load else drop _fnf then ;
+
+c" Loaded sdfs.f~h0D" .cstr
+Prop0 Cog6 ok
+c" hA state andnC!~h0D...~h0D" 5 cogx
+Prop0 Cog6 ok
+fl
+Prop0 Cog5 ok
+fswrite boot.f
+hA state orC! version W@ .cstr cr cr cr
+[ifndef (forget)
+: (forget)
+dup
+if
+find
+if
+pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+else
+_p?
+if
+.cstr h3F emit cr
+then
+then
+else
+drop
+then
+;
+]
+[ifndef forget
+: forget
+parsenw (forget)
+;
+]
+: findEETOP
+0
+h100000 h8000
+do
+i t0 2 eereadpage
+if
+leave
+else
+i h7FFE + t0 3 eereadpage
+if
+leave
+else
+drop i h8000 +
+then
+then
+h8000 +loop
+;
+c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! forget _serial c" Top of eeprom at: " .cstr fstop . cr
+
+c" boot.f - Loading sdcommon.f~h0D" .cstr
+fsload sdcommon.f
+c" boot.f - Loading sdinit.f~h0D" .cstr
+fsload sdinit.f
+c" boot.f - Initializing SD card~h0D" .cstr
+sd_init
+forget build_sdinit
+c" boot.f - Loading sdrun.f~h0D" .cstr
+fsload sdrun.f
+c" boot.f - Loading sdfs.f~h0D" .cstr
+fsload sdfs.f
+c" boot.f - Running sdboot.f~h0D" .cstr
+1 sd_mount fload sdboot.f
+
+c" boot.f - DONE PropForth Loaded~h0D~h0D" .cstr hA state andnC!
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+state C@ hA state orC!
+
+here: 15576 
+
+NFA (Forth/Asm Immediate eXecute) Name
+15_006 F   build_fswr           12_384 F   build_fsrd           10_330 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 
+
+ scriptFileName: MAKE/scripts/CheckKernels.txt
+   logFileName: MAKE/results/runLogs/CheckKernelsRunLog.txt
+resultFileName: MAKE/results/resultFiles/CheckKernelsResult.txt
+outputFileName: 

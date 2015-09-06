@@ -1,0 +1,170 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Run tutorial-1.1 Standard Developent System.txt 
+the Propeller Proto Board and Spinneret connection are detailed in MultiPropTestSystem.txt
+run this on the Proto Board
+
+2. Start teraterm.
+
+
++++
+Reboot
+---
+reboot 
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\norom.f
+into teraterm
+
++++
+Load_norom.f
+===
+norom.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_norom
+Prop0 Cog5 ok
+~~~
+
+4. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\mcs.f
+into teraterm
+
++++
+Load_mcs.f
+===
+mcs.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_mcs
+Prop0 Cog5 ok
+~~~
+
+5. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\mcsnorom.f
+into teraterm
+
++++
+Load_mcsnorom.f
+===
+mcsnorom.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant  build_mcsnorom
+Prop0 Cog5 ok
+~~~
+
+
+
++++
+Run_onboot
+---
+0 onboot
+###
+0 onboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:MASTERProp0 Cog5 RESET - last status: 0 ok
+MASTERProp0 Cog6 ok
+%%%
+
+
+Wait 10 seconds before executing next step.
+
++++
+Run_cog?_1
+---
+cog?
+###
+cog?
+Cog:0  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:1  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:2  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:5  #io chan:5             MCS_MASTER CONNECTED
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+MASTERProp0 Cog6 ok
+%%%
+
++++
+Run_term
+---
+5 0 term
+###
+5 0 term
+Hit CTL-F to exit term
+%%%
+
+
++++
+Run_cog?_2
+---
+cog?
+###
+5 0 term
+Hit CTL-F to exit term
+ SLAVEProp8 Cog0 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  0(0)->5(0)
+Cog:1  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  1(0)->5(1)
+Cog:2  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  2(0)->5(2)
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  3(0)->5(3)
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  4(0)->5(4)
+Cog:5  #io chan:5              MCS_SLAVE CONNECTED  5(0)->0(0)  5(1)->1(0)  5(2)->2(0)  5(3)->3(0)  5(4)->4(0)
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+ SLAVEProp8 Cog0 ok
+%%%

@@ -1,0 +1,239 @@
+
+ scriptFileName: TEST/scripts/SnetIPTelnet3.txt
+   logFileName: TEST/results/runLogs/SnetIPTelnet3RunLog.txt
+resultFileName: TEST/results/resultFiles/SnetIPTelnet3Result.txt
+outputFileName: 
+ÿûÿû
+PropForth v5.5 2013Feb20 11:30 0
+[ifndef stOverflow 
+.
+.
+]
+Prop0 Cog3 ok
+[ifndef rsUnderflow 
+.
+.
+]
+Prop0 Cog3 ok
+[ifndef rsOverflow 
+.
+.
+]
+Prop0 Cog3 ok
+[ifndef cogdel 
+.
+.
+]
+Prop0 Cog3 ok
+
+Prop0 Cog3 ok
+cr cr here W@ . version W@ .cstr 
+
+
+24094 PropForth v5.5 2013Feb20 11:30 0Prop0 Cog3 ok
+[ifdef cog? 
+Prop0 Cog3 ok
+cog? 
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  0(0)->5(0)
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  1(0)->5(1)
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  2(0)->5(2)
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  3(0)->5(3)
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:4                        IP SERVER  5(0)->0(0)  5(1)->1(0)  5(2)->2(0)  5(3)->3(0)
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog3 ok
+] 
+Prop0 Cog3 ok
+[ifdef build? 
+Prop0 Cog3 ok
+build? 
+
+NFA (Forth/Asm Immediate eXecute) Name
+17_598 F   build_IP             13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+Prop0 Cog3 ok
+] 
+Prop0 Cog3 ok
+cr cr 
+
+
+Prop0 Cog3 ok
+
+Prop0 Cog3 ok
+cr cr 1 2 3 . . . drop drop drop
+
+
+3 2 1 
+Prop0 Cog3 RESET - last status: 3 MAIN STACK UNDERFLOW
+Prop0 Cog3 ok
+cr cr stOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 
+Prop0 Cog3 RESET - last status: 1 MAIN STACK OVERFLOW
+Prop0 Cog3 ok
+cr cr rsUnderflow
+
+
+9180 9376 10136 
+Prop0 Cog3 RESET - last status: 4 RETURN STACK UNDERFLOW
+Prop0 Cog3 ok
+cr cr 0 rsOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 
+Prop0 Cog3 RESET - last status: 2 RETURN STACK OVERFLOW
+Prop0 Cog3 ok
+cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+
+
+1234 -1234 1234 2468 1234 1234 Prop0 Cog3 ok
+cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+
+
+123398766 21732 4470 45554 Prop0 Cog3 ok
+base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+AAAA AAFF 
+Prop0 Cog3 ok
+[ifndef build_httpserver 
+Prop0 Cog3 ok
+lockdict cr cr wvariable ttt : d ttt W@ . ; hex 
+
+
+Prop0 Cog3 ok
+cr cr 0 ttt W! 23 ttt orC! d 1 ttt andnC! d 
+
+
+23 22 Prop0 Cog3 ok
+cr cr -1 ttt W! d hAAAA ttt W@ and ttt W! d hFF ttt orC! d hA base W! freedict 
+
+
+FFFF AAAA AAFF Prop0 Cog3 ok
+]
+Prop0 Cog3 ok
+
+Prop0 Cog3 ok
+
+ scriptFileName: TEST/scripts/SnetIPTelnet3.txt
+   logFileName: TEST/results/runLogs/SnetIPTelnet3RunLog.txt
+resultFileName: TEST/results/resultFiles/SnetIPTelnet3Result.txt
+outputFileName: 
+ÿûÿû
+PropForth v5.5 2013Feb20 11:30 0
+[ifndef stOverflow 
+.
+.
+]
+Prop0 Cog3 ok
+[ifndef rsUnderflow 
+.
+.
+]
+Prop0 Cog3 ok
+[ifndef rsOverflow 
+.
+.
+]
+Prop0 Cog3 ok
+[ifndef cogdel 
+.
+.
+]
+Prop0 Cog3 ok
+
+Prop0 Cog3 ok
+cr cr here W@ . version W@ .cstr 
+
+
+24182 PropForth v5.5 2013Feb20 11:30 0Prop0 Cog3 ok
+[ifdef cog? 
+Prop0 Cog3 ok
+cog? 
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  0(0)->5(0)
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  1(0)->5(1)
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  2(0)->5(2)
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  3(0)->5(3)
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:4                        IP SERVER  5(0)->0(0)  5(1)->1(0)  5(2)->2(0)  5(3)->3(0)
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog3 ok
+] 
+Prop0 Cog3 ok
+[ifdef build? 
+Prop0 Cog3 ok
+build? 
+
+NFA (Forth/Asm Immediate eXecute) Name
+17_598 F   build_IP             13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+Prop0 Cog3 ok
+] 
+Prop0 Cog3 ok
+cr cr 
+
+
+Prop0 Cog3 ok
+
+Prop0 Cog3 ok
+cr cr 1 2 3 . . . drop drop drop
+
+
+3 2 1 
+Prop0 Cog3 RESET - last status: 3 MAIN STACK UNDERFLOW
+Prop0 Cog3 ok
+cr cr stOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 
+Prop0 Cog3 RESET - last status: 1 MAIN STACK OVERFLOW
+Prop0 Cog3 ok
+cr cr rsUnderflow
+
+
+9180 9376 10136 
+Prop0 Cog3 RESET - last status: 4 RETURN STACK UNDERFLOW
+Prop0 Cog3 ok
+cr cr 0 rsOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 
+Prop0 Cog3 RESET - last status: 2 RETURN STACK OVERFLOW
+Prop0 Cog3 ok
+cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+
+
+1234 -1234 1234 2468 1234 1234 Prop0 Cog3 ok
+cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+
+
+123398766 21732 4470 45554 Prop0 Cog3 ok
+base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+AAAA AAFF 
+Prop0 Cog3 ok
+[ifndef build_httpserver 
+Prop0 Cog3 ok
+lockdict cr cr wvariable ttt : d ttt W@ . ; hex 
+
+
+Prop0 Cog3 ok
+cr cr 0 ttt W! 23 ttt orC! d 1 ttt andnC! d 
+
+
+23 22 Prop0 Cog3 ok
+cr cr -1 ttt W! d hAAAA ttt W@ and ttt W! d hFF ttt orC! d hA base W! freedict 
+
+
+FFFF AAAA AAFF Prop0 Cog3 ok
+]
+Prop0 Cog3 ok
+
+Prop0 Cog3 ok
+
+ scriptFileName: TEST/scripts/SnetIPTelnet3.txt
+   logFileName: TEST/results/runLogs/SnetIPTelnet3RunLog.txt
+resultFileName: TEST/results/resultFiles/SnetIPTelnet3Result.txt
+outputFileName: 

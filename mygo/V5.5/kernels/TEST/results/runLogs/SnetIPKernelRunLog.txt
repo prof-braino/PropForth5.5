@@ -1,0 +1,185 @@
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:10:06.0926024 -0800 PST 
+ scriptFileName: TEST/scripts/SnetIPKernel.txt
+   logFileName: TEST/results/runLogs/SnetIPKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+\ Load IP Kernel
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:06.1516058 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:06.1976084 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:06.1976084 -0800 PST SENDING: MAKE/src/optimize/dev/term.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:08.0757158 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/term.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:11.0768875 -0800 PST DONE: MAKE/src/optimize/dev/term.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:11.2138953 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:11.2138953 -0800 PST SENDING: MAKE/src/optimize/dev/snet.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:14.0220559 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/snet.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:17.0222275 -0800 PST DONE: MAKE/src/optimize/dev/snet.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:17.1422344 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:17.1422344 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:17.1422344 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:20.1664074 -0800 PST DONE: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:20.2784138 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:20.2784138 -0800 PST SENDING: snet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:20.2784138 -0800 PST DONE SENDING waiting for output: snet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:43.4067366 -0800 PST DONE: snet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:43.5267435 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:43.5267435 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:43.5267435 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:46.5409159 -0800 PST DONE: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:46.6879243 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:46.6879243 -0800 PST SENDING: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:46.6879243 -0800 PST DONE SENDING waiting for output: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:10:49.7060969 -0800 PST DONE: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:49.8411047 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:49.8711064 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:49.8711064 -0800 PST SENDING: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:49.8711064 -0800 PST DONE SENDING waiting for output: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:52.871278 -0800 PST DONE: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:52.9862846 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:52.9862846 -0800 PST SENDING: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:52.9862846 -0800 PST DONE SENDING waiting for output: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:55.9864562 -0800 PST DONE: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:56.1264642 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 19:10:56.1264642 -0800 PST SENDING: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:06.0970344 -0800 PST DONE SENDING waiting for output: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:09.097206 -0800 PST DONE: MAKE/src/buildq.f
+\ check Forth
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:09.2672158 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:09.2672158 -0800 PST SENDING: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:09.2672158 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:10.4922858 -0800 PST DONE: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:10.6082925 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:10.6082925 -0800 PST SENDING: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:10.6082925 -0800 PST DONE SENDING waiting for output: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:11.6083497 -0800 PST DONE: state C!
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:11:11.7083554 -0800 PST 
+ scriptFileName: MAKE/scripts/LoadSnetIPKernel.txt
+   logFileName: TEST/results/runLogs/SnetIPKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/CheckForth.txt::2013-02-21 19:11:11.7093555 -0800 PST DONE SCRIPT FILE
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:11:11.7513579 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:11:11.7513579 -0800 PST SENDING: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:08.2045868 -0800 PST DONE SENDING waiting for output: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:11.2047584 -0800 PST DONE: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:11.3147647 -0800 PST SEND: [16]
+\ Loading MAKE/results/outputFiles/SDKernel.eeprom
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:11.3947693 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:11.3947693 -0800 PST SENDING: d_32782 nsnet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:11.3947693 -0800 PST DONE SENDING waiting for output: d_32782 nsnet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:14.4039414 -0800 PST DONE: d_32782 nsnet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:14.5179479 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:14.5179479 -0800 PST SENDING: eeload
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:14.5179479 -0800 PST DONE SENDING waiting for output: eeload
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:17.5381206 -0800 PST DONE: eeload
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:17.6961297 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: true
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:12:17.6961297 -0800 PST SENDING: MAKE/results/outputFiles/IPKernel.eeprom
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:23.2358783 -0800 PST DONE SENDING waiting for output: MAKE/results/outputFiles/IPKernel.eeprom
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:28.4841785 -0800 PST DONE: MAKE/results/outputFiles/IPKernel.eeprom
+\ Reboot
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:28.6181862 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:28.6181862 -0800 PST SENDING: reboot
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:28.6181862 -0800 PST DONE SENDING waiting for output: reboot
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:31.6343587 -0800 PST DONE: reboot
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:31.7603659 -0800 PST  1000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:31.7603659 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:31.7603659 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:32.7844245 -0800 PST DONE: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:32.8964309 -0800 PST  1000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:32.8964309 -0800 PST SENDING: snet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:32.8964309 -0800 PST DONE SENDING waiting for output: snet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:34.2185065 -0800 PST DONE: snet
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:34.3385134 -0800 PST  1000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:34.3385134 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:34.3385134 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:35.3385706 -0800 PST DONE: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:35.4695781 -0800 PST  1000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:35.4695781 -0800 PST SENDING: c" SNET" prop W@ ccopy
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:35.4695781 -0800 PST DONE SENDING waiting for output: c" SNET" prop W@ ccopy
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:37.1356734 -0800 PST DONE: c" SNET" prop W@ ccopy
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:37.2616806 -0800 PST  1000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:37.2616806 -0800 PST SENDING: forgetandsaveforth
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:37.2616806 -0800 PST DONE SENDING waiting for output: forgetandsaveforth
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:39.2777959 -0800 PST DONE: forgetandsaveforth
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:39.3978027 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:39.3978027 -0800 PST SENDING: reboot
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:39.3978027 -0800 PST DONE SENDING waiting for output: reboot
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:45.3431428 -0800 PST DONE: reboot
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:45.46915 -0800 PST  1000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:45.46915 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:45.46915 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:46.4932086 -0800 PST DONE: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:46.6032149 -0800 PST SEND: [16]
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:46.6242161 -0800 PST  1000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:46.6242161 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:46.6242161 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:47.6452745 -0800 PST DONE: here W@ . cr
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:47.7522806 -0800 PST  1000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:47.7522806 -0800 PST SENDING: 
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:47.7522806 -0800 PST DONE SENDING waiting for output: 
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:48.7643385 -0800 PST DONE: 
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:48.8663443 -0800 PST 
+ scriptFileName: TEST/scripts/SnetIPKernel.txt
+   logFileName: TEST/results/runLogs/SnetIPKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/LoadSnetIPKernel.txt::2013-02-21 19:13:48.8673444 -0800 PST DONE SCRIPT FILE
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:48.9153471 -0800 PST 
+ scriptFileName: TEST/scripts/SnetIPKernel.txt
+   logFileName: TEST/results/runLogs/SnetIPKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetIPKernelResult.txt
+outputFileName: 
+
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:48.9513492 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:48.9513492 -0800 PST SENDING: MAKE/src/optimize/dev/term.f
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:49.1423601 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/term.f
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:52.1425317 -0800 PST DONE: MAKE/src/optimize/dev/term.f
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:52.2765394 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:52.2765394 -0800 PST SENDING: MAKE/src/optimize/dev/snet.f
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:52.5615557 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/snet.f
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:55.5637274 -0800 PST DONE: MAKE/src/optimize/dev/snet.f
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:55.6727336 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:55.6727336 -0800 PST SENDING: snet
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:13:55.6727336 -0800 PST DONE SENDING waiting for output: snet
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:01.90309 -0800 PST DONE: snet
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:02.0120962 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:02.0120962 -0800 PST SENDING: cog?
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:02.0120962 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:05.0692711 -0800 PST DONE: cog?
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:05.173277 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:05.173277 -0800 PST SENDING: 
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:05.173277 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/SnetIPKernel.txt::2013-02-21 19:14:08.1844492 -0800 PST DONE: 
+TEST/scripts/SnetIPTelnet0.txt::2013-02-21 19:14:08.320457 -0800 PST STARTING SCRIPT FILE

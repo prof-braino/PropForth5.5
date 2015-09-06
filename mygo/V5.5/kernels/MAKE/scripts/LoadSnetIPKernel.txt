@@ -1,0 +1,30 @@
+	cps 500
+				 		S	MAKE/src/optimize/dev/term.f
+				 		S	MAKE/src/optimize/dev/snet.f
+						X	here W@ . cr
+						X	snet
+						X	here W@ . cr
+
+						X	hA state orC! c" hA state orC!" 5 cogx
+						r	MAKE/scripts/CheckForth.txt
+	cps 200			 		S	MAKE/src/forthEepromUtils.f
+						x 10
+\ Loading MAKE/results/outputFiles/SDKernel.eeprom
+	cps 500					X	d_32782 nsnet
+						X	eeload
+	t 3000 b 1				S 	MAKE/results/outputFiles/IPKernel.eeprom
+\ Reboot
+	cps 1000 b 0				X	reboot
+	t 1000					X	here W@ . cr
+						X	snet
+						X	here W@ . cr
+
+						X	c" SNET" prop W@ ccopy
+						X	forgetandsaveforth
+	t 3000					X	reboot
+	t 1000					X	here W@ . cr
+						x 10
+						X	here W@ . cr
+						X
+
+

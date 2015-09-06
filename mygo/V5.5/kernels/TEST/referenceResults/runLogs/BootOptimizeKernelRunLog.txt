@@ -1,0 +1,191 @@
+TEST/scripts/BootOptimizeKernel.txt::2013-02-21 14:38:08.2512752 -0800 PST 
+ scriptFileName: TEST/scripts/BootOptimizeKernel.txt
+   logFileName: TEST/results/runLogs/BootOptimizeKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+\ Load Start Kernel
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:38:08.3102786 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:38:08.3662818 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:38:08.3662818 -0800 PST SENDING: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:38:08.3662818 -0800 PST DONE SENDING waiting for output: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:38:11.3894547 -0800 PST DONE: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:11.5254625 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:11.5554642 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:11.5554642 -0800 PST SENDING: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:11.5554642 -0800 PST DONE SENDING waiting for output: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:14.5556358 -0800 PST DONE: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:14.6706424 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:14.6706424 -0800 PST SENDING: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:14.6706424 -0800 PST DONE SENDING waiting for output: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:17.670814 -0800 PST DONE: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:17.810822 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:17.810822 -0800 PST SENDING: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:27.7813923 -0800 PST DONE SENDING waiting for output: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:30.7815639 -0800 PST DONE: MAKE/src/buildq.f
+\ check Forth
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:30.9515736 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:30.9515736 -0800 PST SENDING: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:30.9515736 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:32.2396473 -0800 PST DONE: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:32.3556539 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:32.3556539 -0800 PST SENDING: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:32.3556539 -0800 PST DONE SENDING waiting for output: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:33.3557111 -0800 PST DONE: state C!
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:38:33.4557169 -0800 PST 
+ scriptFileName: MAKE/scripts/LoadStartKernel.txt
+   logFileName: TEST/results/runLogs/BootOptimizeKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/CheckForth.txt::2013-02-21 14:38:33.4567169 -0800 PST DONE SCRIPT FILE
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:38:33.4987193 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:38:33.4987193 -0800 PST SENDING: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:39:29.9519483 -0800 PST DONE SENDING waiting for output: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:39:32.9521199 -0800 PST DONE: MAKE/src/forthEepromUtils.f
+\ Loading MAKE/results/outputFiles/StartKernel.eeprom
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:39:33.1271299 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:39:33.1271299 -0800 PST SENDING: eeload
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:39:33.1271299 -0800 PST DONE SENDING waiting for output: eeload
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:39:36.1383021 -0800 PST DONE: eeload
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:39:36.2993113 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: true
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:39:36.2993113 -0800 PST SENDING: MAKE/results/outputFiles/StartKernel.eeprom
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:40:41.83906 -0800 PST DONE SENDING waiting for output: MAKE/results/outputFiles/StartKernel.eeprom
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:40:47.2303683 -0800 PST DONE: MAKE/results/outputFiles/StartKernel.eeprom
+\ Reboot
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:40:47.3563755 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:40:47.3563755 -0800 PST SENDING: reboot
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:40:47.3563755 -0800 PST DONE SENDING waiting for output: reboot
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:40:52.6836802 -0800 PST DONE: reboot
+TEST/scripts/BootOptimizeKernel.txt::2013-02-21 14:40:52.784686 -0800 PST 
+ scriptFileName: TEST/scripts/BootOptimizeKernel.txt
+   logFileName: TEST/results/runLogs/BootOptimizeKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 14:40:52.7856861 -0800 PST DONE SCRIPT FILE
+TEST/scripts/BootOptimizeKernel.txt::2013-02-21 14:40:52.8396892 -0800 PST 
+ scriptFileName: TEST/scripts/BootOptimizeKernel.txt
+   logFileName: TEST/results/runLogs/BootOptimizeKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/BootOptimizeKernelResult.txt
+outputFileName: 
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:52.8856918 -0800 PST STARTING SCRIPT FILE
+\ Definitions
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:52.9336945 -0800 PST SEND: [[ifndef stOverflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:52.976697 -0800 PST SEND: [: stOverflow d32 0 do i dup . loop ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:52.9846975 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.0106989 -0800 PST SEND: [[ifndef rsUnderflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.0677022 -0800 PST SEND: [: rsUnderflow r> . r> . r> . r> . r> . r> . r> . ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.0757027 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.1007041 -0800 PST SEND: [[ifndef rsOverflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.1637077 -0800 PST SEND: [: rsOverflow dup . 1+ c" rsOverflow" find drop execute ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.1717082 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.1927094 -0800 PST SEND: [[ifndef cogdel ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.2787143 -0800 PST SEND: [: cogdel cogid 1+ 1 lshift 0 do d_1000 i u* delms i . loop ." delay done~h0D" ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.2867147 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.290715 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.290715 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:53.290715 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.7087961 -0800 PST DONE: 
+\ Here+version
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.8618048 -0800 PST SEND: [cr cr here W@ . version W@ .cstr ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.8798059 -0800 PST SEND: [[ifdef cog? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.8908065 -0800 PST SEND: [cog? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.8988069 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.9188081 -0800 PST SEND: [[ifdef build? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.9318088 -0800 PST SEND: [build? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.9398093 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.95181 -0800 PST SEND: [cr cr ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.9558102 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.9558102 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:54.9558102 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:55.8278601 -0800 PST DONE: 
+\ ST Underflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:55.9808688 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:55.9808688 -0800 PST SENDING: cr cr 1 2 3 . . . drop drop drop
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:55.9808688 -0800 PST DONE SENDING waiting for output: cr cr 1 2 3 . . . drop drop drop
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:56.7229113 -0800 PST DONE: cr cr 1 2 3 . . . drop drop drop
+\ ST Overflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:56.8569189 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:56.8569189 -0800 PST SENDING: cr cr stOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:56.8569189 -0800 PST DONE SENDING waiting for output: cr cr stOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:57.6669653 -0800 PST DONE: cr cr stOverflow
+\ RS Underflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:57.8029731 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:57.8029731 -0800 PST SENDING: cr cr rsUnderflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:57.8029731 -0800 PST DONE SENDING waiting for output: cr cr rsUnderflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:58.4820119 -0800 PST DONE: cr cr rsUnderflow
+\ RS Overflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:58.6180197 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:58.6180197 -0800 PST SENDING: cr cr 0 rsOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:58.6180197 -0800 PST DONE SENDING waiting for output: cr cr 0 rsOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:59.4250658 -0800 PST DONE: cr cr 0 rsOverflow
+\ Math+-
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:59.6180769 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:59.6180769 -0800 PST SENDING: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:40:59.6180769 -0800 PST DONE SENDING waiting for output: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:00.7691427 -0800 PST DONE: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+\ Math*/
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:00.9571535 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:00.9571535 -0800 PST SENDING: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:00.9571535 -0800 PST DONE SENDING waiting for output: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:01.9672112 -0800 PST DONE: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+\ Logical
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:02.1312206 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:02.1312206 -0800 PST SENDING: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:02.1312206 -0800 PST DONE SENDING waiting for output: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:03.0062707 -0800 PST DONE: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+\ wvariables
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:03.1492788 -0800 PST SEND: [[ifndef build_httpserver ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:03.2032819 -0800 PST SEND: [lockdict cr cr wvariable ttt : d ttt W@ . ; hex ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:03.2542848 -0800 PST SEND: [cr cr 0 ttt W! 23 ttt orC! d 1 ttt andnC! d ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:03.3392897 -0800 PST SEND: [cr cr -1 ttt W! d hAAAA ttt W@ and ttt W! d hFF ttt orC! d hA base W! freedict ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:03.3452901 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:03.3452901 -0800 PST SENDING: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:03.3452901 -0800 PST DONE SENDING waiting for output: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:04.5413585 -0800 PST DONE: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:04.6443644 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:04.6443644 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:04.6443644 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:05.1813951 -0800 PST DONE: 
+TEST/scripts/BootOptimizeKernel.txt::2013-02-21 14:41:05.2914014 -0800 PST 
+ scriptFileName: TEST/scripts/BootOptimizeKernel.txt
+   logFileName: TEST/results/runLogs/BootOptimizeKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/BootOptimizeKernelResult.txt
+outputFileName: 
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 14:41:05.2924014 -0800 PST DONE SCRIPT FILE
+TEST/scripts/BootOptimizeKernel.txt::2013-02-21 14:41:05.302402 -0800 PST 
+ scriptFileName: TEST/scripts/BootOptimizeKernel.txt
+   logFileName: TEST/results/runLogs/BootOptimizeKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/BootOptimizeKernelResult.txt
+outputFileName: 
+
+TEST/scripts/BootOptimizeKernel.txt::2013-02-21 14:41:05.3034021 -0800 PST 
+ scriptFileName: TEST/scripts/BootOptimizeKernel.txt
+   logFileName: TEST/results/runLogs/BootOptimizeKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+

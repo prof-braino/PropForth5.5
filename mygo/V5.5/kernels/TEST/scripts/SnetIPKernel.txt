@@ -1,0 +1,23 @@
+L TEST/results/runLogs/SnetIPKernelRunLog.txt
+
+
+\ Load IP Kernel
+			r 	MAKE/scripts/LoadSnetIPKernel.txt
+R TEST/results/resultFiles/SnetIPKernelResult.txt
+
+	 		S	MAKE/src/optimize/dev/term.f
+	 		S	MAKE/src/optimize/dev/snet.f
+			X	snet
+			X	cog?
+			X
+
+			r	TEST/scripts/SnetIPTelnet0.txt
+			X
+
+			rc	TEST/scripts/SnetIPTelnet0.txt TEST/scripts/SnetIPTelnet1.txt TEST/scripts/SnetIPTelnet2.txt TEST/scripts/SnetIPTelnet3.txt
+
+			X	cog?
+			x 10
+			X	cog?
+
+			CO CR CL

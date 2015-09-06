@@ -1,0 +1,26 @@
+	t 6000			
+			SW
+			SW	time.fsp
+			ipc	${PROPHTTP}
+			scr	GET /time.fsp HTTP/1.1
+			w
+			dis
+			w
+
+			SW
+			SW	time.fsp?timezone=11&rtccorrect=300
+			ipc	${PROPHTTP}
+			scr	GET /time.fsp?timezone=11&rtccorrect=300 HTTP/1.1
+			w
+			dis
+			w
+
+
+			SW
+			SW	time.fsp?timezone=-7&rtccorrect=-1600
+			ipc	${PROPHTTP}
+			scr	GET /time.fsp?timezone=-7&rtccorrect=-1600 HTTP/1.1
+			w
+			dis
+			w
+

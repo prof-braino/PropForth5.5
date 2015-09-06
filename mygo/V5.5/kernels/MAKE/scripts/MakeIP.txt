@@ -1,0 +1,21 @@
+L MAKE/results/runLogs/MakeIPRunLog.txt
+R MAKE/results/resultFiles/MakeIPResult.txt
+
+\ Load BootOptimize Kernel
+						r	MAKE/scripts/LoadBootOptimizeKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load asm.f
+						scr fl
+						S	MAKE/src/optimize/asm.f
+\ echos and prompts off
+						X	: alloff 7 0 do hA i cogstate orC! loop ; alloff
+						O	MAKE/results/outputFiles/ip.f
+						SW	hA state orC!
+						SW	1 wconstant build_IP
+
+\ ipAsmSrc.f, ipserver.f
+	cps 1000 t 3000				S	MAKE/src/optimize/ip/ipAsmSrc.f
+						SR	MAKE/src/optimize/ip/ipserver.f
+						SW	hA state andnC!
+						CO CR CL

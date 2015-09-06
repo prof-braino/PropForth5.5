@@ -1,0 +1,17 @@
+L TEST/results/runLogs/SnetEEpromHTTPTelnet0RunLog.txt
+R TEST/results/resultFiles/SnetEEpromHTTPTelnet0Result.txt
+
+			ipc	${PROPTELNET0}
+			X	cog?
+			r 	TEST/scripts/BasicFunctionality.txt
+			X	fsls
+			X	fsread boot.f
+			dis
+
+			ipc	${PROPTELNET0}
+			X	cog?
+			X	fsls
+			X	fsread boot.f
+			dis
+
+			CR CL

@@ -1,0 +1,154 @@
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:37:42.2575132 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:37:42.3155165 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: 
+
+\ Load Dev Kernel
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:37:42.3735198 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:37:42.429523 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:37:42.429523 -0800 PST SENDING: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:37:42.429523 -0800 PST DONE SENDING waiting for output: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:37:45.4406952 -0800 PST DONE: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:45.576703 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:45.6067047 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:45.6067047 -0800 PST SENDING: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:45.6067047 -0800 PST DONE SENDING waiting for output: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:48.6068763 -0800 PST DONE: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:48.7218829 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:48.7218829 -0800 PST SENDING: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:48.7218829 -0800 PST DONE SENDING waiting for output: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:51.7220545 -0800 PST DONE: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:51.8620625 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 17:37:51.8620625 -0800 PST SENDING: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:01.8326328 -0800 PST DONE SENDING waiting for output: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:04.8328044 -0800 PST DONE: MAKE/src/buildq.f
+\ check Forth
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:05.0028141 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:05.0028141 -0800 PST SENDING: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:05.0028141 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:06.1448794 -0800 PST DONE: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:06.2608861 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:06.2608861 -0800 PST SENDING: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:06.2608861 -0800 PST DONE SENDING waiting for output: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:07.2609433 -0800 PST DONE: state C!
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:38:07.360949 -0800 PST 
+ scriptFileName: MAKE/scripts/LoadDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: 
+
+MAKE/scripts/CheckForth.txt::2013-02-21 17:38:07.361949 -0800 PST DONE SCRIPT FILE
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:38:07.4039515 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:38:07.4039515 -0800 PST SENDING: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:39:03.8571804 -0800 PST DONE SENDING waiting for output: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:39:06.857352 -0800 PST DONE: MAKE/src/forthEepromUtils.f
+\ Loading MAKE/results/outputFiles/DevKernel.eeprom
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:39:07.0303619 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:39:07.0303619 -0800 PST SENDING: eeload
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:39:07.0303619 -0800 PST DONE SENDING waiting for output: eeload
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:39:10.0405341 -0800 PST DONE: eeload
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:39:10.1995432 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: true
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:39:10.1995432 -0800 PST SENDING: MAKE/results/outputFiles/DevKernel.eeprom
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:40:15.7392918 -0800 PST DONE SENDING waiting for output: MAKE/results/outputFiles/DevKernel.eeprom
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:40:20.9865919 -0800 PST DONE: MAKE/results/outputFiles/DevKernel.eeprom
+\ Reboot
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:40:21.1125991 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:40:21.1125991 -0800 PST SENDING: reboot
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:40:21.1125991 -0800 PST DONE SENDING waiting for output: reboot
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:40:26.3508988 -0800 PST DONE: reboot
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:26.4519045 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: 
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 17:40:26.4529046 -0800 PST DONE SCRIPT FILE
+\ Here
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:26.4789061 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:26.4789061 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:26.4789061 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:29.5010789 -0800 PST DONE: here W@ . cr
+\ Load fsrd.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:29.6500875 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:29.6500875 -0800 PST SENDING: MAKE/src/optimize/fs/fsrd.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:31.8242118 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/fs/fsrd.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:35.8104398 -0800 PST DONE: MAKE/src/optimize/fs/fsrd.f
+\ Load fswr.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:35.936447 -0800 PST SEND: [fl ]+cr
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:35.9724491 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:35.9724491 -0800 PST SENDING: MAKE/src/optimize/fs/fswr.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:36.844499 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/fs/fswr.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:40.8277268 -0800 PST DONE: MAKE/src/optimize/fs/fswr.f
+\ Load ip.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:40.9837357 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:40:40.9837357 -0800 PST SENDING: MAKE/results/outputFiles/ip.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:41:58.0601442 -0800 PST DONE SENDING waiting for output: MAKE/results/outputFiles/ip.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:01.0603158 -0800 PST DONE: MAKE/results/outputFiles/ip.f
+\ Load fsHttpserver.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:01.2303256 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:01.2303256 -0800 PST SENDING: MAKE/src/optimize/ip/http/fsHttpserver.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:19.6333781 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/ip/http/fsHttpserver.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:23.1735806 -0800 PST DONE: MAKE/src/optimize/ip/http/fsHttpserver.f
+\ Load spinimage.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:23.320589 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:23.320589 -0800 PST SENDING: MAKE/src/spinimage.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:28.7548999 -0800 PST DONE SENDING waiting for output: MAKE/src/spinimage.f
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:32.4521113 -0800 PST DONE: MAKE/src/spinimage.f
+\ echos and prompts off
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:32.5971196 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:32.5971196 -0800 PST SENDING: hA state orC!
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:32.5971196 -0800 PST DONE SENDING waiting for output: hA state orC!
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:35.6022915 -0800 PST DONE: hA state orC!
+\ make Kernel.spin
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:35.7753014 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: MAKE/results/outputFiles/EEpromHTTPKernel.spin
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:35.8243042 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:35.8243042 -0800 PST ECHOING: MAKE/results/outputFiles/AsmKernel.spin
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:35.8463055 -0800 PST DONE ECHOING: MAKE/results/outputFiles/AsmKernel.spin
+\ spinimage
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:35.9813132 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:35.9813132 -0800 PST SENDING: spinImage
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:42:35.9813132 -0800 PST DONE SENDING waiting for output: spinImage
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:43:03.8329062 -0800 PST DONE: spinImage
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:43:03.9629137 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: 
+
+MAKE/scripts/MakeEEpromHTTPKernel.txt::2013-02-21 17:43:03.9639137 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+

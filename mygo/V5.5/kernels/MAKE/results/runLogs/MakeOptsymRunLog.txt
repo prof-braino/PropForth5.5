@@ -1,0 +1,124 @@
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:41:57.535206 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:41:57.5822087 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: 
+
+\ Load Start Kernel
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:41:57.6542128 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:41:57.710216 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:41:57.710216 -0800 PST SENDING: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:41:57.710216 -0800 PST DONE SENDING waiting for output: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:42:00.7213882 -0800 PST DONE: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:00.8563959 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:00.8863977 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:00.8863977 -0800 PST SENDING: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:00.8863977 -0800 PST DONE SENDING waiting for output: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:03.8865693 -0800 PST DONE: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:04.0015758 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:04.0015758 -0800 PST SENDING: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:04.0015758 -0800 PST DONE SENDING waiting for output: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:07.0017474 -0800 PST DONE: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:07.1417554 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:07.1417554 -0800 PST SENDING: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:17.1123257 -0800 PST DONE SENDING waiting for output: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:20.1124973 -0800 PST DONE: MAKE/src/buildq.f
+\ check Forth
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:20.2825071 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:20.2825071 -0800 PST SENDING: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:20.2825071 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:21.5705807 -0800 PST DONE: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:21.6865874 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:21.6865874 -0800 PST SENDING: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:21.6865874 -0800 PST DONE SENDING waiting for output: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:22.6866446 -0800 PST DONE: state C!
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:42:22.7866503 -0800 PST 
+ scriptFileName: MAKE/scripts/LoadStartKernel.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: 
+
+MAKE/scripts/CheckForth.txt::2013-02-21 16:42:22.7876503 -0800 PST DONE SCRIPT FILE
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:42:22.8296527 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:42:22.8296527 -0800 PST SENDING: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:43:19.2838817 -0800 PST DONE SENDING waiting for output: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:43:22.2840533 -0800 PST DONE: MAKE/src/forthEepromUtils.f
+\ Loading MAKE/results/outputFiles/StartKernel.eeprom
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:43:22.4590634 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:43:22.4590634 -0800 PST SENDING: eeload
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:43:22.4590634 -0800 PST DONE SENDING waiting for output: eeload
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:43:25.4672354 -0800 PST DONE: eeload
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:43:25.6282446 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: true
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:43:25.6282446 -0800 PST SENDING: MAKE/results/outputFiles/StartKernel.eeprom
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:44:31.1679933 -0800 PST DONE SENDING waiting for output: MAKE/results/outputFiles/StartKernel.eeprom
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:44:36.5573015 -0800 PST DONE: MAKE/results/outputFiles/StartKernel.eeprom
+\ Reboot
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:44:36.6833087 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:44:36.6833087 -0800 PST SENDING: reboot
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:44:36.6833087 -0800 PST DONE SENDING waiting for output: reboot
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:44:41.9936125 -0800 PST DONE: reboot
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:42.0946182 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: 
+
+MAKE/scripts/LoadStartKernel.txt::2013-02-21 16:44:42.0956183 -0800 PST DONE SCRIPT FILE
+\ Here
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:42.1216198 -0800 PST  2000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:42.1216198 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:42.1216198 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:45.2718 -0800 PST DONE: here W@ . cr
+\ Load symgen.f
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:45.4138081 -0800 PST  2000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:45.4138081 -0800 PST SENDING: MAKE/src/symgen.f
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:46.6408783 -0800 PST DONE SENDING waiting for output: MAKE/src/symgen.f
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:56.1894244 -0800 PST DONE: MAKE/src/symgen.f
+\ echos and prompts off
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:56.3404331 -0800 PST  2000 cps  Receive Delay 1s Echo: false Binary: false
+
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:56.3404331 -0800 PST SENDING: hA state orC!
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:56.3404331 -0800 PST DONE SENDING waiting for output: hA state orC!
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:57.3544911 -0800 PST DONE: hA state orC!
+\ symgen
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:57.5044996 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: MAKE/results/outputFiles/Optsym.f
+
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:57.5255008 -0800 PST  2000 cps  Receive Delay 5s Echo: false Binary: false
+
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:57.5255008 -0800 PST SENDING: symgen
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:44:57.5255008 -0800 PST DONE SENDING waiting for output: symgen
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:45:09.7712013 -0800 PST DONE: symgen
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:45:09.8852078 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: 
+
+MAKE/scripts/MakeOptsym.txt::2013-02-21 16:45:09.8852078 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: 
+outputFileName: 
+

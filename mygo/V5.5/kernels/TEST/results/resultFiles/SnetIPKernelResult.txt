@@ -1,0 +1,260 @@
+
+ scriptFileName: TEST/scripts/SnetIPKernel.txt
+   logFileName: TEST/results/runLogs/SnetIPKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetIPKernelResult.txt
+outputFileName: 
+[ifndef rcogx
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_sdfs
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rfsend
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef term
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\ sersetflags ( n2 n1 -- O ) for the serial driver running on cog n1, set the flags to n2
+Prop0 Cog6 ok
+[ifndef sersetflags
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ invert ( n1 -- n2 ) bitwise invert n1
+Prop0 Cog6 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinin ( n1 -- ) set pin # n1 to an input
+Prop0 Cog6 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinout ( n1 -- ) set pin # n1 to an output
+Prop0 Cog6 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinlo ( n1 -- ) set pin # n1 to lo
+Prop0 Cog6 ok
+[ifndef pinlo
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinhi ( n1 -- ) set pin # n1 to hi
+Prop0 Cog6 ok
+[ifndef pinhi
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ _snet ( -- ) load the serial driver, and start it on cog 4
+Prop0 Cog6 ok
+[ifndef _snet
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ snet ( -- ) reset the spinnret board, start a serial driver, and connect a terminal
+Prop0 Cog6 ok
+[ifndef snet
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ resnet ( -- ) start a serial driver and connect a terminal to the spinneret board
+Prop0 Cog6 ok
+[ifndef resnet
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ nsnet ( n1 -- ) start a serial driver, send n1 characters
+Prop0 Cog6 ok
+[ifndef nsnet
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+snet
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  0(0)->5(0)
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  1(0)->5(1)
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  2(0)->5(2)
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  3(0)->5(3)
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:4                        IP SERVER  5(0)->0(0)  5(1)->1(0)  5(2)->2(0)  5(3)->3(0)
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/SnetIPTelnet0.txt
+   logFileName: TEST/results/runLogs/SnetIPTelnet0RunLog.txt
+resultFileName: TEST/results/resultFiles/SnetIPKernelResult.txt
+outputFileName: 

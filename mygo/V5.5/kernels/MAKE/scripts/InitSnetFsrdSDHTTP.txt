@@ -1,0 +1,45 @@
+\ Load BootOptimize Kernel
+	cps 1000
+\
+
+
+						r	MAKE/scripts/InitSnetFsrdSDIP.txt
+
+						X	here W@ . cr
+						X	snet
+						X	here W@ . cr
+\ Load httpserver.f
+						X	mountsys
+	cps 500					X	100 fwrite httpserver.f
+						S	MAKE/src/optimize/ip/http/httpserver.f
+						X	...
+
+\ Load http.f
+	cps 200					S	MAKE/src/optimize/ip/http/http.f
+
+\ Load rtc.f & daytime.f
+						X	mountusr
+						X	cd http/
+	cps 500					X	100 fwrite rtc.f
+						S	MAKE/src/optimize/ip/rtc/rtc.f
+						X	...
+						X	100 fwrite daytime.f
+						S	MAKE/src/optimize/ip/rtc/daytime.f
+						X	...
+
+
+	cps 500					X	fsload fswr.f
+						X	fsdrop
+\ Load boot.f
+						S	MAKE/src/optimize/ip/http/boot.f
+
+\ Reboot
+	t 7000					X	reboot
+	t 1000					X	here W@ . cr
+						x 10
+						X	here W@ . cr
+
+
+				
+
+

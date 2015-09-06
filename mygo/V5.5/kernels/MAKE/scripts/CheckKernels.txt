@@ -1,0 +1,41 @@
+L MAKE/results/runLogs/CheckKernelsRunLog.txt
+R MAKE/results/resultFiles/CheckKernelsResult.txt
+	
+
+	X	c" ~h0D~h0DLoadInitialStartKernel~h0D" .cstr
+	r	MAKE/scripts/LoadInitialStartKernel.txt
+	r	MAKE/scripts/CheckForth.txt
+
+	X	c" ~h0D~h0DLoadStartKernel~h0D" .cstr
+	r	MAKE/scripts/LoadStartKernel.txt
+	r	MAKE/scripts/CheckForth.txt
+	
+	X	c" ~h0D~h0DLoadBootKernel~h0D" .cstr
+	r	MAKE/scripts/LoadBootKernel.txt
+	r	MAKE/scripts/CheckForth.txt
+	
+	X	c" ~h0D~h0DLoadBootOptimizeKernel~h0D" .cstr
+	r	MAKE/scripts/LoadBootOptimizeKernel.txt
+	r	MAKE/scripts/CheckForth.txt
+	
+	X	c" ~h0D~h0DLoadDevKernel~h0D" .cstr
+	r	MAKE/scripts/LoadDevKernel.txt
+	r	MAKE/scripts/CheckForth.txt
+	
+	X	c" ~h0D~h0DInitSdfs~h0D" .cstr
+	r	MAKE/scripts/InitSdfs.txt
+	r	MAKE/scripts/CheckForth.txt
+	
+	X	c" ~h0D~h0DInitFsrd~h0D" .cstr
+	r	MAKE/scripts/InitFsrd.txt
+	r	MAKE/scripts/CheckForth.txt
+	
+	X	c" ~h0D~h0DInitEEprom~h0D" .cstr
+	r	MAKE/scripts/InitEEprom.txt
+	r	MAKE/scripts/CheckForth.txt
+	
+	X	c" ~h0D~h0DInitFsrdSD~h0D" .cstr
+	r	MAKE/scripts/InitFsrdSD.txt
+	r	MAKE/scripts/CheckForth.txt
+	
+	CO CR CL

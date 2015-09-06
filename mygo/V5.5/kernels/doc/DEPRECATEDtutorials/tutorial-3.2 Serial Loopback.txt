@@ -1,0 +1,258 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Run tutorial-1.1 Standard Developent System.txt 
+
+2. Start teraterm.
+
++++
+Reboot
+---
+reboot 
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
++++
+Define_term
+---
+: term over cognchan min ." Hit CTL-F to exit comterm" cr >r >r cogid 0 r> r> (iolink)
+begin key dup h6 = if drop 1 else emit 0 then until cogid iounlink ;
+###
+: term over cognchan min ." Hit CTL-F to exit comterm" cr >r >r cogid 0 r> r> (iolink)
+begin key dup h6 = if drop 1 else emit 0 then until cogid iounlink ;
+Prop0 Cog6 ok
+%%%
+
+
+
++++
+Run_cog?_1
+---
+cog?
+###
+cog?
+Cog:0  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:1  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:2  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:5  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+%%%
+
+3. Explanation:
+
+This is telling us the status of each cog, and where it's io is connected.
+
+
+Cog:6  #io chan:1 
+
+This tells us cog 6 has 1 io channel. This is where the input is sent to the forth interpreter
+and any output from the forth interpreter goes to the channel.
+
+PropForth v5.0 2012JAN09 14:30 1
+
+This tells us what the cog is running.
+
+6(0)->7(0)
+
+and this tells us that the output of cog 6 channel 0 is connected to the input of cog 7 channel 0.
+
+
+Cog:7  #io chan:1
+
+This tells us cog 7 has 1 io channel. This is connected to the serial channel. This is connected
+to the propclip by default.
+
+
+                          SERIAL 
+
+This tell us cog 7 is running the serial driver. This driver is connected to the pins which connect
+to the propclip by default.
+
+ 
+7(0)->6(0)
+
+And this tells us the output of cog 7 (which is keys coming in from the prop clip)
+is connected to the input of cog 6.
+
+
+4. start a serial driver, pin 0 rx, pin 1 tx, 57600 baud, use cog 1
+
++++
+Run_startserialcog1
+---
+c" 0 1 57600 serial" 1 cogx
+###
+c" 0 1 57600 serial" 1 cogx
+Prop0 Cog6 ok
+%%%
+
+
+5. start a serial driver, pin 1 rx, pin 0tx, 57600 baud, use cog 2
+
++++
+Run_startserialcog2
+---
+c" 1 0 57600 serial" 2 cogx
+###
+c" 1 0 57600 serial" 2 cogx
+Prop0 Cog6 ok
+%%%
+
++++
+Set_flags
+---
+1 1 sersetflags 1 2 sersetflags
+###
+1 1 sersetflags 1 2 sersetflags
+Prop0 Cog6 ok
+%%%
+
++++
+Run_cog?_2
+---
+cog?
+###
+cog?
+Cog:0  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:1  #io chan:1                           SERIAL
+Cog:2  #io chan:1                           SERIAL
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:5  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+
+6. We can now see that cogs 1 & 2 are running serial drivers. the rx/tx pins from cog1
+are connected to the rx/tx pins of cog2. We will now connect cog 0 to cog1.
+
+
++++
+Run_ioconn
+---
+0 1 ioconn
+###
+0 1 ioconn
+Prop0 Cog6 ok
+%%%
+
++++
+Run_cog?_3
+---
+cog?
+###
+cog?
+Cog:0  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  0(0)->1(0)
+Cog:1  #io chan:1                           SERIAL  1(0)->0(0)
+Cog:2  #io chan:1                           SERIAL
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:5  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+%%%
+
+7. We now see cog0 is connected to the serial driver running on cog1. After
+running 2 0 term hit enter a couple of times.
+
+
++++
+Run_term
+---
+2 0 term
+###
+2 0 term
+Hit CTL-F to exit comterm
+UNDEFINED WORD ø
+Prop0 Cog0 ok
+
+Prop0 Cog0 ok
+
+Prop0 Cog0 ok
+
+Prop0 Cog0 ok
+%%%
+
+8. We are now connected through the serial driver on cog2 via the rx/tx pins to the
+serial driver on cog1 which is conneted to cog0.
+
+
++++
+Run_cog?_4
+---
+cog?
+###
+cog?
+Cog:0  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  0(0)->1(0)
+Cog:1  #io chan:1                           SERIAL  1(0)->0(0)
+Cog:2  #io chan:1                           SERIAL  2(0)->7(0)
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:5  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->2(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog0 ok
+%%%
+
+9. The term program running on cog6 has connected it's output to the input of
+the serial driver runnign on cog2, and the output of the serial driver running on cog2
+is going to the input of the serial driver on cog7, which is connect to the propclip and goes 
+to the display of teraterm.
+
+The keys from teraterm go to the propclip, which is connetd to the serial driver on cog7,
+which is connected to the input of cog6. the term program running on cog6 routes these
+keys to the input of cog2 until a CTL-F is hit.
+
++++
+Hit_CTL-F
+---
+(CTL-F)
+###
+Prop0 Cog0 ok
+Prop0 Cog6 ok
+%%%
+
+
+
++++
+Run_cog?_4
+---
+cog?
+###
+Cog:0  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  0(0)->1(0)
+Cog:1  #io chan:1                           SERIAL  1(0)->0(0)
+Cog:2  #io chan:1                           SERIAL
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:5  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+%%%
+
+

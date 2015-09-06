@@ -1,0 +1,76 @@
+CHANGES in 5.5
+
+No code changes, build / test process changes, which will not affect most users. The process
+is now automated and a full build and regression runs in about 3 hours with no intervention.
+
+The EEPROM http kernel is no longer in CurrentRelease. it is still produced and tested, but it is 
+not documented. If someone volunteers to document this we can consider making it part of the
+CurrentRelease.
+
+Additions, including vga support are in the extensions directory.
+
+
+CHANGES in 5.3
+
+The only serial driver is now the fast serial driver which has a 512 bytes send buffer
+and a 512 byte receive buffer in cog memory. The speed of the serial driver is 4 times
+what is specified. Specifying 57600 actually gets you 230.4 kbps. This was done so the
+speed could be kept as a word (important for the start kernel). The top speed of this
+driver is 230.4 kbps.
+
+
+The big changes in 5.3 are the build and test environments which have been automated.
+A few more kernels have been added to the current release to support different needs.
+
+
+CHANGES in V5.0
+
+Hexadecimal characters must be uppercase
+
+hABD will be interpreted as hex no matter what the base is
+
+d1234 will be interpreted as decimal no matter what the base is
+
+b1001 will be interpreted as binary no matter what the base is
+
+Numbers can have _
+
+Example:
+
+123_456
+
+h_AAAA_5555
+
+d_123
+
+b_1001_1100
+
+
+
+There is an optional line buffer mode which will not echo characters until cr is hit
+
+Backspace x08 is used, del x7F does not delete a character in the buffer
+
+CR x0D is the line termination, LF x0A is not a line termination
+
+CR is ouput as x0D
+- this was done to allow redirection of files easily to and from IO
+
+serial driver changes - option to expand cr to crlf by default, can manipulate with sersetflags
+                      - option to send a break - sersendbreak
+
+telnet driver changes - option to expand cr to crlf by default
+
+The fs eeprom file syste boot process now automatically detects eeprom size.
+
+
+Kernel modified and optimized.
+
+Added ST@ ST! - fast instructions to access and modify stack, these can modify any item on the
+                stack, not just the top item
+
+More assembler instructions can be dynamically added
+
+Assembler words are now dynamically loaded and cached - this provides huge optimizations
+and space efficiency
+

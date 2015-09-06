@@ -1,0 +1,21 @@
+L MAKE/results/runLogs/MakeIPKernelRunLog.txt
+R MAKE/results/resultFiles/MakeIPKernelResult.txt
+
+\ Load Dev Kernel
+						r	MAKE/scripts/LoadDevKernel.txt
+\ Here
+	cps 500					X	here W@ . cr
+\ Load ip.f
+						S	MAKE/results/outputFiles/ip.f
+\ Load iponboot.f
+						S	MAKE/src/optimize/ip/iponboot.f
+\ Load spinimage.f
+	cps 3000				S	MAKE/src/spinimage.f
+\ echos and prompts off
+						X	hA state orC!
+\ make \IPKernel.spin
+						O	MAKE/results/outputFiles/IPKernel.spin
+						SR	MAKE/results/outputFiles/AsmKernel.spin
+\ spinimage
+	t 3000					X	spinImage
+						CO CR CL

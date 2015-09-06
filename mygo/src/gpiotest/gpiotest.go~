@@ -1,0 +1,59 @@
+package main
+
+
+import "fmt"
+import "rpiGPIO"
+import "time"
+
+func main() {
+	if rpiGPIO.InitErr != nil {
+		fmt.Println( rpiGPIO.InitErr)
+	} else {
+
+		rpiGPIO.IODump()
+		for _,p :=range( rpiGPIO.IOpins) {
+			rpiGPIO.IOWriteFsel( p , 0)
+		}
+		rpiGPIO.IODump( )
+		for _,p :=range( rpiGPIO.IOpins) {
+			rpiGPIO.IOWriteFsel( p , 1)
+		}
+		rpiGPIO.IODump( )
+
+		for _,p :=range( rpiGPIO.IOpins) {
+			rpiGPIO.IOSet(p)
+			time.Sleep( 1e9)
+		}
+		for _,p :=range( rpiGPIO.IOpins) {
+			rpiGPIO.IOClear(p)
+			time.Sleep( 1e9)
+		}
+		for _,p :=range( rpiGPIO.COGpins) {
+			rpiGPIO.CogSet(p)
+			time.Sleep( 1e9)
+		}
+		for _,p :=range( rpiGPIO.COGpins) {
+			rpiGPIO.CogClear(p)
+			time.Sleep( 1e9)
+		}
+		for _,p :=range( rpiGPIO.IOpins) {
+			rpiGPIO.IOWriteFsel( p , 0)
+		}
+		rpiGPIO.IODump( )
+		for i:=0 ; i < 1000; i++ {
+			for _,p := range( rpiGPIO.COGpins) {
+				v := 0
+				if rpiGPIO.CogGet(p) {
+					v = 1
+				}
+				fmt.Print( "%02d: %d ", p, v)
+			}
+			fmt.Printf( "\n")
+			time.Sleep( 1e9)
+		}
+		rpiGPIO.CogReset()
+	}
+
+
+}
+

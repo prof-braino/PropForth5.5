@@ -1,0 +1,8 @@
+						X	state C@ hA state orC!
+						X	here W@
+	cps 200
+	t 3000					S	MAKE/src/buildq.f
+	e 1
+\ check Forth
+	t 1000					X	cr c" here: " .cstr . cr build? cr cr
+						X	state C!

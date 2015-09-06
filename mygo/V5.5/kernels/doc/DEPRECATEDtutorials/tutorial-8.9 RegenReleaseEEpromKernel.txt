@@ -1,0 +1,129 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+NOTE: spinImage does not leave the system in a stable state, if there is an issue reboot and
+run sequence from start again
+
+1. Connect Propclip to the Propeller Board and load 
+kernels\BootKernel\BootOptimizeKernel\PropForthOptimizeBootKernel\BootOptimizeDevKernel\PropForthDevKernel.spin
+into eeprom.
+
+2. Start teraterm.
+
+
++++
+Reboot
+---
+reboot
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
+
++++
+Free
+---
+free
+###
+free
+15148 bytes free - 176 cog longs free
+Prop0 Cog6 ok
+%%%
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\fs.f
+into teraterm
+
++++
+Load_fs.f
+===
+fs.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_fsrd
+Prop0 Cog5 ok
+~~~
+
+
+
+4. paste contents of
+kernels\BootKernel\BootOptimizeKernel\spinimage.f
+into teraterm
+
+
+
+
++++
+Load_spinimage.f
+===
+spinimage.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_spinimage
+Prop0 Cog5 ok
+~~~
+
+
++++
+Run_spinimage
+---
+spinImage
+###
+spinImage
+
+
+ForthDictStart
+~~~
+
+5. Compare the output of spinImage to
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\PropForthEEpromKernel.spin
+where the dictionary starts, (I use windiff) this verifies the code base is reproducable.
+This image should be exactly the same. (may be some differences in space or empty lines, this is ok.)
+
+
+	

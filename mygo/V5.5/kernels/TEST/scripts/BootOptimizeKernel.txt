@@ -1,0 +1,7 @@
+L TEST/results/runLogs/BootOptimizeKernelRunLog.txt
+
+\ Load Start Kernel
+			r MAKE/scripts/LoadStartKernel.txt
+R TEST/results/resultFiles/BootOptimizeKernelResult.txt
+	t 500		r TEST/scripts/BasicFunctionality.txt
+			CO CR CL

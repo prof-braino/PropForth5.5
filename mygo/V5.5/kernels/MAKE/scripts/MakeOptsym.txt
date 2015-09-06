@@ -1,0 +1,16 @@
+L MAKE/results/runLogs/MakeOptsymRunLog.txt
+R MAKE/results/resultFiles/MakeOptsymResult.txt
+
+	cps 2000
+\ Load Start Kernel
+						r	MAKE/scripts/LoadStartKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load symgen.f
+						S 	MAKE/src/symgen.f
+\ echos and prompts off
+	t 1000					X	hA state orC!
+\ symgen
+						O	MAKE/results/outputFiles/Optsym.f
+	t 5000					X	symgen
+						CO CR CL

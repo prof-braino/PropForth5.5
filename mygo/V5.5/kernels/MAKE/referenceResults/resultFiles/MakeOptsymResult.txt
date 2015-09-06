@@ -1,0 +1,214 @@
+
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 13636 
+
+NFA (Forth/Asm Immediate eXecute) Name
+03_656 F   build_BootKernel     
+
+PropForth v5.3 2012JUN10 11:00 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadStartKernel.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: 736243306 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: 
+here W@ . cr
+13636 
+Prop0 Cog6 ok
+fl
+[ifndef 2*
+Prop0 Cog5 ok
+: 2* _xasm2>1IMM h0001 _cnip h05F _cnip ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sym 
+cr
+lastnfa
+begin
+c" $C_" over swap npfx
+over c" $V_" npfx or
+
+if
+." [ifndef " dup .strname cr
+base W@ ."     h" over nfa>pfa 2+ W@ hex . base W! ." wconstant " dup .strname cr
+." ]" cr cr 
+then  
+nfa>next dup 0=
+until
+drop cr
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _wordArray
+lockdict ccreate $C_a_dovarw w, here W@ 0 w, swap 0 max h1000 min dup w, 2* allot forthentry freedict
+dup dup W@ swap 2+ swap 2* 0 fill
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _waAppend
+over dup W@ swap 2+ W@ <
+if
+over dup W@ 2+ 2* +  W!
+1 swap W+!
+
+else
+hDD ERR
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _string
+lockdict ccreate here W@ 2+ swap
+$H_cq w, dup here W@ ccopy C@ 1+ allot herewal
+$C_a_exit w, 
+forthentry freedict
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: cstr>
+0 rot2
+2dup C@ swap C@ swap
+2dup
+>
+>r
+min  rot
+1+ rot 1+ rot
+bounds
+do
+dup C@ i C@
+-
+rot + tuck
+0<>
+if
+leave
+then
+1+
+loop
+drop
+dup
+if
+r> drop 0>
+else
+drop r>
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _strBsort
+-1 swap
+dup W@ 1 >
+if
+dup W@ 1- 2* over 4+ swap bounds
+do
+i W@ i 2+ W@
+cstr>
+if
+i W@ i 2+ W@
+i W! i 2+ W!
+nip 0 swap
+then
+2 +loop
+then
+swap  
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: strBsort
+begin
+_strBsort
+until
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: symgen
+lockdict
+h400 c" _wlist" _wordArray
+lastnfa
+begin
+c" $C_" over swap npfx
+over c" $V_" npfx or
+over c" $S_" npfx or
+
+if
+dup tbuf namecopy
+tbuf C@ h1F and tbuf C!
+over tbuf c" _$$" _string
+_waAppend
+then  
+nfa>next dup 0=
+
+until
+drop
+strBsort
+dup W@ 0<>
+if
+
+cr cr cr
+dup W@ 2* over 4+ swap bounds
+do
+i W@
+." [ifndef " dup .cstr cr
+base W@ ."     h"
+over find
+if
+execute
+else
+drop 0
+then  
+hex . base W! ." wconstant "  .cstr cr
+." ]" cr cr 
+
+
+2 +loop
+then 
+drop 
+freedict 
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: MAKE/results/outputFiles/Optsym.f
+
+ scriptFileName: MAKE/scripts/MakeOptsym.txt
+   logFileName: MAKE/results/runLogs/MakeOptsymRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeOptsymResult.txt
+outputFileName: 

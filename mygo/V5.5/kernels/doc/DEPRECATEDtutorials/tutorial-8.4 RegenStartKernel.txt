@@ -1,0 +1,232 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Connect Propclip to the Prototype Board and load 
+kernels\BootKernel\PropForthStartKernel.spin
+into eeprom.
+
+2. Start teraterm.
+
+
+
++++
+Reboot
+---
+reboot
+###
+reboot
+Prop0 Cog6 ok
+%%%
+
+
+
++++
+Here
+---
+here W@ . cr
+###
+here W@ . cr
+13486
+Prop0 Cog6 ok
+%%%
+
+3. paste contents of
+kernels\BootKernel\optsymsrc.f
+into teraterm
+
++++
+Load_optsymsrc.f
+===
+optsymsrc.f
+###
+fl
+
+Prop0 Cog5 ok
+$C_a_dovarl wconstant $C_a_dovarl
+Prop0 Cog5 ok
+$C_a_doconl wconstant $C_a_doconl
+Prop0 Cog5 ok
+$C_a_debugonoff wconstant $C_a_debugonoff
+Prop0 Cog5 ok
+$C_a_reset wconstant $C_a_reset
+Prop0 Cog5 ok
+$~~~
+
+4. paste contents of
+kernels\BootKernel\PropForthStartKernel.f
+into teraterm
+
++++
+Load_PropForthStartKernel.f
+===
+PropForthStartKernel.f
+###
+fl
+1 wconstant build_BootKernel
+Prop0 Cog5 ok
+wvariable propid 0 propid W!
+Prop0 Cog5 ok
+: (prop) c" Prop" ;
+Prop0 Cog5 ok
+: (version) c" PropForth v5.0 2012JAN09 14:30 0" ;
+Prop0 Cog5 ok
+~~~
+
+
+5. paste contents of
+kernels\BootKernel\spinmaker.f
+into teraterm
+
++++
+Load_spinmaker.f
+===
+spinmaker.f
+###
+fl
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _xc
+rot2 over =
+if
+drop -1 0
+else
+nip -1
+then
+;
+Prop0 Cog5 ok
+~~~
+
+This next setp will take 3+ minutes.
+
++++
+Run_spinmaker
+---
+spinmaker
+###
+spinmaker
+
+ForthDictStart
+
+                        word    0
+wlastnfaNFA             byte    $88,"wlastnfa"
+wlastnfaPFA             word    (@a_dovarw - @a_base)/4
+                        word    @H_lastlfa + $12
+
+                        word    @wlastnfaNFA + $10
+hereNFA                 byte    $84,"here"
+herePFA                 word    (@a_dovarw - @a_base)/4
+                        word    @wfreespacestart + $10
+
+                        word    @hereNFA + $10
+dictendNFA              byte    $87,"dictend"
+dictendPFA              word    (@a_dovarw - @a_base)/4
+                        word    @ForthMemoryEnd + $10
+
+                        word    @dictendNFA + $10
+memendNFA               byte    $86,"memend"
+memendPFA               word    (@a_dovarw - @a_base)/4
+                        word    @ForthMemoryEnd + $10
+
+                        word    @memendNFA + $10
+dlrC_a_dovarlNFA        byte    $8B,"$C_a_dovarl"
+dlrC_a_dovarlPFA        word    (@a_doconw - @a_base)/4
+                        word    (@a_dovarl - @a_base)/4
+~~~
+
+6. Compare the output of spinmaker to PropForthStartKernel.spin (kernels) (where the dictionary starts,
+(I use windiff) this verifies the code base is reproducable, (may be some differences in some variable
+values, such as fl_in, or the first long in any assembler definitions, this is OK)
+If you are recompiling recompile, trim add 0's at end of file as  required, goal is to get maximum
+number of longs. Spin require 16 free longs, so pad/trim to that goal.
+
++++
+Reboot
+---
+reboot
+###
+reboot
+Prop0 Cog6 ok
+%%%
+
+
+
++++
+Here
+---
+here W@ . cr
+###
+here W@ . cr
+13486
+Prop0 Cog6 ok
+%%%
+
+
+7. Now we will regenerate optsym.f. These are symbols which are necessary for recompiling the start
+kernel, and are subsets are needed by the assembler, or other like programs. However they are mostly
+optional and take up space. optsym.f defines these symbols and they can be loaded as necessary. They
+will be removed when the BootKernel and it's derivatives are generated.
+
+
+8. paste contents of
+kernels\BootKernel\symgen.f
+into teraterm
+
++++
+Load_symgen.f
+===
+symgen.f
+###
+fl
+[ifndef 2*
+Prop0 Cog5 ok
+: 2* _xasm2>1IMM h0001 _cnip h05F _cnip ;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sym
+cr
+lastnfa
+~~~
+
+
+
++++
+Run_symgem
+---
+symgen
+###
+symgen
+
+
+
+[ifndef $C_IP
+    hC8 wconstant $C_IP
+]
+
+[ifndef $C_a_(+loop)
+    h82 wconstant $C_a_(+loop)
+]
+
+[ifndef $C_a_(loop)
+    h80 wconstant $C_a_(loop)
+]
+~~~
+
+
+
+9. Compare output of symgen to optsym.f, this should only change if the assembler forth kernel has been modified
+If you do change the assembler forth kernel, these values will change and must be updated where they are used
+in files from this step forward. This includes forth files like spinmaker.f, asm.f, etc.
+
+
+
+	

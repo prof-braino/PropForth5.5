@@ -1,0 +1,28 @@
+L TEST/results/runLogs/SnetFsrdSDHTTPTelnet0RunLog.txt
+R TEST/results/resultFiles/SnetFsrdSDHTTPTelnet0Result.txt
+
+			ipc	${PROPTELNET0}
+			X	cog? cogdel
+			r 	TEST/scripts/BasicFunctionality.txt
+			X	fsls
+			X	fsread boot.f
+			X	mountsys
+			X	ls
+			X	mountusr
+			X	ls
+			X	cd http/
+			X	ls
+			dis
+
+			ipc	${PROPTELNET0}
+			X	fsls
+			X	fsread boot.f
+			X	mountsys
+			X	ls
+			X	mountusr
+			X	ls
+			X	cd http/
+			X	ls
+			dis
+
+			CR CL

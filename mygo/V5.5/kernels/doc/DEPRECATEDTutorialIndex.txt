@@ -1,0 +1,208 @@
+DEPRECATED
+PropFORTH 5.0 Tutorial Suite
+
+The PropFORTH Tutorial suite is the set used during development to ensure that all functions behave as expected,
+and that nothing was “broken” during development.
+
+Starting in PropFORTH 5.0, the tutorial suite is being made available to users.
+In addition to providing evidence that all defined functions perform as intended,
+the suite also serves as the USE-CASE and TUTORIAL for each function.
+Any functions that are not exercised in the suite will be noted and additions
+will be created based on requests and resource availability. 
+
+
+
+All tutorial files are in the tutorials directory.
+
+
+
+Section 1. Standard Development System Tutorial
+
+This tutorial runs on all propeller configurations regardless of EEPROM size.
+
+tutorials/tutorial-1.1 PropForth System.txt
+
+tutorials/tutorial-1.2 Release PropForth Development System.txt
+
+
+
+
+
+
+Section 2. Eeprom Development System Tutorial
+
+This tutorial runs on all propeller configurations with EEPROM of 64k bytes or greater.
+
+tutorials/tutorial-2.1 Eeprom Development System.txt
+
+tutorials/tutorial-2.2 Release Development System.txt
+
+tutorials/tutorial-2.3 Release SD Development System.txt
+
+
+
+
+
+Section 3. Utilities Tutorial
+
+These tutorials may be run on either the Standard Developent System or the Eeprom Development System.
+For reference they are run on the Standard Developent System.
+
+tutorials/tutorial-3.1 Logic Analyzer.txt
+
+tutorials/tutorial-3.2 Serial Loopback.txt
+
+tutorials/tutorial-3.3 MCS Loopback.txt
+
+
+
+Section 4. SD Tutorial
+
+This tutorial is run Spinneret development board with an SD card.
+
+The SD suite requires an SD card of any size, we used the smallest and cheapest
+laying around the lab, also the largest cheapest we could appropriate.
+We used the SD slot on the spinneret for our testbed, other designs left to
+individual users to contribute.  The propforth design uses the SD card as
+“internal to propforth”, and the card is reformated for propforth and all
+previous data is overwritten.  INTERNAL PROPFORTH SD CARDS are not readable
+by windows OS until reformated.   Please get a separate SD card for the Spinneret,
+and don't expect to use it with windows. 
+
+tutorials/tutorial-4.1 SD.txt
+
+
+
+
+Section 5. IP Tutorial
+
+This tutorial is run Spinneret development board with an SD card, and an ethernet connection.
+
+tutorials/tutorial-5.1 IP+Telnet.txt
+tutorials/tutorial-5.2 HTTP.txt
+
+
+
+Section 6. RTC+Daytime Tutorial
+
+tutorials/tutorial-6.1 RTC.txt
+
+
+
+
+Section 7. MultiProp Tutorial
+
+These tutorials run on the hardware described in MultiPropReferenceSystemHardware.txt.
+
+tutorials/tutorial-7.1 SerialSpinneret.txt
+
+tutorials/tutorial-7.2 NoROM.txt
+
+tutorials/tutorial-7.3 MCS+NoROM.txt
+
+
+
+
+Section 8. Rebuilding Kernels
+
+These tutorials run on all propeller configurations regardless of EEPROM size.
+
+
+tutorials/tutorial-8.1 LoadStartKernel.txt
+
+tutorials/tutorial-8.2 LoadBootKernel.txt
+
+tutorials/tutorial-8.3 LoadOptimizeBootKernel.txt
+
+tutorials/tutorial-8.4 RegenStartKernel.txt
+
+tutorials/tutorial-8.5 RegenBootKernel.txt
+
+tutorials/tutorial-8.6 RegenOptimizeBootKernel.txt
+
+tutorials/tutorial-8.7 RegenOptimizeBootFsrdKernel.txt
+
+tutorials/tutorial-8.8 RegenReleasePropForth.txt
+
+tutorials/tutorial-8.9 RegenReleaseEEpromKernel.txt
+
+tutorials/tutorial-8.10 RegenReleaseSDKernel.txt
+
+
+
+
+
+Tutorial File format:
+
+filename: tutorial-x.x.x.txt
+
+1. This is information or an instruction
+
++++
+tutorialname
+---
+type_this_exactly_followed_by_enter
+###
+this_is_the_output_expected
+%%%
+The above line delimits the expected output
+
+2. tilde ~~~ is used when there is a lot of output and we're going to not include it here to save space
+
++++
+tutorialname
+---
+(CTL-D)(ENTER)
+###
+this_is_the_output_expected throw away the rest
+~~~
+
+3. equals === is used when the contents of a file are to be pasted instead of typing in text
+
++++
+tutorialname
+===
+spinmaker.f
+$$$
+this_is_the_output, will be not be exact match, output must be interpreted
+%%%
+
+
+Summary:
+
++++   - delimits start of test name
+---   - delimit end of test name, start of input line
+###   - delimit end of input, start of test output
+%%%   - delimit end of test output
+
++++   - delimits start of test name
+---   - delimit end of test name, start of input line
+###   - delimit end of input, start of test output
+~~~   - delimit "several but not all lines verified"
+
+
++++   - delimits start of test name
+---   - delimit end of test name, start of filename to be pasted
+===   - delimit end of filename, start of test output
+%%%   - delimit end of test output
+
++++   - delimits start of test name
+---   - delimit end of test name, start of filename to be pasted
+===   - delimit end of filename, start of test output
+~~~   - delimit "several but not all lines verified"
+
++++   - delimits start of test name
+---   - delimit end of test name, start of input line
+$$$   - delimit end of input, start of test output, output must beeveluated by developer
+%%%   - delimit end of test output
+
++++   - delimits start of test name
+---   - delimit end of test name, start of input line
+$$$   - delimit end of input, start of test output, output must beeveluated by developer
+~~~   - delimit "several but not all lines verified"
+
+
+
+
+
+

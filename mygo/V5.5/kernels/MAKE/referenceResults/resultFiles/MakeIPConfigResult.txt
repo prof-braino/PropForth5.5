@@ -1,0 +1,15 @@
+
+ scriptFileName: MAKE/scripts/MakeIPConfig.txt
+   logFileName: MAKE/results/runLogs/MakeIPConfigRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPConfigResult.txt
+outputFileName: 
+
+ scriptFileName: MAKE/scripts/MakeIPConfig.txt
+   logFileName: MAKE/results/runLogs/MakeIPConfigRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPConfigResult.txt
+outputFileName: MAKE/results/outputFiles/ipconfig.f
+
+ scriptFileName: MAKE/scripts/MakeIPConfig.txt
+   logFileName: MAKE/results/runLogs/MakeIPConfigRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPConfigResult.txt
+outputFileName: 

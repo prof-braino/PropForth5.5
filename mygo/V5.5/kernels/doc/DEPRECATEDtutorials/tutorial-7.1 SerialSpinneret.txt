@@ -1,0 +1,117 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Run tutorial-1.1 Standard Developent System.txt on both the Prototype board and spinneret board.
+the Propeller Proto Board and Spinneret connection are detailed in MultiPropTestSystem.txt
+run this on the Proto Board
+
+2. Start teraterm.
+
+
+
++++
+Reboot
+---
+reboot 
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\snet.f
+into teraterm
+
++++
+Load_snet.f
+===
+snet.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef term
+Prop0 Cog5 ok
+: term over cognchan min
+~~~
+
+
+
+
+
+
++++
+Run_snet
+---
+snet
+###
+snet
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+Hit CTL-F to exit comterm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              PropForth v5.0 2012JAN09 14:30 0
+
+~~~
+
+
++++
+Run_sersetflags
+---
+1 7 sersetflags
+###
+1 7 sersetflags
+
+SNET11 Cog6 ok
+%%%
+
+
++++
+Run_CTLF-1
+---
+(CTL-F)
+###
+Prop0 Cog6 ok
+%%%

@@ -1,0 +1,26 @@
+L MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+R MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+
+\ Load Dev Kernel
+						r	MAKE/scripts/LoadDevKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load fsrd.f
+						S	MAKE/src/optimize/fs/fsrd.f
+\ Load fswr.f
+						scr fl
+						S	MAKE/src/optimize/fs/fswr.f
+\ Load ip.f
+	cps 500					S	MAKE/results/outputFiles/ip.f
+\ Load fsHttpserver.f
+						S	MAKE/src/optimize/ip/http/fsHttpserver.f
+\ Load spinimage.f
+						S	MAKE/src/spinimage.f
+\ echos and prompts off
+						X	hA state orC!
+\ make Kernel.spin
+						O	MAKE/results/outputFiles/EEpromHTTPKernel.spin
+						SR	MAKE/results/outputFiles/AsmKernel.spin
+\ spinimage
+	t 3000					X	spinImage
+						CO CR CL

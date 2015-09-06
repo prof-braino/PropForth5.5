@@ -1,0 +1,1493 @@
+
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 17596 
+
+NFA (Forth/Asm Immediate eXecute) Name
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: 977719070 
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: 
+here W@ . cr
+17596 
+Prop0 Cog6 ok
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_fsrd
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_doconl
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef constant
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+h8000 constant fsbot  \ the start adress in eeprom for the file system
+Prop0 Cog5 ok
+h10000 constant fstop  \ the end address in the eeprom for the file system
+Prop0 Cog5 ok
+h40 wconstant fsps  \ a page size which should work with 32kx8 & 64kx8 eeproms
+Prop0 Cog5 ok
+\ and should work with larger as well. MUST BE A POWER OF 2
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef lasti?
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef #C
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _nd
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _ft
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _bf
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef .byte
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _wf
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef .word
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _lf
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef .long
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 1lock
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 1unlock
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef ibound
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinlo
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinhi
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef px
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _sdai
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _sdao
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _scli
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _sclo
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _sdal
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _sdah
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _scll
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _sclh
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _sda?
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _eestart
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _eestop
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef eereadpage 
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _fsk
+Prop0 Cog5 ok
+: _fsk
+h8 lshift key or
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _fnf
+Prop0 Cog5 ok
+: _fnf
+cr ." FILE NOT FOUND" cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fspa
+fsps 1- + fsps 1- andn
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fsnext
+t0 W@ t1 C@ + 2+ 1+ + _fspa dup fstop >=
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fsrd
+dup >r rot dup r> + fstop 1- >
+if
+hB ERR
+then
+rot2 eereadpage
+if
+hA ERR
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fsfree
+-1 fsbot
+begin
+dup t0 3 _fsrd t0 W@ hFFFF =
+if
+nip dup -1
+else
+_fsnext
+then
+until
+drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fsfind
+fsbot 0 >r
+begin
+dup t0 h22 _fsrd t0 W@ hFFFF =
+if
+-1
+else
+over t1 cstr=
+if
+r> drop dup >r
+then
+_fsnext
+then
+until
+2drop r>
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fslast
+0 fsbot
+begin
+dup t0 h22 _fsrd t0 W@ hFFFF =
+if 
+-1
+else
+nip dup
+_fsnext
+then
+until
+drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: fsfree
+_fsfree dup -1 =
+if
+0
+else
+fstop swap -
+then
+cr .long ."  bytes free in EEPROM file system" cr
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: fsls
+cr fsbot
+begin
+dup t0 h22 _fsrd t0 W@ hFFFF =
+if
+-1
+else
+dup .long space t0 W@ .word space t1 .cstr cr
+_fsnext
+then
+until
+drop fsfree
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fsread
+_fsfind dup
+if
+dup t0 h3 _fsrd
+t1 C@ + 2+ 1+ t0 W@ bounds
+do
+fsps i fsps 1- and -
+ibound i - min
+i pad h2 ST@ _fsrd
+pad over .str
++loop
+else
+drop
+then
+padbl
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fsp
+parsenw dup
+if
+dup _fsfind 0=
+if
+drop 0
+then
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: fsread
+_fsp dup 
+if
+_fsread
+else
+drop _fnf
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _fsload
+dup _fsfind
+if
+lockdict cogid nfcog iolink freedict
+_fsread cr cr cogid iounlink
+else
+drop
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: fsload 
+_fsp dup
+if
+_fsload
+else
+drop _fnf
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" onboot" find drop pfa>nfa 1+ c" onb001" C@++ rot swap cmove
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: onboot
+onb001
+fkey? and fkey? and or h1B <>
+if
+c" boot.f" _fsload
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_fswr
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef eewritepage
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef EW@
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef EW!
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+: _fswr
+dup >r rot dup r> + fstop 1- >
+if
+hA ERR 
+then
+rot2 eewritepage
+if
+hA ERR
+then
+;
+Prop0 Cog5 ok
+: fsclear
+-1 fsbot EW!
+; 
+Prop0 Cog5 ok
+: fswrite
+_fsfree dup -1 <> parsenw dup rot and
+if
+0 pad W! dup C@ 2+ 1+ pad + swap pad 2+ ccopy
+0 swap key _fsk _fsk _fsk
+begin
+h2E2E2E0D over = if
+-1
+else
+tuck h18 rshift
+dup emit
+over C! 1+ tuck pad - fsps =
+if
+nip rot2 2dup + pad fsps _fswr fsps + rot pad swap
+then 
+_fsk 0
+then
+until
+drop pad - dup 0> if
+>r 2dup + pad r> dup >r _fswr r> +
+else 
+drop
+then
+2dup + hFFFF swap _fspa dup fstop 1- <
+if
+EW!
+else
+2drop
+then 
+over 2+ EC@ 2+ 1+ - swap EW!
+else
+2drop clearkeys 
+then
+padbl
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: fsdrop
+_fslast dup -1 = 
+if
+drop
+else
+hFFFF swap EW!
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+hA state orC!
+IP Loading 1 2 3 4 5 6 7 8 9 10 11 12 IP Loaded
+Prop0 Cog6 ok
+fl
+Prop0 Cog5 ok
+1 wconstant build_httpserver
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $S_ip_httpport
+Prop0 Cog5 ok
+d_8080 wconstant $S_ip_httpport \ port 8080
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef decimal
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _ht_filelen
+EW@
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _ht_cd drop ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _ht_find
+_fsfind
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _ht_read
+_fsread
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _ht_readblk
+dup t0 h3 _fsrd
+t1 C@ + 2+ 1+ t0 W@ bounds
+do
+fsps i fsps 1- and -
+ibound i - min
+i pad h2 ST@ _fsrd
+pad over .str
++loop
+padbl
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable fspservercog
+Prop0 Cog5 ok
+wvariable fspcog
+Prop0 Cog5 ok
+wvariable chunkercog
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable reqstatus 0 reqstatus W!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict wvariable reqdata d_126 allot freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifdef http_debug
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: ip_SOCKhttp
+dup 0 $S_ip_numsock 1- between
+if
+dup ip_SOCKreset drop    \ reset the socket
+dup iodis
+dup cogreset h80 delms    \ reset the cog
+hA over cogstate orC!    \ prompts, errors off
+$S_ip_httpport over ip_SOCKlistenport W!  \ set the port
+h07 over ip_SOCKsendreq drop
+h13 over ip_SOCKsendreq drop
+
+c" httpserver" over cogx
+then
+drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: httpabort
+-1 h01 h11 h10 cogid ip_SOCKsendmultiplereq drop \ flush output, flush input, then disconnect
+;
+Prop0 Cog5 ok
+[ifndef _wnfcog
+Prop0 Cog5 ok
+: _wnfcog
+h_100 0
+do
+(nfcog) 0=
+if
+leave
+then
+drop
+1 delms
+loop
+nfcog
+;
+Prop0 Cog5 ok
+: httpserver
+c" HTTP SERVER" cds W!
+h4 state andnC!
+cogid 0 $S_ip_cog cogid (ioconn)
+h_100 delms
+lockdict
+_wnfcog dup fspservercog W!
+h4 over cogstate andnC!
+hA over cogstate orC!
+c" HTTP FSP SERVER" swap cogcds W!
+
+_wnfcog dup fspcog W!
+h4 over cogstate andnC!
+hA over cogstate orC!
+c" HTTP FSP" swap cogcds W!
+
+_wnfcog dup chunkercog W!
+h4 over cogstate andnC!
+hA over cogstate orC!
+c" HTTP CHUNKER" swap cogcds W!
+freedict
+
+begin
+0 reqstatus W!
+accept    \ get a line from the input and parse the first word
+1 reqstatus W!
+0 >in W!
+parsenw dup
+if
+h2 reqstatus W!
+[ifdef http_debug
+.
+.
+.
+.
+.
+.
+]
+c" http" tbuf ccopy
+tbuf cappend
+[ifdef http_debug
+.
+.
+]
+tbuf find    \ calls httpGET httpPOST etc
+if
+h3 reqstatus W!
+execute
+else     \ ignore all other requests
+[ifdef http_debug
+.
+.
+]
+drop
+h4 reqstatus W!
+httpabort
+then
+[ifdef http_debug
+.
+.
+.
+.
+.
+]
+else      \ empty line ignore
+drop
+then
+0 
+until
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: httpfsp
+[ifdef http_debug
+.
+.
+]
+cogid chunkercog W@ iolink
+
+." httpchunker~h0D"
+
+key _fsk _fsk _fsk
+
+begin
+dup hFFFFFF and h3C3F66 =
+if
+h18 rshift emit
+hA fspcog W@ cogstate orC!
+cogid fspcog W@ iolink
+
+[ifdef http_debug
+.
+.
+.
+.
+.
+.
+.
+.
+]
+key _fsk _fsk _fsk
+begin
+dup hFFFF and h3F3E =
+if
+dup h18 rshift
+[ifdef http_debug
+.
+.
+.
+.
+.
+]
+emit
+h10 rshift
+[ifdef http_debug
+.
+.
+.
+.
+.
+]
+emit
+-1
+
+else
+dup h18 rshift
+[ifdef http_debug
+.
+.
+.
+.
+.
+]
+emit
+_fsk
+0
+then
+until
+cr cr cr
+[ifdef http_debug
+.
+.
+.
+.
+.
+.
+.
+.
+]
+cogid iounlink
+key _fsk _fsk _fsk
+0
+
+
+[ifdef http_debug
+.
+.
+]
+else
+dup hFF and hFF =
+if
+dup h18 rshift emit
+dup h10 rshift emit
+h8 rshift emit
+-1
+else
+dup h18 rshift emit _fsk
+0
+then
+then
+until
+
+hFF emit
+cr
+cr
+cogid iounlink
+[ifdef http_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: httpchunker
+[ifdef http_debug
+.
+.
+]
+begin
+0
+pad h80 bounds
+do
+key
+dup hFF =
+if
+drop leave
+else
+i C!
+1+
+then
+loop
+
+base W@ hex
+over <# #s #> .cstr ." ~h0D~h0A"
+base W!
+dup 0<>
+if
+pad over bounds
+do
+i C@ emit
+loop
+." ~h0D~h0A"
+then
+[ifdef http_debug
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+
+h80 =
+if
+0
+else
+." 0~h0D~h0A~h0D~h0A"
+[ifdef http_debug
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+-1
+then
+until
+padbl
+
+[ifdef http_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _httpstart
+[ifdef http_debug
+.
+.
+]
+
+0 reqdata C!
+lockdict
+c" __fspcode" ccreate $C_a_dovarw w, forthentry
+freedict
+
+parsenw dup
+
+if
+[ifdef http_debug
+.
+.
+]
+C@++ 1- over C!
+dup
+[ifdef http_debug
+.
+.
+]
+
+C@++ bounds
+do
+i C@ h3F =
+if
+i 1- over - over
+C!
+ibound i 1+
+-
+dup reqdata C!
+dup
+if
+reqdata 1+
+i 1+ swap rot
+cmove
+else
+drop
+then
+leave
+then
+loop
+
+dup _ht_find
+else
+drop 0 0
+then
+[ifdef http_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _httpend
+[ifdef http_debug
+.
+.
+]
+-1 h01 h11 h10 cogid ip_SOCKsendmultiplereq drop \ flush output, flush input, then disconnect
+c" __fspcode" (forget)
+0 reqdata C!
+[ifdef http_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: httpSEND
+_ht_find dup
+if
+swap
+
+_ht_find dup
+if
+_ht_readblk
+
+dup _ht_filelen
+base W@ swap decimal . ." ~h0D~h0A~h0D~h0A"
+base W!
+_ht_readblk
+else
+2drop httpabort
+then
+else
+2drop httpabort
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: http404
+c" header404" c" r404.htm" httpSEND
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: httpGET
+[ifdef http_debug
+.
+.
+]
+_httpstart
+[ifdef http_debug
+.
+.
+]
+h11 cogid ip_SOCKsendreq drop \ flush the input, we are not going to consider anything else
+
+dup
+if
+c" header200htm" numpad ccopy
+swap
+C@++ h3 - + numpad hA + h3 cmove
+numpad _ht_find dup
+if
+_ht_readblk
+numpad hA + C@ h66 =
+if
+cogid fspservercog W@ iolink
+." httpfsp~h0D"
+_ht_readblk
+hFF emit
+cr
+cr
+cogid iounlink
+
+else
+dup _ht_filelen
+base W@ swap decimal . ." ~h0D~h0A~h0D~h0A"
+base W!
+_ht_readblk
+then
+else
+2drop http404
+then
+
+else
+2drop http404
+then
+_httpend 
+[ifdef http_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" onboot" find drop pfa>nfa 1+ c" onb002" C@++ rot swap cmove
+Prop0 Cog5 ok
+: onboot
+onb002 
+fkey? and fkey? and or h1B <>
+if
+c" $S_ip_numTelnet" find
+if
+1 swap 2+ W!
+then
+startTelnet
+1 ip_SOCKhttp
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl
+Prop0 Cog5 ok
+1 wconstant build_spinimage
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lastnfa nfa>lfa W@ wconstant imageLastnfa
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" wlastnfa" find drop pfa>nfa nfa>lfa wconstant imageStart
+Prop0 Cog5 ok
+c" build_spinimage" find drop  pfa>nfa nfa>lfa wconstant imageEnd
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" fstart" find drop wconstant fstartPFA
+Prop0 Cog5 ok
+c" _finit" find drop wconstant _finitPFA
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifdef neverever
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 2*
+.
+.
+]
+Prop0 Cog5 ok
+wvariable numConstantsOfInterest 0 numConstantsOfInterest W!
+Prop0 Cog5 ok
+lockdict wvariable ConstantsOfInterest 100 2* allot freedict
+Prop0 Cog5 ok
+: findConstantsOfInterest
+lastnfa
+begin
+c" $S_" over swap
+npfx
+if
+dup nfa>pfa dup W@ $C_a_doconw =
+if
+2+
+ConstantsOfInterest numConstantsOfInterest W@ 2* + W!
+numConstantsOfInterest W@ 1+ 
+100 min numConstantsOfInterest W!
+else
+drop
+then
+then
+nfa>lfa W@ dup 0=
+until
+
+
+;
+Prop0 Cog5 ok
+: isConstantOfInterest?
+numConstantsOfInterest W@ 0<>
+if
+0 swap
+numConstantsOfInterest W@ 0
+do
+i 2* ConstantsOfInterest + W@ over =
+if
+nip -1 swap leave
+then
+loop
+drop
+else
+drop 0
+then
+; 
+Prop0 Cog5 ok
+: spinImage
+findConstantsOfInterest
+base W@ hex
+lastnfa W@
+here W@ 
+imageEnd here W!
+imageLastnfa wlastnfa W!
+." ~h0D~h0DForthDictStart~h0D~h0D"
+." ~h0D' " imageStart .
+." ~h0D  word $" imageStart W@ .
+imageEnd imageStart 2+
+do
+i _finitPFA =
+if
+." ~h0D~h0D_finitPFA~h0D~h0D  word $" i W@ .
+else
+
+i fstartPFA =
+if
+." ~h0D~h0DfstartPFA~h0D~h0D  word $" i W@ .
+else
+
+i isConstantOfInterest?
+if
+
+." ~h0D~h0D  word dlr"
+i 2- pfa>nfa namelen 1- swap 1+ swap .str
+else
+
+i h1F and 0=
+if
+." ~h0D' " i .
+." ~h0D  word $" i W@ .
+else
+." , $" i W@ .
+thens
+2 +loop
+cr cr
+here W!
+lastnfa W!
+
+memend W@ 2- imageEnd
+."   word "
+do
+i h3F and 0=
+if
+." 0~h0D' " i .
+." ~h0D  word "
+else
+." 0, "
+then
+2 +loop
+." 0~h0D~h0D~h0D"
+base W!  
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: MAKE/results/outputFiles/EEpromHTTPKernel.spin
+
+ scriptFileName: MAKE/scripts/MakeEEpromHTTPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeEEpromHTTPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeEEpromHTTPKernelResult.txt
+outputFileName: 

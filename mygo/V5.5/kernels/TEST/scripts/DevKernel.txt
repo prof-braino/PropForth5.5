@@ -1,0 +1,17 @@
+L TEST/results/runLogs/DevKernelRunLog.txt
+
+\ Load Dev Kernel
+			r MAKE/scripts/LoadDevKernel.txt
+R TEST/results/resultFiles/DevKernelResult.txt
+	t 500		r TEST/scripts/BasicFunctionality.txt
+
+	t 3000		X reboot
+	t 1000		r TEST/scripts/LogicAnalyzer.txt
+	t 3000		X reboot
+	t 1000		X 1 wconstant mcs_dbg
+			r TEST/scripts/MCS.txt
+	t 3000		X reboot
+	t 1000		r TEST/scripts/NoRom.txt
+	t 3000		X reboot
+	t 1000		r TEST/scripts/MCSNoRom.txt
+			CO CR CL

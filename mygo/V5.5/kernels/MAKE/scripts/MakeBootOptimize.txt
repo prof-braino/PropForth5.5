@@ -1,0 +1,20 @@
+L MAKE/results/runLogs/MakeBootOptimizeRunLog.txt
+R MAKE/results/resultFiles/MakeBootOptimizeResult.txt
+
+	cps 1000
+\ Load Boot Kernel
+						r	MAKE/scripts/LoadBootKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load asm.f
+						scr fl
+						S	MAKE/src/optimize/asm.f
+\ echos and prompts off
+						X	: alloff 7 0 do hA i cogstate orC! loop ; alloff
+						O	MAKE/results/outputFiles/BootOptimize.f
+\ Load BootOptimizeASmSrc.f
+						X	c" fl~h0D~h0Dcoghere W@ wconstant build_BootOpt~h0D" .cstr
+	t 5000					S	MAKE/src/optimize/BootOptimizeAsmSrc-1.f
+	t 15000					S	MAKE/src/optimize/BootOptimizeAsmSrc-2.f
+	t 3000					SR	MAKE/src/optimize/OptimizePostAsmSrc.f
+						CO CR CL

@@ -1,0 +1,4771 @@
+
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+[ifndef stOverflow 
+Prop0 Cog6 ok
+: stOverflow d32 0 do i dup . loop ; 
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+[ifndef rsUnderflow 
+Prop0 Cog6 ok
+: rsUnderflow r> . r> . r> . r> . r> . r> . r> . ; 
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+[ifndef rsOverflow 
+Prop0 Cog6 ok
+: rsOverflow dup . 1+ c" rsOverflow" find drop execute ; 
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+[ifndef cogdel 
+Prop0 Cog6 ok
+: cogdel cogid 1+ 1 lshift 0 do d_1000 i u* delms i . loop ." delay done~h0D" ; 
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+cr cr here W@ . version W@ .cstr 
+
+
+17772 PropForth v5.5 2013Feb20 11:30 0Prop0 Cog6 ok
+[ifdef cog? 
+Prop0 Cog6 ok
+cog? 
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+[ifdef build? 
+Prop0 Cog6 ok
+build? 
+
+NFA (Forth/Asm Immediate eXecute) Name
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+cr cr 
+
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+cr cr 1 2 3 . . . drop drop drop
+
+
+3 2 1 
+CON:Prop0 Cog6 RESET - last status: 3 MAIN STACK UNDERFLOW
+
+Prop0 Cog6 RESET - last status: 3 MAIN STACK UNDERFLOW
+Prop0 Cog6 ok
+cr cr stOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 
+CON:Prop0 Cog6 RESET - last status: 1 MAIN STACK OVERFLOW
+
+Prop0 Cog6 RESET - last status: 1 MAIN STACK OVERFLOW
+Prop0 Cog6 ok
+cr cr rsUnderflow
+
+
+9180 9376 10136 
+CON:Prop0 Cog6 RESET - last status: 4 RETURN STACK UNDERFLOW
+
+Prop0 Cog6 RESET - last status: 4 RETURN STACK UNDERFLOW
+Prop0 Cog6 ok
+cr cr 0 rsOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 
+CON:Prop0 Cog6 RESET - last status: 2 RETURN STACK OVERFLOW
+
+Prop0 Cog6 RESET - last status: 2 RETURN STACK OVERFLOW
+Prop0 Cog6 ok
+cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+
+
+1234 -1234 1234 2468 1234 1234 Prop0 Cog6 ok
+cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+
+
+123398766 21732 4470 45554 Prop0 Cog6 ok
+base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+AAAA AAFF 
+Prop0 Cog6 ok
+[ifndef build_httpserver 
+Prop0 Cog6 ok
+lockdict cr cr wvariable ttt : d ttt W@ . ; hex 
+
+
+Prop0 Cog6 ok
+cr cr 0 ttt W! 23 ttt orC! d 1 ttt andnC! d 
+
+
+23 22 Prop0 Cog6 ok
+cr cr -1 ttt W! d hAAAA ttt W@ and ttt W! d hFF ttt orC! d hA base W! freedict 
+
+
+FFFF AAAA AAFF Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef ctra
+Prop0 Cog5 ok
+h1F8 wconstant ctra
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef ctrb
+Prop0 Cog5 ok
+h1F9 wconstant ctrb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef frqa
+Prop0 Cog5 ok
+h1FA wconstant frqa 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef frqb
+Prop0 Cog5 ok
+h1FB wconstant frqb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef phsa
+Prop0 Cog5 ok
+h1FC wconstant phsa 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef phsb
+Prop0 Cog5 ok
+h1FD wconstant phsb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef variable
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef abs
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef waitcnt
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 2*
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef key?
+Prop0 Cog5 ok
+: key?
+io W@ h100 and 0=
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef u*/mod
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef u*/
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _cfo
+Prop0 Cog5 ok
+: _cfo clkfreq 1- min 0 swap clkfreq um/mod swap clkfreq 2/ >= abs + ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef setHza
+Prop0 Cog5 ok
+: setHza _cfo frqa COG! dup pinout h10000000 + ctra COG! ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef qHzb
+Prop0 Cog5 ok
+: qHzb
+swap h28000000 + 1 frqb COG! ctrb COG!
+h3000 min clkfreq over h3E8 u*/ h310 - phsb COG@ swap cnt COG@ + 0 waitcnt
+phsb COG@ nip swap - h3E8 rot u*/ ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef setHzb
+Prop0 Cog5 ok
+: setHzb _cfo frqb COG! dup pinout h10000000 + ctrb COG! ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef crcl
+Prop0 Cog5 ok
+: crcl ." ~h0D~h1B~h5B~h4B" ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef hm
+Prop0 Cog5 ok
+: hm ." ~h1B~h5B~h48" ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef hmclr
+Prop0 Cog5 ok
+: hmclr ." ~h1B~h5B~h48~h1B~h5B~h4A" ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef #C
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _nf
+Prop0 Cog5 ok
+: _nf
+<# bl #C # # # h2C #C # # # h2C #C # # #  h2C #C # # # #>
+dup C@++ bounds
+do
+i C@ dup isdigit swap todigit 0<> and  
+if
+leave
+
+else
+bl i C!
+then
+loop
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .num
+Prop0 Cog5 ok
+: .num
+_nf .cstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef freeDictStart
+Prop0 Cog5 ok
+: freeDictStart
+here W@ alignl
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef freeDictEnd
+Prop0 Cog5 ok
+: freeDictEnd
+dictend W@ h3 andn
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef zeroFreeDict
+Prop0 Cog5 ok
+: zeroFreeDict
+freeDictEnd freeDictStart
+do
+0 i L!
+h4 +loop
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _la_asample41+ forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h12A  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z2WiQBB l, z1SyLI[ l, z2WiQ3B l, z1SyLI[ l, z2WiPuB l, z1SyLI[ l, z2WiPmB l, z1SyLI[ l,
+Prop0 Cog5 ok
+z2WiPeB l, z1SyLI[ l, z2WiPZB l, z2WiPRD l, z3jFPuH l, z3jFQ3H l, z2WiQFl l, z2WiQ7k l,
+Prop0 Cog5 ok
+z20iQ3E l, z8FQBC l, z3riQ3E l, z2WiQFl l, z20yPW4 l, z3[yPf[ l, z1SV01X l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _la_asample18+ forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h131  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z2WiQBB l, z1SyLI[ l, z2WiQ3B l, z1SyLI[ l, z2WiPuB l, z1SyLI[ l, z2WiPmB l, z1SyLI[ l,
+Prop0 Cog5 ok
+z1SyLI[ l, z2WiPZB l, z2WyPij l, z24yPfi l, z2WiPRD l, z3jFPuH l, z3jFQ3H l, z2Wi\yl l,
+Prop0 Cog5 ok
+z2WiQ7k l, z20iQ3E l, z3riQ3E l, z2Wi]7l l, z20i[m2 l, z3[yPf\ l, z2WiPeB l, z8F\uC l,
+Prop0 Cog5 ok
+z20i\J2 l, z20yPW4 l, z3[yPfd l, z1SV01X l, 0 l, 0 l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _la_asample4 forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h135  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z2WiQBB l, z1SyLI[ l, z2WiQ3B l, z1SyLI[ l, z2WiPuB l, z1SyLI[ l, z1SyLI[ l, z1SyLI[ l,
+Prop0 Cog5 ok
+z2WiPZB l, z2WyPij l, z24yPb1 l, z1Ki\3D l, z24yPfn l, z2WiPRD l, z2Wi][j l, z1Ky][n l,
+Prop0 Cog5 ok
+z20i[B2 l, z20i[J2 l, z20y[G1 l, z3[yPfX l, z1Gy]Cd l, z2Wi04k l, z1SV04l l, z2WiPeB l,
+Prop0 Cog5 ok
+z8F]ZC l, z20i\R2 l, z20yPW4 l, z3[yPfe l, z1SV01X l, z2Wi07l l, z1SV000 l, z3jFPuH l,
+Prop0 Cog5 ok
+z3jFQ3H l, 0 l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _la_asample1 forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h12E  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z2WiQBB l, z1SyLI[ l, z2WiPZB l, z2WyPij l, z24yPb1 l, z1Ki[JD l, z24yPfg l, z2WiPRD l,
+Prop0 Cog5 ok
+z2Wi\fd l, z1Ky\fg l, z20iZR2 l, z20iZZ2 l, z20yZW1 l, z3[yPfR l, z1Gy\S[ l, z2Wi04e l,
+Prop0 Cog5 ok
+z1SV04f l, z2WiPeB l, z8F\eC l, z20i[e2 l, z20yPWG l, z3[yPf\ l, z1SV01X l, z2Wi07l l,
+Prop0 Cog5 ok
+z1SV000 l, z3ryQ80 l, 0 l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+variable _la_s1time
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable _la_s1addr
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable _la_s1cog 2 _la_s1cog W!
+Prop0 Cog5 ok
+wvariable _la_s1size
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_is1
+_la_s1addr W@ cogid _la_s1cog W@ - 2* 2* +
+_la_s1time L@ cogid _la_s1cog W@ - +
+_la_asample1
+2* 2* _la_s1size W!
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_sample1
+3drop 2drop
+_la_s1addr W!
+_la_s1cog W@ dup cogreset
+1+ dup cogreset
+1+ dup cogreset
+1+ cogreset
+zeroFreeDict
+h10 delms
+clkfreq cnt COG@ + _la_s1time L!
+c" _la_is1"
+dup _la_s1cog W@ cogx
+dup _la_s1cog W@ 1+ cogx
+dup _la_s1cog W@ 2+ cogx
+_la_s1cog W@ h3 + cogx
+_la_s1time L@ h8000 + 0 waitcnt drop
+_la_s1size W@
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_sample
+h4 ST@ h310 >=
+if
+h3 ST@ h29 >=
+if
+_la_asample41+
+else
+
+h3 ST@ h12 >=
+if
+_la_asample18+
+else
+
+h3 ST@ h4 =
+if
+_la_asample4
+else
+
+h3 ST@ 1 =
+if
+_la_sample1
+else
+
+3drop 3drop 0
+then
+then
+then
+then
+else
+3drop 3drop 0
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+variable _la_mask -1 _la_mask L!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_displayPin
+>m dup _la_mask L@ and
+if
+swap 2* 2* freeDictStart + h200 bounds
+do
+i L@ over and if h2D else h5F then emit
+h4 +loop
+else
+drop
+h80 0
+do
+h58 emit
+loop
+then
+drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable _la_current 0 _la_current W!
+Prop0 Cog5 ok
+wvariable _la_end h80 _la_end W!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+variable _la_trigger 0 _la_trigger L!
+Prop0 Cog5 ok
+variable _la_triggerEdge 1 _la_triggerEdge L!
+Prop0 Cog5 ok
+variable _la_lastTriggerEdge 1 _la_lastTriggerEdge L!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+variable _la_triggerFrequency 0 _la_triggerFrequency L!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+variable _la_sampleInterval h28 _la_sampleInterval L!
+Prop0 Cog5 ok
+variable _la_lastSampleInterval h28 _la_lastSampleInterval L!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+variable _la_L10nc
+Prop0 Cog5 ok
+h989680 clkfreq h3E8 u/ u/ _la_L10nc L!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_L1
+hA u/mod swap <# # drop h2E #C # # # #> .cstr
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_LST
+_la_L10nc L@ u* dup h2710 <
+if
+_la_L1 ."  nS"
+else
+h3E8 u/ dup h2710 <
+if
+_la_L1 ."  uS"
+else
+h3E8 u/ dup h2710 <
+if
+_la_L1 ."  mS"
+else
+drop
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _lacv
+h11 spaces h7C emit
+h7 0
+do
+hF spaces h7C emit
+loop
+cr
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_interval
+_la_sampleInterval L@
+dup _la_lastSampleInterval L!
+over +
+_la_sampleInterval L!
+0<
+if
+_la_sampleInterval L@ h12 <
+if
+_la_sampleInterval L@ h4 <
+if
+1
+_la_triggerEdge L@ _la_lastTriggerEdge L!
+0 _la_triggerEdge L!
+else
+h4
+then
+_la_sampleInterval L!
+then
+else
+_la_sampleInterval L@ h12 <
+if
+_la_sampleInterval L@ h4 <
+if
+h4
+0 _la_triggerEdge L!
+else
+h12
+then
+_la_sampleInterval L!
+then
+then
+_la_lastSampleInterval L@ 1 =
+_la_sampleInterval L@ 1 <> and
+if
+_la_lastTriggerEdge L@ _la_triggerEdge L!
+then
+
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_dStart
+_la_current W@ + 0 max
+_la_end W@ h80 - 0 max min
+_la_current W!
+2drop 0 -1
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_pin
+_la_trigger L@ + 0 max h1F min
+_la_triggerEdge L@ 0= _la_sampleInterval 1 =  or
+if
+0 _la_triggerFrequency L!
+else
+dup hF0 qHzb _la_triggerFrequency L!
+then
+_la_trigger L!
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_k1
+over h7A = if
+-1 _la_dStart
+else over h78 = if
+h-A _la_dStart
+else over h63 = if
+h-64 _la_dStart
+else over h76 = if
+h-3E8 _la_dStart
+else over h5A = if
+1 _la_dStart
+else over h58 = if
+hA _la_dStart
+else over h43 = if
+h64 _la_dStart
+else over h56 = if
+h3E8 _la_dStart
+else over h61 = if
+-1 _la_interval
+else over h73 = if
+h-A _la_interval
+else over h64 = if
+h-64 _la_interval
+else over h66 = if
+h-3E8 _la_interval
+else over h67 = if
+h-2710 _la_interval
+else over h41 = if
+1 _la_interval
+else over h53 = if
+hA _la_interval
+else over h44 = if
+h64 _la_interval
+else over h46 = if
+h3E8 _la_interval
+else over h47 = if
+h2710 _la_interval
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_h
+hm crcl
+."     Trigger Pin      -q    +Q: " _la_triggerEdge W@ 0= if ." NONE" else  _la_trigger L@ . then crcl
+."    Trigger Edge   -w +W SPACE: " _la_triggerEdge L@ 0=
+if ." NONE" else  _la_triggerEdge L@ 0< if ." --__" else  ." __--" else  then then crcl
+." Trigger Frequency         eE : "
+_la_triggerEdge L@ if _la_triggerFrequency L@ .num else ." NO TRIGGER FOUND" then crcl
+
+." Sample Interval -asdfg +ASDFG: " _la_sampleInterval L@ dup _la_LST  .num ." clock cycles" crcl
+."          Sample     <ENTER>" crcl
+."          Quit         <ESC>" crcl
+." Sample Display  -zxcv  +ZXCV : " _la_current W@ .num ." clock cycles of " _la_end W@ .num crcl
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _la_k
+key 0
+over h71 = if
+-1 _la_pin
+else over h51 = if
+1 _la_pin
+else over h65 = if
+_la_trigger L@ h3E8 qHzb _la_triggerFrequency L!
+else over h45 = if
+_la_trigger L@ h7D0 qHzb _la_triggerFrequency L!
+else over h20 = if
+0 _la_triggerEdge L!
+0 _la_trigger L!
+0 _la_triggerFrequency L!
+else over h77 = if
+-1 _la_triggerEdge L!
+0 _la_pin
+else over h57 = if
+1 _la_triggerEdge L!
+0 _la_pin
+else over hD = if
+_la_sampleInterval L@ 1 =
+if
+hmclr
+then
+zeroFreeDict
+freeDictStart
+freeDictEnd over - 2/ 2/
+_la_sampleInterval L@
+
+_la_triggerFrequency L@
+if
+_la_triggerEdge L@ 0>
+if
+0
+_la_trigger L@ >m
+dup
+else
+_la_trigger L@ >m
+0
+over
+then
+else
+0 0 0
+then
+_la_sample
+_la_end W! 
+
+2drop 0 -1
+else over h1B = if
+2drop -1 -1
+thens
+_la_k1
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: lac
+0 _la_pin
+zeroFreeDict
+hmclr _la_h
+
+begin
+0
+begin
+drop key?
+if
+_la_k _la_h
+else
+0 0
+then
+until
+dup 0=
+if
+h20 0
+do
+_lacv
+space space
+_la_current W@ h10 + h80 bounds
+do
+h7 spaces _la_current W@ _la_sampleInterval L@ i u* + _la_LST h7C emit 
+h10 +loop
+cr
+_lacv
+
+i h4 bounds
+do
+h1F i - dup <# # # #> .cstr
+_la_current W@ swap _la_displayPin
+crcl
+loop
+h4 +loop
+hm
+then
+
+until
+hmclr
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: la_displaySamples
+dup h8 + swap
+do
+i <# # # #> .cstr
+dup i _la_displayPin
+cr
+loop drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: la_sampleNoTrigger
+>r
+freeDictStart freeDictEnd over - 2/ 2/
+r>
+0 0 0 _la_sample drop
+0 0  la_displaySamples
+0 h8  la_displaySamples
+0 h10 la_displaySamples
+0 h18 la_displaySamples
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: la_sample+Trigger
+>r >r
+freeDictStart freeDictEnd over - 2/ 2/
+r>
+0 r> >m dup _la_sample drop
+0 0  la_displaySamples
+0 h8  la_displaySamples
+0 h10 la_displaySamples
+0 h18 la_displaySamples
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: la_sample-Trigger
+>r >r
+freeDictStart freeDictEnd over - 2/ 2/
+r>
+r> >m 0 over _la_sample drop
+0 0  la_displaySamples
+0 h8  la_displaySamples
+0 h10 la_displaySamples
+0 h18 la_displaySamples
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+h4 _la_mask L!
+Prop0 Cog6 ok
+0 cogreset 100 delms
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+Prop0 Cog6 ok
+c" 2 clkfreq 40 2 u* u/ setHza" 0 cogx
+Prop0 Cog6 ok
+lac
+[H[J[H
+[K    Trigger Pin      -q    +Q: 0 
+[K   Trigger Edge   -w +W SPACE: __--
+[KTrigger Frequency         eE :                 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             128 
+[K[H
+[K    Trigger Pin      -q    +Q: 1 
+[K   Trigger Edge   -w +W SPACE: __--
+[KTrigger Frequency         eE :                 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             128 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: __--
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             128 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: __--
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             128 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: __--
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :               1 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         008.5 uS|       016.5 uS|       024.5 uS|       032.5 uS|       040.5 uS|       048.5 uS|       056.5 uS|       064.5 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.5 uS|       016.5 uS|       024.5 uS|       032.5 uS|       040.5 uS|       048.5 uS|       056.5 uS|       064.5 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.5 uS|       016.5 uS|       024.5 uS|       032.5 uS|       040.5 uS|       048.5 uS|       056.5 uS|       064.5 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.5 uS|       016.5 uS|       024.5 uS|       032.5 uS|       040.5 uS|       048.5 uS|       056.5 uS|       064.5 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.5 uS|       016.5 uS|       024.5 uS|       032.5 uS|       040.5 uS|       048.5 uS|       056.5 uS|       064.5 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.5 uS|       016.5 uS|       024.5 uS|       032.5 uS|       040.5 uS|       048.5 uS|       056.5 uS|       064.5 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.5 uS|       016.5 uS|       024.5 uS|       032.5 uS|       040.5 uS|       048.5 uS|       056.5 uS|       064.5 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.5 uS|       016.5 uS|       024.5 uS|       032.5 uS|       040.5 uS|       048.5 uS|       056.5 uS|       064.5 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :              11 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         013.6 uS|       021.6 uS|       029.6 uS|       037.6 uS|       045.6 uS|       053.6 uS|       061.6 uS|       069.6 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         013.6 uS|       021.6 uS|       029.6 uS|       037.6 uS|       045.6 uS|       053.6 uS|       061.6 uS|       069.6 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         013.6 uS|       021.6 uS|       029.6 uS|       037.6 uS|       045.6 uS|       053.6 uS|       061.6 uS|       069.6 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         013.6 uS|       021.6 uS|       029.6 uS|       037.6 uS|       045.6 uS|       053.6 uS|       061.6 uS|       069.6 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         013.6 uS|       021.6 uS|       029.6 uS|       037.6 uS|       045.6 uS|       053.6 uS|       061.6 uS|       069.6 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         013.6 uS|       021.6 uS|       029.6 uS|       037.6 uS|       045.6 uS|       053.6 uS|       061.6 uS|       069.6 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         013.6 uS|       021.6 uS|       029.6 uS|       037.6 uS|       045.6 uS|       053.6 uS|       061.6 uS|       069.6 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         013.6 uS|       021.6 uS|       029.6 uS|       037.6 uS|       045.6 uS|       053.6 uS|       061.6 uS|       069.6 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :              65 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         041.3 uS|       049.3 uS|       057.3 uS|       065.3 uS|       073.3 uS|       081.3 uS|       089.3 uS|       097.3 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         041.3 uS|       049.3 uS|       057.3 uS|       065.3 uS|       073.3 uS|       081.3 uS|       089.3 uS|       097.3 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         041.3 uS|       049.3 uS|       057.3 uS|       065.3 uS|       073.3 uS|       081.3 uS|       089.3 uS|       097.3 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         041.3 uS|       049.3 uS|       057.3 uS|       065.3 uS|       073.3 uS|       081.3 uS|       089.3 uS|       097.3 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         041.3 uS|       049.3 uS|       057.3 uS|       065.3 uS|       073.3 uS|       081.3 uS|       089.3 uS|       097.3 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         041.3 uS|       049.3 uS|       057.3 uS|       065.3 uS|       073.3 uS|       081.3 uS|       089.3 uS|       097.3 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         041.3 uS|       049.3 uS|       057.3 uS|       065.3 uS|       073.3 uS|       081.3 uS|       089.3 uS|       097.3 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         041.3 uS|       049.3 uS|       057.3 uS|       065.3 uS|       073.3 uS|       081.3 uS|       089.3 uS|       097.3 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :              64 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         040.8 uS|       048.8 uS|       056.8 uS|       064.8 uS|       072.8 uS|       080.8 uS|       088.8 uS|       096.8 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         040.8 uS|       048.8 uS|       056.8 uS|       064.8 uS|       072.8 uS|       080.8 uS|       088.8 uS|       096.8 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         040.8 uS|       048.8 uS|       056.8 uS|       064.8 uS|       072.8 uS|       080.8 uS|       088.8 uS|       096.8 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         040.8 uS|       048.8 uS|       056.8 uS|       064.8 uS|       072.8 uS|       080.8 uS|       088.8 uS|       096.8 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         040.8 uS|       048.8 uS|       056.8 uS|       064.8 uS|       072.8 uS|       080.8 uS|       088.8 uS|       096.8 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         040.8 uS|       048.8 uS|       056.8 uS|       064.8 uS|       072.8 uS|       080.8 uS|       088.8 uS|       096.8 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         040.8 uS|       048.8 uS|       056.8 uS|       064.8 uS|       072.8 uS|       080.8 uS|       088.8 uS|       096.8 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         040.8 uS|       048.8 uS|       056.8 uS|       064.8 uS|       072.8 uS|       080.8 uS|       088.8 uS|       096.8 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :              54 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         035.6 uS|       043.6 uS|       051.6 uS|       059.6 uS|       067.6 uS|       075.6 uS|       083.6 uS|       091.6 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         035.6 uS|       043.6 uS|       051.6 uS|       059.6 uS|       067.6 uS|       075.6 uS|       083.6 uS|       091.6 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         035.6 uS|       043.6 uS|       051.6 uS|       059.6 uS|       067.6 uS|       075.6 uS|       083.6 uS|       091.6 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         035.6 uS|       043.6 uS|       051.6 uS|       059.6 uS|       067.6 uS|       075.6 uS|       083.6 uS|       091.6 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         035.6 uS|       043.6 uS|       051.6 uS|       059.6 uS|       067.6 uS|       075.6 uS|       083.6 uS|       091.6 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         035.6 uS|       043.6 uS|       051.6 uS|       059.6 uS|       067.6 uS|       075.6 uS|       083.6 uS|       091.6 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         035.6 uS|       043.6 uS|       051.6 uS|       059.6 uS|       067.6 uS|       075.6 uS|       083.6 uS|       091.6 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         035.6 uS|       043.6 uS|       051.6 uS|       059.6 uS|       067.6 uS|       075.6 uS|       083.6 uS|       091.6 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.0 uS|       016.0 uS|       024.0 uS|       032.0 uS|       040.0 uS|       048.0 uS|       056.0 uS|       064.0 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 375.0 nS             30 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 250.0 nS             20 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 250.0 nS             20 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         004.0 uS|       008.0 uS|       012.0 uS|       016.0 uS|       020.0 uS|       024.0 uS|       028.0 uS|       032.0 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.0 uS|       008.0 uS|       012.0 uS|       016.0 uS|       020.0 uS|       024.0 uS|       028.0 uS|       032.0 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.0 uS|       008.0 uS|       012.0 uS|       016.0 uS|       020.0 uS|       024.0 uS|       028.0 uS|       032.0 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.0 uS|       008.0 uS|       012.0 uS|       016.0 uS|       020.0 uS|       024.0 uS|       028.0 uS|       032.0 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.0 uS|       008.0 uS|       012.0 uS|       016.0 uS|       020.0 uS|       024.0 uS|       028.0 uS|       032.0 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.0 uS|       008.0 uS|       012.0 uS|       016.0 uS|       020.0 uS|       024.0 uS|       028.0 uS|       032.0 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.0 uS|       008.0 uS|       012.0 uS|       016.0 uS|       020.0 uS|       024.0 uS|       028.0 uS|       032.0 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.0 uS|       008.0 uS|       012.0 uS|       016.0 uS|       020.0 uS|       024.0 uS|       028.0 uS|       032.0 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 050.0 nS              4 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 050.0 nS              4 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02_________----------__________----------__________----------__________----------__________----------__________----------_________
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :       1,000,066 
+[KSample Interval -asdfg +ASDFG: 050.0 nS              4 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K[H[JProp0 Cog6 ok
+h4 _la_mask L!
+Prop0 Cog6 ok
+0 cogreset 100 delms
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+Prop0 Cog6 ok
+c" 2 clkfreq 42 2 u* u/ setHza" 0 cogx
+Prop0 Cog6 ok
+lac
+[H[J[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 050.0 nS              4 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 050.0 nS              4 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02__________----------___________----------___________----------___________----------___________----------___________----------___
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 225.0 nS             18 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 237.5 nS             19 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 250.0 nS             20 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 262.5 nS             21 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 262.5 nS             21 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         004.2 uS|       008.4 uS|       012.6 uS|       016.8 uS|       021.0 uS|       025.2 uS|       029.4 uS|       033.6 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.2 uS|       008.4 uS|       012.6 uS|       016.8 uS|       021.0 uS|       025.2 uS|       029.4 uS|       033.6 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.2 uS|       008.4 uS|       012.6 uS|       016.8 uS|       021.0 uS|       025.2 uS|       029.4 uS|       033.6 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.2 uS|       008.4 uS|       012.6 uS|       016.8 uS|       021.0 uS|       025.2 uS|       029.4 uS|       033.6 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.2 uS|       008.4 uS|       012.6 uS|       016.8 uS|       021.0 uS|       025.2 uS|       029.4 uS|       033.6 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.2 uS|       008.4 uS|       012.6 uS|       016.8 uS|       021.0 uS|       025.2 uS|       029.4 uS|       033.6 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.2 uS|       008.4 uS|       012.6 uS|       016.8 uS|       021.0 uS|       025.2 uS|       029.4 uS|       033.6 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         004.2 uS|       008.4 uS|       012.6 uS|       016.8 uS|       021.0 uS|       025.2 uS|       029.4 uS|       033.6 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 387.5 nS             31 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 512.5 nS             41 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 525.0 nS             42 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 525.0 nS             42 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K                 |               |               |               |               |               |               |               |
+         008.4 uS|       016.8 uS|       025.2 uS|       033.6 uS|       042.0 uS|       050.4 uS|       058.8 uS|       067.2 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.4 uS|       016.8 uS|       025.2 uS|       033.6 uS|       042.0 uS|       050.4 uS|       058.8 uS|       067.2 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.4 uS|       016.8 uS|       025.2 uS|       033.6 uS|       042.0 uS|       050.4 uS|       058.8 uS|       067.2 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.4 uS|       016.8 uS|       025.2 uS|       033.6 uS|       042.0 uS|       050.4 uS|       058.8 uS|       067.2 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.4 uS|       016.8 uS|       025.2 uS|       033.6 uS|       042.0 uS|       050.4 uS|       058.8 uS|       067.2 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.4 uS|       016.8 uS|       025.2 uS|       033.6 uS|       042.0 uS|       050.4 uS|       058.8 uS|       067.2 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.4 uS|       016.8 uS|       025.2 uS|       033.6 uS|       042.0 uS|       050.4 uS|       058.8 uS|       067.2 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         008.4 uS|       016.8 uS|       025.2 uS|       033.6 uS|       042.0 uS|       050.4 uS|       058.8 uS|       067.2 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         952,441 
+[KSample Interval -asdfg +ASDFG: 525.0 nS             42 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H[JProp0 Cog6 ok
+h4 _la_mask L!
+Prop0 Cog6 ok
+0 cogreset 100 delms
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+Prop0 Cog6 ok
+c" 2 clkfreq 50 2 u* u/ setHza" 0 cogx
+Prop0 Cog6 ok
+lac
+[H[J[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 525.0 nS             42 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 512.5 nS             41 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 625.0 nS             50 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 625.0 nS             50 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K                 |               |               |               |               |               |               |               |
+         010.0 uS|       020.0 uS|       030.0 uS|       040.0 uS|       050.0 uS|       060.0 uS|       070.0 uS|       080.0 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         010.0 uS|       020.0 uS|       030.0 uS|       040.0 uS|       050.0 uS|       060.0 uS|       070.0 uS|       080.0 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         010.0 uS|       020.0 uS|       030.0 uS|       040.0 uS|       050.0 uS|       060.0 uS|       070.0 uS|       080.0 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         010.0 uS|       020.0 uS|       030.0 uS|       040.0 uS|       050.0 uS|       060.0 uS|       070.0 uS|       080.0 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         010.0 uS|       020.0 uS|       030.0 uS|       040.0 uS|       050.0 uS|       060.0 uS|       070.0 uS|       080.0 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         010.0 uS|       020.0 uS|       030.0 uS|       040.0 uS|       050.0 uS|       060.0 uS|       070.0 uS|       080.0 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         010.0 uS|       020.0 uS|       030.0 uS|       040.0 uS|       050.0 uS|       060.0 uS|       070.0 uS|       080.0 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         010.0 uS|       020.0 uS|       030.0 uS|       040.0 uS|       050.0 uS|       060.0 uS|       070.0 uS|       080.0 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 500.0 nS             40 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 375.0 nS             30 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 362.5 nS             29 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 350.0 nS             28 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 337.5 nS             27 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 325.0 nS             26 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 312.5 nS             25 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of           2,757 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 312.5 nS             25 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K                 |               |               |               |               |               |               |               |
+         005.0 uS|       010.0 uS|       015.0 uS|       020.0 uS|       025.0 uS|       030.0 uS|       035.0 uS|       040.0 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         005.0 uS|       010.0 uS|       015.0 uS|       020.0 uS|       025.0 uS|       030.0 uS|       035.0 uS|       040.0 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         005.0 uS|       010.0 uS|       015.0 uS|       020.0 uS|       025.0 uS|       030.0 uS|       035.0 uS|       040.0 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         005.0 uS|       010.0 uS|       015.0 uS|       020.0 uS|       025.0 uS|       030.0 uS|       035.0 uS|       040.0 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         005.0 uS|       010.0 uS|       015.0 uS|       020.0 uS|       025.0 uS|       030.0 uS|       035.0 uS|       040.0 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         005.0 uS|       010.0 uS|       015.0 uS|       020.0 uS|       025.0 uS|       030.0 uS|       035.0 uS|       040.0 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         005.0 uS|       010.0 uS|       015.0 uS|       020.0 uS|       025.0 uS|       030.0 uS|       035.0 uS|       040.0 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         005.0 uS|       010.0 uS|       015.0 uS|       020.0 uS|       025.0 uS|       030.0 uS|       035.0 uS|       040.0 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--__--
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 050.0 nS              4 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             193 
+[K[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 050.0 nS              4 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+31XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K30XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K29XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K28XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+27XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K26XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K25XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K24XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+23XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K22XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K20XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+19XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K18XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K17XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K16XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+15XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K14XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K13XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K12XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+11XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K10XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K09XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K08XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+07XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K06XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K05XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K04XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K                 |               |               |               |               |               |               |               |
+         800.0 nS|       001.6 uS|       002.4 uS|       003.2 uS|       004.0 uS|       004.8 uS|       005.6 uS|       006.4 uS|
+                 |               |               |               |               |               |               |               |
+03XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K02____________------------_____________------------_____________------------_____________------------_____________------------____
+[K01XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K00XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+[K[H[H
+[K    Trigger Pin      -q    +Q: 2 
+[K   Trigger Edge   -w +W SPACE: --__
+[KTrigger Frequency         eE :         800,054 
+[KSample Interval -asdfg +ASDFG: 050.0 nS              4 clock cycles
+[K         Sample     <ENTER>
+[K         Quit         <ESC>
+[KSample Display  -zxcv  +ZXCV :                 clock cycles of             187 
+[K[H[JProp0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+1 wconstant mcs_dbg
+Prop0 Cog6 ok
+1 wconstant mcs_dbg
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef $C_stTop
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef $C_stPtr
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef variable
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef abs
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef waitcnt
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef ctra
+Prop0 Cog5 ok
+h1F8 wconstant ctra 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef ctrb
+Prop0 Cog5 ok
+h1F9 wconstant ctrb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef frqa
+Prop0 Cog5 ok
+h1FA wconstant frqa 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef frqb
+Prop0 Cog5 ok
+h1FB wconstant frqb
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef phsa
+Prop0 Cog5 ok
+h1FC wconstant phsa 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef phsb
+Prop0 Cog5 ok
+h1FD wconstant phsb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef px?
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef sign
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef */mod
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef */
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef rnd
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef rndtf
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef rndand
+Prop0 Cog5 ok
+: rndand
+rnd h7F > and
+; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _cfo
+Prop0 Cog5 ok
+: _cfo
+clkfreq 1- min
+0 swap clkfreq
+um/mod swap clkfreq 2/
+>= abs +
+; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef setHza
+Prop0 Cog5 ok
+: setHza
+_cfo frqa COG!
+dup pinout h10000000 + ctra COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef qHzb
+Prop0 Cog5 ok
+: qHzb
+swap h28000000 + 1 frqb COG!
+ctrb COG!
+h3000 min clkfreq over
+h3E8 */ h310 - phsb COG@
+swap cnt COG@ + 0 waitcnt
+phsb COG@
+nip swap -
+h3E8 rot */
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef term
+Prop0 Cog5 ok
+: term over cognchan min
+." Hit CTL-F to exit term" cr
+>r >r cogid 0 r> r> (iolink)
+begin key dup h6 = if drop 1 else emit 0 then until
+cogid iounlink ;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+lockdict create a_mcs forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h1A9  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z1SV06X l, z1 l, z1 l, 0 l, 0 l, 0 l, 0 l, 0 l,
+Prop0 Cog5 ok
+0 l, z2WyPj0 l, z2WyQ84 l, zbyZO1 l, zbyPj8 l, z4iPZB l, z2WiPeC l, zfyPWO l,
+Prop0 Cog5 ok
+z1YyPf0 l, z1bdPmC l, z1btZQ0 l, z20yPO4 l, z3[yQCU l, z1SV000 l, z2WyZO0 l, z1Sy\4S l,
+Prop0 Cog5 ok
+z2WiZBE l, z1Sy\4S l, z2WiZJE l, z1biZSO l, z2WiPvP l, z1fiPvQ l, z1fiPvR l, z1fyPwL l,
+Prop0 Cog5 ok
+z2WiQ3F l, zbyQ0G l, z1fiPuG l, zfyPrG l, z1biZRF l, z24yPOW l, z1SV000 l, z2WyQ8W l,
+Prop0 Cog5 ok
+z1XFYil l, znyyW1 l, z3]yQCu l, z1SV000 l, z2Wiy[R l, z1Syant l, z2WiZ7v l, z2Wiy[Q l,
+Prop0 Cog5 ok
+z1Syant l, z2WiYyv l, z2Wiy[P l, z1Syant l, z2WiYqv l, z2fyyW1 l, z2WiQBB l, z20yQ8n l,
+Prop0 Cog5 ok
+z2WiPvM l, z1fiPvN l, z1fiPvO l, z1fyPwL l, z2WiQ3F l, zbyQ0G l, z1fiPuG l, zhyPrG l,
+Prop0 Cog5 ok
+z8iQ3H l, z20yQ01 l, z8FQ3H l, z20yQ84 l, z2WoZ00 l, z8\Q3H l, z20oQ01 l, z85Q3H l,
+Prop0 Cog5 ok
+z2WyQ40 l, z2WiP[O l, z2WyQ88 l, z1YVP[0 l, z45Q3B l, zbyPW1 l, z20yPO4 l, z3[yQDU l,
+Prop0 Cog5 ok
+z24yPOW l, z20yPOW l, z2WyQ02 l, z2WiPvM l, z2WyQ84 l, z2WiPmF l, zbyPr8 l, zcyZ01 l,
+Prop0 Cog5 ok
+z4fPZB l, z1WyPmy l, z1YVP[0 l, z44PmB l, z20yPO2 l, z3[yQDb l, z2WiPvN l, z3[yQ5a l,
+Prop0 Cog5 ok
+z24yPOj l, z2WiZJB l, z20yZG2 l, z2WyPr7 l, zfyPr8 l, z20yPOW l, z2WyZ00 l, z2WyQ40 l,
+Prop0 Cog5 ok
+z2WyYn0 l, z2WiYvM l, zfyYr1 l, z2WiZCN l, zfyZ81 l, z2WyQ88 l, z4iPmB l, z1YFPmF l,
+Prop0 Cog5 ok
+z1SL06B l, z6iPfQ l, z2WdPnP l, z1SQ06B l, z4iPZD l, z1YFP[M l, z45PmD l, z2W\PnP l,
+Prop0 Cog5 ok
+z1YFPnN l, z45YmB l, z1YFPnP l, z45YuB l, z1b\Z3G l, zfyQ01 l, z20yZG4 l, z20yPO2 l,
+Prop0 Cog5 ok
+z3[yQE1 l, z24yPOj l, z1SV000 l, z1SyaCc l, z2WyyW0 l, z3nFYfL l, z1Sylfy l, z1SV06M l,
+Prop0 Cog5 ok
+z1SyaCc l, z3nFYfL l, z2WyyW0 l, 0 l, z1Sylfy l, z1SV06R l, z1SyLIZ l, z2WiYZB l,
+Prop0 Cog5 ok
+z1SyLI[ l, z2WiYeB l, z1SyLI[ l, z26VPW0 l, z1SL06M l, z1SV06R l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+: mcsrecbuf h20 + ;
+Prop0 Cog5 ok
+: mcspinm@ h30 + C@ ;
+Prop0 Cog5 ok
+: mcspins@ h31 + C@ ;
+Prop0 Cog5 ok
+: mcspinm! h30 + C! ;
+Prop0 Cog5 ok
+: mcspins! h31 + C! ;
+Prop0 Cog5 ok
+: mcsreset@ h32 + C@ ;
+Prop0 Cog5 ok
+: mcsreset! h32 + C! ;
+Prop0 Cog5 ok
+: mcsstate@ h33 + C@ ;
+Prop0 Cog5 ok
+: mcsstate! h33 + C! ;
+Prop0 Cog5 ok
+: mcscnt h34 + ;
+Prop0 Cog5 ok
+: mcserr h38 + ;
+Prop0 Cog5 ok
+: (mcsinit)
+h1F and h10 lshift
+swap h1F and h8 lshift or
+swap h1F and or over h30 + L!
+dup h20 bounds
+do
+h0100 i L! 
+h4 +loop 
+dup mcsrecbuf h10 bounds
+do
+h01000100 i L!
+h4 +loop 
+dup mcscnt 0 over L!
+4+ 0 over L! 4+ 0 swap L!
+;
+Prop0 Cog5 ok
+: (mcsres)
+dup mcspinm@ pinin
+dup mcspins@ pinin
+0 over mcsstate!
+0 ctra COG!
+0 ctrb COG!
+;
+Prop0 Cog5 ok
+: (mcssynsm)
+(mcsres)
+dup mcspins@
+pinin dup mcspinm@
+hA7000 setHza
+;
+Prop0 Cog5 ok
+: (mcssynss)
+(mcsres)
+dup mcspinm@
+pinin dup mcspins@
+h77000 setHza
+;
+Prop0 Cog5 ok
+: (mcssyncm)
+dup mcspinm@ 1 qHzb hA0000 hB0000 between
+;
+Prop0 Cog5 ok
+: (mcssyncs)
+dup mcspins@ 1 qHzb h70000 h80000 between
+;
+Prop0 Cog5 ok
+: (mcssyn)
+h10000 0 do
+(mcssynsm) 0 swap rndtf h8 and h8 + 0 do
+(mcssyncs) if swap 1+ swap then
+loop
+swap h2 >
+if
+leave h2 over mcsstate!
+else
+(mcssynss) 0 swap rndtf h8 and h8 + 0
+do
+(mcssyncm)
+if
+swap 1+ swap
+then
+loop
+swap 2 >
+if
+leave 2 over mcsstate!
+then
+then
+loop ;
+Prop0 Cog5 ok
+: waithi
+h1000 0
+do
+dup px?
+if
+0 h1000 0
+do
+over px?
+if
+1+
+else
+leave
+then
+loop
+else
+0
+then
+hFF0 >
+if
+leave
+else
+1 delms
+then
+loop
+drop
+;
+Prop0 Cog5 ok
+: (mcs)
+1- numchan C! h4 state andnC!
+>r io rot2 r>
+(mcsinit)
+(mcsres)
+1 over mcsstate!
+;
+Prop0 Cog5 ok
+: mcsmaster
+c" MCS_MASTER WAITING" cds W!
+(mcs) (mcssynsm)
+begin
+(mcssyncs)
+until
+h10 delms
+dup mcspinm@ dup pinout
+0 ctra COG! 0 ctrb COG!
+0 frqa COG!
+h10000000 + ctra COG!
+h80000000 phsa COG! 
+dup mcspins@ waithi
+h60 delms
+h4 over mcsstate!
+dup mcspins@ >m 
+over mcspinm@ >m
+c" MCS_MASTER CONNECTED" numpad ccopy
+numpad cds W!
+4 state andnC!
+-1 a_mcs
+;
+Prop0 Cog5 ok
+: mcsslave
+c" MCS_SLAVE WAITING" cds W!
+(mcs) (mcssynss)
+begin
+(mcssyncm)
+until
+h10 delms
+dup mcspins@ dup pinout
+0 ctra COG! 0 ctrb COG!
+0 frqa COG!
+h10000000 + ctra COG!
+h80000000 phsa COG! 
+dup mcspinm@ waithi
+h10 delms
+h4 over mcsstate!
+dup mcspinm@ >m 
+over mcspins@ >m
+c" MCS_SLAVE CONNECTED" numpad ccopy
+numpad cds W!
+4 state andnC!
+0 a_mcs
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifdef mcs_dbg
+Prop0 Cog5 ok
+: test_hex
+h10 base W!
+." Hex mode" cr
+;
+Prop0 Cog5 ok
+: test_decimal
+hA base W!
+." Decimal mode" cr
+;
+Prop0 Cog5 ok
+: stackdepth
+$C_stTop $C_stPtr COG@ - h3 -
+;
+Prop0 Cog5 ok
+wvariable master_pin h14 master_pin W!
+Prop0 Cog5 ok
+wvariable slave_pin h15 slave_pin W!
+Prop0 Cog5 ok
+wvariable master_cog 0 master_cog W!
+Prop0 Cog5 ok
+wvariable slave_cog 1 slave_cog W!
+Prop0 Cog5 ok
+wvariable xmt/rec_cog h2 xmt/rec_cog W!
+Prop0 Cog5 ok
+lockdict wvariable rec_array h100 w, h100 w, h100 w, h100 w, h100 w, h100 w, h100 w, h100 rec_array W! freedict
+Prop0 Cog5 ok
+variable xmt_bytes 0 xmt_bytes L!
+Prop0 Cog5 ok
+variable rec_bytes 1 rec_bytes L!
+Prop0 Cog5 ok
+wvariable num_active_channels 1 num_active_channels W!
+Prop0 Cog5 ok
+: set_mcs_pins
+h1F and swap h1F and 2dup =
+if
+1+ h1F and
+then
+master_pin W!
+slave_pin W!
+;
+Prop0 Cog5 ok
+: set_mcs_cogs
+h7 and swap h7 and 2dup =
+if
+1+ h7 and
+then
+master_cog W!
+slave_cog W!
+;
+Prop0 Cog5 ok
+: set_xmt/rec_cog
+h7 and 
+xmt/rec_cog W!
+;
+Prop0 Cog5 ok
+: C+!
+dup C@ rot + swap C!
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create a_xmtrec forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h138  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z1SV04R l, 0 l, 0 l, 0 l, 0 l, 0 l, z2\ l, z40 l,
+Prop0 Cog5 ok
+z2WiYZB l, z1SyLI[ l, z2WiYeB l, z1SyLI[ l, z2WiZ3B l, z1SyLI[ l, z2WiYuB l, z1SyLI[ l,
+Prop0 Cog5 ok
+z2WiYmB l, z1SyLI[ l, z8iQCL l, z8iQ4N l, z4iPnO l, z2WiPvK l, z2WiPfM l, z4iPZF l,
+Prop0 Cog5 ok
+z1YVP[0 l, z20oQ81 l, z45ZBF l, z20yPr4 l, z4iPZD l, z1YVP[0 l, z20tQ01 l, z4AZJD l,
+Prop0 Cog5 ok
+z20yPb2 l, z3[yPnd l, z8FQCL l, z8FQ4N l, z1SV04\ l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+: xmt/rec
+rec_array
+rec_bytes
+num_active_channels
+xmt_bytes
+master_cog W@ cogio
+a_xmtrec
+;
+Prop0 Cog5 ok
+: set_num_active
+1 max h8 min num_active_channels W!
+;
+Prop0 Cog5 ok
+: mcs_stats
+." Master Pin:      " master_pin W@ . cr
+." Slave Pin:       " slave_pin W@ . cr cr
+." Master Cog:      " master_cog W@ . cr
+." Slave Cog:       " slave_cog W@ . cr cr
+." Xmt/Rec Cog:     " xmt/rec_cog W@ . cr cr
+." Master Errors:   "  master_cog W@ cogio mcserr L@ . cr
+." Slave Errors:    " slave_cog W@ cogio mcserr L@ . cr cr
+." Master Frames:   "  master_cog W@ cogio mcscnt L@ . cr
+." Slave Frames:    " slave_cog W@ cogio mcscnt L@ . cr cr
+." Master State:   "  master_cog W@ cogio mcsstate@ . cr
+." Slave State:    " slave_cog W@ cogio mcsstate@ . cr cr
+master_cog W@ cogio mcscnt dup L@
+slave_cog  W@ cogio mcscnt dup L@
+xmt_bytes dup L@
+rec_bytes dup L@
+clkfreq cnt COG@ + 0 waitcnt drop
+swap L@ swap - >r
+swap L@ swap - >r
+swap L@ swap - >r
+swap L@ swap -
+." Master frames/s: " dup . cr
+." Master bps:      " h60 u* . cr cr
+." Slave  frames/s: " r> dup . cr
+." Slave  bps:      " h60 u* . cr cr
+." Num Channels:    " num_active_channels W@ . cr cr
+." XMT byte/sec:    " r> dup . cr
+." XMT bits/sec:    " dup h8 u* . cr cr
+." XMT byte/sec/ch: " num_active_channels W@ u/ dup . cr
+." XMT bits/sec/ch: " h8 u* . cr cr
+." REC byte/sec:    " r> dup . cr
+." REC bits/sec:    " dup h8 u* . cr cr
+." REC byte/sec/ch: " num_active_channels W@ u/ dup . cr
+." REC bits/sec/ch: " h8 u* . cr cr
+;
+Prop0 Cog5 ok
+: start_mcs
+master_cog W@ cogstop
+slave_cog W@ cogstop
+xmt/rec_cog W@ cogstop
+master_cog W@ cogio h20 0 fill
+slave_cog W@ cogio h20 0 fill
+master_cog W@ cogreset
+slave_cog W@ cogreset
+xmt/rec_cog W@ cogreset
+h100 delms
+base W@
+hex
+c" h" tbuf ccopy
+master_pin W@ tbuf cappendn
+c"  h" tbuf cappend
+slave_pin W@ tbuf cappendn
+c"  h" tbuf cappend
+hFF tbuf cappendn
+c"  h" tbuf cappend
+h8 tbuf cappendn
+c"  mcs" tbuf cappend
+tbuf C@
+c" master" tbuf cappend
+tbuf master_cog W@ cogx
+tbuf .cstr cr
+tbuf C!
+c" slave" tbuf cappend
+tbuf slave_cog W@ cogx
+tbuf .cstr cr
+base W!
+h100 delms
+h8 0
+do
+slave_cog W@ cogio i 4* + dup 2+ W!
+loop
+h8 0
+do
+rec_array i 2* + master_cog W@ cogio i 4* + 2+ W! 
+loop
+c" xmt/rec" xmt/rec_cog W@ cogx
+cog?
+mcs_stats
+; 
+Prop0 Cog5 ok
+: test_help
+cr
+." ~h09~h09a # # - set mcs pins" cr
+." ~h09~h09b # # - set mcs cogs" cr
+." ~h09~h09c #   - set xmt/rec cog" cr
+." ~h09~h09d     - start mcs" cr
+." ~h09~h09e #   - set number active channels" cr
+." ~h09~h09f     - stats" cr
+." ~h09~h09g     - cog?" cr
+." ~h09~h09q     - quit" cr
+;
+Prop0 Cog5 ok
+lockdict
+Prop0 Cog5 ok
+herewal
+Prop0 Cog5 ok
+here W@ 0 w,        \ the size of the structure in bytes
+Prop0 Cog5 ok
+' set_mcs_pins  w, h2 c,   h61 c,
+Prop0 Cog5 ok
+' set_mcs_cogs  w, h2 c,   h62 c,
+Prop0 Cog5 ok
+' set_xmt/rec_cog w, 1 c,   h63 c,
+Prop0 Cog5 ok
+' start_mcs  w,  0 c,   h64 c,
+Prop0 Cog5 ok
+' set_num_active w, 1 c,   h65 c,
+Prop0 Cog5 ok
+' mcs_stats  w, 0 c,   h66 c,
+Prop0 Cog5 ok
+' cog?   w, 0 c,   h67 c,
+Prop0 Cog5 ok
+here W@ over 2+ -  over W!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wconstant test_structure  
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+: exec_test
+h8 lshift or
+0 >r
+0 test_structure 2+ test_structure W@ bounds
+do
+over i 2+ W@ =
+if
+
+drop i leave
+then
+h4 +loop
+swap hFF and swap dup
+if
+swap >r W@
+stackdepth >r
+dup 0=
+if
+hEE ERR
+then
+execute
+r> stackdepth - r> <>
+if
+hEF ERR
+then
+r> drop -1 >r
+then
+r>
+if
+-1
+else 
+drop
+dup 1+ 0
+do
+drop
+loop
+0
+then
+; 
+Prop0 Cog5 ok
+: test_getnumber
+parsenw
+dup
+if
+dup C@++ isnumber
+if
+C@++ number -1
+else
+_udf dup .cstr cr
+0
+then
+else
+0
+then
+;
+Prop0 Cog5 ok
+: test_params
+0 >r
+begin
+test_getnumber
+if
+\ ( ... n1 == count )
+r> 1+ >r 0
+\ ( ... n1 0 == count+1 )
+else
+drop -1
+then
+until
+r>
+;
+Prop0 Cog5 ok
+: test_mcs
+test_help
+begin
+pad padsize accept drop
+0 >in W!
+parsenw dup
+if
+C@++ 1 =
+if
+C@ dup h71 =
+if
+drop -1
+else
+>r
+test_params
+r>
+exec_test
+\ ( 0/-1 == - )
+0=
+if
+test_help
+then
+0
+then
+else
+drop test_help 0
+then
+else
+drop test_help 0
+then
+until
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+test_mcs
+
+		a # # - set mcs pins
+		b # # - set mcs cogs
+		c #   - set xmt/rec cog
+		d     - start mcs
+		e #   - set number active channels
+		f     - stats
+		g     - cog?
+		q     - quit
+d
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+h14 h15 hFF h8 mcsmaster
+h14 h15 hFF h8 mcsslave
+Cog:0  #io chan:8               MCS_MASTER WAITING  0(0)->X(X)  0(1)->X(X)  0(2)->X(X)  0(3)->X(X)  0(4)->X(X)  0(5)->X(X)  0(6)->X(X)  0(7)->X(X)
+Cog:1  #io chan:8              MCS_SLAVE CONNECTED  1(0)->1(0)  1(1)->1(1)  1(2)->1(2)  1(3)->1(3)  1(4)->1(4)  1(5)->1(5)  1(6)->1(6)  1(7)->1(7)
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Master Pin:      20 
+Slave Pin:       21 
+
+Master Cog:      0 
+Slave Cog:       1 
+
+Xmt/Rec Cog:     2 
+
+Master Errors:   0 
+Slave Errors:    0 
+
+Master Frames:   632 
+Slave Frames:    668 
+
+Master State:   4 
+Slave State:    4 
+
+Master frames/s: 26601 
+Master bps:      2553696 
+
+Slave  frames/s: 26599 
+Slave  bps:      2553504 
+
+Num Channels:    1 
+
+XMT byte/sec:    13299 
+XMT bits/sec:    106392 
+
+XMT byte/sec/ch: 13299 
+XMT bits/sec/ch: 106392 
+
+REC byte/sec:    13299 
+REC bits/sec:    106392 
+
+REC byte/sec/ch: 13299 
+REC bits/sec/ch: 106392 
+
+e 8
+f
+Master Pin:      20 
+Slave Pin:       21 
+
+Master Cog:      0 
+Slave Cog:       1 
+
+Xmt/Rec Cog:     2 
+
+Master Errors:   0 
+Slave Errors:    0 
+
+Master Frames:   56562 
+Slave Frames:    56605 
+
+Master State:   4 
+Slave State:    4 
+
+Master frames/s: 23046 
+Master bps:      2212416 
+
+Slave  frames/s: 23044 
+Slave  bps:      2212224 
+
+Num Channels:    8 
+
+XMT byte/sec:    92169 
+XMT bits/sec:    737352 
+
+XMT byte/sec/ch: 11521 
+XMT bits/sec/ch: 92168 
+
+REC byte/sec:    92168 
+REC bits/sec:    737344 
+
+REC byte/sec/ch: 11521 
+REC bits/sec/ch: 92168 
+
+g
+Cog:0  #io chan:8             MCS_MASTER CONNECTED  0(0)->X(X)  0(1)->X(X)  0(2)->X(X)  0(3)->X(X)  0(4)->X(X)  0(5)->X(X)  0(6)->X(X)  0(7)->X(X)
+Cog:1  #io chan:8              MCS_SLAVE CONNECTED  1(0)->1(0)  1(1)->1(1)  1(2)->1(2)  1(3)->1(3)  1(4)->1(4)  1(5)->1(5)  1(6)->1(6)  1(7)->1(7)
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+q
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+[ifndef rcogx
+Prop0 Cog6 ok
+\ rcogx ( cstr cog channel -- ) send cstr to the cog/channel
+Prop0 Cog6 ok
+: rcogx
+ io 2+ W@
+\ ( cstr cog channel oldio+2 -- )
+ rot cogio
+\ ( cstr channel oldio+2 cogio -- )
+ rot 4* +
+\ ( cstr oldio+2 chaddr -- )
+ io 2+ W!
+\ ( cstr oldio+2 -- )
+ swap .cstr cr
+ io 2+ W!
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_sdfs
+Prop0 Cog6 ok
+: rfsend
+ 2drop ." NO~h0D"
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rfsend
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef term
+Prop0 Cog6 ok
+: term
+ over cognchan min ." Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9~h0D~h0A"
+ >r >r cogid 0 r> r> (iolink)
+ begin
+  key dup h10 =
+  if
+   drop -1
+  else
+   dup h11 h19 between
+   if
+    1-
+   then
+   emit 0
+  then
+ until
+ cogid iounlink
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+1 wconstant build_norom
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef ctra
+Prop0 Cog5 ok
+h1F8 wconstant ctra 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef ctrb
+Prop0 Cog5 ok
+h1F9 wconstant ctrb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef frqa
+Prop0 Cog5 ok
+h1FA wconstant frqa 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef frqb
+Prop0 Cog5 ok
+h1FB wconstant frqb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef phsa
+Prop0 Cog5 ok
+h1FC wconstant phsa 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef phsb
+Prop0 Cog5 ok
+h1FD wconstant phsb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef variable
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinlo
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinhi
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef abs
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef waitcnt
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _cfo
+Prop0 Cog5 ok
+: _cfo
+clkfreq 1- min 0 swap clkfreq um/mod swap clkfreq 2/ >= abs +
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef u*/mod
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef u*/
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef setHza
+Prop0 Cog5 ok
+: setHza
+_cfo frqa COG! dup pinout h10000000 + ctra COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef qHzb
+Prop0 Cog5 ok
+: qHzb
+swap h28000000 + 1 frqb COG! ctrb COG!
+h3000 min clkfreq over h3E8 u*/ 310 -
+phsb COG@ swap cnt COG@ + 0 waitcnt
+phsb COG@ nip swap - h3E8 rot u*/
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef setHzb
+Prop0 Cog5 ok
+: setHzb
+_cfo frqb COG! dup pinout h10000000 + ctrb COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef term
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create a_ram forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h142  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z2WiZBB l, z1SyLI[ l, z2WiZ3B l, z1SyLI[ l, z1SV04c l, 0 l, 0 l, z800 l,
+Prop0 Cog5 ok
+z3jFZ4O l, z3jFZCP l, z3nFZCP l, z3nFZ4O l, z1SV000 l, z2WyQ88 l, z3jFZ4O l, z3nFZ4O l,
+Prop0 Cog5 ok
+z3[yQCX l, z1bixnP l, z3jFZ4O l, z3nFZ4O l, z1[ixnP l, z1SV000 l, z1[ixnO l, z1[ixnP l,
+Prop0 Cog5 ok
+z1[ix[P l, z1SyZvR l, z1Sy\4W l, z1Sy\4W l, z1Sy\4W l, z1SyZvR l, z1Sy\4W l, z2WiQCQ l,
+Prop0 Cog5 ok
+z2WyPW0 l, ziPeC l, z20yPW1 l, z2WyQ08 l, z1XVPd0 l, zfyPb1 l, z1nixnP l, z3jFZ4O l,
+Prop0 Cog5 ok
+z3nFZ4O l, z3[yQ4q l, z1[ixnP l, z3jFZ4O l, z3nFZ4O l, z3[yQCn l, z1SV01X l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable (rb04s) 0 (rb04s) W!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: ramboot
+dup pinlo dup pinout 1 delms dup pinhi pinin
+over >m swap >m
+a_ram
+dup h97000 setHza h800 delms 0 ctra COG! pinin
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: rambootnx
+lockdict (rb04s) 1+ dup C@ dup 1+ rot C! 0=
+if
+h4 C@ (rb04s) C!
+h67 4 C!
+then
+freedict
+0 L@ h4 rshift setHzb
+ramboot
+lockdict (rb04s) 1+ dup C@ 1- dup rot C! 0=
+if
+(rb04s) C@ h4 C!
+then
+freedict
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" onboot" find drop pfa>nfa 1+ c" onb001" C@++ rot swap cmove
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: onboot onb001
+drop 0 
+c" MASTERProp" prop W! 0 propid W!
+h40 0
+do
+h1C 1 qHzb h90000 hA0000 between
+if
+c"  SLAVEProp" prop W! h8 propid W!
+1 _finit andnC! leave
+then
+loop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+0 pinhi 1 pinhi 0 pinout 1 pinout
+Prop0 Cog6 ok
+8 9 10 11 rambootnx
+Prop0 Cog6 ok
+c" 1 0 57600 serial" 4 cogx 100 delms 1 4 sersetflags
+Prop0 Cog6 ok
+0 pinin 1 pinin
+Prop0 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1                           SERIAL
+Cog:5  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+4 0 term
+Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9
+
+1 7 sersetflags
+
+ SLAVEProp8 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+ SLAVEProp8 Cog6 ok
+Prop0 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1                           SERIAL
+Cog:5  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+[ifndef rcogx
+Prop0 Cog6 ok
+\ rcogx ( cstr cog channel -- ) send cstr to the cog/channel
+Prop0 Cog6 ok
+: rcogx
+ io 2+ W@
+\ ( cstr cog channel oldio+2 -- )
+ rot cogio
+\ ( cstr channel oldio+2 cogio -- )
+ rot 4* +
+\ ( cstr oldio+2 chaddr -- )
+ io 2+ W!
+\ ( cstr oldio+2 -- )
+ swap .cstr cr
+ io 2+ W!
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_sdfs
+Prop0 Cog6 ok
+: rfsend
+ 2drop ." NO~h0D"
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rfsend
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef term
+Prop0 Cog6 ok
+: term
+ over cognchan min ." Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9~h0D~h0A"
+ >r >r cogid 0 r> r> (iolink)
+ begin
+  key dup h10 =
+  if
+   drop -1
+  else
+   dup h11 h19 between
+   if
+    1-
+   then
+   emit 0
+  then
+ until
+ cogid iounlink
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+1 wconstant build_norom
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef ctra
+Prop0 Cog5 ok
+h1F8 wconstant ctra 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef ctrb
+Prop0 Cog5 ok
+h1F9 wconstant ctrb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef frqa
+Prop0 Cog5 ok
+h1FA wconstant frqa 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef frqb
+Prop0 Cog5 ok
+h1FB wconstant frqb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef phsa
+Prop0 Cog5 ok
+h1FC wconstant phsa 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef phsb
+Prop0 Cog5 ok
+h1FD wconstant phsb 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef variable
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinlo
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinhi
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef abs
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef waitcnt
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _cfo
+Prop0 Cog5 ok
+: _cfo
+clkfreq 1- min 0 swap clkfreq um/mod swap clkfreq 2/ >= abs +
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef u*/mod
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef u*/
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef setHza
+Prop0 Cog5 ok
+: setHza
+_cfo frqa COG! dup pinout h10000000 + ctra COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef qHzb
+Prop0 Cog5 ok
+: qHzb
+swap h28000000 + 1 frqb COG! ctrb COG!
+h3000 min clkfreq over h3E8 u*/ 310 -
+phsb COG@ swap cnt COG@ + 0 waitcnt
+phsb COG@ nip swap - h3E8 rot u*/
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef setHzb
+Prop0 Cog5 ok
+: setHzb
+_cfo frqb COG! dup pinout h10000000 + ctrb COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef term
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create a_ram forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h142  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z2WiZBB l, z1SyLI[ l, z2WiZ3B l, z1SyLI[ l, z1SV04c l, 0 l, 0 l, z800 l,
+Prop0 Cog5 ok
+z3jFZ4O l, z3jFZCP l, z3nFZCP l, z3nFZ4O l, z1SV000 l, z2WyQ88 l, z3jFZ4O l, z3nFZ4O l,
+Prop0 Cog5 ok
+z3[yQCX l, z1bixnP l, z3jFZ4O l, z3nFZ4O l, z1[ixnP l, z1SV000 l, z1[ixnO l, z1[ixnP l,
+Prop0 Cog5 ok
+z1[ix[P l, z1SyZvR l, z1Sy\4W l, z1Sy\4W l, z1Sy\4W l, z1SyZvR l, z1Sy\4W l, z2WiQCQ l,
+Prop0 Cog5 ok
+z2WyPW0 l, ziPeC l, z20yPW1 l, z2WyQ08 l, z1XVPd0 l, zfyPb1 l, z1nixnP l, z3jFZ4O l,
+Prop0 Cog5 ok
+z3nFZ4O l, z3[yQ4q l, z1[ixnP l, z3jFZ4O l, z3nFZ4O l, z3[yQCn l, z1SV01X l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable (rb04s) 0 (rb04s) W!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: ramboot
+dup pinlo dup pinout 1 delms dup pinhi pinin
+over >m swap >m
+a_ram
+dup h97000 setHza h800 delms 0 ctra COG! pinin
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: rambootnx
+lockdict (rb04s) 1+ dup C@ dup 1+ rot C! 0=
+if
+h4 C@ (rb04s) C!
+h67 4 C!
+then
+freedict
+0 L@ h4 rshift setHzb
+ramboot
+lockdict (rb04s) 1+ dup C@ 1- dup rot C! 0=
+if
+(rb04s) C@ h4 C!
+then
+freedict
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" onboot" find drop pfa>nfa 1+ c" onb001" C@++ rot swap cmove
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: onboot onb001
+drop 0 
+c" MASTERProp" prop W! 0 propid W!
+h40 0
+do
+h1C 1 qHzb h90000 hA0000 between
+if
+c"  SLAVEProp" prop W! h8 propid W!
+1 _finit andnC! leave
+then
+loop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef $C_stTop
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef $C_stPtr
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef variable
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef abs
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef waitcnt
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef ctra
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef ctrb
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef frqa
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef frqb
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef phsa
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef phsb
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef px?
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef sign
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef */mod
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef */
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef rnd
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef rndtf
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef rndand
+Prop0 Cog5 ok
+: rndand
+rnd h7F > and
+; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _cfo
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef setHza
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef qHzb
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef term
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+lockdict create a_mcs forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h1A9  h113  1- tuck - h9 lshift or here W@ alignl cnt COG@ dup h10 rshift xor h3 andn xor h10 lshift or l,
+Prop0 Cog5 ok
+z1SV06X l, z1 l, z1 l, 0 l, 0 l, 0 l, 0 l, 0 l,
+Prop0 Cog5 ok
+0 l, z2WyPj0 l, z2WyQ84 l, zbyZO1 l, zbyPj8 l, z4iPZB l, z2WiPeC l, zfyPWO l,
+Prop0 Cog5 ok
+z1YyPf0 l, z1bdPmC l, z1btZQ0 l, z20yPO4 l, z3[yQCU l, z1SV000 l, z2WyZO0 l, z1Sy\4S l,
+Prop0 Cog5 ok
+z2WiZBE l, z1Sy\4S l, z2WiZJE l, z1biZSO l, z2WiPvP l, z1fiPvQ l, z1fiPvR l, z1fyPwL l,
+Prop0 Cog5 ok
+z2WiQ3F l, zbyQ0G l, z1fiPuG l, zfyPrG l, z1biZRF l, z24yPOW l, z1SV000 l, z2WyQ8W l,
+Prop0 Cog5 ok
+z1XFYil l, znyyW1 l, z3]yQCu l, z1SV000 l, z2Wiy[R l, z1Syant l, z2WiZ7v l, z2Wiy[Q l,
+Prop0 Cog5 ok
+z1Syant l, z2WiYyv l, z2Wiy[P l, z1Syant l, z2WiYqv l, z2fyyW1 l, z2WiQBB l, z20yQ8n l,
+Prop0 Cog5 ok
+z2WiPvM l, z1fiPvN l, z1fiPvO l, z1fyPwL l, z2WiQ3F l, zbyQ0G l, z1fiPuG l, zhyPrG l,
+Prop0 Cog5 ok
+z8iQ3H l, z20yQ01 l, z8FQ3H l, z20yQ84 l, z2WoZ00 l, z8\Q3H l, z20oQ01 l, z85Q3H l,
+Prop0 Cog5 ok
+z2WyQ40 l, z2WiP[O l, z2WyQ88 l, z1YVP[0 l, z45Q3B l, zbyPW1 l, z20yPO4 l, z3[yQDU l,
+Prop0 Cog5 ok
+z24yPOW l, z20yPOW l, z2WyQ02 l, z2WiPvM l, z2WyQ84 l, z2WiPmF l, zbyPr8 l, zcyZ01 l,
+Prop0 Cog5 ok
+z4fPZB l, z1WyPmy l, z1YVP[0 l, z44PmB l, z20yPO2 l, z3[yQDb l, z2WiPvN l, z3[yQ5a l,
+Prop0 Cog5 ok
+z24yPOj l, z2WiZJB l, z20yZG2 l, z2WyPr7 l, zfyPr8 l, z20yPOW l, z2WyZ00 l, z2WyQ40 l,
+Prop0 Cog5 ok
+z2WyYn0 l, z2WiYvM l, zfyYr1 l, z2WiZCN l, zfyZ81 l, z2WyQ88 l, z4iPmB l, z1YFPmF l,
+Prop0 Cog5 ok
+z1SL06B l, z6iPfQ l, z2WdPnP l, z1SQ06B l, z4iPZD l, z1YFP[M l, z45PmD l, z2W\PnP l,
+Prop0 Cog5 ok
+z1YFPnN l, z45YmB l, z1YFPnP l, z45YuB l, z1b\Z3G l, zfyQ01 l, z20yZG4 l, z20yPO2 l,
+Prop0 Cog5 ok
+z3[yQE1 l, z24yPOj l, z1SV000 l, z1SyaCc l, z2WyyW0 l, z3nFYfL l, z1Sylfy l, z1SV06M l,
+Prop0 Cog5 ok
+z1SyaCc l, z3nFYfL l, z2WyyW0 l, 0 l, z1Sylfy l, z1SV06R l, z1SyLIZ l, z2WiYZB l,
+Prop0 Cog5 ok
+z1SyLI[ l, z2WiYeB l, z1SyLI[ l, z26VPW0 l, z1SL06M l, z1SV06R l,
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+: mcsrecbuf h20 + ;
+Prop0 Cog5 ok
+: mcspinm@ h30 + C@ ;
+Prop0 Cog5 ok
+: mcspins@ h31 + C@ ;
+Prop0 Cog5 ok
+: mcspinm! h30 + C! ;
+Prop0 Cog5 ok
+: mcspins! h31 + C! ;
+Prop0 Cog5 ok
+: mcsreset@ h32 + C@ ;
+Prop0 Cog5 ok
+: mcsreset! h32 + C! ;
+Prop0 Cog5 ok
+: mcsstate@ h33 + C@ ;
+Prop0 Cog5 ok
+: mcsstate! h33 + C! ;
+Prop0 Cog5 ok
+: mcscnt h34 + ;
+Prop0 Cog5 ok
+: mcserr h38 + ;
+Prop0 Cog5 ok
+: (mcsinit)
+h1F and h10 lshift
+swap h1F and h8 lshift or
+swap h1F and or over h30 + L!
+dup h20 bounds
+do
+h0100 i L! 
+h4 +loop 
+dup mcsrecbuf h10 bounds
+do
+h01000100 i L!
+h4 +loop 
+dup mcscnt 0 over L!
+4+ 0 over L! 4+ 0 swap L!
+;
+Prop0 Cog5 ok
+: (mcsres)
+dup mcspinm@ pinin
+dup mcspins@ pinin
+0 over mcsstate!
+0 ctra COG!
+0 ctrb COG!
+;
+Prop0 Cog5 ok
+: (mcssynsm)
+(mcsres)
+dup mcspins@
+pinin dup mcspinm@
+hA7000 setHza
+;
+Prop0 Cog5 ok
+: (mcssynss)
+(mcsres)
+dup mcspinm@
+pinin dup mcspins@
+h77000 setHza
+;
+Prop0 Cog5 ok
+: (mcssyncm)
+dup mcspinm@ 1 qHzb hA0000 hB0000 between
+;
+Prop0 Cog5 ok
+: (mcssyncs)
+dup mcspins@ 1 qHzb h70000 h80000 between
+;
+Prop0 Cog5 ok
+: (mcssyn)
+h10000 0 do
+(mcssynsm) 0 swap rndtf h8 and h8 + 0 do
+(mcssyncs) if swap 1+ swap then
+loop
+swap h2 >
+if
+leave h2 over mcsstate!
+else
+(mcssynss) 0 swap rndtf h8 and h8 + 0
+do
+(mcssyncm)
+if
+swap 1+ swap
+then
+loop
+swap 2 >
+if
+leave 2 over mcsstate!
+then
+then
+loop ;
+Prop0 Cog5 ok
+: waithi
+h1000 0
+do
+dup px?
+if
+0 h1000 0
+do
+over px?
+if
+1+
+else
+leave
+then
+loop
+else
+0
+then
+hFF0 >
+if
+leave
+else
+1 delms
+then
+loop
+drop
+;
+Prop0 Cog5 ok
+: (mcs)
+1- numchan C! h4 state andnC!
+>r io rot2 r>
+(mcsinit)
+(mcsres)
+1 over mcsstate!
+;
+Prop0 Cog5 ok
+: mcsmaster
+c" MCS_MASTER WAITING" cds W!
+(mcs) (mcssynsm)
+begin
+(mcssyncs)
+until
+h10 delms
+dup mcspinm@ dup pinout
+0 ctra COG! 0 ctrb COG!
+0 frqa COG!
+h10000000 + ctra COG!
+h80000000 phsa COG! 
+dup mcspins@ waithi
+h60 delms
+h4 over mcsstate!
+dup mcspins@ >m 
+over mcspinm@ >m
+c" MCS_MASTER CONNECTED" numpad ccopy
+numpad cds W!
+4 state andnC!
+-1 a_mcs
+;
+Prop0 Cog5 ok
+: mcsslave
+c" MCS_SLAVE WAITING" cds W!
+(mcs) (mcssynss)
+begin
+(mcssyncm)
+until
+h10 delms
+dup mcspins@ dup pinout
+0 ctra COG! 0 ctrb COG!
+0 frqa COG!
+h10000000 + ctra COG!
+h80000000 phsa COG! 
+dup mcspinm@ waithi
+h10 delms
+h4 over mcsstate!
+dup mcspinm@ >m 
+over mcspins@ >m
+c" MCS_SLAVE CONNECTED" numpad ccopy
+numpad cds W!
+4 state andnC!
+0 a_mcs
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifdef mcs_dbg
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant  build_mcsnorom
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" onboot" find drop pfa>nfa 1+ c" onb002" C@++ rot swap cmove
+Prop0 Cog5 ok
+: onboot
+onb002 h80 delms
+h2 _finit andnC!
+_finit W@ 1 and
+if
+
+h8 h9 hA hB rambootnx
+c" h8 h9 hA h5 mcsmaster" h5 cogx h10 delms
+
+
+
+h10000 0
+do
+h5 cogio mcsstate@ h4 =
+if
+h2 _finit orC!
+leave
+then
+loop
+else
+c" h1C h1D hFF h5 mcsslave" h5 cogx h10 delms
+h10000 0
+do
+h5 cogio mcsstate@ 4 =
+if
+h2 _finit orC!
+leave
+then
+loop
+h5 0
+do
+i 0 h5 i (ioconn)
+loop
+then
+;  
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+words on
+NFA (Forth/Asm Immediate eXecute) Name
+20_510 F   onboot               18_498 F   onb002               16_978 F   onreset              10_430 F   onre001              
+10_346 F   onb001               
+Prop0 Cog6 ok
+0 onboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:MASTERProp0 Cog5 RESET - last status: 0 ok
+MASTERProp0 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:5             MCS_MASTER CONNECTED
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+MASTERProp0 Cog6 ok
+5 0 term
+Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9
+
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  0(0)->5(0)
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  1(0)->5(1)
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  2(0)->5(2)
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  3(0)->5(3)
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  4(0)->5(4)
+Cog:5  #io chan:5              MCS_SLAVE CONNECTED  5(0)->0(0)  5(1)->1(0)  5(2)->2(0)  5(3)->3(0)  5(4)->4(0)
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+ SLAVEProp8 Cog0 ok
+MASTERProp0 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:5  #io chan:5             MCS_MASTER CONNECTED
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+MASTERProp0 Cog6 ok
+
+MASTERProp0 Cog6 ok
+
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 

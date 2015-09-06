@@ -1,0 +1,16 @@
+L TEST/results/runLogs/SnetEEpromIPTelnet3RunLog.txt
+R TEST/results/resultFiles/SnetEEpromIPTelnet3Result.txt
+
+			ipc	${PROPTELNET3}
+			r 	TEST/scripts/BasicFunctionality.txt
+			X	fsls
+			X	fsread boot.f
+			dis
+
+			ipc	${PROPTELNET3}
+			X	cog?
+			X	fsls
+			X	fsread boot.f
+			dis
+
+			CR CL

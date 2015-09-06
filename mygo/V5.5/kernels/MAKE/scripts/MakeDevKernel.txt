@@ -1,0 +1,20 @@
+L MAKE/results/runLogs/MakeDevKernelRunLog.txt
+R MAKE/results/resultFiles/MakeDevResult.txt
+
+\ Load BootOptimize Kernel
+						r	MAKE/scripts/LoadBootOptimizeKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load DevKernel.f
+						scr fl
+						S	MAKE/src/optimize/dev/DevKernel.f
+\ Load spinimage.f
+						S	MAKE/src/spinimage.f
+\ echos and prompts off
+						X	hA state orC!
+\ make DevKernel.spin
+						O	MAKE/results/outputFiles/DevKernel.spin
+						SR	MAKE/results/outputFiles/AsmKernel.spin
+\ spinimage
+	t 3000					X	spinImage
+						CO CR CL

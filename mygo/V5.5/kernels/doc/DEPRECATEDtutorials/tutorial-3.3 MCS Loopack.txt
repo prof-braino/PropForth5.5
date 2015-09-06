@@ -1,0 +1,146 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Run tutorial-1.1 Standard Developent System.txt
+
+2. Start teraterm.
+
++++
+Reboot
+---
+reboot 
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
+
+
+
++++
+Define_debug
+---
+1 wconstant mcs_dbg
+###
+1 wconstant mcs_dbg
+Prop0 Cog6 ok
+%%%
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\mcs.f
+into teraterm
+
++++
+Load_mcs.f
+===
+mcs.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_mcs
+Prop0 Cog5 ok
+~~~
+
++++
+Run_start_mcs
+---
+start_mcs
+$$$
+start_mcs
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+h14 h15 hFF h8 mcsmaster
+h14 h15 hFF h8 mcsslave
+Cog:0  #io chan:8               MCS_MASTER WAITING  0(0)->X(X)  0(1)->X(X)  0(2)->X(X)  0(3)->X(X)  0(4)->X(X)  0(5)->X(X)  0(6)->X(X)  0(7)->X(X)
+Cog:1  #io chan:8              MCS_SLAVE CONNECTED  1(0)->1(0)  1(1)->1(1)  1(2)->1(2)  1(3)->1(3)  1(4)->1(4)  1(5)->1(5)  1(6)->1(6)  1(7)->1(7)
+Cog:2  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:5  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Master Pin:      20
+Slave Pin:       21
+
+Master Cog:      0
+Slave Cog:       1
+
+Xmt/Rec Cog:     2
+
+Master Errors:   0
+Slave Errors:    0
+
+Master Frames:   2898
+Slave Frames:    3021
+
+Master State:   4
+Slave State:    4
+
+Master frames/s: 26602
+Master bps:      2553792
+
+Slave  frames/s: 26600
+Slave  bps:      2553600
+
+Num Channels:    1
+
+XMT byte/sec:    13299
+XMT bits/sec:    106392
+
+XMT byte/sec/ch: 13299
+XMT bits/sec/ch: 106392
+
+REC byte/sec:    13298
+REC bits/sec:    106384
+
+REC byte/sec/ch: 13298
+REC bits/sec/ch: 106384
+
+Prop0 Cog6 ok
+%%%
+
+
++++
+Run_cog?
+---
+cog?
+###
+cog?
+Cog:0  #io chan:8             MCS_MASTER CONNECTED  0(0)->X(X)  0(1)->X(X)  0(2)->X(X)  0(3)->X(X)  0(4)->X(X)  0(5)->X(X)  0(6)->X(X)  0(7)->X(X)
+Cog:1  #io chan:8              MCS_SLAVE CONNECTED  1(0)->1(0)  1(1)->1(1)  1(2)->1(2)  1(3)->1(3)  1(4)->1(4)  1(5)->1(5)  1(6)->1(6)  1(7)->1(7)
+Cog:2  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:3  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:4  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:5  #io chan:1 PropForth v5.0 2012JAN09 14:30 1
+Cog:6  #io chan:1 PropForth v5.0 2012JAN09 14:30 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+%%%

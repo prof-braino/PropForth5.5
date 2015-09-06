@@ -1,0 +1,269 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Connect Propclip to any Prop Board with eeprom of 64k bytes or greater and load 
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\PropForthOptimizeBootFsrdKernel.spin
+into eeprom.
+
+2. Start teraterm.
+
+
+IMPORTANT: if at any time you wish to boot the propeller without running boot.f,
+           hold down the ESC key while rebooting.
+           Type in:
+                       reboot
+              hit enter
+              hold down the ESC key until PropForth reboots
+
+
+            or
+              hold down the ESC key, and power cycle the board, or hit reset
+
+            When the cursor starts moving horizontally across the screen, the reboot is
+            complete. This usually takes 3 - 4 seconds.
+
+            You should see something like this:
+
+Prop0 Cog6 ok
+                               <<CURSOR>>
+
+            If you do not hold escape key, or start holding it down to late after the reboot,
+            and you have a boot.f file in your eeprom, it will load, and you may not see the
+            above results.
+
+            This may be necessary if you have previously installed files in the eeprom
+            file system.
+
+            For this process, boot while holding down the ESC key.
+
+
++++
+Reboot
+---
+reboot
+###
+reboot
+Prop0 Cog6 ok
+%%%
+
+
+3. Open
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\fswr.f
+
+Comment out line
+fswrite fswr.f
+
+and paste the contents into teraterm
+
++++
+Load_Mod_fswr.f
+===
+fswr.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_fswr
+Prop0 Cog5 ok
+~~~
+
+
+Close the file WITHOUT saving the changes.
+
++++
+Fsclear
+---
+fsclear
+###
+fsclear
+Prop0 Cog6 ok
+%%%
+
+
+4. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\fswr.f
+into teraterm
+
++++
+Load_fswr.f
+===
+fswr.f
+###
+fl
+Prop0 Cog0 ok
+fswrite fswr.f
+
+
+
+
+
+1 wconstant build_fswr
+
+[ifndef eewritepage
+~~~
+
+
+5. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\serial.f
+into teraterm
+
++++
+Load_serial.f
+===
+serial.f
+###
+fl
+Prop0 Cog0 ok
+fswrite serial.f
+
+lockdict create _serial forthentry
+~~~
+
+
+6. Open
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\PropForthDevKernel.f
+
+UNComment out line
+\ fswrite DevKernel.f
+
+and paste the contents into teraterm
+
++++
+Load_Mod_PropForthDevKernel.f
+===
+PropForthDevKernel.f
+###
+fswrite DevKernel.f
+
+1 wconstant build_DevKernel
+
+
+
+
+[ifndef serflags?
+: serflags?
+cogio hC8 + L@
+;
+]
+
+[ifndef sersetflags
+: sersetflags
+cogio hC8 + L!
+;
+]
+
+[ifndef sersendbreak
+: sersendbreak
+cogio hC4 + L!
+;
+]
+
+[ifndef $C_a_dovarl
+h4D wconstant $C_a_dovarl
+]
+
+[ifndef $C_a__xasm2>1IMM
+h13 wconstant $C_a__xasm2>1IMM
+]
+~~~
+
+7. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\boot.f
+into teraterm
+
+
+
++++
+Load_boot.f
+===
+boot.f
+###
+fl
+Prop0 Cog5 ok
+fswrite boot.f
+version W@ _bmsg c" boot.f    initializing" _bmsg
+~~~
+
+
+
+
++++
+Reboot1
+---
+reboot
+###
+reboot
+
+
+
+
+
+
+
+
+
+
+                              PropForth v5.0 2012JAN09 14:30 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              boot.f    initializing
+
+
+
+
+
+
+
+
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: tempPROMPT c" PROT" ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+33 wconstant tempPROPID
+Prop0 Cog5 ok
+~~~
+
+
++++
+Free
+---
+free
+###
+free
+15000 bytes free - 176 cog longs free
+PROT33 Cog6 ok
+%%%

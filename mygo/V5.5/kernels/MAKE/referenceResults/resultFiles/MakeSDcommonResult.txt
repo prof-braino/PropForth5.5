@@ -1,0 +1,1608 @@
+
+ scriptFileName: MAKE/scripts/MakeSDcommon.txt
+   logFileName: MAKE/results/runLogs/MakeSDcommonRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDcommonResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 17596 
+
+NFA (Forth/Asm Immediate eXecute) Name
+13_240 F   build_DevKernel      10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/MakeSDcommonRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDcommonResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -395973378 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/MakeSDcommon.txt
+   logFileName: MAKE/results/runLogs/MakeSDcommonRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDcommonResult.txt
+outputFileName: 
+here W@ . cr
+13238 
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+c" Loading sdcommon.f ..." .cstr
+Loading sdcommon.f ...Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+Prop0 Cog5 ok
+h4D wconstant $C_a_dovarl
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef variable
+Prop0 Cog5 ok
+: variable
+lockdict create $C_a_dovarl w, 0 l, forthentry freedict
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef invert
+Prop0 Cog5 ok
+: invert
+-1 xor
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pinin
+Prop0 Cog5 ok
+: pinin
+>m invert dira COG@ and dira COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pinout
+Prop0 Cog5 ok
+: pinout
+>m dira COG@ or dira COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pinlo
+Prop0 Cog5 ok
+: pinlo
+>m _maskoutlo
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pinhi
+Prop0 Cog5 ok
+: pinhi
+>m _maskouthi
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef px?
+Prop0 Cog5 ok
+: px?
+>m _maskin
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+coghere W@ wconstant v_sdbase
+Prop0 Cog5 ok
+v_sdbase wconstant v_sd_do
+Prop0 Cog5 ok
+v_sd_do 1+ wconstant v_sd_di
+Prop0 Cog5 ok
+v_sd_di 1+ wconstant v_sd_clk
+Prop0 Cog5 ok
+v_sd_clk 1+ wconstant v_currentdir
+Prop0 Cog5 ok
+v_currentdir 1+ wconstant sd_cogbuf
+Prop0 Cog5 ok
+sd_cogbuf h80 + wconstant _sd_cogend
+Prop0 Cog5 ok
+: sd_cogbufclr
+sd_cogbuf h80 bounds
+do
+0 i COG!
+loop
+; 
+Prop0 Cog5 ok
+wvariable _sd_initialized 0 _sd_initialized W!
+Prop0 Cog5 ok
+: sd_lock
+h3 lock
+;
+Prop0 Cog5 ok
+: sd_unlock
+h3 unlock
+;
+Prop0 Cog5 ok
+wvariable _sd_ccs 0 _sd_ccs W!
+Prop0 Cog5 ok
+wvariable _sd_hc 0 _sd_hc W!
+Prop0 Cog5 ok
+variable _sd_maxblock 0 _sd_maxblock L!
+Prop0 Cog5 ok
+[ifndef $S_sd_cs
+Prop0 Cog5 ok
+19 wconstant $S_sd_cs
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef $S_sd_di
+Prop0 Cog5 ok
+20 wconstant $S_sd_di
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef $S_sd_clk
+Prop0 Cog5 ok
+21 wconstant $S_sd_clk
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef $S_sd_do
+Prop0 Cog5 ok
+16 wconstant $S_sd_do
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+: sd_uninit
+_sd_cogend v_sdbase
+do
+0 i COG!
+loop 
+v_sdbase coghere W!
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sd_init
+[ifdef _sd_debug
+.
+.
+.
+]
+_sd_cogend coghere W!
+$S_sd_di  dup pinlo pinout
+$S_sd_clk dup pinlo pinout
+$S_sd_do            pinin
+$S_sd_cs  dup pinlo pinout
+$S_sd_di  >m v_sd_di COG!
+$S_sd_do  >m v_sd_do COG!
+$S_sd_clk >m v_sd_clk COG!
+lockdict
+_sd_initialized W@ 0=
+if
+c" _sd_init" find
+if
+sd_lock
+execute
+-1 _sd_initialized W!
+sd_unlock
+else
+drop
+then
+then
+freedict
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+c" Loaded sdcommon.f~h0D" .cstr
+Loaded sdcommon.f
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_asm
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_IP
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_(+loop)
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_(loop)
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_0branch
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_2>r
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm1>1
+Prop0 Cog5 ok
+h1C wconstant $C_a__xasm1>1
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>0
+Prop0 Cog5 ok
+h21 wconstant $C_a__xasm2>0
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>1
+Prop0 Cog5 ok
+h16 wconstant $C_a__xasm2>1
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>1IMM
+Prop0 Cog5 ok
+h13 wconstant $C_a__xasm2>1IMM
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>flag
+Prop0 Cog5 ok
+h4 wconstant $C_a__xasm2>flag
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>flagIMM
+Prop0 Cog5 ok
+h1 wconstant $C_a__xasm2>flagIMM
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_branch
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_debugonoff
+Prop0 Cog5 ok
+h63 wconstant $C_a_debugonoff
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_doconl
+Prop0 Cog5 ok
+h52 wconstant $C_a_doconl
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_doconw
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_dovarw
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_exit
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_litl
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_litw
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_lxasm
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_next
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_reset
+Prop0 Cog5 ok
+h91 wconstant $C_a_reset
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_rspop
+Prop0 Cog5 ok
+hAB wconstant $C_a_rspop
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_rspop_ret
+Prop0 Cog5 ok
+hB1 wconstant $C_a_rspop_ret
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_rspush
+Prop0 Cog5 ok
+h9C wconstant $C_a_rspush
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_rspush_ret
+Prop0 Cog5 ok
+hA2 wconstant $C_a_rspush_ret
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_stpop
+Prop0 Cog5 ok
+hA4 wconstant $C_a_stpop
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_stpop_ret
+Prop0 Cog5 ok
+hAA wconstant $C_a_stpop_ret
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_stpoptreg
+Prop0 Cog5 ok
+hA3 wconstant $C_a_stpoptreg
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_stpoptreg_ret
+Prop0 Cog5 ok
+hAA wconstant $C_a_stpoptreg_ret
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_stpush
+Prop0 Cog5 ok
+h95 wconstant $C_a_stpush
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_stpush_ret
+Prop0 Cog5 ok
+h9B wconstant $C_a_stpush_ret
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_fAddrMask
+Prop0 Cog5 ok
+hC5 wconstant $C_fAddrMask
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_fCondMask
+Prop0 Cog5 ok
+hC3 wconstant $C_fCondMask
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_fDestInc
+Prop0 Cog5 ok
+hC2 wconstant $C_fDestInc
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_fLongMask
+Prop0 Cog5 ok
+hC6 wconstant $C_fLongMask
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_fMask
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_resetDreg
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_rsBot
+Prop0 Cog5 ok
+hF2 wconstant $C_rsBot
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_rsPtr
+Prop0 Cog5 ok
+hCA wconstant $C_rsPtr
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_rsTop
+Prop0 Cog5 ok
+h112 wconstant $C_rsTop
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_stBot
+Prop0 Cog5 ok
+hD2 wconstant $C_stBot
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_stPtr
+Prop0 Cog5 ok
+hC9 wconstant $C_stPtr
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_stTOS
+Prop0 Cog5 ok
+hCB wconstant $C_stTOS
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_stTop
+Prop0 Cog5 ok
+hF2 wconstant $C_stTop
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_treg1
+Prop0 Cog5 ok
+hCC wconstant $C_treg1
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_treg2
+Prop0 Cog5 ok
+hCD wconstant $C_treg2
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_treg3
+Prop0 Cog5 ok
+hCE wconstant $C_treg3
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_treg4
+Prop0 Cog5 ok
+hCF wconstant $C_treg4
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_treg5
+Prop0 Cog5 ok
+hD0 wconstant $C_treg5
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_treg6
+Prop0 Cog5 ok
+hD1 wconstant $C_treg6
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_varEnd
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $S_baud
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $S_cdsz
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $S_con
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $S_rxpin
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $S_txpin
+.
+.
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_>in
+Prop0 Cog5 ok
+hDC wconstant $V_>in
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_>out
+Prop0 Cog5 ok
+hDA wconstant $V_>out
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_base
+Prop0 Cog5 ok
+hD2 wconstant $V_base
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_cds
+Prop0 Cog5 ok
+hD0 wconstant $V_cds
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_coghere
+Prop0 Cog5 ok
+hD8 wconstant $V_coghere
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_debugValue
+Prop0 Cog5 ok
+hCC wconstant $V_debugValue
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_debugcmd
+Prop0 Cog5 ok
+hCA wconstant $V_debugcmd
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_execword
+Prop0 Cog5 ok
+hD4 wconstant $V_execword
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_lasterr
+Prop0 Cog5 ok
+hDE wconstant $V_lasterr
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_lc
+Prop0 Cog5 ok
+h83 wconstant $V_lc
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_numpad
+Prop0 Cog5 ok
+hA8 wconstant $V_numpad
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_pad
+Prop0 Cog5 ok
+h4 wconstant $V_pad
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_state
+Prop0 Cog5 ok
+hDF wconstant $V_state
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_t0
+Prop0 Cog5 ok
+h84 wconstant $V_t0
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_t1
+Prop0 Cog5 ok
+h86 wconstant $V_t1
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $V_tbuf
+Prop0 Cog5 ok
+h88 wconstant $V_tbuf
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef variable
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 2*
+Prop0 Cog5 ok
+: 2* _xasm2>1IMM h0001 _cnip h05F _cnip ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef padnw
+Prop0 Cog5 ok
+: padnw
+nextword
+parsebl
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef aallot
+Prop0 Cog5 ok
+: aallot
+coghere W+!
+coghere W@ par >=
+if
+hAA ERR
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef cog,
+Prop0 Cog5 ok
+: cog,
+coghere W@ COG!
+1 aallot
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef (forget)
+Prop0 Cog5 ok
+: (forget)
+dup
+if
+find
+if
+pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+else
+_p?
+if
+.cstr h3F emit cr
+then
+then
+else
+drop
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef forget
+Prop0 Cog5 ok
+: forget
+parsenw (forget)
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable _numPatches
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: localLabelPrefix
+c" __"
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: defineLocalLabel
+lockdict ccreate $C_a_doconw w, w, forthentry freedict
+;
+Prop0 Cog5 ok
+: patchName
+c" __%%" tbuf ccopy <# # # # # #> tbuf cappend tbuf
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: definePatch
+lockdict ccreate
+$H_cq w, dup here W@ ccopy C@ 1+ allot herewal
+$C_a_litw w, h1FF and swap if h8000 or then w, 
+$C_a_exit w, 
+forthentry freedict
+;
+Prop0 Cog5 ok
+: addPatch
+_numPatches W@ patchName definePatch
+1 _numPatches W+!
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _ec dup -1 = if drop 0 else nip h10 lshift -1 then ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: oc= over cstr= ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: cnd1
+c" if_always" oc=
+if h003C else
+c" if_never" oc=
+if h0000 else
+c" if_e" oc=
+if h0028 else
+c" if_ne" oc=
+if h0014 else
+c" if_a" oc= 
+if h0004 else
+c" if_b" oc=
+if h0030 else
+c" if_ae" oc=
+if h000C else
+c" if_be" oc=
+if h0038 else
+c" if_c" oc=
+if h0030 else
+c" if_nc" oc=
+if h000C else
+c" if_z" oc=
+if h0028 else
+c" if_nz" oc=
+if h0014 else
+c" if_c_eq_z" oc=
+if h0024 else
+c" if_c_ne_z" oc=
+if h0018 else
+c" if_c_and_z" oc=
+if h0020 else
+c" if_c_and_nz" oc=
+if h0010 else
+-1 
+thens
+; 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: cnd2
+c" if_nc_and_z" oc=
+if h0008 else
+c" if_nc_and_nz" oc=
+if h0004 else
+c" if_c_or_z" oc=
+if h0038 else
+c" if_c_or_nz" oc=
+if h0034 else
+c" if_nc_or_z" oc=
+if h002C else
+c" if_nc_or_nz" oc=
+if h001C else
+c" if_z_eq_c" oc=
+if h0024 else
+c" if_z_ne_c" oc=
+if h0018 else
+c" if_z_and_c" oc=
+if h0020 else
+c" if_z_and_nc" oc=
+if h0008 else
+c" if_nz_and_c" oc=
+if h0010 else
+c" if_nz_and_nc" oc=
+if h0004 else
+c" if_z_or_c" oc=
+if h0038 else
+c" if_z_or_nc" oc=
+if h002C else
+c" if_nz_or_c" oc=
+if h0034 else
+c" if_nz_or_nc" oc=
+if h001C else
+-1
+thens
+; 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: cnd 
+cnd1
+dup -1 =
+if
+drop
+cnd2
+then
+_ec
+; 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: ai1
+c" abs" oc=
+if hA8BC else
+c" absneg" oc=
+if hACBC else
+c" add" oc=
+if h80BC else
+c" addabs" oc=
+if h88BC else
+c" adds" oc=
+if hD0BC else
+c" addsx"oc=
+if hD8BC else
+c" addx" oc=
+if hC8BC else
+c" and" oc=
+if h60BC else
+c" andn" oc=
+if h64BC else
+c" cmp" oc=
+if h843C else
+c" cmps" oc=
+if hC03C else
+c" cmpsub" oc=
+if hE03C else
+c" cmpsx" oc=
+if hC43C else
+c" cmpx" oc=
+if hCC3C else
+c" djnz" oc=
+if hE4BC else
+c" max" oc=
+if h4CBC else
+c" maxs" oc=
+if h44BC else
+c" min" oc=
+if h48BC else
+-1
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: ai2
+c" mins" oc=
+if h40BC else
+c" mov" oc=
+if hA0BC else
+c" movd" oc=
+if h54BC else
+c" movi" oc=
+if h58BC else
+c" movs" oc=
+if h50BC else
+c" muxc" oc=
+if h70BC else
+c" muxnc" oc=
+if h74BC else
+c" muxnz" oc=
+if h7CBC else
+c" muxz" oc=
+if h78BC else
+c" neg" oc=
+if hA4BC else
+c" negc" oc=
+if hB03C else
+c" negnc" oc=
+if hB4BC else
+c" negnz" oc=
+if hBCBC else
+c" negz"oc=
+if hB9BC else
+c" or" oc=
+if h68BC else
+c" rdbyte" oc=
+if h00BC else
+c" rdlong" oc=
+if h08BC else
+c" rdword" oc=
+if h04BC else
+-1
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: ai3
+c" rcl" oc=
+if h34BC else
+c" rcr" oc=
+if h30BC else
+c" rev" oc=
+if h3CBC else
+c" rol" oc=
+if h24BC else
+c" ror" oc=
+if h20BC else
+c" sar" oc=
+if h38BC else
+c" shl" oc=
+if h2CBC else
+c" shr" oc=
+if h28BC else
+c" sub" oc=
+if h84BC else
+c" subabs" oc=
+if h8CBC else
+c" subs" oc=
+if hD4BC else
+c" subsx" oc=
+if hDCBC else
+c" subx" oc=
+if hCCBC else
+c" sumc" oc=
+if h90BC else
+c" sumnc" oc=
+if h94BC else
+c" sumnz" oc=
+if h9CBC else
+c" sumz" oc=
+if h98BC else
+c" test" oc=
+if h603C else
+-1
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: ai4
+c" tjnz" oc=
+if hE83C else
+c" tjz" oc=
+if hEC3C else
+c" waitcnt" oc=
+if hF8BC else
+c" waitpeq" oc=
+if hF03C else
+c" waitpne" oc=
+if hF43C else
+c" waitvid" oc=
+if hFC3C else
+c" wrbyte" oc=
+if h003C else
+c" wrlong" oc=
+if h083C else
+c" wrword" oc=
+if h043C else
+c" xor" oc=
+if h6CBC else
+c" jmpret" oc=
+if h5CBC else
+-1
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asminstds
+ai1 dup -1 =
+if
+drop ai2 dup -1 =
+if
+drop ai3 dup -1 =
+if
+drop ai4
+then
+then
+then
+_ec
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asminstd c" clkset"  oc= if h0C7C0000 else c" cogid" oc= if h0CFC0001 else c" coginit" oc= if h0C7C0002 else
+c" cogstop" oc= if h0C7C0003 else c" lockclr" oc= if h0C7C0007 else c" locknew" oc= if h0CFC0004 else
+c" lockret" oc= if h0C7C0005 else c" lockset" oc= if h0C7C0006 else 0 thens dup if nip -1 then ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asminsts c" jmp" oc= if h5C3C else c" long" oc= if 0 else -1 thens _ec ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _mc h9 lshift or h5CFC0000 or ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable amacroptr
+Prop0 Cog5 ok
+variable orgoffset
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: amacro
+c" jnext" oc=
+if $C_a_next h5C7C0000 or else
+c" jexit" oc=
+if $C_a_exit h5C7C0000 or else
+c" spush" oc=
+if $C_a_stpush $C_a_stpush_ret _mc else
+c" spopt" oc=
+if $C_a_stpoptreg $C_a_stpoptreg_ret _mc else
+c" spop" oc=
+if $C_a_stpop $C_a_stpop_ret _mc else
+c" rpush" oc=
+if $C_a_rspush $C_a_rspush_ret _mc else
+c" rpop" oc=
+if $C_a_rspop $C_a_rspop_ret _mc else
+0
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+' amacro amacroptr W!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asminst
+c" nop" oc=
+if 1 else
+c" ret" oc=
+if h5C7C0000 else
+amacroptr W@ execute
+thens
+
+dup
+if
+dup 1 = 
+if
+drop 0
+then
+nip  -1
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable _asmerror 0 _asmerror W!
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asmerr .cstr .cstr cr padbl clearkeys -1 _asmerror W! ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: evalop3
+hFDEB0317 rot2
+dup 
+find -1 =
+if
+execute
+rot drop
+else
+localLabelPrefix npfx
+if
+tuck
+coghere W@ swap addPatch
+0
+else
+nip dup
+dup C@++ xisnumber
+if
+C@++ xnumber
+else
+c" ? " asmerr 0
+then
+then
+then
+rot hFDEB0317 <>
+if
+over c" ? " asmerr
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: evalop2
+evalop3
+nip
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: evalop1
+evalop3
+dup 0 h1FF between
+if
+nip
+else
+drop c" ? " asmerr 0
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: evalop
+evalop1 h1FF and
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asmsrc
+padnw 
+if
+pad>in c" #" cstr=
+if
+h00400000 or padnw
+else
+-1
+then
+if
+0 pad>in evalop or 0
+else
+-1
+then
+else
+-1
+then
+if
+c" Source Operand" c"  ?" asmerr
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asmdst
+padnw
+if
+-1 pad>in evalop h9 lshift or 0
+else
+-1
+then
+if
+." Dest Operand" c"  ?" asmerr
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: (label)
+padnw
+if
+pad>in c" Unexpected data after a label:" asmerr drop -1 swap
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asmopend padnw
+if begin pad>in dup 1+ C@ 27 <> 
+if
+dup c" wc" cstr= if drop h01000000 or else
+dup c" wz" cstr= if drop h02000000 or else
+dup c" wr" cstr= if drop h00800000 or else
+dup c" nr" cstr= if drop hFF7FFFFF and else
+c" Unexpected word " asmerr then then then then  
+else drop padbl then
+padnw 0=
+until then
+dup 0= if nip else hFFC3FFFF and or then ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asmdstsrc
+asmdst padnw 
+if
+pad>in c" ," cstr=
+if
+asmsrc 0
+else
+-1
+then
+else -1
+then
+if
+." Expected" c"  ," asmerr
+else
+asmopend
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asmdone
+_numPatches W@
+if
+_numPatches W@ 0 
+do
+i patchName find
+if
+execute
+swap find
+if
+execute
+swap dup h8000 and swap h7FFF and swap
+over COG@ swap
+if
+rot h9 lshift or swap COG!
+else
+rot or swap COG!
+then
+
+else
+nip c" Undefined Label "
+asmerr
+cr
+then
+else
+c" Undefined Patch " asmerr
+cr
+then
+loop
+then
+
+_asmerror W@
+if
+drop
+else
+
+coghere W@
+." lockdict create " padnw
+if
+pad>in .cstr space
+else
+." defasm "
+then
+." forthentry" cr
+." $C_a_lxasm w, "
+2dup orgoffset L@
++ h68 emit u. space orgoffset L@ + h68 emit u. 
+."  1- tuck - h9 lshift or here W@ alignl h10 lshift or l," cr
+swap 0 rot2
+do
+
+i COG@ dup 0=
+if
+drop ." 0 l, "
+else
+h7A emit base W@ h40 base W! swap u. base W!
+." l, "
+then
+1+ dup h8 >=
+if
+drop
+0 cr
+then
+loop
+drop
+cr ." freedict" cr
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: asmline
+parsebl dup
+if
+pad>in 1+ C@ dup h27 <> swap h5C <> and and
+then
+0=
+if
+padbl
+0 0
+else
+pad>in c" ;asm" name= 
+
+if
+-1 0
+else
+pad>in localLabelPrefix npfx
+if
+coghere W@ orgoffset L@ + pad>in defineLocalLabel
+0 0 (label) nextword
+else
+pad>in cnd
+if
+padnw
+if
+0 swap -1
+else
+c" Opcode"
+c"  ?" asmerr
+-1 0
+then
+else
+drop 0 h003C0000 -1
+then
+then
+then
+then
+
+if
+pad>in asminst
+if
+asmopend cog,
+else
+asminsts
+if
+asmsrc asmopend cog,
+else
+asminstd
+if
+asmdst asmopend cog,
+else
+asminstds
+if
+asmdstsrc cog,
+else
+2drop 0 pad>in evalop2 cog, nextword
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _rasm
+base W@ swap hex
+coghere W@ - orgoffset L!
+1 coghere W+!
+lockdict
+0 _asmerror W!
+0 c" __%%ASM" defineLocalLabel
+0 _numPatches W!
+coghere W@
+begin
+accept
+0 >in W!
+asmline
+
+dup 0=
+if
+parsenw dup
+if
+c" ?" swap asmerr
+else
+drop
+then
+then
+_asmerror W@ or
+until
+
+_asmerror W@
+if
+drop
+else
+cr cr
+asmdone
+then
+
+cr cr
+
+padnw
+drop
+base W!
+
+c" __%%ASM" (forget)
+
+freedict
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: :rasm
+coghere W@ swap _rasm coghere W!
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: :asm
+coghere W@ _rasm
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+: alloff 7 0 do hA i cogstate orC! loop ; alloff
+
+ scriptFileName: MAKE/scripts/MakeSDcommon.txt
+   logFileName: MAKE/results/runLogs/MakeSDcommonRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDcommonResult.txt
+outputFileName: MAKE/results/outputFiles/sdcommon.f
+
+ scriptFileName: MAKE/scripts/MakeSDcommon.txt
+   logFileName: MAKE/results/runLogs/MakeSDcommonRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDcommonResult.txt
+outputFileName: 

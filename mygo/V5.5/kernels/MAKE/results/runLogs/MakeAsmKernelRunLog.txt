@@ -1,0 +1,181 @@
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.6181234 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeAsmKernel.txt
+   logFileName: MAKE/results/runLogs/MakeAsmKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.6691263 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeAsmKernel.txt
+   logFileName: MAKE/results/runLogs/MakeAsmKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeAsmKernelResult.txt
+outputFileName: 
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.7121287 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeAsmKernel.txt
+   logFileName: MAKE/results/runLogs/MakeAsmKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeAsmKernelResult.txt
+outputFileName: MAKE/results/outputFiles/AsmKernel.spin
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.7411304 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.7411304 -0800 PST ECHOING: MAKE/src/AsmKernel-1.spin
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.7411304 -0800 PST DONE ECHOING: MAKE/src/AsmKernel-1.spin
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.8491366 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.8491366 -0800 PST ECHOING: CON 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.8491366 -0800 PST DONE ECHOING: CON
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.9751438 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.9751438 -0800 PST ECHOING: _clkmode= xtal1+pll16x 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:36.9751438 -0800 PST DONE ECHOING: _clkmode= xtal1+pll16x
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.1001509 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.1001509 -0800 PST ECHOING: _xinfreq= 5_000_000 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.1001509 -0800 PST DONE ECHOING: _xinfreq= 5_000_000
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.2271582 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.2271582 -0800 PST ECHOING: dlrS_cdsz= 224 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.2271582 -0800 PST DONE ECHOING: dlrS_cdsz= 224
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.3561656 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.3561656 -0800 PST ECHOING: dlrS_txpin= 30 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.3561656 -0800 PST DONE ECHOING: dlrS_txpin= 30
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.485173 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.485173 -0800 PST ECHOING: dlrS_rxpin= 31 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.485173 -0800 PST DONE ECHOING: dlrS_rxpin= 31
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.6121802 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.6121802 -0800 PST ECHOING: dlrS_baud= 57_600 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.6121802 -0800 PST DONE ECHOING: dlrS_baud= 57_600
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.7361873 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.7361873 -0800 PST ECHOING: dlrS_con= 7 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.7361873 -0800 PST DONE ECHOING: dlrS_con= 7
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.8601944 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.8601944 -0800 PST ECHOING: startcog= 6 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.8601944 -0800 PST DONE ECHOING: startcog= 6
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.9892018 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.9892018 -0800 PST ECHOING: dlrS_sd_cs= 19 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:37.9892018 -0800 PST DONE ECHOING: dlrS_sd_cs= 19
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.1172091 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.1172091 -0800 PST ECHOING: dlrS_sd_di= 20 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.1172091 -0800 PST DONE ECHOING: dlrS_sd_di= 20
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.2472165 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.2472165 -0800 PST ECHOING: dlrS_sd_clk= 21 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.2472165 -0800 PST DONE ECHOING: dlrS_sd_clk= 21
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.3752239 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.3752239 -0800 PST ECHOING: dlrS_sd_do= 16 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.3752239 -0800 PST DONE ECHOING: dlrS_sd_do= 16
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.5092315 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.5092315 -0800 PST ECHOING: dlrS_ip_light= $FFFF 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.5092315 -0800 PST DONE ECHOING: dlrS_ip_light= $FFFF
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.640239 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.640239 -0800 PST ECHOING: dlrS_ip_cog= 5 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.6412391 -0800 PST DONE ECHOING: dlrS_ip_cog= 5
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.7872474 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.7872474 -0800 PST ECHOING: dlrS_ip_sockbufsize= $800 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.7872474 -0800 PST DONE ECHOING: dlrS_ip_sockbufsize= $800
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.9332558 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.9332558 -0800 PST ECHOING: dlrS_ip_sockbufmask= $7FF 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:38.9332558 -0800 PST DONE ECHOING: dlrS_ip_sockbufmask= $7FF
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.0792641 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.0792641 -0800 PST ECHOING: dlrS_ip_sockbufinit= $55 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.0792641 -0800 PST DONE ECHOING: dlrS_ip_sockbufinit= $55
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.217272 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.217272 -0800 PST ECHOING: dlrS_ip_numsock= 4 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.217272 -0800 PST DONE ECHOING: dlrS_ip_numsock= 4
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.3602802 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.3602802 -0800 PST ECHOING: dlrS_ip_numTelnet= 4 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.3602802 -0800 PST DONE ECHOING: dlrS_ip_numTelnet= 4
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.5052885 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.5052885 -0800 PST ECHOING: dlrS_ip_telnetport= 3020 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.5052885 -0800 PST DONE ECHOING: dlrS_ip_telnetport= 3020
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.6452965 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.6452965 -0800 PST ECHOING: dlrS_ip_httpport= 8080 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.6452965 -0800 PST DONE ECHOING: dlrS_ip_httpport= 8080
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.7873046 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.7873046 -0800 PST ECHOING: dlrS_ip_gatewayhi= $C0_A8 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.7873046 -0800 PST DONE ECHOING: dlrS_ip_gatewayhi= $C0_A8
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.9293128 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.9293128 -0800 PST ECHOING: dlrS_ip_gatewaylo= $00_01 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:39.9293128 -0800 PST DONE ECHOING: dlrS_ip_gatewaylo= $00_01
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.0773212 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.0773212 -0800 PST ECHOING: dlrS_ip_subnetmaskhi= $FF_FF 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.0773212 -0800 PST DONE ECHOING: dlrS_ip_subnetmaskhi= $FF_FF
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.2253297 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.2253297 -0800 PST ECHOING: dlrS_ip_subnetmasklo= $FF_00 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.2253297 -0800 PST DONE ECHOING: dlrS_ip_subnetmasklo= $FF_00
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.3613375 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.3613375 -0800 PST ECHOING: dlrS_ip_addrhi= $C0_A8 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.3613375 -0800 PST DONE ECHOING: dlrS_ip_addrhi= $C0_A8
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.4983453 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.4983453 -0800 PST ECHOING: dlrS_ip_addrlo= $00_81 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.4983453 -0800 PST DONE ECHOING: dlrS_ip_addrlo= $00_81
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.632353 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.632353 -0800 PST ECHOING: dlrS_ip_machi= $00_0C 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.632353 -0800 PST DONE ECHOING: dlrS_ip_machi= $00_0C
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.7693608 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.7693608 -0800 PST ECHOING: dlrS_ip_macmid= $29_8B 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.7693608 -0800 PST DONE ECHOING: dlrS_ip_macmid= $29_8B
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.9033685 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.9033685 -0800 PST ECHOING: dlrS_ip_maclo= $00_70 
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:40.9033685 -0800 PST DONE ECHOING: dlrS_ip_maclo= $00_70
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:41.0333759 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:41.0333759 -0800 PST ECHOING: MAKE/src/AsmKernel-2.spin
+MAKE/scripts/MakeAsmKernel.txt::2013-02-21 16:32:41.0493768 -0800 PST DONE ECHOING: MAKE/src/AsmKernel-2.spin

@@ -1,0 +1,20 @@
+L MAKE/results/runLogs/MakeSDcommonRunLog.txt
+R MAKE/results/resultFiles/MakeSDcommonResult.txt
+
+\ Load BootOptimize Kernel
+						r	MAKE/scripts/LoadBootOptimizeKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load sdcommonSrc.f
+						scr fl
+						S	MAKE/src/optimize/fs/sd/sdcommonSrc.f
+\ Load asm.f
+						scr fl
+						S	MAKE/src/optimize/asm.f
+\ echos and prompts off
+						X	: alloff 7 0 do hA i cogstate orC! loop ; alloff
+						O	MAKE/results/outputFiles/sdcommon.f
+\ Load BootOptimizeASmSrc.f
+						SR	MAKE/src/optimize/fs/sd/sdcommonSrc.f
+	cps 1000 t 3000				S	MAKE/src/optimize/fs/sd/sdAsmSrc.f
+						CO CR CL

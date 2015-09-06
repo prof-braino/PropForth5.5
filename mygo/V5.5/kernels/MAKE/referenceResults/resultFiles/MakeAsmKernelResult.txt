@@ -1,0 +1,10 @@
+
+ scriptFileName: MAKE/scripts/MakeAsmKernel.txt
+   logFileName: MAKE/results/runLogs/MakeAsmKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeAsmKernelResult.txt
+outputFileName: 
+
+ scriptFileName: MAKE/scripts/MakeAsmKernel.txt
+   logFileName: MAKE/results/runLogs/MakeAsmKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeAsmKernelResult.txt
+outputFileName: MAKE/results/outputFiles/AsmKernel.spin

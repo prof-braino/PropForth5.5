@@ -1,0 +1,82 @@
+L TEST/results/runLogs/SnetEEpromHTTPRunLog.txt
+R TEST/results/resultFiles/SnetEEpromHTTPResult.txt
+			
+			SW
+			SW	index.htm
+			ipc	${PROPHTTP}
+			scr	GET /index.htm HTTP/1.1
+			w
+			dis
+			w
+
+			SW
+			SW	testinvalid.htm
+			ipc	${PROPHTTP}
+			scr	GET /testinvalid.htm HTTP/1.1
+			w
+			dis
+			w
+
+			SW
+			SW	testgraphic.htm
+			ipc	${PROPHTTP}
+			scr	GET /testgraphic.htm HTTP/1.1
+			w
+			dis
+			w
+
+			SW
+			SW	invalid.htm
+			ipc	${PROPHTTP}
+			scr	GET /invalid.htm HTTP/1.1
+			w
+			dis
+			w
+
+			SW
+			SW	invalid
+			ipc	${PROPHTTP}
+			scr	GET /invalid HTTP/1.1
+			w
+			dis
+			w
+
+			SW
+			SW	testfsp.htm
+			ipc	${PROPHTTP}
+			scr	GET /testfsp.htm HTTP/1.1
+			w
+			dis
+			w
+
+			SW
+			SW	test1.fsp
+			ipc	${PROPHTTP}
+			scr	GET /test1.fsp HTTP/1.1
+			w
+			dis
+			w
+
+			SW
+			SW	test1.fsp
+			ipc	${PROPHTTP}
+			scr	GET /test1.fsp HTTP/1.1
+			w
+			dis
+			w
+			SW
+			SW	test1.fsp
+			ipc	${PROPHTTP}
+			scr	GET /test1.fsp HTTP/1.1
+			w
+			dis
+			w
+			SW
+			SW	test1.fsp
+			ipc	${PROPHTTP}
+			scr	GET /test1.fsp HTTP/1.1
+			w
+			dis
+			w
+
+			CR CL

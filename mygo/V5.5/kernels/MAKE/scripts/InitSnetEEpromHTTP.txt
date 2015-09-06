@@ -1,0 +1,43 @@
+\ Load BootOptimize Kernel
+
+	cps 1000
+						r	MAKE/scripts/InitSnetEEprom.txt
+
+ 	cps 1000		 		S	MAKE/src/optimize/dev/term.f
+				 		S	MAKE/src/optimize/dev/snet.f
+
+						X	here W@ . cr
+						X	snet
+						X	here W@ . cr fsls
+
+\ Load rtc.f & daytime.f
+						scr	fl
+						scr	fswrite rtc.f
+						S	MAKE/src/optimize/ip/rtc/rtc.f
+						X	c" ..." 5 cogx
+						scr	fl
+						scr	fswrite daytime.f
+						S	MAKE/src/optimize/ip/rtc/daytime.f
+						X	c" ..." 5 cogx
+\ Load fsHttp.f
+						S	MAKE/src/optimize/ip/http/fsHttp-1.f
+						S	MAKE/src/optimize/ip/http/fsHttp-2.f
+						X	fsls
+
+\ Reboot
+	t 3000					X	reboot
+	t 1000					X	here W@ . cr
+						x 10
+						X	here W@ . cr
+
+						r	MAKE/scripts/LoadSnetEEpromHTTPKernel.txt
+
+				
+						X	here W@ . cr
+						X	snet
+						X	here W@ . cr fsls cog?
+						x 10
+						X	here W@ . cr
+
+
+

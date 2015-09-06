@@ -1,0 +1,185 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Connect Propclip to the Prototype Board and load 
+kernels\BootKernel\PropForthBootKernel.spin
+into eeprom.
+
+2. Start teraterm.
+
+
++++
+Reboot
+---
+reboot
+###
+reboot
+Prop0 Cog6 ok
+%%%
+
+
++++
+Here
+---
+here W@ . cr
+###
+here W@ . cr
+12538
+Prop0 Cog6 ok
+%%%
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\asm.f
+into teraterm
+
++++
+Load_asm.f
+===
+asm.f
+###
+fl
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_asm
+Prop0 Cog5 ok
+~~~
+
+
+4. paste contents of
+kernels\BootKernel\BootOptimizeKernel\PropForthBootOptimzeAsmSrc.f
+into teraterm
+
++++
+Load_PropForthBootOptimzeAsmSrc.f
+===
+PropForthBootOptimzeAsmSrc.f
+###
+fl
+coghere W@ wconstant build_BootOpt
+Prop0 Cog0 ok
+hA state orC! cr cr cr
+
+
+
+lockdict create um* forthentry
+~~~
+
+
+5. Compare the output to PropForthBootOptimize.f , as we generate the optimized kernel these optimized
+assembler words will replace the forth code in the kernel giving significant performance gains. The
+main memory used will increase.
+
+
++++
+Reboot1
+---
+reboot
+###
+reboot
+Prop0 Cog6 ok
+%%%
+
+
+6. paste contents of
+kernels\BootKernel\BootOptimizeKernel\PropForthBootOptimize.f
+into teraterm
+
++++
+Load_PropForthBootOptimize.f
+===
+PropForthBootOptimize.f
+###
+fl
+
+Prop0 Cog5 ok
+coghere W@ wconstant build_BootOpt
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create um* forthentry
+Prop0 Cog5 ok
+~~~
+
+
+7. paste contents of
+kernels\BootKernel\spinmaker.f
+into teraterm
+
++++
+Load_spinmaker.f
+===
+spinmaker.f
+###
+fl
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _xc
+rot2 over =
+if
+drop -1 0
+else
+nip -1
+then
+;
+Prop0 Cog5 ok
+~~~
+
+
++++
+Run_spinmaker
+---
+spinmaker
+###
+spinmaker
+
+ForthDictStart
+
+                        word    0
+wlastnfaNFA             byte    $88,"wlastnfa"
+wlastnfaPFA             word    (@a_dovarw - @a_base)/4
+                        word    @H_lastlfa + $12
+
+                        word    @wlastnfaNFA + $10
+hereNFA                 byte    $84,"here"
+herePFA                 word    (@a_dovarw - @a_base)/4
+                        word    @wfreespacestart + $10
+
+                        word    @hereNFA + $10
+dictendNFA              byte    $87,"dictend"
+dictendPFA              word    (@a_dovarw - @a_base)/4
+                        word    @ForthMemoryEnd + $10
+
+                        word    @dictendNFA + $10
+memendNFA               byte    $86,"memend"
+memendPFA               word    (@a_dovarw - @a_base)/4
+                        word    @ForthMemoryEnd + $10
+
+                        word    @memendNFA + $10
+build_BootKernelNFA     byte    $90,"build_BootKernel"
+build_BootKernelPFA     word    (@a_doconw - @a_base)/4
+                        word    $0001
+~~~
+
+8. Compare the output of spinmaker to PropForthOptimizeBootKernel.spin (kernels) (where the dictionary starts,
+(I use windiff) this verifies the code base is reproducable, (may be some differences in some variable
+values, such as fl_in, or the first long in any assembler definitions, this is OK)
+If you are recompiling recompile, trim add 0's at end of file as  required, goal is to get maximum
+number of longs. Spin require 16 free longs, so pad/trim to that goal.
+
+
+
+	

@@ -1,0 +1,31 @@
+L MAKE/results/runLogs/MakeSDKernelRunLog.txt
+R MAKE/results/resultFiles/MakeSDKernelResult.txt
+
+\ Load Dev Kernel
+						r	MAKE/scripts/LoadDevKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load sdcommon.f
+		 				scr fl
+						S	MAKE/results/outputFiles/sdcommon.f
+\ Load sdinit.f
+						scr fl
+						S	MAKE/src/optimize/fs/sd/sdinit.f
+\ Load sdrun.f
+						scr fl
+						S	MAKE/src/optimize/fs/sd/sdrun.f
+\ Load sdfs.f
+						scr fl
+						S	MAKE/src/optimize/fs/sd/sdfs.f
+\ Load sdonboot.f
+						S	MAKE/src/optimize/fs/sd/sdonboot.f
+\ Load spinimage.f
+						S	MAKE/src/spinimage.f
+\ echos and prompts off
+						X	hA state orC!
+\ make SDKernel.spin
+						O	MAKE/results/outputFiles/SDKernel.spin
+						SR	MAKE/results/outputFiles/AsmKernel.spin
+\ spinimage
+	t 3000					X	spinImage
+						CO CR CL

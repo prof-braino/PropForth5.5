@@ -1,0 +1,454 @@
+
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPTimeResult.txt
+outputFileName: 
+[ifndef rcogx
+Prop0 Cog6 ok
+\ rcogx ( cstr cog channel -- ) send cstr to the cog/channel
+Prop0 Cog6 ok
+: rcogx
+ io 2+ W@
+\ ( cstr cog channel oldio+2 -- )
+ rot cogio
+\ ( cstr channel oldio+2 cogio -- )
+ rot 4* +
+\ ( cstr oldio+2 chaddr -- )
+ io 2+ W!
+\ ( cstr oldio+2 -- )
+ swap .cstr cr
+ io 2+ W!
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_sdfs
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rfsend
+Prop0 Cog6 ok
+\ rfsend filename ( cog channel -- )
+Prop0 Cog6 ok
+: rfsend
+ 4* swap cogio +
+ _sd_fsp dup
+ if
+\ ( chaddr fname -- )
+  io 2+ W@
+\ ( chaddr fname oldio+2 -- )
+  rot io 2+ W!
+\ ( fname oldio+2 -- )
+  swap
+  sd_read
+  io 2+ W!
+ else
+  2drop _fnf
+ then
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef term
+Prop0 Cog6 ok
+: term
+ over cognchan min ." Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9~h0D~h0A"
+ >r >r cogid 0 r> r> (iolink)
+ begin
+  key dup h10 =
+  if
+   drop -1
+  else
+   dup h11 h19 between
+   if
+    1-
+   then
+   emit 0
+  then
+ until
+ cogid iounlink
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+\ sersetflags ( n2 n1 -- O ) for the serial driver running on cog n1, set the flags to n2
+Prop0 Cog6 ok
+[ifndef sersetflags
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ invert ( n1 -- n2 ) bitwise invert n1
+Prop0 Cog6 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinin ( n1 -- ) set pin # n1 to an input
+Prop0 Cog6 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinout ( n1 -- ) set pin # n1 to an output
+Prop0 Cog6 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinlo ( n1 -- ) set pin # n1 to lo
+Prop0 Cog6 ok
+[ifndef pinlo
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinhi ( n1 -- ) set pin # n1 to hi
+Prop0 Cog6 ok
+[ifndef pinhi
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ _snet ( -- ) load the serial driver, and start it on cog 4
+Prop0 Cog6 ok
+[ifndef _snet
+Prop0 Cog6 ok
+: _snet
+ 4 cogreset
+ h10 delms
+ c" hD hC hE100 serial" 4 cogx
+ h100 delms
+ 1 4 sersetflags 
+ 1 7 sersetflags 
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ snet ( -- ) reset the spinnret board, start a serial driver, and connect a terminal
+Prop0 Cog6 ok
+[ifndef snet
+Prop0 Cog6 ok
+: snet
+ _snet hE dup pinlo dup pinout 1 delms dup pinhi pinin
+ h10 delms h4 0 term 0 7 sersetflags
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ resnet ( -- ) start a serial driver and connect a terminal to the spinneret board
+Prop0 Cog6 ok
+[ifndef resnet
+Prop0 Cog6 ok
+: resnet
+ _snet h10 delms h4 0 term 0 7 sersetflags
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ nsnet ( n1 -- ) start a serial driver, send n1 characters
+Prop0 Cog6 ok
+[ifndef nsnet
+Prop0 Cog6 ok
+: nsnet
+ h10 delms
+ cogid 0 4 0 (iolink)
+ 0
+ do
+  key emit
+ loop
+ cogid iounlink
+;
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+snet
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9
+PropForth v5.5 2013Feb20 11:30 1
+
+
+boot.f - Finding top of eeprom, Top of eeprom at: 65536 
+boot.f - Loading sdcommon.f
+Loading sdcommon.f ...Loaded sdcommon.f
+SNET0 Cog4 ok
+
+boot.f - Loading sdinit.f
+Loading sdinit.f ...Loaded sdinit.f
+SNET0 Cog4 ok
+
+boot.f - Initializing SD card
+boot.f - Loading sdrun.f
+Loading sdrun.f ...Loaded sdrun.f
+SNET0 Cog4 ok
+
+boot.f - Loading sdfs.f
+Loading sdfs.f ...1 2 3 4 5 6 7 8 Loaded sdfs.f
+SNET0 Cog4 ok
+
+boot.f - Running sdboot.f
+SNET0 Cog4 ok
+hA state orC! cr
+
+sdboot.f  -  initializing
+
+sdboot.f  -  Loading usrboot.f
+
+PropForth v5.5 2013Feb20 11:30 1
+SNET0 Cog3 ok
+
+SNET0 Cog3 ok
+c" usrboot.f  -  initializing~h0D~h0D" .cstr
+usrboot.f  -  initializing
+
+SNET0 Cog3 ok
+
+SNET0 Cog3 ok
+1 sd_mount
+SNET0 Cog3 ok
+
+SNET0 Cog3 ok
+fread .sdcardinfo
+
+SDCard size:      1,921,024  Kbytes
+
+File System: sys
+                      Start Block:              1 
+                        End Block:         65,538 
+        File System Size (blocks):         65,537 
+        File System Size  (bytes):         32,768  Kbytes
+
+File System: usr
+                      Start Block:         65,538 
+                        End Block:      3,842,048 
+        File System Size (blocks):      3,776,510 
+        File System Size  (bytes):      1,888,255  Kbytes
+
+SNET0 Cog3 ok
+
+SNET0 Cog3 ok
+c" usrboot.f  -  DONE~h0D~h0D" .cstr
+usrboot.f  -  DONE
+
+SNET0 Cog3 ok
+
+sdboot.f  -  DONE - PropForth Loaded 
+
+SNET0 Cog4 ok
+
+SNET0 Cog4 ok
+
+boot.f - Loading ipconfig.f
+SNET0 Cog4 ok
+
+boot.f - Loading ip.f
+boot.f - Setting IP configuration
+IP Loading 1 2 3 4 5 6 7 8 9 10 11 12 IP Loaded
+SNET0 Cog4 ok
+
+
+
+boot.f - Loading httpserver.f
+SNET0 Cog4 ok
+
+SNET0 Cog4 ok
+
+SNET0 Cog4 ok
+
+SNET0 Cog4 ok
+
+boot.f - Starting telnet Server and http Server
+boot.f - DONE PropForth Loaded
+
+SNET0 Cog5 ok
+
+SNET0 Cog6 ok
+cog?
+UNDEFINED WORD cog?
+SNET0 Cog6 ok
+6 iodis
+
+time.fsp
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html>	<head>		<title>time.fsp</title>	</head>	<body>		<h1>time.fsp</h1>		<p><a href="/index.htm">index.htm - the root pag
+80
+e</a></p><pre>Running on: 0 SNET COG: 3 <br>REQDATA: length: 0  data: <br></pre><h4>cnt COG@ dup . mountusr cd http/ ls
+80
+</h4><pre>1920799290 131582 testgraphic.htm65929 header404131633 testfsp.htm131478 index.htm131828 rtc.f131929 daytime.f
+80
+131735 testcnt.fsp131480 testhtm.htm131476 r404.htm131531 testinvalid.htm131818 favicon.ico65927 header200fsp65933 header
+80
+200ico131786 test1.fsp65937 header200gif131808 test.png131684 testnull.fsp65925 header200htm65939 reqdata131797 time.fsp
+80
+65931 header200png65935 header200jpg</pre><h4>hA nfcog cogstate orC! fload rtc.f fload daytime.f hA nfcog cogstate andnC!</h
+80
+4><pre></pre><pre></pre><p>	<form name="timeform1" action="/time.fsp" method="get" >	TimeZone: <input type="text" nam
+80
+e="timezone" value="-8 " />	RTC Correction (100th of a second): <input type="text" name="rtccorrect" value="-1608 " />	<input 
+80
+type="submit" value="Submit" />	</form></p><h4> datetime rtccorrect? 0 ip_SOCKdaytime rtccorrect rtccorrect? 0 ip_SOCKtelne
+80
+t </h4><pre>2013-FEB-21 THU 20:14:26-1608 FAILURE-1608 </pre><h4> cnt COG@ dup . swap - dup . </42><pre>-1778206134 595
+73
+961872 </pre><h4> d1_000_000 um* clkfreq um/mod nip . </h4><pre>7449523  microseconds</pre>	</body></html>
+0
+
+
+time.fsp?timezone=11&rtccorrect=300
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html>	<head>		<title>time.fsp</title>	</head>	<body>		<h1>time.fsp</h1>		<p><a href="/index.htm">index.htm - the root pag
+80
+e</a></p><pre>Running on: 0 SNET COG: 3 <br>REQDATA: length: 26  data: timezone=11&rtccorrect=300<br></pre><h4>cnt COG@
+80
+ dup . mountusr cd http/ ls</h4><pre>-767807302 131582 testgraphic.htm65929 header404131633 testfsp.htm131478 index.htm13
+80
+1828 rtc.f131929 daytime.f131735 testcnt.fsp131480 testhtm.htm131476 r404.htm131531 testinvalid.htm131818 favicon.ico6592
+80
+7 header200fsp65933 header200ico131786 test1.fsp65937 header200gif131808 test.png131684 testnull.fsp65925 header200htm659
+80
+39 reqdata131797 time.fsp65931 header200png65935 header200jpg</pre><h4>hA nfcog cogstate orC! fload rtc.f fload daytime.f 
+80
+hA nfcog cogstate andnC!</h4><pre></pre><pre></pre><p>	<form name="timeform1" action="/time.fsp" method="get" >	TimeZ
+80
+one: <input type="text" name="timezone" value="11 " />	RTC Correction (100th of a second): <input type="text" name="rtccorrect"
+80
+ value="290 " />	<input type="submit" value="Submit" />	</form></p><h4> datetime rtccorrect? 0 ip_SOCKdaytime rtccorrect r
+80
+tccorrect? 0 ip_SOCKtelnet </h4><pre>2013-FEB-22 FRI 15:14:46290 FAILURE290 </pre><h4> cnt COG@ dup . swap - dup . </42>
+80
+<pre>-169825558 597981744 </pre><h4> d1_000_000 um* clkfreq um/mod nip . </h4><pre>7474771  microseconds</pre>	</body></
+7
+html>
+0
+
+
+time.fsp?timezone=-7&rtccorrect=-1600
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html>	<head>		<title>time.fsp</title>	</head>	<body>		<h1>time.fsp</h1>		<p><a href="/index.htm">index.htm - the root pag
+80
+e</a></p><pre>Running on: 0 SNET COG: 3 <br>REQDATA: length: 28  data: timezone=-7&rtccorrect=-1600<br></pre><h4>cnt CO
+80
+G@ dup . mountusr cd http/ ls</h4><pre>840623722 131582 testgraphic.htm65929 header404131633 testfsp.htm131478 index.htm1
+80
+31828 rtc.f131929 daytime.f131735 testcnt.fsp131480 testhtm.htm131476 r404.htm131531 testinvalid.htm131818 favicon.ico659
+80
+27 header200fsp65933 header200ico131786 test1.fsp65937 header200gif131808 test.png131684 testnull.fsp65925 header200htm65
+80
+939 reqdata131797 time.fsp65931 header200png65935 header200jpg</pre><h4>hA nfcog cogstate orC! fload rtc.f fload daytime.f
+80
+ hA nfcog cogstate andnC!</h4><pre></pre><pre></pre><p>	<form name="timeform1" action="/time.fsp" method="get" >	Time
+80
+Zone: <input type="text" name="timezone" value="-7 " />	RTC Correction (100th of a second): <input type="text" name="rtccorrect
+80
+" value="-1608 " />	<input type="submit" value="Submit" />	</form></p><h4> datetime rtccorrect? 0 ip_SOCKdaytime rtccorrec
+80
+t rtccorrect? 0 ip_SOCKtelnet </h4><pre>2013-FEB-21 THU 21:15:07-1608 FAILURE-1608 </pre><h4> cnt COG@ dup . swap - dup .
+80
+ </42><pre>1438769162 598145440 </pre><h4> d1_000_000 um* clkfreq um/mod nip . </h4><pre>7476818  microseconds</pre>	</b
+E
+ody></html>
+0
+
+
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPTimeResult.txt
+outputFileName: 
+Prop0 Cog6 ok
+cog?
+Cog:0  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:1  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:2  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:3  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:4  #io chan:1                           SERIAL
+Cog:5  #io chan:1 PropForth v5.5 2013Feb20 11:30 0
+Cog:6  #io chan:1 PropForth v5.5 2013Feb20 11:30 0  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPTimeResult.txt
+outputFileName: 

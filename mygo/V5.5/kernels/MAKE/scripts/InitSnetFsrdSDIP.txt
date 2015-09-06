@@ -1,0 +1,38 @@
+\ Load BootOptimize Kernel
+	cps 1000
+\
+
+						r	MAKE/scripts/InitSnetFsrdSD.txt
+
+						X	here W@ . cr
+						X	snet
+						X	here W@ . cr
+
+\ Here
+						X	here W@ . cr
+						X	mountsys
+\ Load ipconfig.f
+	cps 500	 				scr 100 fwrite ipconfig.f
+						S	MAKE/results/outputFiles/ipconfig.f
+						X	...
+
+\ Load ip.f
+		 				scr 100 fwrite ip.f
+						S	MAKE/results/outputFiles/ip.f
+						X	...
+
+						X	fsload fswr.f
+						X	fsdrop
+\ Load boot.f
+						S	MAKE/src/optimize/ip/boot.f
+
+\ Reboot
+	t 3000					X	reboot
+	t 1000					X	here W@ . cr
+						x 10
+						X	here W@ . cr
+
+
+				
+
+

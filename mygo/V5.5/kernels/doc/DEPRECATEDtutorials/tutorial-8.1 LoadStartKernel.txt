@@ -1,0 +1,91 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Connect Propclip to the Prototype Board and load 
+kernels\BootKernel\PropForthStartKernel.spin
+into eeprom.
+
+2. Start teraterm.
+
+
++++
+Reboot
+---
+reboot
+###
+Prop0 Cog6 ok
+%%%
+
+
++++
+BasicStack
+---
+3 2 1 + u* . b_1001 d_99 h_ABC z_1Aa . . . . cr
+###
+3 2 1 + u* . b_1001 d_99 h_ABC z_1Aa . . . . cr
+9 4775 2748 99 9
+Prop0 Cog6 ok
+%%%
+
+
++++
+Def_test
+---
+: test 10 0 do i . loop cr ;
+###
+: test 10 0 do i . loop cr ;
+Prop0 Cog6 ok
+%%%
+
+
++++
+Run_test
+---
+test
+###
+test
+0 1 2 3 4 5 6 7 8 9
+Prop0 Cog6 ok
+%%%
+
++++
+Reboot1
+---
+reboot
+###
+Prop0 Cog6 ok
+%%%
+
+
++++
+Def_0verflowtest
+---
+: overflowtest 40 0 do i . i loop cr ;
+###
+: overflowtest 40 0 do i loop cr ;
+Prop0 Cog6 ok
+%%%
+
+
++++
+Run_overflowtest
+---
+overflowtest
+###
+Prop0 Cog6 ok
+overflowtest
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 Prop0 Cog6 ok
+%%%
+
+
++++
+Underflow
+---
+44 . .
+###
+44 . .
+44 Prop0 Cog6 ok
+%%%

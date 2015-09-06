@@ -1,0 +1,259 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Run tutorial-5.1 IP+Telnet.txt on a Spinneret board with an SD card, and an ethernet connection.
+
+2. Start teraterm.
+
+3. before the following tests can be run, the ip parameters must be configured in
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\http\boot.f
+to match the network parameters.
+of your network (the mac address is on the bottom of the spinneret board,
+this one can be used for testing)
+
+
+
+\
+\
+\ IP & TELNET CONFIG PARAMETERS BEGIN
+\
+\
+
+
+\
+\ The gateway parameter is necessary for the client protocols, to route through for internet requests.
+\ These parameters may be defined in boot.f
+\
+\						\ 192.168.23.1
+[ifndef ip_gateway
+h_C0_A8_17_01	constant	ip_gateway
+]
+\
+						\ 255.255.255.0
+[ifndef ip_subnetmask
+h_FF_FF_FF_00	constant	ip_subnetmask
+]
+\
+\ The mac address is on the bottom of the spinneret board
+\
+\						\ 00:0c:29:8b:00:70
+[ifndef ip_machi
+ h_00_0C	wconstant	ip_machi
+ h_29_8B_00_70	constant	ip_maclo
+]
+\						\ 192.168.23.129
+[ifndef ip_addr
+h_C0_A8_17_81	constant	ip_ipaddr
+]
+
+\
+\						\ ports 23, 24, 25, 26, port 23 is the standard telnet port
+\ h_17		wconstant	ip_telnetport
+\						\ ports 2020, 2021, 2022, 2023
+\ h_7E4		wconstant	ip_telnetport
+\						\ ports 3020, 3021, 3022, 3023
+[ifndef ip_telnetport
+h_BCC		wconstant	ip_telnetport
+]
+\
+\ Reasonable values are between 2 - 32, the response of the output to a telnet session will change with this
+\
+\						\ the number of loops with no characters sent to the
+\						\ socket before the buffer is sent
+[ifndef ip_txlooplimit
+h8		wconstant	ip_txlooplimit
+]
+
+\						\ the number of characters buffered by the socket
+\						\ before it is sent
+\						\ 16 - 1024 are reasonable values
+\						\ 1 is the minimum value
+\						\ the size should not exceed the buffer size defined by
+\						\ _sockbufsize
+\						\ because of how the comparison is done, the value is the
+\						\ buffer size - 1 
+[ifndef _ip_txbuffersize
+h400	1-	wconstant	_ip_txbuffersize
+]
+\						\ uncomment this if debug is needed
+\ 1 wconstant ip_debug
+
+\
+\						\ drive the led connected to pin 23
+\ 
+\
+\ 1 wconstant _ip_light
+\
+\
+\ This defines the cog which will be used to run the ip service
+\ This constant may be reset during the boot process
+\
+\
+[ifndef _ipcog
+-1 wconstant _ipcog
+]
+
+\ h2000 		wconstant _sockbufsize
+\ _sockbufsize 1-	wconstant _sockbufmask
+\ h_03		wconstant _sockbufinit
+\ 1		wconstant _ipnumsock			\ must be 1, 2 or 4
+
+\ h1000		wconstant _sockbufsize
+\ _sockbufsize 1-	wconstant _sockbufmask
+\ h_0A		wconstant _sockbufinit
+\ 2		wconstant _ipnumsock			\ must be 1, 2 or 4
+
+\ h800 		wconstant _sockbufsize
+\ _sockbufsize 1-	wconstant _sockbufmask
+\ h_55		wconstant _sockbufinit
+\ 4		wconstant _ipnumsock			\ must be 1, 2 or 4
+
+[ifndef _sockbufsize
+h800		wconstant _sockbufsize
+_sockbufsize 1-	wconstant _sockbufmask
+h_55		wconstant _sockbufinit
+4		wconstant _ipnumsock			\ must be 1, 2 or 4
+]
+
+\
+\
+\ IP & TELNET CONFIG PARAMETERS END
+\
+
+
+
+\
+\ HTTP CONFIG PARAMETERS BEGIN
+\
+
+[ifndef httpport
+h1F90 wconstant httpport	\ port 8080
+]
+\
+\ uncomment this to enable http debugging
+\
+\ 1 wconstant http_debug
+
+\
+\ HTTP CONFIG PARAMETERS END
+\
+
+
+
+4. ****************IMPORTANT***************************************
+THE FOLLOWING MUST BE EXECUTED FROM A TELNET SESSION
+
+
+
+
+5. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\ip\http\httpserver.f
+into teraterm
+
++++
+Load_httpserver.f
+===
+http_server.f
+###
+100 fwrite httpserver.f
+
+1 wconstant build_httpserver
+~~~
+
+6. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\ip\\http\http.f
+into teraterm
+
++++
+Load_http.f
+===
+http.f
+###
+mountusr
+SNET11 Cog0 ok
+
+SNET11 Cog0 ok
+mkdir http/
+SNET11 Cog0 ok
+cd http/
+SNET11 Cog0 ok
+~~~
+
+
+
++++
+Fsload_fswr.f
+---
+fsload fswr.f
+###
+fsload fswr.f
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+1 wconstant build_fswr
+SNET11 Cog5 ok
+~~~
+
++++
+Fsdrop
+---
+fsdrop
+###
+fsdrop
+SNET11 Cog6 ok
+%%%
+
+
+7. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\ip\http\boot.f
+into teraterm
+
++++
+Load_boot.f
+===
+boot.f
+###
+fswrite boot.f
+version W@ _bmsg c" boot.f    initializing" _bmsg
+~~~
+
+
+8. reboot
+
++++
+Reboot
+---
+reboot 
+###
+reboot
+
+
+
+
+
+
+
+
+
+
+                              PropForth v5.0 2012JAN09 14:30 0
+~~~
+
+
+
+9. Start another teraterm, connect to the ip address that was set, port 3020, service telnet
+
+10. Start a browser and connect to the ip address port 8080 /index.htm
+
+http://192.168.23.129:8080/index.htm
+
+

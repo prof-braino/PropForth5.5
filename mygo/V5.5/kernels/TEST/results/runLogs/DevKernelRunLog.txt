@@ -1,0 +1,562 @@
+TEST/scripts/DevKernel.txt::2013-02-21 18:43:37.6077462 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+\ Load Dev Kernel
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:43:37.6627494 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:43:37.7187526 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:43:37.7187526 -0800 PST SENDING: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:43:37.7187526 -0800 PST DONE SENDING waiting for output: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:43:40.7309249 -0800 PST DONE: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:40.8659326 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:40.8959343 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:40.8959343 -0800 PST SENDING: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:40.8959343 -0800 PST DONE SENDING waiting for output: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:43.8961059 -0800 PST DONE: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:44.0111125 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:44.0111125 -0800 PST SENDING: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:44.0111125 -0800 PST DONE SENDING waiting for output: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:47.0112841 -0800 PST DONE: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:47.1512921 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:47.1512921 -0800 PST SENDING: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 18:43:57.1218624 -0800 PST DONE SENDING waiting for output: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:00.122034 -0800 PST DONE: MAKE/src/buildq.f
+\ check Forth
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:00.2920437 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:00.2920437 -0800 PST SENDING: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:00.2920437 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:01.5801174 -0800 PST DONE: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:01.696124 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:01.696124 -0800 PST SENDING: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:01.696124 -0800 PST DONE SENDING waiting for output: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:02.6961812 -0800 PST DONE: state C!
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:44:02.7961869 -0800 PST 
+ scriptFileName: MAKE/scripts/LoadDevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/CheckForth.txt::2013-02-21 18:44:02.797187 -0800 PST DONE SCRIPT FILE
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:44:02.8391894 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:44:02.8391894 -0800 PST SENDING: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:44:59.2924183 -0800 PST DONE SENDING waiting for output: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:45:02.2925899 -0800 PST DONE: MAKE/src/forthEepromUtils.f
+\ Loading MAKE/results/outputFiles/DevKernel.eeprom
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:45:02.4655998 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:45:02.4655998 -0800 PST SENDING: eeload
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:45:02.4655998 -0800 PST DONE SENDING waiting for output: eeload
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:45:05.4767721 -0800 PST DONE: eeload
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:45:05.6357812 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: true
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:45:05.6357812 -0800 PST SENDING: MAKE/results/outputFiles/DevKernel.eeprom
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:46:11.1755298 -0800 PST DONE SENDING waiting for output: MAKE/results/outputFiles/DevKernel.eeprom
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:46:16.5668382 -0800 PST DONE: MAKE/results/outputFiles/DevKernel.eeprom
+\ Reboot
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:46:16.6928454 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:46:16.6928454 -0800 PST SENDING: reboot
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:46:16.6928454 -0800 PST DONE SENDING waiting for output: reboot
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:46:21.9601467 -0800 PST DONE: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:46:22.0611524 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/LoadDevKernel.txt::2013-02-21 18:46:22.0621525 -0800 PST DONE SCRIPT FILE
+TEST/scripts/DevKernel.txt::2013-02-21 18:46:22.1071551 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.1531577 -0800 PST STARTING SCRIPT FILE
+\ Definitions
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.2011605 -0800 PST SEND: [[ifndef stOverflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.2441629 -0800 PST SEND: [: stOverflow d32 0 do i dup . loop ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.2521634 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.2781649 -0800 PST SEND: [[ifndef rsUnderflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.3351681 -0800 PST SEND: [: rsUnderflow r> . r> . r> . r> . r> . r> . r> . ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.3431686 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.36817 -0800 PST SEND: [[ifndef rsOverflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.4311736 -0800 PST SEND: [: rsOverflow dup . 1+ c" rsOverflow" find drop execute ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.4391741 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.4601753 -0800 PST SEND: [[ifndef cogdel ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.5461802 -0800 PST SEND: [: cogdel cogid 1+ 1 lshift 0 do d_1000 i u* delms i . loop ." delay done~h0D" ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.5541806 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.5581809 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.5581809 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:22.5581809 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.0982118 -0800 PST DONE: 
+\ Here+version
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.2512205 -0800 PST SEND: [cr cr here W@ . version W@ .cstr ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.2692215 -0800 PST SEND: [[ifdef cog? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.2802222 -0800 PST SEND: [cog? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.2892227 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.3092238 -0800 PST SEND: [[ifdef build? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.3222246 -0800 PST SEND: [build? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.330225 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.3422257 -0800 PST SEND: [cr cr ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.3462259 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.3462259 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.3462259 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:23.9622612 -0800 PST DONE: 
+\ ST Underflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:24.1152699 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:24.1152699 -0800 PST SENDING: cr cr 1 2 3 . . . drop drop drop
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:24.1152699 -0800 PST DONE SENDING waiting for output: cr cr 1 2 3 . . . drop drop drop
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:24.6663015 -0800 PST DONE: cr cr 1 2 3 . . . drop drop drop
+\ ST Overflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:24.8003091 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:24.8003091 -0800 PST SENDING: cr cr stOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:24.8003091 -0800 PST DONE SENDING waiting for output: cr cr stOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:25.3563409 -0800 PST DONE: cr cr stOverflow
+\ RS Underflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:25.4923487 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:25.4923487 -0800 PST SENDING: cr cr rsUnderflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:25.4923487 -0800 PST DONE SENDING waiting for output: cr cr rsUnderflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:26.03938 -0800 PST DONE: cr cr rsUnderflow
+\ RS Overflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:26.1753878 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:26.1753878 -0800 PST SENDING: cr cr 0 rsOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:26.1753878 -0800 PST DONE SENDING waiting for output: cr cr 0 rsOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:26.7374199 -0800 PST DONE: cr cr 0 rsOverflow
+\ Math+-
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:26.930431 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:26.930431 -0800 PST SENDING: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:26.930431 -0800 PST DONE SENDING waiting for output: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:27.4824625 -0800 PST DONE: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+\ Math*/
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:27.6704733 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:27.6704733 -0800 PST SENDING: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:27.6704733 -0800 PST DONE SENDING waiting for output: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:28.2215048 -0800 PST DONE: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+\ Logical
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:28.3855142 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:28.3855142 -0800 PST SENDING: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:28.3855142 -0800 PST DONE SENDING waiting for output: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:28.9255451 -0800 PST DONE: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+\ wvariables
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.0685532 -0800 PST SEND: [[ifndef build_httpserver ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.1225563 -0800 PST SEND: [lockdict cr cr wvariable ttt : d ttt W@ . ; hex ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.1735593 -0800 PST SEND: [cr cr 0 ttt W! 23 ttt orC! d 1 ttt andnC! d ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.2585641 -0800 PST SEND: [cr cr -1 ttt W! d hAAAA ttt W@ and ttt W! d hFF ttt orC! d hA base W! freedict ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.2645645 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.2645645 -0800 PST SENDING: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.2645645 -0800 PST DONE SENDING waiting for output: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.8095956 -0800 PST DONE: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.9126015 -0800 PST  1000 cps  Receive Delay 500ms Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.9126015 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:29.9126015 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:30.4176304 -0800 PST DONE: 
+TEST/scripts/DevKernel.txt::2013-02-21 18:46:30.5276367 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 18:46:30.5286368 -0800 PST DONE SCRIPT FILE
+TEST/scripts/DevKernel.txt::2013-02-21 18:46:30.5456377 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/DevKernel.txt::2013-02-21 18:46:30.5456377 -0800 PST SENDING: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:46:30.5456377 -0800 PST DONE SENDING waiting for output: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:46:35.7839373 -0800 PST DONE: reboot
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:35.9249454 -0800 PST STARTING SCRIPT FILE
+\ Load lac.f
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:35.9549471 -0800 PST SEND: [fl ]+cr
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:35.986949 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:35.986949 -0800 PST SENDING: MAKE/src/optimize/dev/lac.f
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:40.410202 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/lac.f
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:45.3484844 -0800 PST DONE: MAKE/src/optimize/dev/lac.f
+\ set some oscilators going
+\ 40 cycles clkfreq 40 2* /
+\ mask off some pins
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:45.5444956 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:45.5444956 -0800 PST SENDING: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:45.5444956 -0800 PST DONE SENDING waiting for output: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:46.5635539 -0800 PST DONE: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:46.687561 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:46.687561 -0800 PST SENDING: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:46.687561 -0800 PST DONE SENDING waiting for output: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:47.8106252 -0800 PST DONE: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:47.9526334 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:47.9526334 -0800 PST SENDING: c" 2 clkfreq 40 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:47.9526334 -0800 PST DONE SENDING waiting for output: c" 2 clkfreq 40 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:48.977692 -0800 PST DONE: c" 2 clkfreq 40 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:49.0856982 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:49.0856982 -0800 PST SENDING: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:49.0856982 -0800 PST DONE SENDING waiting for output: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:50.4127741 -0800 PST DONE: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:50.5187801 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:50.5187801 -0800 PST SENDING: QQ
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:50.5187801 -0800 PST DONE SENDING waiting for output: QQ
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:52.0748691 -0800 PST DONE: QQ
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:52.1798751 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:52.1798751 -0800 PST SENDING: W
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:52.1798751 -0800 PST DONE SENDING waiting for output: W
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:53.9339755 -0800 PST DONE: W
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:54.0389815 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:54.0389815 -0800 PST SENDING: w
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:54.0389815 -0800 PST DONE SENDING waiting for output: w
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:55.7930818 -0800 PST DONE: w
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:55.9030881 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:55.9030881 -0800 PST SENDING: ZXCzxc
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:55.9030881 -0800 PST DONE SENDING waiting for output: ZXCzxc
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:59.3692863 -0800 PST DONE: ZXCzxc
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:59.4752924 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:59.4752924 -0800 PST SENDING: ss
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:46:59.4752924 -0800 PST DONE SENDING waiting for output: ss
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:01.0223809 -0800 PST DONE: ss
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:01.1273869 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:01.1273869 -0800 PST SENDING: s
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:01.1273869 -0800 PST DONE SENDING waiting for output: s
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:02.6414735 -0800 PST DONE: s
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:02.7474796 -0800 PST SEND: [27]
+\ set some oscilators going
+\ 42 cycles clkfreq 42 2* /
+\ mask off some pins
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:02.8454852 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:02.8454852 -0800 PST SENDING: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:02.8454852 -0800 PST DONE SENDING waiting for output: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:03.8615433 -0800 PST DONE: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:03.9855504 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:03.9855504 -0800 PST SENDING: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:03.9855504 -0800 PST DONE SENDING waiting for output: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:05.1086146 -0800 PST DONE: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:05.2506227 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:05.2506227 -0800 PST SENDING: c" 2 clkfreq 42 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:05.2506227 -0800 PST DONE SENDING waiting for output: c" 2 clkfreq 42 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:06.2756814 -0800 PST DONE: c" 2 clkfreq 42 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:06.3836876 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:06.3836876 -0800 PST SENDING: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:06.3836876 -0800 PST DONE SENDING waiting for output: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:07.7097634 -0800 PST DONE: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:07.8127693 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:07.8127693 -0800 PST SENDING: 
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:07.8127693 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:09.2978542 -0800 PST DONE: 
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:09.4058604 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:09.4058604 -0800 PST SENDING: AAAA
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:09.4058604 -0800 PST DONE SENDING waiting for output: AAAA
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:11.0189527 -0800 PST DONE: AAAA
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:11.1259588 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:11.1259588 -0800 PST SENDING: SSA
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:11.1259588 -0800 PST DONE SENDING waiting for output: SSA
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:12.7060492 -0800 PST DONE: SSA
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:12.8120552 -0800 PST SEND: [27]
+\ set some oscilators going
+\ 50 cycles clkfreq 50 2* /
+\ mask off some pins
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:12.9090608 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:12.9090608 -0800 PST SENDING: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:12.9090608 -0800 PST DONE SENDING waiting for output: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:13.9251189 -0800 PST DONE: h4 _la_mask L!
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:14.049126 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:14.049126 -0800 PST SENDING: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:14.049126 -0800 PST DONE SENDING waiting for output: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:15.1731903 -0800 PST DONE: 0 cogreset 100 delms
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:15.3151984 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:15.3151984 -0800 PST SENDING: c" 2 clkfreq 50 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:15.3151984 -0800 PST DONE SENDING waiting for output: c" 2 clkfreq 50 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:16.340257 -0800 PST DONE: c" 2 clkfreq 50 2 u* u/ setHza" 0 cogx
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:16.4482632 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:16.4482632 -0800 PST SENDING: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:16.4482632 -0800 PST DONE SENDING waiting for output: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:17.7743391 -0800 PST DONE: lac
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:17.8813452 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:17.8813452 -0800 PST SENDING: aaS
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:17.8813452 -0800 PST DONE SENDING waiting for output: aaS
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:19.4614356 -0800 PST DONE: aaS
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:19.5724419 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:19.5724419 -0800 PST SENDING: ssaaaaa
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:19.5724419 -0800 PST DONE SENDING waiting for output: ssaaaaa
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:21.2795395 -0800 PST DONE: ssaaaaa
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:21.3845456 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:21.3845456 -0800 PST SENDING: s
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:21.3845456 -0800 PST DONE SENDING waiting for output: s
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:22.8996322 -0800 PST DONE: s
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:23.0056383 -0800 PST SEND: [27]
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:23.0096385 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:23.0096385 -0800 PST SENDING: 
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:23.0096385 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:24.0566984 -0800 PST DONE: 
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:24.1597043 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:24.1597043 -0800 PST SENDING: 
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:24.1597043 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:25.1757624 -0800 PST DONE: 
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:25.2807684 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+
+TEST/scripts/LogicAnalyzer.txt::2013-02-21 18:47:25.2817685 -0800 PST DONE SCRIPT FILE
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:25.2977694 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:25.2977694 -0800 PST SENDING: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:25.2977694 -0800 PST DONE SENDING waiting for output: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:30.537069 -0800 PST DONE: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:30.6670765 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:30.6670765 -0800 PST SENDING: 1 wconstant mcs_dbg
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:30.6670765 -0800 PST DONE SENDING waiting for output: 1 wconstant mcs_dbg
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:31.6871348 -0800 PST DONE: 1 wconstant mcs_dbg
+TEST/scripts/MCS.txt::2013-02-21 18:47:31.812142 -0800 PST STARTING SCRIPT FILE
+\ Load mcs.f
+TEST/scripts/MCS.txt::2013-02-21 18:47:31.8571445 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:31.8571445 -0800 PST SENDING: 1 wconstant mcs_dbg
+TEST/scripts/MCS.txt::2013-02-21 18:47:31.8571445 -0800 PST DONE SENDING waiting for output: 1 wconstant mcs_dbg
+TEST/scripts/MCS.txt::2013-02-21 18:47:32.8702025 -0800 PST DONE: 1 wconstant mcs_dbg
+TEST/scripts/MCS.txt::2013-02-21 18:47:32.9782087 -0800 PST SEND: [fl ]+cr
+TEST/scripts/MCS.txt::2013-02-21 18:47:33.0102105 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:33.0102105 -0800 PST SENDING: MAKE/src/optimize/dev/mcs.f
+TEST/scripts/MCS.txt::2013-02-21 18:47:39.9346066 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/mcs.f
+TEST/scripts/MCS.txt::2013-02-21 18:47:45.3999192 -0800 PST DONE: MAKE/src/optimize/dev/mcs.f
+TEST/scripts/MCS.txt::2013-02-21 18:47:45.5129256 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:45.5129256 -0800 PST SENDING: test_mcs
+TEST/scripts/MCS.txt::2013-02-21 18:47:45.5129256 -0800 PST DONE SENDING waiting for output: test_mcs
+TEST/scripts/MCS.txt::2013-02-21 18:47:46.5409844 -0800 PST DONE: test_mcs
+TEST/scripts/MCS.txt::2013-02-21 18:47:46.6459904 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:46.6459904 -0800 PST SENDING: d
+TEST/scripts/MCS.txt::2013-02-21 18:47:46.6459904 -0800 PST DONE SENDING waiting for output: d
+TEST/scripts/MCS.txt::2013-02-21 18:47:48.2900845 -0800 PST DONE: d
+TEST/scripts/MCS.txt::2013-02-21 18:47:48.3970906 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:48.3970906 -0800 PST SENDING: e 8
+TEST/scripts/MCS.txt::2013-02-21 18:47:48.3970906 -0800 PST DONE SENDING waiting for output: e 8
+TEST/scripts/MCS.txt::2013-02-21 18:47:49.4081484 -0800 PST DONE: e 8
+TEST/scripts/MCS.txt::2013-02-21 18:47:49.5131544 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:49.5131544 -0800 PST SENDING: f
+TEST/scripts/MCS.txt::2013-02-21 18:47:49.5131544 -0800 PST DONE SENDING waiting for output: f
+TEST/scripts/MCS.txt::2013-02-21 18:47:50.5432133 -0800 PST DONE: f
+TEST/scripts/MCS.txt::2013-02-21 18:47:50.6482193 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:50.6482193 -0800 PST SENDING: g
+TEST/scripts/MCS.txt::2013-02-21 18:47:50.6482193 -0800 PST DONE SENDING waiting for output: g
+TEST/scripts/MCS.txt::2013-02-21 18:47:51.7162804 -0800 PST DONE: g
+TEST/scripts/MCS.txt::2013-02-21 18:47:51.8212864 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:51.8212864 -0800 PST SENDING: q
+TEST/scripts/MCS.txt::2013-02-21 18:47:51.8212864 -0800 PST DONE SENDING waiting for output: q
+TEST/scripts/MCS.txt::2013-02-21 18:47:52.8353444 -0800 PST DONE: q
+TEST/scripts/MCS.txt::2013-02-21 18:47:52.9383503 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:52.9383503 -0800 PST SENDING: 
+TEST/scripts/MCS.txt::2013-02-21 18:47:52.9383503 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/MCS.txt::2013-02-21 18:47:53.9544084 -0800 PST DONE: 
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:54.0574143 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+
+TEST/scripts/MCS.txt::2013-02-21 18:47:54.0584144 -0800 PST DONE SCRIPT FILE
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:54.0744153 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:54.0744153 -0800 PST SENDING: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:54.0744153 -0800 PST DONE SENDING waiting for output: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:47:59.314715 -0800 PST DONE: reboot
+TEST/scripts/NoRom.txt::2013-02-21 18:47:59.4477226 -0800 PST STARTING SCRIPT FILE
+\ Load term.f and norom.f
+TEST/scripts/NoRom.txt::2013-02-21 18:47:59.5147265 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:47:59.5147265 -0800 PST SENDING: MAKE/src/optimize/dev/term.f
+TEST/scripts/NoRom.txt::2013-02-21 18:47:59.7057374 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/term.f
+TEST/scripts/NoRom.txt::2013-02-21 18:48:00.7547974 -0800 PST DONE: MAKE/src/optimize/dev/term.f
+TEST/scripts/NoRom.txt::2013-02-21 18:48:00.8628036 -0800 PST SEND: [fl ]+cr
+TEST/scripts/NoRom.txt::2013-02-21 18:48:00.8968055 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:00.8968055 -0800 PST SENDING: MAKE/src/optimize/dev/norom.f
+TEST/scripts/NoRom.txt::2013-02-21 18:48:02.6589063 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/norom.f
+TEST/scripts/NoRom.txt::2013-02-21 18:48:04.6360194 -0800 PST DONE: MAKE/src/optimize/dev/norom.f
+TEST/scripts/NoRom.txt::2013-02-21 18:48:04.7740273 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:04.7740273 -0800 PST SENDING: 0 pinhi 1 pinhi 0 pinout 1 pinout
+TEST/scripts/NoRom.txt::2013-02-21 18:48:04.7740273 -0800 PST DONE SENDING waiting for output: 0 pinhi 1 pinhi 0 pinout 1 pinout
+TEST/scripts/NoRom.txt::2013-02-21 18:48:05.8030861 -0800 PST DONE: 0 pinhi 1 pinhi 0 pinout 1 pinout
+TEST/scripts/NoRom.txt::2013-02-21 18:48:05.9320935 -0800 PST  5000 cps  Receive Delay 4s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:05.9320935 -0800 PST SENDING: 8 9 10 11 rambootnx
+TEST/scripts/NoRom.txt::2013-02-21 18:48:05.9320935 -0800 PST DONE SENDING waiting for output: 8 9 10 11 rambootnx
+TEST/scripts/NoRom.txt::2013-02-21 18:48:13.5365285 -0800 PST DONE: 8 9 10 11 rambootnx
+TEST/scripts/NoRom.txt::2013-02-21 18:48:13.6995378 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:13.6995378 -0800 PST SENDING: c" 1 0 57600 serial" 4 cogx 100 delms 1 4 sersetflags
+TEST/scripts/NoRom.txt::2013-02-21 18:48:13.6995378 -0800 PST DONE SENDING waiting for output: c" 1 0 57600 serial" 4 cogx 100 delms 1 4 sersetflags
+TEST/scripts/NoRom.txt::2013-02-21 18:48:14.821602 -0800 PST DONE: c" 1 0 57600 serial" 4 cogx 100 delms 1 4 sersetflags
+TEST/scripts/NoRom.txt::2013-02-21 18:48:14.9416088 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:14.9416088 -0800 PST SENDING: 0 pinin 1 pinin
+TEST/scripts/NoRom.txt::2013-02-21 18:48:14.9416088 -0800 PST DONE SENDING waiting for output: 0 pinin 1 pinin
+TEST/scripts/NoRom.txt::2013-02-21 18:48:15.9566669 -0800 PST DONE: 0 pinin 1 pinin
+TEST/scripts/NoRom.txt::2013-02-21 18:48:16.0646731 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:16.0646731 -0800 PST SENDING: cog?
+TEST/scripts/NoRom.txt::2013-02-21 18:48:16.0646731 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/NoRom.txt::2013-02-21 18:48:17.1047326 -0800 PST DONE: cog?
+TEST/scripts/NoRom.txt::2013-02-21 18:48:17.216739 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:17.216739 -0800 PST SENDING: 4 0 term
+TEST/scripts/NoRom.txt::2013-02-21 18:48:17.216739 -0800 PST DONE SENDING waiting for output: 4 0 term
+TEST/scripts/NoRom.txt::2013-02-21 18:48:18.2397975 -0800 PST DONE: 4 0 term
+TEST/scripts/NoRom.txt::2013-02-21 18:48:18.3588043 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:18.3588043 -0800 PST SENDING: 1 7 sersetflags
+TEST/scripts/NoRom.txt::2013-02-21 18:48:18.3588043 -0800 PST DONE SENDING waiting for output: 1 7 sersetflags
+TEST/scripts/NoRom.txt::2013-02-21 18:48:19.3758625 -0800 PST DONE: 1 7 sersetflags
+TEST/scripts/NoRom.txt::2013-02-21 18:48:19.4838686 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:19.4838686 -0800 PST SENDING: cog?
+TEST/scripts/NoRom.txt::2013-02-21 18:48:19.4838686 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/NoRom.txt::2013-02-21 18:48:20.5249282 -0800 PST DONE: cog?
+TEST/scripts/NoRom.txt::2013-02-21 18:48:20.6309343 -0800 PST SEND: [16]
+TEST/scripts/NoRom.txt::2013-02-21 18:48:20.6399348 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:20.6399348 -0800 PST SENDING: cog?
+TEST/scripts/NoRom.txt::2013-02-21 18:48:20.6399348 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/NoRom.txt::2013-02-21 18:48:21.6789942 -0800 PST DONE: cog?
+TEST/scripts/DevKernel.txt::2013-02-21 18:48:21.7820001 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+
+TEST/scripts/NoRom.txt::2013-02-21 18:48:21.7830001 -0800 PST DONE SCRIPT FILE
+TEST/scripts/DevKernel.txt::2013-02-21 18:48:21.7990011 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/DevKernel.txt::2013-02-21 18:48:21.7990011 -0800 PST SENDING: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:48:21.7990011 -0800 PST DONE SENDING waiting for output: reboot
+TEST/scripts/DevKernel.txt::2013-02-21 18:48:27.0393008 -0800 PST DONE: reboot
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:27.1753086 -0800 PST STARTING SCRIPT FILE
+\ Load term.f and norom.f and mcs.f and mcsnorom.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:27.2673138 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:27.2673138 -0800 PST SENDING: MAKE/src/optimize/dev/term.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:27.4583248 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/term.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:28.5063847 -0800 PST DONE: MAKE/src/optimize/dev/term.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:28.6143909 -0800 PST SEND: [fl ]+cr
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:28.6483928 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:28.6483928 -0800 PST SENDING: MAKE/src/optimize/dev/norom.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:30.4104936 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/norom.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:32.3866066 -0800 PST DONE: MAKE/src/optimize/dev/norom.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:32.4946128 -0800 PST SEND: [fl ]+cr
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:32.5266146 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:32.5266146 -0800 PST SENDING: MAKE/src/optimize/dev/mcs.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:39.4510107 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/mcs.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:42.5551882 -0800 PST DONE: MAKE/src/optimize/dev/mcs.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:42.6631944 -0800 PST SEND: [fl ]+cr
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:42.7001965 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:42.7001965 -0800 PST SENDING: MAKE/src/optimize/dev/mcsnorom.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:42.8702063 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/mcsnorom.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:44.8723208 -0800 PST DONE: MAKE/src/optimize/dev/mcsnorom.f
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:44.9853272 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:44.9853272 -0800 PST SENDING: words on
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:44.9853272 -0800 PST DONE SENDING waiting for output: words on
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:46.1473937 -0800 PST DONE: words on
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:46.2664005 -0800 PST  5000 cps  Receive Delay 5s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:46.2664005 -0800 PST SENDING: 0 onboot
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:46.2664005 -0800 PST DONE SENDING waiting for output: 0 onboot
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:55.8019459 -0800 PST DONE: 0 onboot
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:55.9159524 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:55.9159524 -0800 PST SENDING: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:55.9159524 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:56.9600122 -0800 PST DONE: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:57.0720186 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:57.0720186 -0800 PST SENDING: 5 0 term
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:57.0720186 -0800 PST DONE SENDING waiting for output: 5 0 term
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:58.0960771 -0800 PST DONE: 5 0 term
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:58.2040833 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:58.2040833 -0800 PST SENDING: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:58.2040833 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:59.2941457 -0800 PST DONE: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:59.4001517 -0800 PST SEND: [16]
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:59.4091522 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:59.4091522 -0800 PST SENDING: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:48:59.4091522 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:49:00.4482117 -0800 PST DONE: cog?
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:49:00.5512176 -0800 PST  5000 cps  Receive Delay 1s Echo: false Binary: false
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:49:00.5512176 -0800 PST SENDING: 
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:49:00.5512176 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:49:01.5682757 -0800 PST DONE: 
+TEST/scripts/DevKernel.txt::2013-02-21 18:49:01.6702816 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+
+TEST/scripts/MCSNoRom.txt::2013-02-21 18:49:01.6712816 -0800 PST DONE SCRIPT FILE
+TEST/scripts/DevKernel.txt::2013-02-21 18:49:01.6812822 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/DevKernelResult.txt
+outputFileName: 
+
+TEST/scripts/DevKernel.txt::2013-02-21 18:49:01.6822823 -0800 PST 
+ scriptFileName: TEST/scripts/DevKernel.txt
+   logFileName: TEST/results/runLogs/DevKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+

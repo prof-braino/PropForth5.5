@@ -1,0 +1,24 @@
+L TEST/results/runLogs/SnetFsrdSDHTTPKernelRunLog.txt
+
+\ Load IP Kernel
+			r 	MAKE/scripts/InitSnetFsrdSDHTTP.txt
+R TEST/results/resultFiles/SnetFsrdSDHTTPKernelResult.txt
+
+
+	 		S	MAKE/src/optimize/dev/term.f
+	 		S	MAKE/src/optimize/dev/snet.f
+			X	here W@ . cr
+			X	snet
+			X	here W@ . cr
+			X
+	
+
+			rc	TEST/scripts/SnetFsrdSDHTTPTelnet0.txt TEST/scripts/SnetFsrdSDHTTP.txt
+	t 6000		X
+	t 3000		X
+
+			X	here W@ . cr
+			x 10
+			X	here W@ . cr
+
+			CO CR CL

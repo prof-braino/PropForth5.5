@@ -1,0 +1,270 @@
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.3940313 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeIPConfig.txt
+   logFileName: MAKE/results/runLogs/MakeIPConfigRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.4440342 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeIPConfig.txt
+   logFileName: MAKE/results/runLogs/MakeIPConfigRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPConfigResult.txt
+outputFileName: 
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.4830364 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeIPConfig.txt
+   logFileName: MAKE/results/runLogs/MakeIPConfigRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPConfigResult.txt
+outputFileName: MAKE/results/outputFiles/ipconfig.f
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.5000374 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.5000374 -0800 PST ECHOING: hA state orC! 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.5000374 -0800 PST DONE ECHOING: hA state orC!
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.6040434 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.6040434 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.6040434 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.7080493 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.7080493 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.7080493 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.8480573 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.8480573 -0800 PST ECHOING: \ IP & TELNET CONFIG PARAMETERS BEGIN 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.8480573 -0800 PST DONE ECHOING: \ IP & TELNET CONFIG PARAMETERS BEGIN
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.9520633 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.9520633 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:39.9520633 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.0560692 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.0560692 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.0560692 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.1980773 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.1980773 -0800 PST ECHOING: hFFFF wconstant $S_ip_light 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.1980773 -0800 PST DONE ECHOING: hFFFF wconstant $S_ip_light
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.3020833 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.3020833 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.3020833 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.4680928 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.4680928 -0800 PST ECHOING: \ This defines the cog which will be used to run the ip service 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.4680928 -0800 PST DONE ECHOING: \ This defines the cog which will be used to run the ip service
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.6061007 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.6061007 -0800 PST ECHOING: 5 wconstant $S_ip_cog 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.6061007 -0800 PST DONE ECHOING: 5 wconstant $S_ip_cog
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.7101066 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.7101066 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.7101066 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.874116 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.874116 -0800 PST ECHOING: \ These constants configure the number of ip channels and the 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:40.874116 -0800 PST DONE ECHOING: \ These constants configure the number of ip channels and the
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.0091237 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.0091237 -0800 PST ECHOING: \ buffer allocation in the W5100 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.0091237 -0800 PST DONE ECHOING: \ buffer allocation in the W5100
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.1131297 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.1131297 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.1131297 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.2551378 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.2551378 -0800 PST ECHOING: \ The number of telnet sockets to start 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.2551378 -0800 PST DONE ECHOING: \ The number of telnet sockets to start
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.3591437 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.3591437 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.3591437 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.5151527 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.5151527 -0800 PST ECHOING: h800 wconstant $S_ip_sockbufsize 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.5151527 -0800 PST DONE ECHOING: h800 wconstant $S_ip_sockbufsize
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.6701615 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.6701615 -0800 PST ECHOING: h7FF wconstant $S_ip_sockbufmask 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.6701615 -0800 PST DONE ECHOING: h7FF wconstant $S_ip_sockbufmask
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.8251704 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.8251704 -0800 PST ECHOING: h55 wconstant $S_ip_sockbufinit 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.8251704 -0800 PST DONE ECHOING: h55 wconstant $S_ip_sockbufinit
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.9721788 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.9721788 -0800 PST ECHOING: 4 wconstant $S_ip_numsock 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:41.9721788 -0800 PST DONE ECHOING: 4 wconstant $S_ip_numsock
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.1231874 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.1231874 -0800 PST ECHOING: 4 wconstant $S_ip_numTelnet 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.1231874 -0800 PST DONE ECHOING: 4 wconstant $S_ip_numTelnet
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.2271934 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.2271934 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.2271934 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.3311993 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.3311993 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.3311993 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.4842081 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.4842081 -0800 PST ECHOING: 3020 wconstant $S_ip_telnetport 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.4842081 -0800 PST DONE ECHOING: 3020 wconstant $S_ip_telnetport
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.588214 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.588214 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.588214 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.7932258 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.7932258 -0800 PST ECHOING: \ The gateway parameter is necessary for the client protocols, to route through for internet requests. 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.7932258 -0800 PST DONE ECHOING: \ The gateway parameter is necessary for the client protocols, to route through for internet requests.
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.8972317 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.8972317 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:42.8972317 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.0472403 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.0472403 -0800 PST ECHOING: hC0_A8 wconstant $S_ip_gatewayhi 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.0472403 -0800 PST DONE ECHOING: hC0_A8 wconstant $S_ip_gatewayhi
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.1972489 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.1972489 -0800 PST ECHOING: h00_01 wconstant $S_ip_gatewaylo 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.1972489 -0800 PST DONE ECHOING: h00_01 wconstant $S_ip_gatewaylo
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.3012548 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.3012548 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.3012548 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.4572637 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.4572637 -0800 PST ECHOING: hFF_FF wconstant $S_ip_subnetmaskhi 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.4572637 -0800 PST DONE ECHOING: hFF_FF wconstant $S_ip_subnetmaskhi
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.6132727 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.6132727 -0800 PST ECHOING: hFF_00 wconstant $S_ip_subnetmasklo 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.6132727 -0800 PST DONE ECHOING: hFF_00 wconstant $S_ip_subnetmasklo
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.7172786 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.7172786 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.7172786 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.8772878 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.8772878 -0800 PST ECHOING: \ The mac address is on the bottom of the spinneret board 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.8772878 -0800 PST DONE ECHOING: \ The mac address is on the bottom of the spinneret board
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.9812937 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.9812937 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:43.9812937 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.1233018 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.1233018 -0800 PST ECHOING: h00_0C wconstant $S_ip_machi 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.1233018 -0800 PST DONE ECHOING: h00_0C wconstant $S_ip_machi
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.2673101 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.2673101 -0800 PST ECHOING: h29_8B wconstant $S_ip_macmid 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.2673101 -0800 PST DONE ECHOING: h29_8B wconstant $S_ip_macmid
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.4093182 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.4093182 -0800 PST ECHOING: h00_70 wconstant $S_ip_maclo 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.4093182 -0800 PST DONE ECHOING: h00_70 wconstant $S_ip_maclo
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.5133241 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.5133241 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.5133241 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.6573324 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.6573324 -0800 PST ECHOING: hC0_A8 wconstant $S_ip_addrhi 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.6573324 -0800 PST DONE ECHOING: hC0_A8 wconstant $S_ip_addrhi
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.8013406 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.8013406 -0800 PST ECHOING: h00_81 wconstant $S_ip_addrlo 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.8013406 -0800 PST DONE ECHOING: h00_81 wconstant $S_ip_addrlo
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.9053466 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.9053466 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:44.9053466 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.053355 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.053355 -0800 PST ECHOING: 8080 wconstant $S_ip_httpport 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.053355 -0800 PST DONE ECHOING: 8080 wconstant $S_ip_httpport
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.157361 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.157361 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.157361 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.2613669 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.2613669 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.2613669 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.3993748 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.3993748 -0800 PST ECHOING: \ IP & TELNET CONFIG PARAMETERS END 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.3993748 -0800 PST DONE ECHOING: \ IP & TELNET CONFIG PARAMETERS END
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.5033808 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.5033808 -0800 PST ECHOING: \ 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.5033808 -0800 PST DONE ECHOING: \
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.6213875 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.6213875 -0800 PST ECHOING: hA state andnC! 
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.6213875 -0800 PST DONE ECHOING: hA state andnC!
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.7293937 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeIPConfig.txt
+   logFileName: MAKE/results/runLogs/MakeIPConfigRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPConfigResult.txt
+outputFileName: 
+
+MAKE/scripts/MakeIPConfig.txt::2013-02-21 17:27:45.7303938 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeIPConfig.txt
+   logFileName: MAKE/results/runLogs/MakeIPConfigRunLog.txt
+resultFileName: 
+outputFileName: 
+

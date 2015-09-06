@@ -1,0 +1,35 @@
+\ Load BootOptimize Kernel
+						r	MAKE/scripts/LoadBootOptimizeKernel.txt
+\ Here
+						X	hA state orC! c" hA state orC!" 5 cogx here W@ . cr
+\ Load fsrd.f
+						S	MAKE/src/optimize/fs/fsrd.f
+\ Load fswr.f
+						scr fl
+						S	MAKE/src/optimize/fs/fswr.f
+\ fsclear
+						X	fsclear
+\ Load fswr.f
+						scr fl
+						scr fswrite fswr.f
+	cps 1000				S	MAKE/src/optimize/fs/fswr.f
+						X	c" ..." 5 cogx
+\ Load serial.f
+						X	fswrite serial.f
+						S	MAKE/src/optimize/fs/serial.f
+						X	c" ..." 5 cogx
+\ boot.f
+						S	MAKE/src/optimize/fs/boot.f
+\ Reboot
+	t 3000					X	reboot
+\ Load Fsrd Kernel
+						r	MAKE/scripts/LoadFsrdKernel.txt
+\ Here
+	t 1000					X	here W@ . cr
+\ fsls
+						X	fsls
+
+
+				
+
+

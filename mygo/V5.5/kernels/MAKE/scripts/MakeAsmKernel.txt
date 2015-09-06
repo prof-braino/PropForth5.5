@@ -1,0 +1,39 @@
+L MAKE/results/runLogs/MakeAsmKernelRunLog.txt
+R MAKE/results/resultFiles/MakeAsmKernelResult.txt
+
+O	MAKE/results/outputFiles/AsmKernel.spin
+SR	MAKE/src/AsmKernel-1.spin
+SW	CON
+
+SW	_clkmode= ${_clkmode}
+SW	_xinfreq= ${_xinfreq}
+SW	dlrS_cdsz= ${dlrS_cdsz}
+SW	dlrS_txpin= ${dlrS_txpin}
+SW	dlrS_rxpin= ${dlrS_rxpin}
+SW	dlrS_baud= ${dlrS_baud}
+SW	dlrS_con= ${dlrS_con}
+SW	startcog= ${startcog}
+SW	dlrS_sd_cs= ${dlrS_sd_cs}
+SW	dlrS_sd_di= ${dlrS_sd_di}
+SW	dlrS_sd_clk= ${dlrS_sd_clk}
+SW	dlrS_sd_do= ${dlrS_sd_do}
+SW	dlrS_ip_light= ${dlrS_ip_light}
+SW	dlrS_ip_cog= ${dlrS_ip_cog}
+SW	dlrS_ip_sockbufsize= ${dlrS_ip_sockbufsize}
+SW	dlrS_ip_sockbufmask= ${dlrS_ip_sockbufmask}
+SW	dlrS_ip_sockbufinit= ${dlrS_ip_sockbufinit}
+SW	dlrS_ip_numsock= ${dlrS_ip_numsock}
+SW	dlrS_ip_numTelnet= ${dlrS_ip_numTelnet}
+SW	dlrS_ip_telnetport= ${dlrS_ip_telnetport}
+SW	dlrS_ip_httpport= ${dlrS_ip_httpport}
+SW	dlrS_ip_gatewayhi= ${dlrS_ip_gatewayhi}
+SW	dlrS_ip_gatewaylo= ${dlrS_ip_gatewaylo}
+SW	dlrS_ip_subnetmaskhi= ${dlrS_ip_subnetmaskhi}
+SW	dlrS_ip_subnetmasklo= ${dlrS_ip_subnetmasklo}
+SW	dlrS_ip_addrhi= ${dlrS_ip_addrhi}
+SW	dlrS_ip_addrlo= ${dlrS_ip_addrlo}
+SW	dlrS_ip_machi= ${dlrS_ip_machi}
+SW	dlrS_ip_macmid= ${dlrS_ip_macmid}
+SW	dlrS_ip_maclo= ${dlrS_ip_maclo}
+
+SR	MAKE/src/AsmKernel-2.spin

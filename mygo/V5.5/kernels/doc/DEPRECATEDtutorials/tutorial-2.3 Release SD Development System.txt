@@ -1,0 +1,173 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Connect Propclip to any Prop Board with an SD card installed and load 
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\PropForthSDKernel.spin
+into eeprom.
+
+2. Start teraterm.
+
+
+IMPORTANT: if at any time you wish to boot the propeller without running sdboot.f,
+           hold down the ESC key while rebooting.
+           Type in:
+                       reboot
+              hit enter
+              hold down the ESC key until PropForth reboots
+
+
+            or
+              hold down the ESC key, and power cycle the board or hit reset
+
+            When the cursor starts moving horizontally across the screen, the reboot is
+            complete. This usually takes 3 - 4 seconds.
+
+            You should see something like this:
+
+Prop0 Cog6 ok
+                               <<CURSOR>>
+
+            If you do not hold escape key, or start holding it down too late after the reboot,
+            and you have a boot.f file in your eeprom, it will load, and you may not see the
+            above results.
+
+            This is necessary if you have previously installed files in the sd
+            file system.
+
+            For this process, boot while holding down the ESC key.
+
+
+
++++
+RebootESC
+---
+reboot
+((ESC))((ESC))((ESC))((ESC))
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+                   
+%%%
+
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\sd_scripts.f
+into teraterm
+
++++
+Load_sd_scripts.f
+===
+sd_scripts.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+sd_init
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 constant _sysstart
+Prop0 Cog5 ok
+~~~
+
+
+NOTE: the output will be dependant on the size of the SD card installed
++++
+Reboot1
+---
+reboot
+$$$
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+Prop0 Cog5 ok
+
+
+sdboot.f  -  initializing
+
+sdboot.f  -  Loading boot.f
+
+
+boot.f  -  initializing
+
+
+SDCard size:      1,921,025 Kbytes
+
+File System: sys
+                      Start Block:              1
+                        End Block:         65,538
+        File System Size (blocks):         65,537
+        File System Size  (bytes):         32,765 Kbytes
+
+File System: usr
+                      Start Block:         65,538
+                        End Block:      3,842,048
+        File System Size (blocks):      3,776,510
+        File System Size  (bytes):      1,888,255 Kbytes
+
+boot.f  -  DONE
+
+Prop0 Cog4 ok
+
+Prop0 Cog4 ok
+
+sdboot.f  -  DONE - PropForth Loaded
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
+
++++
+Free
+---
+free
+###
+free
+9232 bytes free - 44 cog longs free
+Prop0 Cog6 ok
+%%%

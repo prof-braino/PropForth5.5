@@ -1,0 +1,45 @@
+L TEST/results/runLogs/SDKernelRunLog.txt
+
+\ Initialize SD
+			r MAKE/scripts/InitSdfs.txt
+\ Load Start Kernel
+			r MAKE/scripts/LoadSDKernel.txt
+R TEST/results/resultFiles/SDKernelResult.txt
+	t 500		r TEST/scripts/BasicFunctionality.txt
+			X mountsys
+			X ls
+			X fread sdboot.f
+
+			X \ some simple files for testing
+			X 1 fwrite demo
+			X mountsys
+			X fload hello.f
+			X fload bye.f
+			X fload aloha.f
+			X ...
+
+			X 1 fwrite hello.f
+			X \ hello ( --)
+			X : hello ." Hello world" cr ;
+			X ...
+
+			X 1 fwrite bye.f
+			X \ bye ( --)
+			X : bye ." Goodbye world" cr ;
+			X ...
+
+			X 1 fwrite aloha.f
+			X \ aloha ( t/f -- ) 
+			X : aloha if ." Hello" else ." Goodbye" then ."  world" cr ;
+			X ...
+
+			X \ end of example files
+
+			X ls
+
+
+			X fload demo
+			X 0 aloha
+			X 1 aloha
+
+			CO CR CL

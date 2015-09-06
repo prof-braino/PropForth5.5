@@ -1,0 +1,158 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Run tutorial-1.1 Standard Developent System.txt 
+the Propeller Proto Board and Spinneret connection are detailed in MultiPropTestSystem.txt
+run this on the Proto Board
+
+2. Start teraterm.
+
+
++++
+Reboot
+---
+reboot 
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\norom.f
+into teraterm
+
++++
+Load_norom.f
+===
+norom.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_norom
+Prop0 Cog5 ok
+~~~
+
+
+
++++
+Run_rambootnx
+---
+8 9 10 11 rambootnx
+###
+8 9 10 11 rambootnx
+Prop0 Cog6 ok
+%%%
+
+
++++
+Run_startserialcog
+---
+c" 1 0 57600 serial" 4 cogx
+###
+c" 1 0 57600 serial" 4 cogx
+Prop0 Cog6 ok
+%%%
+
+
++++
+Run_sersetflags
+---
+1 4 sersetflags
+###
+1 4 sersetflags
+Prop0 Cog6 ok
+%%%
+
++++
+Run_term
+---
+4 0 term
+###
+4 0 term
+Hit CTL-F to exit term
+%%%
+
+
++++
+Hit_enter
+---
+(ENTER)(ENTER)
+$$$
+4 0 term
+Hit CTL-F to exit term
+ð
+
+UNDEFINED WORD ð
+
+ SLAVEProp8 Cog6 ok
+
+
+
+ SLAVEProp8 Cog6 ok
+%%%
+
+
++++
+Run_sersetflags
+---
+1 7 sersetflags
+###
+1 7 sersetflags
+
+ SLAVEProp8 Cog6 ok
+%%%
+
+
++++
+Run_cog?_1
+---
+cog?
+###
+cog?
+Cog:0  #io chan:1 PropForth v5.0 2011DEC27 21:00 1
+Cog:1  #io chan:1 PropForth v5.0 2011DEC27 21:00 1
+Cog:2  #io chan:1 PropForth v5.0 2011DEC27 21:00 1
+Cog:3  #io chan:1 PropForth v5.0 2011DEC27 21:00 1
+Cog:4  #io chan:1 PropForth v5.0 2011DEC27 21:00 1
+Cog:5  #io chan:1 PropForth v5.0 2011DEC27 21:00 1
+Cog:6  #io chan:1 PropForth v5.0 2011DEC27 21:00 1  6(0)->7(0)
+Cog:7  #io chan:1                           SERIAL  7(0)->6(0)
+ SLAVEProp8 Cog6 ok
+%%%
+
++++
+Hit_CTL-F
+---
+(CTL-F)
+###
+Prop0 Cog6 ok
+%%%
+
+
+
+
+

@@ -1,0 +1,55 @@
+	t 1000
+
+\ Load lac.f
+		scr fl
+		S MAKE/src/optimize/dev/lac.f
+
+\ set some oscilators going
+\ 40 cycles clkfreq 40 2* /
+\ mask off some pins
+		X h4 _la_mask L!
+		X 0 cogreset 100 delms
+		X c" 2 clkfreq 40 2 u* u/ setHza" 0 cogx
+
+		X lac
+		Y QQ
+		X W
+		X w
+		Y ZXCzxc
+		X ss
+		X s
+		x 1B
+
+
+\ set some oscilators going
+\ 42 cycles clkfreq 42 2* /
+\ mask off some pins
+		X h4 _la_mask L!
+		X 0 cogreset 100 delms
+		X c" 2 clkfreq 42 2 u* u/ setHza" 0 cogx
+
+		X lac
+		X
+		X AAAA
+		X SSA
+		x 1B
+
+\ set some oscilators going
+\ 50 cycles clkfreq 50 2* /
+\ mask off some pins
+		X h4 _la_mask L!
+		X 0 cogreset 100 delms
+		X c" 2 clkfreq 50 2 u* u/ setHza" 0 cogx
+
+		X lac
+		X aaS
+		X ssaaaaa
+		X s
+		x 1B
+		X
+		X
+
+
+
+
+

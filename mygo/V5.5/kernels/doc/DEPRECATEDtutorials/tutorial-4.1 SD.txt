@@ -1,0 +1,329 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Run tutorial-2.1 Eeprom Developent System.txt on a Spinneret board with an SD card.
+
+If there is an old vesion in eeprom, after typing in reboot and hitting enter, hold down the ESC
+key. This will disable the running of the old boot.f file.
+
+
+2. Start teraterm.
+
++++
+Reboot
+---
+reboot 
+###
+reboot
+
+
+
+
+
+
+
+
+
+
+                              PropForth v5.0 2012JAN09 14:30 0
+~~~
+
+
+
++++
+Fsload_fswr.f
+---
+fsload fswr.f
+###
+fsload fswr.f
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+
+SNET11 Cog5 ok
+1 wconstant build_fswr
+SNET11 Cog5 ok
+~~~
+
++++
+Fsdrop0
+---
+fsdrop
+###
+fsdrop
+PROT33 Cog6 ok
+%%%
+
++++
+Fsdrop1
+---
+fsdrop
+###
+fsdrop
+PROT33 Cog6 ok
+%%%
+
+
++++
+Fsls
+---
+fsls
+###
+fsls
+
+0_000_032_768 01_106 fswr.f
+0_000_033_920 01_970 serial.f
+
+0_000_029_632 bytes free in EEPROM file system
+Prop0 Cog6 ok
+%%%
+
+
+
+
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\sd_init.f
+into teraterm
+
++++
+Load_sd_init.f
+===
+sd_init.f
+###
+fl
+1 wconstant build_sddriver
+[ifndef $C_a_dovarl
+h4D wconstant $C_a_dovarl
+]
+[ifndef variable
+: variable
+lockdict create $C_a_dovarl w, 0 l, forthentry freedict
+;
+]
+~~~
+
+
+4. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\sd_run.f
+into teraterm
+
++++
+Load_sd_run.f
+===
+sd_run.f
+###
+fl
+1 wconstant build_sdrun
+: sd_cogbufclr
+sd_cogbuf h80 bounds
+do
+0 i COG!
+loop
+;
+lockdict create a_shift forthentry
+~~~
+
+
+5. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\sdfs.f
+into teraterm
+
++++
+Load_sdfs.f
+===
+sdfs.f
+###
+fl
+1 wconstant build_sdfs
+
+[ifndef C#
+: #C
+-1 >out W+! pad>out C!
+
+;
+]
+~~~
+
+6. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd.f
+into teraterm
+
++++
+Load_sd.f
+===
+sd.f
+###
+fl
+fsload sd_init.f
+fsload sd_run.f
+fsload sdfs.f
+: mountsys 1 sd_mount ;
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+%%%
+
+
+7. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd\boot.f
+into teraterm
+
++++
+Load_boot.f
+===
+boot.f
+###
+fl
+version W@ _bmsg c" boot.f    initializing" _bmsg
+
+
+: tempPROMPT c" SNET" ;
+
+11 wconstant tempPROPID
+
+[ifndef (forget)
+~~~
+
+
+
++++
+sd_load
+---
+fsload sd.f
+###
+fsload sd.f
+PROT33 Cog4 ok
+[ifndef $C_a_dovarl
+.
+.
+]
+PROT33 Cog4 ok
+[ifndef variable
+~~~
+
+
+
+8. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeFsrdKernel\sd_scripts.f
+into teraterm
+
++++
+Load_sd_scripts.f
+===
+sd_scripts.f
+###
+fl
+PROT33 Cog5 ok
+
+PROT33 Cog5 ok
+
+PROT33 Cog5 ok
+
+PROT33 Cog5 ok
+
+PROT33 Cog5 ok
+sd_init
+PROT33 Cog5 ok
+
+PROT33 Cog5 ok
+1 constant _sysstart
+PROT33 Cog5 ok
+
+PROT33 Cog5 ok
+
+PROT33 Cog5 ok
+: _sd_CrEaTe
+~~~
+
+
+9. Open
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\PropForthDevKernel.f
+
+UNComment out lines
+\ mountsys
+\ 100 fwrite DevKernel.f
+
+and paste the contents into teraterm
+
++++
+Load_Mod_PropForthDevKernel.f
+===
+PropForthDevKernel.f
+###
+fl
+PROT33 Cog5 ok
+
+PROT33 Cog5 ok
+mountsys
+PROT33 Cog5 ok
+100 fwrite DevKernel.f
+
+1 wconstant build_DevKernel
+
+
+
+
+[ifndef serflags?
+: serflags?
+cogio hC8 + L@
+;
+]
+~~~
+
+
++++
+Reboot1
+---
+reboot 
+###
+reboot
+
+
+
+
+
+
+
+
+
+
+                              PropForth v5.0 2012JAN09 14:30 0
+~~~
+
+
++++
+Mountsys_ls
+---
+mountsys ls
+$$$
+mountsys ls
+136 .partion-sys/
+130 .sdcardinfo
+265 DevKernel.f
+133 sdboot.f
+SNET11 Cog6 ok
+%%%
+
+
++++
+Mountusr_ls
+---
+mountusr ls
+$$$
+mountusr ls
+65667 .partion-usr/
+SNET11 Cog6 ok
+%%%
+
+
+
+

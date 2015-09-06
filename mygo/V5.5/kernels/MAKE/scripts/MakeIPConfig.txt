@@ -1,0 +1,53 @@
+L MAKE/results/runLogs/MakeIPConfigRunLog.txt
+R MAKE/results/resultFiles/MakeIPConfigResult.txt
+
+O	MAKE/results/outputFiles/ipconfig.f
+SW	hA state orC!
+SW	\
+SW	\
+SW	\ IP & TELNET CONFIG PARAMETERS BEGIN
+SW	\
+SW	\
+SXW	${dlrS_ip_light} wconstant $S_ip_light
+SW	\
+SW	\ This defines the cog which will be used to run the ip service
+SXW	${dlrS_ip_cog} wconstant $S_ip_cog
+SW	\
+SW	\ These constants configure the number of ip channels and the
+SW	\ buffer allocation in the W5100
+SW	\
+SW	\ The number of telnet sockets to start
+SW	\
+SXW	${dlrS_ip_sockbufsize}		wconstant $S_ip_sockbufsize
+SXW	${dlrS_ip_sockbufmask}		wconstant $S_ip_sockbufmask
+SXW	${dlrS_ip_sockbufinit}		wconstant $S_ip_sockbufinit
+SXW	${dlrS_ip_numsock}		wconstant $S_ip_numsock
+SXW	${dlrS_ip_numTelnet}		wconstant $S_ip_numTelnet
+SW	\
+SW	\
+SXW	${dlrS_ip_telnetport}		wconstant	$S_ip_telnetport
+SW	\
+SW	\ The gateway parameter is necessary for the client protocols, to route through for internet requests.
+SW	\
+SXW	${dlrS_ip_gatewayhi}	wconstant	$S_ip_gatewayhi
+SXW	${dlrS_ip_gatewaylo}	wconstant	$S_ip_gatewaylo
+SW	\
+SXW	${dlrS_ip_subnetmaskhi}	wconstant	$S_ip_subnetmaskhi
+SXW	${dlrS_ip_subnetmasklo}	wconstant	$S_ip_subnetmasklo
+SW	\
+SW	\ The mac address is on the bottom of the spinneret board
+SW	\
+SXW	${dlrS_ip_machi}	wconstant	$S_ip_machi
+SXW	${dlrS_ip_macmid}	wconstant	$S_ip_macmid
+SXW	${dlrS_ip_maclo}	wconstant	$S_ip_maclo
+SW	\
+SXW	${dlrS_ip_addrhi}	wconstant	$S_ip_addrhi
+SXW	${dlrS_ip_addrlo}	wconstant	$S_ip_addrlo
+SW	\
+SXW	${dlrS_ip_httpport}	wconstant	$S_ip_httpport
+SW	\
+SW	\
+SW	\ IP & TELNET CONFIG PARAMETERS END
+SW	\
+SW	hA state andnC!
+CO CR CL

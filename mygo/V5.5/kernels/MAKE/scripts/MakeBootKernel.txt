@@ -1,0 +1,19 @@
+L MAKE/results/runLogs/MakeBootKernelRunLog.txt
+R MAKE/results/resultFiles/MakeBootKernelResult.txt
+
+\ Load Start Kernel
+						r	MAKE/scripts/LoadStartKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load spinmaker.f
+						S	MAKE/src/spinmaker.f
+\ Load optsymsrc.f
+						S	MAKE/src/Optsymsrc.f
+\ echos and prompts off
+						X	hA state orC!
+\ make BootKernel.spin
+						O	MAKE/results/outputFiles/BootKernel.spin
+						SR	MAKE/results/outputFiles/AsmKernel.spin
+\ spinmaker
+	t 30000					X	-2 spinmaker
+						CO CR CL

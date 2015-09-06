@@ -1,0 +1,1261 @@
+
+ scriptFileName: MAKE/scripts/MakeBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/MakeBootOptimizeKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeBootOptimizeKernelResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 12668 
+
+NFA (Forth/Asm Immediate eXecute) Name
+02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootKernel.txt
+   logFileName: MAKE/results/runLogs/MakeBootOptimizeKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeBootOptimizeKernelResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -1344342145 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/MakeBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/MakeBootOptimizeKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeBootOptimizeKernelResult.txt
+outputFileName: 
+here W@ . cr
+12668 
+Prop0 Cog6 ok
+fl
+
+Prop0 Cog5 ok
+coghere W@ wconstant build_BootOpt
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create um* forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h122  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z2WyPb0 l, z2WyPj0 l, z2WyPr0 l, zeyPO1 l, z1SJ04R l, z21iPuC l, z38iPeE l, 
+Prop0 Cog5 ok
+zgyPW1 l, znyPj1 l, z1SL04N l, z2WiPRF l, z1SyJQL l, z2WiPRD l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create um/mod forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h123  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z2WiQBB l, z1SyLI[ l, z2WyPk0 l, z2WyPb0 l, zgyPO1 l, zoyQ81 l, zoyPb1 l, 
+Prop0 Cog5 ok
+z24fPeC l, z3XZPeC l, znyPr1 l, z3[yPnO l, z2WiPRD l, z1SyJQL l, z2WiPRF l, z1SV01X l, 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create cstr= forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11F  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, ziPeC l, z20yPb1 l, z24yPO1 l, ziPmC l, z20yPW1 l, z20yPO1 l, ziPuB l, 
+Prop0 Cog5 ok
+z26FPmF l, z3[tPfN l, z1riPR6 l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create name= forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h124  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, ziPeC l, z1WyPbV l, z20yPW1 l, ziPuB l, z1WyPrV l, z2WiPmD l, z20yPb1 l, 
+Prop0 Cog5 ok
+z1SV04W l, ziPmC l, z20yPW1 l, z20yPO1 l, ziPuB l, z26FPmF l, z3[tPfS l, z1riPR6 l, 
+Prop0 Cog5 ok
+z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _dictsearch forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h12B  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z2WiQ3C l, z2WiQBB l, ziPeC l, z1WyPbV l, z20yPW1 l, ziPuB l, z1WyPrV l, 
+Prop0 Cog5 ok
+z2WiPmD l, z20yPb1 l, z1SV04Y l, ziPmC l, z20yPW1 l, z20yPO1 l, ziPuB l, z26FPmF l, 
+Prop0 Cog5 ok
+z3[tPfU l, z2WiPRH l, z1SQ01X l, z24yQ82 l, z6iPRH l, z1SQ01X l, z2WiPZG l, z1SV04L l, 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create padbl forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11B  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z2WiQ7j l, z20yQ04 l, z2WyPjW l, z8FZJG l, z20yQ04 l, z3[yPnM l, z1SV01X l, zW820W l, 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _accept forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h140  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyJQL l, z2WiPij l, z20yPb2 l, z4iQBD l, z20yPeT l, ziPZD l, z1YVPW8 l, z2WoQ80 l, 
+Prop0 Cog5 ok
+z24yPeQ l, z2WiPRD l, z2WyPkx l, z4iPyj l, z1YVPv0 l, z1SL04U l, z2WyP[0 l, z4FPaj l, 
+Prop0 Cog5 ok
+z26VPrD l, z2WtPj1 l, z1SQ04o l, z26VPr8 l, z1SQ04f l, z18yPrW l, zFPuB l, z20yPO1 l, 
+Prop0 Cog5 ok
+z1SV04o l, z1Syavs l, z2WyPrW l, z1Syavs l, z24yPO1 l, z18iPRD l, zFPuB l, z20yPj2 l, 
+Prop0 Cog5 ok
+z1CyPkx l, z2WyPr8 l, z1Syavs l, z3[yPnU l, z24iPRD l, z1SV01X l, z26VQ80 l, z1SQ04y l, 
+Prop0 Cog5 ok
+z4iPZH l, z1YVP[0 l, z1SQ04u l, z4FPuH l, z1SV000 l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create .str forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h122  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z26VPW0 l, z2W\QFj l, z20oQ82 l, z6\PeH l, z1SQ04W l, ziPuB l, z20yPO1 l, 
+Prop0 Cog5 ok
+z4iPmD l, z1YVPn0 l, z1SQ04R l, z4FPuD l, z3[yP[P l, z1SyLI[ l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _fkey? forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11D  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z4iPZB l, z1YVP[0 l, z1riPe6 l, z1SL04P l, z2WyPn0 l, z4FPmB l, z2WiPRC l, z1SyJQL l, 
+Prop0 Cog5 ok
+z2WiPRD l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create fkey? forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11D  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyJQL l, z4iPVj l, z1YVPS0 l, z1riPZ6 l, z1SL04Q l, z2WyPn0 l, z4FPqj l, z1SyJQL l, 
+Prop0 Cog5 ok
+z2WiPRC l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create key forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11A  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyJQL l, z4iPVj l, z1YVPS0 l, z1SL04K l, z2WyP[0 l, z4FPaj l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _femit? forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h120  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z1WyPRy l, z2WiPeC l, z20yPb2 l, z6iPmD l, z1riPu6 l, z1SQ04U l, z4iPeE l, 
+Prop0 Cog5 ok
+z1YVPf0 l, z1viPu6 l, z45PRE l, z2WiPRF l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create femit? forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11F  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1WyPRy l, z2WiPij l, z20yPb2 l, z6iPmD l, z1riPu6 l, z1SQ04T l, z4iPeE l, z1YVPf0 l, 
+Prop0 Cog5 ok
+z1viPu6 l, z45PRE l, z2WiPRF l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create emit forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z1WyPZy l, z2WiPij l, z20yPb2 l, z6iPmD l, z1SQ04T l, z4iPeE l, z1YVPf0 l, 
+Prop0 Cog5 ok
+z1SQ04P l, z4FPZE l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create skipbl forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h124  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z2WiPaj l, z20yPZS l, z4iPeC l, z27VPd0 l, z1SJ04Z l, z2WyPl0 l, z24iPmD l, z20yPb4 l, 
+Prop0 Cog5 ok
+z20iPij l, ziQ3D l, z26VQ0W l, z20tPb1 l, z3[tPnS l, z24yPb4 l, z24iPij l, z4FPeC l, 
+Prop0 Cog5 ok
+z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _eeread forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h132  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SV04Q l, zW0000 l, zG0000 l, zD l, z2WiQCM l, z3[yQCO l, z1SV000 l, z2WiPZB l, 
+Prop0 Cog5 ok
+z2WyPO0 l, z1[ixnK l, z2WyPj8 l, z1SyZCN l, z1XFYal l, znyPO1 l, z1bix[L l, z1SyZCN l, 
+Prop0 Cog5 ok
+z1SyZCN l, z1[ix[L l, z1SyZCN l, z3[yPnU l, z26VPW0 l, z1vix[K l, z1bixnK l, z1SyZCN l, 
+Prop0 Cog5 ok
+z1bix[L l, z1SyZCN l, z1SyZCN l, z1[ix[L l, z1[ix[K l, z1SyZCN l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _eewrite forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h131  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SV04Q l, zW0000 l, zG0000 l, zD l, z2WiQCM l, z3[yQCO l, z1SV000 l, z2WyPj8 l, 
+Prop0 Cog5 ok
+z1YVPQ0 l, z1vix[K l, z1SyZCN l, z1bix[L l, z1SyZCN l, z1SyZCN l, z1[ix[L l, zfyPO1 l, 
+Prop0 Cog5 ok
+z1SyZCN l, z3[yPnR l, z1[ixnK l, z1YFYal l, z1viPR6 l, z1SyZCN l, z1bix[L l, z1SyZCN l, 
+Prop0 Cog5 ok
+z1SyZCN l, z1[ix[L l, z1SyZCN l, z1[ix[K l, z1bixnK l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create a_cha forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h139  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z2WiQBB l, z1SyLI[ l, z1SyLIZ l, z26VPPS l, z1SL04T l, z1Sya4n l, z26VPOD l, z1SL04O l, 
+Prop0 Cog5 ok
+z1Sya4n l, z1SV04M l, z26VPPu l, z1SL04Z l, z1Sya4n l, z26VPPw l, z1SL04V l, z1Sya4n l, 
+Prop0 Cog5 ok
+z26VPOW l, z26LPO9 l, z1SL04d l, z1Sya4n l, z26VPOW l, z26LPO9 l, z1SQ04] l, z1SV04f l, 
+Prop0 Cog5 ok
+z1Sya4n l, z26VPOD l, zFPRC l, z20yPW1 l, z25FPZH l, z1SK04e l, z2WiPRC l, z1SV01X l, 
+Prop0 Cog5 ok
+z40 l, z4iPVj l, z1YVPS0 l, z1SL04n l, z4F]Vj l, z1SV000 l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create a_flout forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h127  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z2WyQ8W l, z1SyLIZ l, z2WiPmB l, z4iPuC l, z27iPmF l, z1SU04\ l, z1CiQBE l, z2WiPij l, 
+Prop0 Cog5 ok
+z20yPb2 l, z4iQ3D l, z4iPeG l, z1YVPf0 l, z1SQ04Z l, ziPRF l, z20yPr1 l, z4FPRG l, 
+Prop0 Cog5 ok
+z3[yQCT l, z4FPuC l, z1SyLI[ l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create _serial forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h1B8  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z8Fryj l, z2WytCj l, z2WytLG l, z2WytTP l, z2Wyt\k l, z2Wyth6 l, z2Wytp] l, z1bixaB l, 
+Prop0 Cog5 ok
+z1bixqB l, z1Sit7H l, z1YFsNl l, z1SL04S l, z2Wyub9 l, z2Wiuq8 l, z20iuqk l, z20iuq9 l, 
+Prop0 Cog5 ok
+z1Sit7H l, z2WisiU l, z24isik l, z31Vsb0 l, z1SJ04Z l, z1XFsNl l, zjyuW1 l, z3[yufY l, 
+Prop0 Cog5 ok
+z1SJ04S l, zbyuWN l, z1WyuZy l, z2WirqS l, z1SV04S l, z1SitFI l, z26Fw7e l, z1SQ04j l, 
+Prop0 Cog5 ok
+z1bywY0 l, z1Gi]qf l, z2Wiuy5 l, z1Wiuyf l, zbiuyg l, z1SitFI l, z\yrb8 l, z38ywW0 l, 
+Prop0 Cog5 ok
+z1WywXy l, z20ywb8 l, z20ywO1 l, z1WywVy l, z1SitFI l, z1byuv0 l, zfyur2 l, z1byur1 l, 
+Prop0 Cog5 ok
+z2Wyv0B l, z1SitFI l, z2WivFk l, zcyur1 l, z1jixaB l, z20ivF9 l, z1SitFI l, z2WisiX l, 
+Prop0 Cog5 ok
+z24isik l, z31Vsb0 l, z1SJ059 l, z3[yv56 l, z1SV04j l, z1SitNG l, z1SitNJ l, z1SitNG l, 
+Prop0 Cog5 ok
+z1SitNK l, z1SitNG l, z1SitNL l, z1SitNG l, z1SitNM l, z1SV05G l, z1SitVI l, z1YVrn0 l, 
+Prop0 Cog5 ok
+z1SL05P l, z2WityY l, z20ytr1 l, z1Wytyy l, z26Fty\ l, z1SQ05P l, z1SitVI l, z1Kig7Z l, 
+Prop0 Cog5 ok
+z1KigFZ l, z2Wisi6 l, z2Wyrn0 l, zfisi[ l, z1Wisi2 l, z1[ivV2 l, z1bivVD l, z1SitVI l, 
+Prop0 Cog5 ok
+z\yrG8 l, z38yvO0 l, z1WyvPy l, z20yvW8 l, z2WivNN l, z1SV05P l, z1SitaI l, z26FvN\ l, 
+Prop0 Cog5 ok
+z1SQ05k l, z26VsW0 l, z4\syC l, z1YLsv0 l, z1SQ05k l, z1SitaI l, z1GiiV] l, z2Wisy3 l, 
+Prop0 Cog5 ok
+z1Wisy] l, zbisya l, z4FsyC l, z1SitaI l, z\yrO8 l, z38yvj0 l, z1Wyvky l, z20yvr8 l, 
+Prop0 Cog5 ok
+z20yvb1 l, z1Wyviy l, z1SV05k l, z1SitiI l, z4iuFj l, z1YVuC0 l, z1SL066 l, z1SitiI l, 
+Prop0 Cog5 ok
+z2Wiu7b l, z20yu01 l, z1Wyu7y l, z26Fu7e l, z1SQ066 l, z1SitiI l, z1bywA0 l, z1Kilyc l, 
+Prop0 Cog5 ok
+z1Kim7c l, z2WisiP l, zfisid l, z1Wisi4 l, z1[iwF4 l, z1biwFD l, z1SitiI l, z\yrW8 l, 
+Prop0 Cog5 ok
+z38yw80 l, z1Wyw9y l, z20ywG8 l, z2Wiw7O l, z1SitiI l, z26Vu8D l, z1YQuO1 l, z45ryj l, 
+Prop0 Cog5 ok
+z2WtsbA l, z4Asij l, z1SV066 l, z1SitqI l, z2WiuNj l, z20yuG2 l, z4isaQ l, z1SitqI l, 
+Prop0 Cog5 ok
+z20yuJ2 l, zAisyQ l, z1SQ06n l, z8FwqQ l, z18ysrG l, z1[ixaB l, z20isyk l, z3rysr0 l, 
+Prop0 Cog5 ok
+z1bixaB l, z1SitqI l, z20yuG4 l, z8iuVQ l, z1SV06] l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: init_coghere h140 coghere W! ;
+Prop0 Cog5 ok
+: u*
+um* drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: u/mod
+0 swap um/mod
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: u/
+u/mod nip
+;
+Prop0 Cog5 ok
+: fl
+lockdict fl_lock W@
+if
+freedict
+else
+-1 fl_lock W! cogid nfcog dup >r iolink freedict
+
+cnt COG@ 0 dictend W@ 2- here W@ h80 + dup dictend W!
+
+begin
+2dup <=
+if
+fkey? nip
+if
+cnt COG@ 3 ST!
+rot 1+ rot2
+else
+dup dictend a_flout
+then
+else
+fkey?
+if
+swap 2 ST@ a_cha
+cnt COG@ 3 ST!
+else
+drop dup dictend a_flout
+then
+then
+cnt COG@ 4 ST@ - clkfreq >
+until
+begin
+dup dictend a_flout
+dup dictend W@ <=
+until
+cr cr
+drop 2+ dictend W!
+cogid iounlink
+0 fl_lock W!
+r> over
+if
+cogreset
+cr . ." characters overflowed" cr
+else
+2drop
+then
+drop
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl
+: _xc
+rot2 over =
+if
+drop -1 0
+else
+nip -1
+then
+;
+Prop0 Cog5 ok
+[ifndef $C_a_doconl
+Prop0 Cog5 ok
+h52 wconstant $C_a_doconl
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+Prop0 Cog5 ok
+h4D wconstant $C_a_dovarl
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>0
+Prop0 Cog5 ok
+h21 wconstant $C_a__xasm2>0
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm1>1
+Prop0 Cog5 ok
+h1C wconstant $C_a__xasm1>1
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>flagIMM
+Prop0 Cog5 ok
+h1 wconstant $C_a__xasm2>flagIMM
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>flag
+Prop0 Cog5 ok
+h4 wconstant $C_a__xasm2>flag
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>1IMM
+Prop0 Cog5 ok
+h13 wconstant $C_a__xasm2>1IMM
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>1
+Prop0 Cog5 ok
+h16 wconstant $C_a__xasm2>1
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _bf
+Prop0 Cog5 ok
+: _bf
+<# # # base W@ h10 < if # then #>
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef .byte
+Prop0 Cog5 ok
+: .byte
+_bf .cstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _wf
+Prop0 Cog5 ok
+: _wf
+<# # # # # base W@ h10 < if # base W@ hA < if # then then #>
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef .word
+Prop0 Cog5 ok
+: .word
+_wf .cstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _lf
+Prop0 Cog5 ok
+: _lf
+<# # # # # # # # # base W@ h10 < if # # base W@ hA < if # then then  #>
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef .long
+Prop0 Cog5 ok
+: .long
+_lf .cstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef lasti?
+Prop0 Cog5 ok
+: lasti?
+1 RS@ h2 RS@ 1+ =
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: xc1
+h22 c" quote" _xc
+if
+h23 c" hash" _xc
+if
+h30 c" z" _xc
+if
+h31 c" one" _xc
+if
+h32 c" two" _xc
+if
+h33 c" three" _xc
+if
+h34 c" four" _xc
+if
+h35 c" five" _xc
+if
+h36 c" six" _xc
+if
+h38 c" eight" _xc
+if
+h28 c" lparen" _xc
+if
+h29 c" rparen" _xc
+if
+0
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: xc2
+h5B c" sbo" _xc
+if
+h5C c" bs" _xc
+if
+h5D c" sbc" _xc
+if
+h3A c" colon" _xc
+if
+h3B c" scolon" _xc
+if
+h27 c" tick" _xc
+if
+h40 c" at" _xc
+if
+h21 c" bang" _xc
+if
+h3D c" eq" _xc
+if
+h3E c" gt" _xc
+if
+0
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: xc3
+h3C c" lt" _xc
+if
+h2D c" minus" _xc
+if
+h2B c" plus" _xc
+if
+h2F c" slash" _xc
+if
+h2A c" star" _xc
+if
+h2E c" dot" _xc
+if
+h2C c" comma" _xc
+if
+h24 c" dlr" _xc
+if
+h7B c" cbo" _xc
+if
+h7D c" cbc" _xc
+if
+h3F c" q" _xc
+if
+0
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: xlatnamechar
+xc1
+if
+-1
+else
+xc2
+if
+-1
+else
+xc3
+then
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: ixnfa
+0 max wlastnfa W@
+begin
+over 0=
+if
+-1
+else
+swap 1- swap nfa>next dup 0=
+then
+until
+nip
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: .xstr
+dup 0<>
+if
+bounds
+do
+i C@ xlatnamechar
+if
+.cstr
+else
+emit
+then
+loop
+else
+2drop
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: .xstrname
+dup 0<>
+if
+namelen .xstr
+else
+drop ." ??? "
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: xstrlen
+dup 0<>
+if
+bounds 0 rot2
+do
+i C@ xlatnamechar
+if
+C@
+else
+drop 1
+then
++
+loop
+nip
+else
+2drop 0
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: xstrnamelen
+dup namelen dup 0<>
+if
+xstrlen
+else
+nip
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: nfacount
+0 wlastnfa W@
+begin
+swap 1+ swap nfa>next dup 0=
+until
+drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: nfaix
+-1 swap 0 wlastnfa W@
+begin
+rot 2dup =
+if
+2drop swap -1 -1 -1
+else
+rot 1+ rot nfa>next dup 0=
+then
+until
+3drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: lastdef
+c" wlastnfa" over name=
+over c" here" name= or
+over c" dictend" name= or
+over c" memend" name= or
+
+if
+drop 0
+else
+dup find
+if
+pfa>nfa =
+else
+2drop -1
+then
+then
+; 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+wvariable lastSpinNFA
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spinname
+-1 swap h22 emit namelen 0 
+do
+C@++ dup h22 =
+if
+drop h22 emit ." ,$22" nip 0 swap
+else
+emit
+then
+loop
+drop
+if
+h22 emit
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spinwordheader
+cr h18 spaces ." word    "  
+lastSpinNFA W@ dup 0=
+if
+." 0" drop
+else
+." @" .xstrname ." NFA + $10"
+then 
+cr
+ixnfa dup lastSpinNFA W! dup .xstrname ." NFA" 
+dup xstrnamelen namemax and h15 swap - 1 max
+dup spaces ." byte    $" over C@ .byte ." ," over spinname
+cr 
+over .xstrname ." PFA" spaces ." word    "
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spinwordasm
+." (@a_" .xstrname ."  - @a_base)/4"
+cr
+;  
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spinwordconstant
+dup nfa>pfa W@ $C_a_doconw =
+if
+dup c" $H_" npfx
+if
+." (@a_doconw - @a_base)/4" cr h18 spaces ." word    " 
+dup ." @" namelen h3 - swap h3 + swap .xstr ." PFA  + $10"
+cr
+0
+else
+dup c" $C_" npfx
+if
+." (@a_doconw - @a_base)/4" cr h18 spaces ." word    " 
+dup ." (@" namelen h3 - swap h3 + swap .xstr ."  - @a_base)/4"
+cr
+0
+else
+dup c" $S_" npfx
+if
+." (@a_doconw - @a_base)/4" cr h18 spaces ." word    " 
+dup ." dlrS_" namelen h3 - swap h3 + swap .xstr
+cr
+0
+else
+-1
+then
+then
+then
+else
+-1
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: isExecasm
+dup $C_a__xasm2>1 =
+over $C_a__xasm2>flag = or
+over $C_a__xasm1>1 = or
+swap $C_a__xasm2>0 = or
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: isExecasmIMM
+dup $C_a__xasm2>1IMM =
+swap $C_a__xasm2>flagIMM = or
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spindcmp1
+h18 spaces ." word    $"  2+ dup W@ .word
+cr
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spindcmp2
+h18 spaces ." long    $" 2+ alignl
+dup dup 2+ W@ .word W@ .word 2+
+cr
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spindcmp
+dup W@ dup $C_a_doconw = swap $C_a_dovarw = or
+if
+spindcmp1 -1
+else
+
+dup W@ isExecasmIMM
+if
+spindcmp1
+spindcmp1 0
+else
+
+dup W@ dup isExecasm
+swap $C_a_litw = or
+if
+spindcmp1 0
+else
+
+dup W@ dup $C_a_branch =
+over $C_a_(loop) = or
+over $C_a_(+loop) = or
+swap $C_a_0branch = or
+if
+spindcmp1 0
+else
+
+dup W@ dup $C_a_doconl =
+swap $C_a_dovarl = or
+if
+spindcmp2 -1
+else
+
+dup W@ $C_a_litl =
+if
+spindcmp2 0
+else
+
+dup W@ dup $H_dq = swap $H_cq = or
+if
+h18 spaces ." byte    $" 2+
+C@++ dup .byte ." ," 2dup
+h22 emit .str h22 emit
++ alignw 2-
+cr 0
+else
+
+dup W@ $C_a_lxasm =
+if
+2+
+alignl
+dup L@ h9 rshift h1FF and 4*
+2dup bounds
+do
+h18 spaces ." long    $"
+i L@ .long cr 
+h4 +loop
++ 2- -1
+else
+dup W@ $C_a_exit =
+thens
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spinwordforth
+nfa>pfa 2-
+begin
+2+ dup W@ dup pfa>nfa
+swap $C_fMask COG@ and
+if
+." @" .xstrname ." PFA + $10"
+cr
+else
+spinwordasm
+then
+spindcmp dup 0=
+if
+h18 spaces ." word    "
+then
+until
+2+
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _sw
+0 
+do
+i h7 and 0=
+if
+i 0<>
+if
+cr
+then
+h18 spaces ." WORD    0"
+else
+." ,0"
+then
+loop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spinword
+dup spinwordheader dup C@ h80 and
+if
+spinwordconstant
+if
+spinwordforth over 1- ixnfa 2- swap - dup 0<>
+if
+alignw 2/ dup h8 >
+if
+alignw 2/
+then
+_sw
+else
+drop
+then
+else
+drop
+then
+else
+spinwordasm
+then
+drop
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: cr18
+cr h18 spaces
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: spinmaker
+hex
+nfacount 1- dup
+c" _xc" find
+if
+cr
+." ForthDictStart"
+cr
+cr18 ." word    0"
+cr
+." wlastnfaNFA             byte    $88," h22 emit ." wlastnfa" h22 emit
+cr
+." wlastnfaPFA             word    (@a_dovarw - @a_base)/4"
+cr
+."                         word    @H_lastlfa + $12"
+cr
+cr18 ." word    @wlastnfaNFA + $10"
+cr
+." hereNFA                 byte    $84," h22 emit ." here" h22 emit
+cr
+." herePFA                 word    (@a_dovarw - @a_base)/4"
+cr
+."                         word    @wfreespacestart + $10"
+cr 
+cr18 ." word    @hereNFA + $10"
+cr
+." dictendNFA              byte    $87," h22 emit ." dictend" h22 emit
+cr
+." dictendPFA              word    (@a_dovarw - @a_base)/4"
+cr
+."                         word    @ForthMemoryEnd + $10"
+cr
+cr18 ." word    @dictendNFA + $10"
+cr
+." memendNFA               byte    $86," h22 emit ." memend" h22 emit
+cr
+." memendPFA               word    (@a_dovarw - @a_base)/4"
+cr
+."                         word    @ForthMemoryEnd + $10"
+cr 
+
+
+pfa>nfa nfaix - 0
+
+c" memend" lastSpinNFA W!
+do
+dup i - dup ixnfa
+lastdef
+if
+lasti?
+if
+." H_lastlfa"
+cr
+then
+spinword
+else
+drop
+then
+loop
+drop
+cr
+." wfreespacestart"
+cr
+d_5000 + d_16 u/mod 0 
+do
+cr18 ." long    0,0, 0,0, 0,0, 0,0,  0,0, 0,0, 0,0, 0,0"
+loop
+dup 0<>
+if
+1-
+cr18 ." long    0"
+dup 0<>
+if
+0
+do
+." ,0"
+loop
+else
+drop
+then
+else
+drop
+then
+cr
+." ForthMemoryEnd"
+cr
+cr
+else
+3drop
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+: (flout) ; : (fl) ; wvariable fl_in
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: MAKE/scripts/MakeBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/MakeBootOptimizeKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeBootOptimizeKernelResult.txt
+outputFileName: MAKE/results/outputFiles/BootOptimizeKernel.spin
+
+ scriptFileName: MAKE/scripts/MakeBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/MakeBootOptimizeKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeBootOptimizeKernelResult.txt
+outputFileName: 

@@ -1,0 +1,98 @@
+package main
+
+import (
+	"cogCommandProcessor"
+	"errors"
+	"fmt"
+	"io"
+	"os"
+	"runtime"
+	"serial"
+	"strconv"
+	"time"
+)
+
+var debug bool = false
+
+func main() {
+	var err error
+	var baud int
+	var chanFromSerial, chanToSerial chan byte
+	var chanDTRSerial, chanQuitSerial chan bool
+	runtime.GOMAXPROCS(runtime.NumCPU())
+
+	if len(os.Args) < 3  {
+		err = errors.New( "Invalid number of arguments")
+	}
+	if err == nil {
+		b, errc := strconv.ParseInt( os.Args[2], 10, 32)
+		err = errc
+		baud = int( b)
+	}
+	if err == nil {
+		chanFromSerial, chanToSerial, chanDTRSerial, chanQuitSerial, err = serial.SerialChannels( os.Args[1], baud, debug)
+	}
+	if err != nil {
+		fmt.Printf( "error: %s\nusage: %s com_port baud [commands]*\n%s", err, os.Args[0], cogCommandProcessor.Help)
+		return
+	}
+// to reset the prop
+	chanDTRSerial <- false
+	time.Sleep( 1e8)
+	chanDTRSerial <- true
+	time.Sleep( 1e8)
+	chanDTRSerial <- false
+
+	conLog := make( chan string)
+	go func() {
+		for s := range  conLog {
+			fmt.Print( s)
+		}
+	}()
+	
+	var sName string
+	if len(os.Args) > 3 {
+		sName = "LINE COMMANDS"
+	} else {
+		sName = "USER INPUT"
+	}
+
+	time.Sleep( 3e9)
+	cp := new( cogCommandProcessor.CogCommandProcessor)
+	cp.SetReceiveTimeout( time.Duration(3e9))
+	cp.SetCps( 5000)
+
+	chanCommand := cp.CommandProcessor( sName, chanFromSerial, chanToSerial, conLog)
+
+	if len(os.Args) > 3 {
+		for _,s := range( os.Args[3:]) {
+			fmt.Println( s)
+			for _,c := range( s) {
+				chanCommand <- byte(c)
+			}
+			chanCommand <- byte(0x20)
+		} 
+		chanCommand <- byte( 0x0D)
+		chanCommand <- byte( 0x0D)
+		close(chanCommand)
+		return
+	}
+
+	chanCommand <- byte( 'h')
+	chanCommand <- byte( 0x0D)
+	d := make( []byte, 2048)
+	for {
+		c, e := os.Stdin.Read( d)
+		for _,ch := range( d[:c]) {
+			if ch != byte(0x0A) {
+				chanCommand <- ch
+			}
+		}
+		time.Sleep( 10)
+		if e == io.EOF {
+			break
+		}
+	}
+	chanQuitSerial <- true
+	close( conLog)
+}

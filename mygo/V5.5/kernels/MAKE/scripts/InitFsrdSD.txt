@@ -1,0 +1,39 @@
+\ Init sdfs
+						r	MAKE/scripts/InitSdfs.txt
+\ Init Fsrd Kernel
+						r	MAKE/scripts/InitFsrd.txt
+\ Here
+						X	here W@ . cr
+\ Load fswr.f
+						X 	fsload fswr.f
+\						X	fsdrop
+	cps 3000
+\ Load sdcommon.f
+						scr	fl
+						scr	fswrite sdcommon.f
+						scr	hA state orC!
+		 				S	MAKE/results/outputFiles/sdcommon.f
+						X	c" hA state andnC!~h0D...~h0D" 5 cogx
+\ Loads sdinit.f
+						scr	fl
+						scr	fswrite sdinit.f
+						scr	hA state orC!
+						S	MAKE/src/optimize/fs/sd/sdinit.f
+						X	c" hA state andnC!~h0D...~h0D" 5 cogx
+\ Loads sdrun.f
+						scr	fl
+						scr	fswrite sdrun.f
+						scr	hA state orC!
+						S	MAKE/src/optimize/fs/sd/sdrun.f
+						X	c" hA state andnC!~h0D...~h0D" 5 cogx
+\ Loads sdfs.f
+						scr	fl
+						scr	fswrite sdfs.f
+						scr	hA state orC!
+						S	MAKE/src/optimize/fs/sd/sdfs.f
+						X	c" hA state andnC!~h0D...~h0D" 5 cogx
+\ Load boot.f
+						S	MAKE/src/optimize/fs/sd/boot.f
+		
+
+

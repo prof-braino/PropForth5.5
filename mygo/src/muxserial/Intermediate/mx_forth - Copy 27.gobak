@@ -1,0 +1,570 @@
+package muxserial
+
+/*
+fl
+\
+\ structure in cog memory for the prtotcol driver
+\
+
+h1DA
+   dup wconstant __iobuf
+1+ dup wconstant __+offset
+1+ dup wconstant __serin
+1+ dup wconstant __serout
+1+ dup wconstant __h100
+1+ dup wconstant __bshift
+1+ dup wconstant __bmask
+1+ dup wconstant __numchan
+1+ dup wconstant __stateflags
+
+
+1+ dup wconstant __lc
+1+ dup wconstant __olc
+1+ dup wconstant __index
+1+ dup wconstant __index+numchan
+1+ dup wconstant __mask
+
+1+ dup wconstant __stTOS
+1+ dup wconstant __reg1
+1+ dup wconstant __reg2
+1+ dup wconstant __reg3
+1+ dup wconstant __reg4
+1+ dup wconstant __reg5
+1+ dup wconstant __reg6
+1+ dup wconstant __reg7
+
+
+\ a_iobuf( -- )
+build_BootOpt :rasm
+
+__mx_protocol
+\
+\
+\
+\ from the serial port to the channel buffers
+\
+__serin_next
+		jmpret	__serfkeyq_ret , # __serfkeyq
+	if_nz	jmp	# __serinexit
+\
+\ we have a character, split it into the op(reg2) and channel number(reg1)		
+\
+		mov	__reg2 , __stTOS
+		and	__reg2 , # hE0
+
+		mov	__reg7 , __stTOS
+		and	__reg7 , # h1F
+
+		cmp	__reg2 , # h40	wz
+	if_ne	jmp	# __serin_notack
+\
+\ ack, set the stateflags back to ready to receive for this channel
+\
+		mov	__reg3 , # 1
+		shl	__reg3 , __reg7
+		or	__stateflags , __reg3
+		jmp	# __serin_next
+
+__serin_notack
+		cmp	__reg2 , # h60	wz
+\
+\ not a byte we were expecting, bail
+\
+\	if_nz	mov	$C_treg6 , # h99		********************************
+\	if_nz	jmp	# $C_a_reset
+
+\
+\ we have a byte packet, get the count(lc)
+\
+		jmpret	__serkey_ret , # __serkey
+		mov	__lc , __stTOS
+		sub	__lc , # h20
+__serin_chars
+\
+\ get the chars, and put them in the buffer
+\
+		jmpret	__serkey_ret , # __serkey
+		mov	__reg1 , __reg7
+		jmpret	__iobufemitq_ret , # __iobufemitq
+\
+\ there is supposed to be room, bail
+\
+\	if_z	mov	$C_treg6 , # h9A		***********************************
+\	if_z	jmp	# $C_a_reset
+		djnz	__lc , # __serin_chars
+		jmp	# __serin_next
+__serinexit
+\
+\
+\
+\ big loop scanning all the channels
+\
+__ioin
+		mov	__olc , __numchan
+		mov	__index , # 0
+		mov	__index+numchan , __numchan
+		mov	__mask , # 1
+\
+\ from the buffers to the serial channel
+\
+__ioin_outerlp
+\
+\ if we are waiting for an ack, we cannot send anything
+\
+		test	__stateflags , __mask	wz
+	if_z	jmp	# __ioin_next
+\
+\ check to see if there is anything in the buffer wating to go
+\
+		jmpret	__iobufcountq_ret , # __iobufcountq_1
+	if_z	jmp	# __ioin_next
+\
+\ we have a count(lc) of characters ready to go
+\
+		mov	__lc , __stTOS
+\
+\ send the index to the serial channel
+\
+		mov	__stTOS , __index
+		add	__stTOS , # h60
+		jmpret	__seremit_ret , # __seremit
+\
+\ send the count to the serial channel
+\
+		mov	__stTOS , __lc
+		add	__stTOS , # h20
+		jmpret	__seremit_ret , # __seremit
+\
+\ send the chars to the serial channel
+\
+__ioin_innerlp
+		mov	__reg1 , __index+numchan
+		jmpret	__iobufkeyq_ret , # __iobufkeyq
+\
+\ should be space for a char there
+\
+\	if_z	mov	$C_treg6 , # h33		*******************************************
+\	if_z	jmp	# $C_a_reset
+		
+		jmpret	__seremit_ret , # __seremit
+		djnz	__lc , # __ioin_innerlp
+\
+\ mark the stateflags as waiting for an ack for this channel
+\
+		andn	__stateflags , __mask
+__ioin_next
+\
+\
+\
+\ from the buffers to the channel
+\
+__iooutbuf_outerlp
+
+		mov	__lc , __bmask
+__iooutbuf_innerlp
+		mov	__reg1 , __index
+		jmpret	__ioemitq_ret , # __ioemitq
+	if_nz	jmp	# __iobufoutskip
+		
+		mov	__reg1 , __index
+		jmpret	__iobufkeyq_ret , # __iobufkeyq
+	if_z	jmp	# __iobufoutskip
+
+		mov	__reg1 , __index
+		jmpret	__iofemitq_ret , # __iofemitq
+\
+\ should be good
+\
+\	if_nz	mov	$C_treg6 , # h9B			*************************************
+\	if_nz	jmp	# $C_a_reset
+
+		mov	__reg1 , __index
+		jmpret	__iobufcountq_ret , # __iobufcountq
+
+	if_z	mov	__stTOS , __index
+	if_z	add	__stTOS , # h40
+	if_z	jmpret	__seremit_ret , # __seremit
+\
+\ try for an echo - since echo is done at the cog level this will prevent slowing down
+\
+\ from the io channels to the buffers
+\
+		jmpret	__iobufcountq_ret , # __iobufcountq_1
+		cmp	__stTOS , __bmask	wz
+	if_z	jmp	# __iooutbuf_skipecho
+
+		mov	__reg1 , __index
+		jmpret	__iofkeyq_ret , # __iofkeyq
+	if_nz	jmp	# __iooutbuf_skipecho
+\
+		jmpret	__iobufemitq_ret , # __iobufemitq_1
+\
+\ should be space
+\
+\	if_z	mov	$C_treg6 , # h44			*****************************************
+\	if_z	jmp	# $C_a_reset
+
+__iooutbuf_skipecho
+		djnz	__lc , # __iooutbuf_innerlp
+__iobufoutskip
+\
+\
+\
+\
+\ from the io channels to the buffers
+\
+__iobuf_lpouter
+		jmpret	__iobufcountq_ret , # __iobufcountq_1
+
+		mov	__lc , __bmask
+		sub	__lc , __stTOS	wz
+	if_z	jmp	# __iobuf_endouter
+\
+\ the amount of space in the buffers(lc)
+\
+__iobuf_lpinner
+		mov	__reg1 , __index
+		jmpret	__iofkeyq_ret , # __iofkeyq
+	if_nz	jmp	# __iobuf_endinner
+\
+		jmpret	__iobufemitq_ret , # __iobufemitq_1
+\
+\ should be space
+\
+\	if_z	mov	$C_treg6 , # h44			************************
+\	if_z	jmp	# $C_a_reset
+
+__iobuf_endinner
+		djnz	__lc , # __iobuf_lpinner
+
+__iobuf_endouter
+
+
+
+
+		add	__index , # 1
+		add	__index+numchan , # 1
+		shl	__mask , # 1
+		djnz	__olc , # __ioin_outerlp
+	
+		jmp	# __mx_protocol
+
+
+\
+\ enter - __stTOS -don't care
+\	- __reg1  - index to io channels
+\ exit  - __stTOS - char
+\       - zflag    - set if the char is valid
+\
+\
+__iofkeyq
+		shl    __reg1 , # 2
+		add    __reg1 , par
+ 		rdword __stTOS , __reg1
+		test   __stTOS , # h100	wz
+	if_z	wrword __h100 , __reg1
+__iofkeyq_ret
+		ret
+
+\
+\ - enter - __reg1  - buf#
+\ - exit  - __stTOS - count
+\         - zflag - set if count is zero
+\
+__iobufcountq_1
+		mov	__reg1 , __index+numchan	
+__iobufcountq
+		shl	__reg1 , # 1
+		add	__reg1 , __iobuf
+
+		rdbyte	__stTOS , __reg1
+		add	__reg1 , # 1
+		rdbyte	__reg5 , __reg1
+
+		sub	__stTOS , __reg5
+		and	__stTOS , __bmask	wz
+__iobufcountq_ret
+		ret
+\
+\
+\ - enter - __reg1 - buf#
+\ - exit  
+\ __reg6 - head
+\ __reg5 - tail
+\
+\ __reg4 - head/tail pointer
+\
+__getheadtail
+		mov	__reg4 , __reg1
+		shl	__reg4 , # 1
+		add	__reg4 , __iobuf
+		rdbyte	__reg6 , __reg4
+		add	__reg4 , # 1
+		rdbyte	__reg5 , __reg4
+__getheadtail_ret
+		ret
+
+\
+\ - enter - __stTOS - char
+\         - __reg1 - buf#
+\ - exit  - __stTOS - don't care
+\         - zflag - set char is invalid - there was no space in the buffer
+\ __reg6 - head
+\ __reg5 - tail
+\
+\ __reg4 - head/tail pointer
+\
+__iobufemitq_1
+		mov	__reg1 , __index+numchan	
+__iobufemitq
+		jmpret	__getheadtail_ret , # __getheadtail
+
+		mov	__reg2 , __reg6
+		add	__reg2 , # 1
+		and	__reg2 , __bmask
+
+		cmp	__reg2 , __reg5	wz
+	if_z	jmp	# __iobufemitq_ret
+
+
+		shl	__reg1 , __bshift
+		add	__reg1 , __+offset
+		add	__reg1 , __reg6
+		
+		wrbyte	__stTOS , __reg1
+
+		sub	__reg4 , # 1
+		wrbyte	__reg2 , __reg4
+__iobufemitq_ret
+		ret
+
+\
+\ - enter - __reg1  - buf#
+\ - exit  - __stTOS - char
+\         - zflag - set char is invalid
+\ __reg6 - head
+\ __reg5 - tail
+\
+\ __reg4 - head/tail pointer
+\
+__iobufkeyq
+		jmpret	__getheadtail_ret , # __getheadtail
+
+		cmp	__reg6 , __reg5	wz
+	if_z	jmp	# __iobufkeyq_ret
+
+		shl	__reg1 , __bshift
+		add	__reg1 , __+offset
+		add	__reg1 , __reg5
+		
+		rdbyte	__stTOS , __reg1
+
+		add	__reg5 , # 1
+		and	__reg5 , __bmask
+		wrbyte	__reg5 , __reg4
+__iobufkeyq_ret
+		ret
+
+
+\
+\ - enter - __stTOS - char
+\         - __reg1 - chan number
+\
+\ - exit  - __stTOS - don't care
+\         - zflag - set if ready for a char
+\
+__iofemitq
+		jmpret	__ioemitq_ret , # __ioemitq
+	if_z	wrword	__stTOS , __reg2 
+
+__iofemitq_ret
+		ret
+\
+\ - enter - __stTOS - don't care
+\         - __reg1 - chan number
+\ - exit  - __stTOS - don't care
+\         - zflag - set if ready for a char
+\
+__ioemitq
+		shl	__reg1 , # 2
+		add	__reg1 , par
+		add	__reg1 , # 2
+\
+		rdword	__reg2 , __reg1	wz
+	if_z	jmp	# __ioemitq_ret
+
+		rdword	__reg3 , __reg2
+		test	__reg3 , # h100	wz
+		muxz	__reg4 , $C_fLongMask	nr wz
+
+__ioemitq_ret
+		ret
+
+\
+\ - enter - __stTOS - don't care
+\ - exit  - __stTOS - char
+\
+__serkey
+		jmpret	__serfkeyq_ret , # __serfkeyq
+	if_nz	jmp	# __serkey
+__serkey_ret
+		ret
+\
+\ enter - __stTOS - don't care
+\ exit  - __stTOS - char
+\       - zflag    - set if the char is valid
+\
+\
+__serfkeyq
+		rdword	__stTOS , __serin
+		test	__stTOS , # h100	wz
+	if_z	wrword	__h100 , __serin
+__serfkeyq_ret
+		ret
+
+\
+\ - enter - __stTOS - char to emit
+\ - exit  - __stTOS - char to emit
+\
+__seremit
+		and	__stTOS , # hFF
+\
+		rdword	__reg2 , __serout	wz
+	if_z	jmp	# __seremit_ret
+__poll
+		rdword	__reg1 , __reg2
+		test	__reg1 , # h100	wz
+	if_z	jmp	# __poll
+\
+		wrword	__stTOS , __reg2
+__seremit_ret
+		ret
+
+;asm a_iobuf
+
+
+cr base W@ swap hex . base W! cr cr
+
+
+
+*/
+
+
+var scode string = `
+fl
+\
+\ serial line protocol - 
+\ b011X_XXXX count cc - X is chan number count is number of characters following + h20
+\ b010Y_YYYY - ack Y is chan number
+\
+
+
+lockdict create a_iobuf forthentry
+$C_a_lxasm w, h1AA  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SynEU l, z1SL04b l, z2WiwNb l, z1WywJW l, z2Wiwyb l, z1WywrV l, z26VwH0 l, z1SL04V l,
+z2WywO1 l, zfiwVi l, z1bivNe l, z1SV04J l, z26VwHW l, z1SymhR l, z2WivVb l, z24yvOW l,
+z1SymhR l, z2WiwFi l, z1SyjTq l, z3[yvSZ l, z1SV04J l, z2WivaX l, z2Wyvb0 l, z2WivqX l,
+z2Wyvr1 l, z1YFvNa l, z1SQ04v l, z1Sygo] l, z1SQ04v l, z2WivVb l, z2Wiw7\ l, z20yw1W l,
+z1SyoEY l, z2Wiw7Z l, z20yw0W l, z1SyoEY l, z2WiwF] l, z1Sykp4 l, z1SyoEY l, z3[yvSq l,
+z1[ivNa l, z2WivVW l, z2WiwF\ l, z1SymMI l, z1SL05I l, z2WiwF\ l, z1Sykp4 l, z1SQ05I l,
+z2WiwF\ l, z1SylEF l, z2WiwF\ l, z1Sygoa l, z2Wdw7\ l, z20tw10 l, z1StoEY l, z1Sygo] l,
+z26Fw7W l, z1SQ05H l, z2WiwF\ l, z1SyfgW l, z1SL05H l, z1SyjTp l, z3[yvSw l, z1Sygo] l,
+z2WivVW l, z26ivVb l, z1SQ05R l, z2WiwF\ l, z1SyfgW l, z1SL05Q l, z1SyjTp l, z3[yvTM l,
+z20yvb1 l, z20yvj1 l, zfyvr1 l, z3[yv[f l, z1SV04J l, zfyw82 l, z20iwFj l, z4iw7c l,
+z1YVw40 l, z4Auqc l, z1SV000 l, z2WiwF] l, zfyw81 l, z20iwFQ l, ziw7c l, z20yw81 l,
+ziwic l, z24iw7g l, z1Yiw7W l, z1SV000 l, z2Wiwac l, zfywW1 l, z20iwaQ l, ziwqf l,
+z20ywW1 l, ziwif l, z1SV000 l, z2WiwF] l, z1Syhgi l, z2WiwNh l, z20ywG1 l, z1WiwNW l,
+z26FwNg l, z1SQ063 l, zfiwFV l, z20iwFR l, z20iwFh l, zFw7c l, z24ywW1 l, zFwNf l,
+z1SV000 l, z1Syhgi l, z26Fwqg l, z1SQ06E l, zfiwFV l, z20iwFR l, z20iwFg l, ziw7c l,
+z20ywb1 l, z1WiwiW l, zFwif l, z1SV000 l, z1SymMI l, z4Aw7d l, z1SV000 l, zfyw82 l,
+z20iwFj l, z20yw82 l, z6iwNc l, z1SQ06Q l, z4iwVd l, z1YVwS0 l, z1tFwZ6 l, z1SV000 l,
+z1SynEU l, z1SL06R l, z1SV000 l, z4iw7S l, z1YVw40 l, z4AuqS l, z1SV000 l, z1Wyw3y l,
+z6iwNT l, z1SQ06c l, z4iwFd l, z1YVwC0 l, z1SQ06\ l, z4Fw7d l, z1SV000 l,
+freedict
+
+[ifndef $C_rsPtr
+    hCA wconstant $C_rsPtr
+]
+
+\
+\ These constants will be sent by muxserial
+[ifndef _MX_BSHIFT
+d_4	wconstant _MX_BSHIFT
+d_16	wconstant _MX_BSIZE
+d_15	wconstant _MX_BMASK
+d_32	wconstant _MX_NUM_CHAN
+d_128	wconstant _MX_BUF_OFFSET
+]
+\
+\
+\ 0			- _MX_NUM_CHAN * head tail
+\ _MX_BUF_OFFSET	- _MX_NUM_CHAN*2 * 16 byte buffer
+\ _MX_BUF_OFFSET+d_1024	- end
+\
+\
+\
+: gos
+	h1DA
+
+	lockdict here W@ _MX_BUF_OFFSET d_1024 + allot freedict
+	dup _MX_BUF_OFFSET 0 fill
+
+	2dup swap COG! swap 1+ swap
+	_MX_BUF_OFFSET + over COG! 1+
+
+	hD8 _p+ over COG! 1+
+	hDA _p+ over COG! 1+
+	h100 over COG! 1+
+	_MX_BSHIFT over COG! 1+
+	_MX_BMASK over COG! 1+
+	_MX_NUM_CHAN over COG! 1+
+	-1 over COG! 1+
+
+
+\
+\	
+	1 7 sersetflags
+	cogid iodis
+\
+\ set the cog to busy
+	c" MX_SERIAL" cds W!
+	4 state andnC!
+	hE0 state orC!
+\
+\ set up channels as input to this cog
+	io _MX_NUM_CHAN 4* bounds
+	do
+		h100 i L!
+	4 +loop
+
+	_MX_NUM_CHAN 6 min 0
+	do
+		cogid i i 0 (ioconn)
+	loop
+	_MX_NUM_CHAN 6 >
+	if
+		_MX_NUM_CHAN 4* io + d_6 4* io +
+		do
+			i dup 2+ W!
+		4 +loop
+	then
+\
+\ set up the serial io channel and connect it
+	7 cogio h100 hD8 _p+ L!
+	hD8 _p+ 2dup 2+ W! swap 2+ W!
+\
+\ send a ! then wait for a !
+	h21 hDA _p+ W@ W!
+\	h21 a_seremit
+	begin
+		hD8 _p+ C@
+		h21 =
+	until
+	h100 hD8 _p+ W!
+
+	a_iobuf
+;
+
+
+
+`

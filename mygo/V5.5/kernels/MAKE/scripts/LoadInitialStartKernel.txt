@@ -1,0 +1,10 @@
+	cps 1000
+						X	hA state orC! c" hA state orC!" 5 cogx
+						r	MAKE/scripts/CheckForth.txt
+	cps 200			 		S	MAKE/src/forthEepromUtils.f
+\ Loading MAKE/src/forthEepromUtils.f
+	t 3000 cps 500				X	eeload
+	b 1					S 	MAKE/src/StartKernel.eeprom
+\ Reboot
+	b 0					X	reboot
+

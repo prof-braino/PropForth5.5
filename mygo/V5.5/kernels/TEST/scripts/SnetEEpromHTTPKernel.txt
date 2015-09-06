@@ -1,0 +1,23 @@
+L TEST/results/runLogs/SnetEEpromHTTPKernelRunLog.txt
+
+\ Load IP Kernel
+			r 	MAKE/scripts/InitSnetEEpromHTTP.txt
+R TEST/results/resultFiles/SnetEEpromHTTPKernelResult.txt
+
+
+	 		S	MAKE/src/optimize/dev/term.f
+	 		S	MAKE/src/optimize/dev/snet.f
+			X	snet
+			X	cog?
+			X	
+	
+
+			rc	TEST/scripts/SnetEEpromHTTPTelnet0.txt TEST/scripts/SnetEEpromHTTP.txt
+	t 6000		X
+	t 3000		X
+
+			X	cog?
+			x 10
+			X	cog?
+
+			CO CR CL

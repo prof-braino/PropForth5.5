@@ -1,0 +1,365 @@
+
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTPTelnet0.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPTelnet0RunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPTelnet0Result.txt
+outputFileName: 
+ÿûÿû
+PropForth v5.5 2013Feb20 11:30 1
+cog? cogdel
+UNDEFINED WORD cog?
+SNET0 Cog0 ok
+[ifndef stOverflow 
+SNET0 Cog0 ok
+: stOverflow d32 0 do i dup . loop ; 
+SNET0 Cog0 ok
+] 
+SNET0 Cog0 ok
+[ifndef rsUnderflow 
+SNET0 Cog0 ok
+: rsUnderflow r> . r> . r> . r> . r> . r> . r> . ; 
+SNET0 Cog0 ok
+] 
+SNET0 Cog0 ok
+[ifndef rsOverflow 
+SNET0 Cog0 ok
+: rsOverflow dup . 1+ c" rsOverflow" find drop execute ; 
+SNET0 Cog0 ok
+] 
+SNET0 Cog0 ok
+[ifndef cogdel 
+SNET0 Cog0 ok
+: cogdel cogid 1+ 1 lshift 0 do d_1000 i u* delms i . loop ." delay done~h0D" ; 
+SNET0 Cog0 ok
+] 
+SNET0 Cog0 ok
+
+SNET0 Cog0 ok
+cr cr here W@ . version W@ .cstr 
+
+
+27598 PropForth v5.5 2013Feb20 11:30 1SNET0 Cog0 ok
+[ifdef cog? 
+.
+.
+]
+SNET0 Cog0 ok
+[ifdef build? 
+.
+.
+]
+SNET0 Cog0 ok
+cr cr 
+
+
+SNET0 Cog0 ok
+
+SNET0 Cog0 ok
+cr cr 1 2 3 . . . drop drop drop
+
+
+3 2 1 SNET0 Cog0 ok
+cr cr stOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 SNET0 Cog0 ok
+cr cr rsUnderflow
+
+
+9180 9376 10136 SNET0 Cog0 ok
+cr cr 0 rsOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 SNET0 Cog0 ok
+cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+
+
+1234 -1234 1234 2468 1234 1234 SNET0 Cog0 ok
+cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+
+
+123398766 21732 4470 45554 SNET0 Cog0 ok
+base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+AAAA AAFF 
+SNET0 Cog0 ok
+[ifndef build_httpserver 
+.
+.
+.
+.
+]
+SNET0 Cog0 ok
+
+SNET0 Cog0 ok
+
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTPTelnet0.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPTelnet0RunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPTelnet0Result.txt
+outputFileName: 
+fsls
+
+0_000_032_768 01_105 fswr.f
+0_000_033_920 02_242 serial.f
+0_000_036_224 02_667 sdcommon.f
+0_000_038_912 03_862 sdinit.f
+0_000_042_816 02_850 sdrun.f
+0_000_045_696 05_862 sdfs.f
+0_000_051_584 01_308 boot.f
+
+0_000_012_608 bytes free in EEPROM file system
+SNET0 Cog0 ok
+fsread boot.f
+hA state orC! version W@ .cstr cr cr cr
+[ifndef (forget)
+: (forget)
+dup
+if
+find
+if
+pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+else
+_p?
+if
+.cstr h3F emit cr
+then
+then
+else
+drop
+then
+;
+]
+[ifndef forget
+: forget
+parsenw (forget)
+;
+]
+: findEETOP
+0
+h100000 h8000
+do
+i t0 2 eereadpage
+if
+leave
+else
+i h7FFE + t0 3 eereadpage
+if
+leave
+else
+drop i h8000 +
+then
+then
+h8000 +loop
+;
+c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! forget _serial c" Top of eeprom at: " .cstr fstop . cr
+
+c" boot.f - Loading sdcommon.f~h0D" .cstr
+fsload sdcommon.f
+c" boot.f - Loading sdinit.f~h0D" .cstr
+fsload sdinit.f
+c" boot.f - Initializing SD card~h0D" .cstr
+sd_init
+forget build_sdinit
+c" boot.f - Loading sdrun.f~h0D" .cstr
+fsload sdrun.f
+c" boot.f - Loading sdfs.f~h0D" .cstr
+fsload sdfs.f
+c" boot.f - Running sdboot.f~h0D" .cstr
+1 sd_mount fload sdboot.f
+
+c" boot.f - Loading ipconfig.f~h0D" .cstr
+fload ipconfig.f
+
+c" boot.f - Loading ip.f~h0D" .cstr
+
+c" boot.f - Setting IP configuration~h0D" .cstr
+4 ' $S_ip_cog 2+ W!
+1 ' $S_ip_numTelnet 2+ W!
+
+fload ip.f
+cr
+h8000 memend W! h8000 dictend W!
+
+c" ~h0Dboot.f - Loading httpserver.f~h0D" .cstr
+fload httpserver.f
+c" boot.f - Starting telnet Server and http Server~h0D" .cstr
+startHttp
+
+c" boot.f - DONE PropForth Loaded~h0D~h0D" .cstr hA state andnC!
+SNET0 Cog0 ok
+mountsys
+SNET0 Cog0 ok
+ls
+390 usrboot.f
+491 .partion-sys/
+1C0 .sdcardinfo
+133 sdboot.f
+620 ipconfig.f
+721 ip.f
+822 httpserver.f
+SNET0 Cog0 ok
+mountusr
+SNET0 Cog0 ok
+ls
+65667 .partion-usr/
+65796 http/
+SNET0 Cog0 ok
+cd http/
+SNET0 Cog0 ok
+ls
+131582 testgraphic.htm
+65929 header404
+131633 testfsp.htm
+131478 index.htm
+131828 rtc.f
+131929 daytime.f
+131735 testcnt.fsp
+131480 testhtm.htm
+131476 r404.htm
+131531 testinvalid.htm
+131818 favicon.ico
+65927 header200fsp
+65933 header200ico
+131786 test1.fsp
+65937 header200gif
+131808 test.png
+131684 testnull.fsp
+65925 header200htm
+65939 reqdata
+131797 time.fsp
+65931 header200png
+65935 header200jpg
+SNET0 Cog0 ok
+ÿûÿû
+PropForth v5.5 2013Feb20 11:30 1
+fsls
+
+0_000_032_768 01_105 fswr.f
+0_000_033_920 02_242 serial.f
+0_000_036_224 02_667 sdcommon.f
+0_000_038_912 03_862 sdinit.f
+0_000_042_816 02_850 sdrun.f
+0_000_045_696 05_862 sdfs.f
+0_000_051_584 01_308 boot.f
+
+0_000_012_608 bytes free in EEPROM file system
+SNET0 Cog0 ok
+fsread boot.f
+hA state orC! version W@ .cstr cr cr cr
+[ifndef (forget)
+: (forget)
+dup
+if
+find
+if
+pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+else
+_p?
+if
+.cstr h3F emit cr
+then
+then
+else
+drop
+then
+;
+]
+[ifndef forget
+: forget
+parsenw (forget)
+;
+]
+: findEETOP
+0
+h100000 h8000
+do
+i t0 2 eereadpage
+if
+leave
+else
+i h7FFE + t0 3 eereadpage
+if
+leave
+else
+drop i h8000 +
+then
+then
+h8000 +loop
+;
+c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! forget _serial c" Top of eeprom at: " .cstr fstop . cr
+
+c" boot.f - Loading sdcommon.f~h0D" .cstr
+fsload sdcommon.f
+c" boot.f - Loading sdinit.f~h0D" .cstr
+fsload sdinit.f
+c" boot.f - Initializing SD card~h0D" .cstr
+sd_init
+forget build_sdinit
+c" boot.f - Loading sdrun.f~h0D" .cstr
+fsload sdrun.f
+c" boot.f - Loading sdfs.f~h0D" .cstr
+fsload sdfs.f
+c" boot.f - Running sdboot.f~h0D" .cstr
+1 sd_mount fload sdboot.f
+
+c" boot.f - Loading ipconfig.f~h0D" .cstr
+fload ipconfig.f
+
+c" boot.f - Loading ip.f~h0D" .cstr
+
+c" boot.f - Setting IP configuration~h0D" .cstr
+4 ' $S_ip_cog 2+ W!
+1 ' $S_ip_numTelnet 2+ W!
+
+fload ip.f
+cr
+h8000 memend W! h8000 dictend W!
+
+c" ~h0Dboot.f - Loading httpserver.f~h0D" .cstr
+fload httpserver.f
+c" boot.f - Starting telnet Server and http Server~h0D" .cstr
+startHttp
+
+c" boot.f - DONE PropForth Loaded~h0D~h0D" .cstr hA state andnC!
+SNET0 Cog0 ok
+mountsys
+SNET0 Cog0 ok
+ls
+390 usrboot.f
+491 .partion-sys/
+130 .sdcardinfo
+133 sdboot.f
+620 ipconfig.f
+721 ip.f
+822 httpserver.f
+SNET0 Cog0 ok
+mountusr
+SNET0 Cog0 ok
+ls
+65667 .partion-usr/
+65796 http/
+SNET0 Cog0 ok
+cd http/
+SNET0 Cog0 ok
+ls
+131582 testgraphic.htm
+65929 header404
+131633 testfsp.htm
+131478 index.htm
+131828 rtc.f
+131929 daytime.f
+131735 testcnt.fsp
+131480 testhtm.htm
+131476 r404.htm
+131531 testinvalid.htm
+131818 favicon.ico
+65927 header200fsp
+65933 header200ico
+131786 test1.fsp
+65937 header200gif
+131808 test.png
+131684 testnull.fsp
+65925 header200htm
+65939 reqdata
+131797 time.fsp
+65931 header200png
+65935 header200jpg
+SNET0 Cog0 ok

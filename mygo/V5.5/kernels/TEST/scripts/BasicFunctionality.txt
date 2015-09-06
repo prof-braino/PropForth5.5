@@ -1,0 +1,54 @@
+	cps 1000
+\ Definitions
+		scr [ifndef stOverflow
+		scr : stOverflow d32 0 do i dup . loop ;
+		scr ]
+		scr [ifndef rsUnderflow
+		scr : rsUnderflow r> . r> . r> . r> . r> . r> . r> . ;
+		scr ]
+		scr [ifndef rsOverflow
+		scr : rsOverflow dup . 1+ c" rsOverflow" find drop execute ;
+		scr ]
+		scr [ifndef cogdel
+		scr : cogdel cogid 1+ 1 lshift 0 do d_1000 i u* delms i . loop ." delay done~h0D" ;
+		scr ]
+		X
+\ Here+version
+		scr cr cr here W@ . version W@ .cstr
+		scr [ifdef cog?
+		scr cog?
+		scr ]
+		scr [ifdef build?
+		scr build?
+		scr ]
+		scr cr cr
+		X
+
+
+\ ST Underflow
+		X cr cr 1 2 3 . . . drop drop drop
+\ ST Overflow
+		X cr cr stOverflow
+\ RS Underflow
+		X cr cr rsUnderflow
+\ RS Overflow
+		X cr cr 0 rsOverflow
+\ Math+-
+		X cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+\ Math*/
+		X cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+\ Logical
+		X base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+\ wvariables
+		scr [ifndef build_httpserver
+		scr lockdict cr cr wvariable ttt : d ttt W@ . ; hex
+		scr cr cr 0 ttt W! 23 ttt orC! d 1 ttt andnC! d 
+		scr cr cr -1 ttt W! d hAAAA ttt W@ and ttt W! d hFF ttt orC! d hA base W! freedict
+		X ]
+		X
+
+
+
+				
+
+

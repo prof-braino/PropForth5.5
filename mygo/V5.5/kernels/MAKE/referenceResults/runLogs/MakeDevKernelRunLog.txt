@@ -1,0 +1,136 @@
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:02:25.5967889 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:02:25.6417915 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: 
+
+\ Load BootOptimize Kernel
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:02:25.7177958 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:02:25.773799 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:02:25.773799 -0800 PST SENDING: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:02:25.773799 -0800 PST DONE SENDING waiting for output: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:02:28.7929717 -0800 PST DONE: hA state orC! c" hA state orC!" 5 cogx
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:28.9279794 -0800 PST STARTING SCRIPT FILE
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:28.9579812 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:28.9579812 -0800 PST SENDING: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:28.9579812 -0800 PST DONE SENDING waiting for output: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:31.9601529 -0800 PST DONE: state C@ hA state orC!
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:32.0751594 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:32.0751594 -0800 PST SENDING: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:32.0751594 -0800 PST DONE SENDING waiting for output: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:35.0763311 -0800 PST DONE: here W@
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:35.2163391 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:35.2163391 -0800 PST SENDING: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:45.1869094 -0800 PST DONE SENDING waiting for output: MAKE/src/buildq.f
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:48.187081 -0800 PST DONE: MAKE/src/buildq.f
+\ check Forth
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:48.3570907 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:48.3570907 -0800 PST SENDING: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:48.3570907 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:49.6261633 -0800 PST DONE: cr c" here: " .cstr . cr build? cr cr
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:49.7421699 -0800 PST  200 cps  Receive Delay 1s Echo: true Binary: false
+
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:49.7421699 -0800 PST SENDING: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:49.7421699 -0800 PST DONE SENDING waiting for output: state C!
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:50.7432272 -0800 PST DONE: state C!
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:02:50.8432329 -0800 PST 
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: 
+
+MAKE/scripts/CheckForth.txt::2013-02-21 13:02:50.844233 -0800 PST DONE SCRIPT FILE
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:02:50.8862354 -0800 PST  200 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:02:50.8862354 -0800 PST SENDING: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:03:47.3394643 -0800 PST DONE SENDING waiting for output: MAKE/src/forthEepromUtils.f
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:03:50.3396359 -0800 PST DONE: MAKE/src/forthEepromUtils.f
+\ Loading MAKE/results/outputFiles/BootOptimizeKernel.eeprom
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:03:50.5216463 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:03:50.5216463 -0800 PST SENDING: eeload
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:03:50.5216463 -0800 PST DONE SENDING waiting for output: eeload
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:03:53.539819 -0800 PST DONE: eeload
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:03:53.7078286 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: true
+
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:03:53.7078286 -0800 PST SENDING: MAKE/results/outputFiles/BootOptimizeKernel.eeprom
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:04:59.2475772 -0800 PST DONE SENDING waiting for output: MAKE/results/outputFiles/BootOptimizeKernel.eeprom
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:05:04.6308851 -0800 PST DONE: MAKE/results/outputFiles/BootOptimizeKernel.eeprom
+\ Reboot
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:05:04.7568923 -0800 PST  500 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:05:04.7568923 -0800 PST SENDING: reboot
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:05:04.7568923 -0800 PST DONE SENDING waiting for output: reboot
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:05:09.699175 -0800 PST DONE: reboot
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:09.8001808 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: 
+
+MAKE/scripts/LoadBootOptimizeKernel.txt::2013-02-21 13:05:09.8011809 -0800 PST DONE SCRIPT FILE
+\ Here
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:09.8271823 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:09.8271823 -0800 PST SENDING: here W@ . cr
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:09.8271823 -0800 PST DONE SENDING waiting for output: here W@ . cr
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:12.8493552 -0800 PST DONE: here W@ . cr
+\ Load DevKernel.f
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:12.9803627 -0800 PST SEND: [fl ]+cr
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:13.0223651 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:13.0223651 -0800 PST SENDING: MAKE/src/optimize/dev/DevKernel.f
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:16.6455723 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/DevKernel.f
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:23.8189826 -0800 PST DONE: MAKE/src/optimize/dev/DevKernel.f
+\ Load spinimage.f
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:23.965991 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:23.965991 -0800 PST SENDING: MAKE/src/spinimage.f
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:24.5180226 -0800 PST DONE SENDING waiting for output: MAKE/src/spinimage.f
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:28.5022505 -0800 PST DONE: MAKE/src/spinimage.f
+\ echos and prompts off
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:28.6472588 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:28.6472588 -0800 PST SENDING: hA state orC!
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:28.6472588 -0800 PST DONE SENDING waiting for output: hA state orC!
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:31.6514306 -0800 PST DONE: hA state orC!
+\ make DevKernel.spin
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:31.8204403 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: MAKE/results/outputFiles/DevKernel.spin
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:31.8694431 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:31.8694431 -0800 PST ECHOING: MAKE/results/outputFiles/AsmKernel.spin
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:31.8924444 -0800 PST DONE ECHOING: MAKE/results/outputFiles/AsmKernel.spin
+\ spinimage
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:32.0274521 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:32.0274521 -0800 PST SENDING: spinImage
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:32.0274521 -0800 PST DONE SENDING waiting for output: spinImage
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:47.4763358 -0800 PST DONE: spinImage
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:47.602343 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: 
+
+MAKE/scripts/MakeDevKernel.txt::2013-02-21 13:05:47.6043431 -0800 PST 
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: 
+outputFileName: 
+

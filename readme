@@ -1,0 +1,30 @@
+You want this directory:
+
+/PropForthV5.5-20130317
+
+You probably want to delete or otherwise remove /mygo directory
+
+PropForth 5.5 was originally posted on google code https://code.google.com/p/propforth/
+
+Since then, google code migrated to GitHub. And I get to migrate PF5.5 to github. Which is cool, git and github are much better way to operate, and I need to learn these anyway. 
+
+The PF5.5 package on google code contained a single zip file. This presented all the standard propforth 5.5 kernels and extensions in a hopefully straightforward manner. 
+
+Also included were the automated build and test scripts. The build and test tools are not required for most folks using the standard kernels.   For this reason, the build and test automation was included as a nested zip file. 
+
+GitHub offers the repository as a zip download, and does not like having nested zips.  Or at least I was told that I should not do nested zips on GitHub. 
+
+For this reason, there are two directories in the repository.  The mygo directory is the build and test automation which can reproduce the standard kernels.
+The PropForth5.5-20130317 directory contain the standard kernels and extensions and is what most folks are looking for. 
+
+Use the /PropForth5.5-20130317 if you just want the standard kernels (Most folks). The standard kernels are ready to rock, load them and start using forth.
+
+Use the /mygo directory if you want to generate the kernels from scratch, for example if you want to modify the kernels (only as few folks have ever needed to do this).
+
+NOTICE:  PropForth5.5 will be supported until PropForth6 is released.  After PropForth6 is released, all attention will go to PF6.  PF6 is functionally equivalent (I think its functionally identical) to PropForth5.5, just the build and test process has been changed.  Hopefully PF6 is better organized and will add neet stuff, but we are pretty sure all your work for PF5.5 will function the same without any changes on PF6. 
+
+Happy Bit-Banging!
+
+Braino
+
+

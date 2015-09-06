@@ -1,0 +1,16 @@
+L TEST/results/runLogs/SnetFsrdSDHTTPTimeRunLog.txt
+R TEST/results/resultFiles/SnetFsrdSDHTTPTimeResult.txt
+
+
+	 		S	MAKE/src/optimize/dev/term.f
+	 		S	MAKE/src/optimize/dev/snet.f
+			X	snet
+			X	cog?
+			X	6 iodis
+
+			r	TEST/scripts/TimeHTTP.txt
+
+			x 10
+			X	cog?
+
+			CO CR CL

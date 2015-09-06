@@ -1,0 +1,21 @@
+L MAKE/results/runLogs/MakeBootOptimizeKernelRunLog.txt
+R MAKE/results/resultFiles/MakeBootOptimizeKernelResult.txt
+
+\ Load Boot Kernel
+						r	MAKE/scripts/LoadBootKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load BootOptimize.f
+	t 5000					S	MAKE/results/outputFiles/BootOptimize.f
+\ Load spinmaker.f
+	t 3000					S	MAKE/src/spinmaker.f
+\ define words to drop
+						X	: (flout) ; : (fl) ; wvariable fl_in
+\ echos and prompts off
+						X	hA state orC!
+\ make BootOptimizeKernel.spin
+						O	MAKE/results/outputFiles/BootOptimizeKernel.spin
+						SR	MAKE/results/outputFiles/AsmKernel.spin
+\ spinimage
+	t 30000					X	-145 spinmaker
+						CO CR CL

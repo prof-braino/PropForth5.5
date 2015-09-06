@@ -1,0 +1,53 @@
+\ Load BootOptimize Kernel
+	cps 1000
+						r	MAKE/scripts/LoadSnetBootOptimizeKernel.txt
+
+						X	here W@ . cr
+						X	snet
+						X	c" SNET" prop W@ ccopy
+						X	here W@ . cr
+\ Here
+						X	here W@ . cr
+\ Load fsrd.f
+						S	MAKE/src/optimize/fs/fsrd.f
+\ Load fswr.f
+						scr fl
+						S	MAKE/src/optimize/fs/fswr.f
+\ fsclear
+						X	fsclear
+						X	fsls here W@ . cr
+\ Load fswr.f
+						scr fl
+						scr fswrite fswr.f
+						S	MAKE/src/optimize/fs/fswr.f
+						X	c" ..." 5 cogx
+\ Load serial.f
+						scr fl
+						scr fswrite serial.f
+						S	MAKE/src/optimize/fs/serial.f
+						X	c" ..." 5 cogx
+\ boot.f
+						S	MAKE/src/optimize/fs/boot.f
+						X	fsls
+\ Reboot
+	t 3000					X	reboot
+						X	here W@ . cr
+						x 10
+						X	here W@ . cr
+\ Load Fsrd Kernel
+						r	MAKE/scripts/LoadSnetFsrdKernel.txt
+\ Here
+	t 1000					X	here W@ . cr
+						X	snet
+						X	c" SNET" prop W@ ccopy
+						X	here W@ . cr
+\ fsls
+						X	fsls
+						X	here W@ . cr
+						x 10
+						X	here W@ . cr
+
+
+				
+
+

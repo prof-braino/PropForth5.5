@@ -1,0 +1,117 @@
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:03.2283506 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPTimeRunLog.txt
+resultFileName: 
+outputFileName: 
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:03.2843538 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromHTTPTimeResult.txt
+outputFileName: 
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:03.3213559 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:03.3213559 -0800 PST SENDING: MAKE/src/optimize/dev/term.f
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:03.5123669 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/term.f
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:06.609544 -0800 PST DONE: MAKE/src/optimize/dev/term.f
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:06.7435517 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:06.7435517 -0800 PST SENDING: MAKE/src/optimize/dev/snet.f
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:07.028568 -0800 PST DONE SENDING waiting for output: MAKE/src/optimize/dev/snet.f
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:10.1357457 -0800 PST DONE: MAKE/src/optimize/dev/snet.f
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:10.2447519 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:10.2447519 -0800 PST SENDING: snet
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:10.2447519 -0800 PST DONE SENDING waiting for output: snet
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:16.4761083 -0800 PST DONE: snet
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:16.5851146 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:16.5851146 -0800 PST SENDING: cog?
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:16.5851146 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:19.635289 -0800 PST DONE: cog?
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:19.7472954 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:19.7472954 -0800 PST SENDING: 6 iodis
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:19.7472954 -0800 PST DONE SENDING waiting for output: 6 iodis
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:46:22.7524673 -0800 PST DONE: 6 iodis
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:22.8834748 -0800 PST STARTING SCRIPT FILE
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:22.8994757 -0800 PST  5000 cps  Receive Delay 6s Echo: false Binary: false
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:22.8994757 -0800 PST ECHOING: 
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:22.8994757 -0800 PST DONE ECHOING: 
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:23.0134823 -0800 PST  5000 cps  Receive Delay 6s Echo: false Binary: false
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:23.0134823 -0800 PST ECHOING: time.fsp 
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:23.0134823 -0800 PST DONE ECHOING: time.fsp
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:23.131489 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:23.1334891 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:23.1624908 -0800 PST SEND: [GET /time.fsp HTTP/1.1 ]+cr
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:30.9909385 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:36.9882816 -0800 PST WAIT DONE
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:36.9942819 -0800 PST dis: disconnecting
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:36.9942819 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:42.9996254 -0800 PST WAIT DONE
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.0056257 -0800 PST  5000 cps  Receive Delay 6s Echo: false Binary: false
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.0056257 -0800 PST ECHOING: 
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.0056257 -0800 PST DONE ECHOING: 
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.1466338 -0800 PST  5000 cps  Receive Delay 6s Echo: false Binary: false
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.1466338 -0800 PST ECHOING: time.fsp?timezone=11&rtccorrect=300 
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.1466338 -0800 PST DONE ECHOING: time.fsp?timezone=11&rtccorrect=300
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.2646406 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.2796414 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:43.3356446 -0800 PST SEND: [GET /time.fsp?timezone=11&rtccorrect=300 HTTP/1.1 ]+cr
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:51.192094 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:57.1874369 -0800 PST WAIT DONE
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:57.1934372 -0800 PST dis: disconnecting
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:46:57.1934372 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.1987807 -0800 PST WAIT DONE
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.2057811 -0800 PST  5000 cps  Receive Delay 6s Echo: false Binary: false
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.2057811 -0800 PST ECHOING: 
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.2057811 -0800 PST DONE ECHOING: 
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.3487893 -0800 PST  5000 cps  Receive Delay 6s Echo: false Binary: false
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.3487893 -0800 PST ECHOING: time.fsp?timezone=-7&rtccorrect=-1600 
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.3487893 -0800 PST DONE ECHOING: time.fsp?timezone=-7&rtccorrect=-1600
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.466796 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.4757966 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:03.5337999 -0800 PST SEND: [GET /time.fsp?timezone=-7&rtccorrect=-1600 HTTP/1.1 ]+cr
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:11.3902492 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:17.3885923 -0800 PST WAIT DONE
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:17.3945927 -0800 PST dis: disconnecting
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:17.3945927 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:23.3999362 -0800 PST WAIT DONE
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:47:23.4009362 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromHTTPTimeResult.txt
+outputFileName: 
+
+TEST/scripts/TimeHTTP.txt::2013-02-21 15:47:23.4019363 -0800 PST DONE SCRIPT FILE
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:47:23.4089367 -0800 PST SEND: [16]
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:47:23.4189372 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:47:23.4189372 -0800 PST SENDING: cog?
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:47:23.4189372 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:47:26.4591111 -0800 PST DONE: cog?
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:47:26.5711175 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPTimeRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromHTTPTimeResult.txt
+outputFileName: 
+
+TEST/scripts/SnetEEpromHTTPTime.txt::2013-02-21 15:47:26.5731177 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromHTTPTime.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPTimeRunLog.txt
+resultFileName: 
+outputFileName: 
+

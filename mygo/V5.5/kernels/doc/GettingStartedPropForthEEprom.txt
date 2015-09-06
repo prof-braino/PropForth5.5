@@ -1,0 +1,148 @@
+EEprom Development System
+
+0. To run a EEprom Devopment System version of PropForth, 
+Connect a propclip/plug to any prop system with an eeprom
+with 64k bytes of eeprom or more, and use the Propeller Tool
+to compile and load:
+
+EEpromKernel.spin
+
+IMPORTANT: Do not install this kernel on a system with on 32k of EEprom, such as the Demo board.
+           If you write files, result may be indeterminate.
+
+IMPORTANT: The EEPROM kernel automatically atempts to run a script named boot.f from the EEPROM.
+           An uninitialized or corrupted boot.f script in the EEPROM may cause the kernel to hang
+           with no error message or prompt or otherwise behave badly. If you are unsure of what is
+           on the eeprom, boot without running boot.f as ia described below.
+
+IMPORTANT: if at any time you wish to boot the propeller without running boot.f,
+           hold down the ESC key while rebooting.
+           Type in:
+                       reboot
+              hit enter
+              hold down the ESC key until PropForth reboots
+
+
+            or
+              hold down the ESC key, and power cycle the board or hit reset
+
+            When the cursor starts moving horizontally across the screen, the reboot is
+            complete. This usually takes 3 - 4 seconds.
+
+            You should see something like this:
+
+Prop0 Cog6 ok
+                               <<CURSOR>>
+
+            If you do not hold escape key, or start holding it down too late after the reboot,
+            and you have a boot.f file in your eeprom, it will load, and you may not see the
+            above results.
+
+            This is necessary if you have previously installed files in the eeprom
+            file system.
+
+            For this process, boot while holding down the ESC key.
+
+
+1. Connect to the serial port using teraterm with the following settings:
+
+
+Terminal Program Configuration:
+
+teraterm->Setup->Serial port ::	Port: COMx , Baud rate: 230400 , Data: 8-bit , Parity: none ,
+				Stop: 1-bit , Flow control: none , Transmit delay: 0 , 0
+
+teraterm->Setup->Terminal ::	New-line Receive: CR , Transmit: CR
+
+
+Other terminal programs should be ok with similar settings.
+
+2. reboot while holding down the ESC key
+
+3. Paste the contents of the file:
+EEprom_boot.f
+into teraterm
+
+4. reboot
+
+Enjoy PropForth
+
+
+
+
+
+
+ADVANCED CONFIGURATION OPTIONS:
+
+To allow for different hardware configuration options, the following
+SPIN Config constants available: 
+
+The following constants can be adjusted before compiling the spin file and loading the eeprom.
+Not all parameters apply to all kernels.
+
+  _clkmode = xtal1 + pll16x
+  _xinfreq = 5_000_000
+
+  dlrS_cdsz = 224           ' $S_cdsz forth word - changing this word requires a full recompile and regression
+
+For the default serial port console.
+
+  dlrS_txpin = 30           ' $S_txpin forth word 
+  dlrS_rxpin= 31            ' $S_rxpin forth word 
+  dlrS_baud = 57_600        ' $S_baud forth word- the actual baud rate is 4x this parameter
+  dlrS_con = 7              ' $S_con forth word
+
+The default cog on boot.
+
+  startcog = 6
+
+
+The crystal frequency, _xinfreq, is set to 5 Mhz PropForth has been tested at 5 & 6 Mhz, other
+frequencies should work, but they have not been tested.
+
+The amount of main memory reserved for each cog, dlrS_cdsz, should only be changed by advanced
+users. This should never be decreased, but could be increased. There are many implications to
+changing this, and a full regression will need to be run.
+
+The console, dlrS_con, is set to 7 by default. One cog is used at startup to run the serial driver
+and provide a console connection to other cogs. This can be changed for different system 
+configurations.
+
+The start cog, startcog, is set to 6 by default. This is the first cog started, and connects to
+the console. This can be changed for different system configurations.
+
+The following apply to various kernels, they are always provided for reference.
+
+
+The sd card configuration.
+
+  dlrS_sd_cs= 19            ' $S_sd_cs
+  dlrS_sd_di= 20            ' $S_sd_di
+  dlrS_sd_clk= 21           ' $S_sd_clk
+  dlrS_sd_do= 16            ' $S_sd_do
+
+Ethernet / IP / Telnet / HTTP configuration.
+
+  dlrS_ip_light= $FFFF
+  dlrS_ip_cog= 5
+  dlrS_ip_sockbufsize= $800
+  dlrS_ip_sockbufmask= $7FF
+  dlrS_ip_sockbufinit= $55
+  dlrS_ip_numsock= 4
+  dlrS_ip_numTelnet= 4
+  dlrS_ip_telnetport= 3020
+  dlrS_ip_httpport= 8080
+  dlrS_ip_gatewayhi= $C0_A8
+  dlrS_ip_gatewaylo= $00_01
+  dlrS_ip_subnetmaskhi= $FF_FF
+  dlrS_ip_subnetmasklo= $FF_00
+  dlrS_ip_addrhi= $C0_A8
+  dlrS_ip_addrlo= $00_81
+  dlrS_ip_machi= $00_0C
+  dlrS_ip_macmid= $29_8B
+  dlrS_ip_maclo= $00_70
+
+
+
+
+

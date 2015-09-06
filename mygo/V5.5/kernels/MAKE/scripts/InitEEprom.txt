@@ -1,0 +1,24 @@
+\ Load BootOptimize Kernel
+						r	MAKE/scripts/LoadBootOptimizeKernel.txt
+\ Here
+						X	hA state orC! c" hA state orC!" 5 cogx here W@ . cr
+\ Load fsrd.f
+						S	MAKE/src/optimize/fs/fsrd.f
+\ Load fswr.f
+						scr fl
+						S	MAKE/src/optimize/fs/fswr.f
+\ fsclear
+						X	fsclear
+\ Load EEprom_boot.f
+	 					S	MAKE/src/optimize/fs/EEprom_boot.f
+\ Load EEprom Kernel
+						r	MAKE/scripts/LoadEEpromKernel.txt
+\ Here
+						X	here W@ . cr
+\ fsls
+						X	fsls
+
+
+				
+
+

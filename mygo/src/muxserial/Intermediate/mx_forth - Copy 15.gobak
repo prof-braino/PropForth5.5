@@ -1,0 +1,993 @@
+package muxserial
+
+/*
+fl
+\
+\ structure in cog memory for the prtotcol driver
+\
+h1C2
+   dup wconstant __serin		\ h1C2
+1+ dup wconstant __serout		\ h1C3
+1+ dup wconstant __h100			\ h1C4
+1+ dup wconstant __+offset		\ h1C5
+1+ dup wconstant __bshift		\ h1C6
+1+ dup wconstant __bmask		\ h1C7
+1+ dup wconstant __iobuf		\ h1C8
+1+ dup wconstant __numchan		\ h1C9
+1+ dup wconstant __stateflags		\ h1CA
+1+ dup wconstant __lc			\ h1CB
+1+ dup wconstant __olc			\ h1CB
+1+ dup wconstant __ioinlc		\ h1CC
+
+
+1+ dup wconstant __reg1		\ h1C4
+1+ dup wconstant __reg2		\ h1C4
+1+ dup wconstant __reg3		\ h1C4
+1+ dup wconstant __reg4		\ h1C4
+1+ dup wconstant __reg5		\ h1C4
+1+ dup wconstant __reg6		\ h1C4
+
+
+drop
+
+hA state orC! cr
+
+
+
+\ a_serfkey?( -- char t/f)
+build_BootOpt :rasm
+		spush
+		jmpret	__serfkeyq_ret , # __serfkeyq
+		spush
+		muxz	$C_stTOS , $C_fLongMask
+		jexit
+
+\
+\ enter - $C_stTOS - don't care
+\ exit  - $C_stTOS - char
+\       - zflag    - set if the char is valid
+\
+\
+__serfkeyq
+		rdword	$C_stTOS , __serin
+		test	$C_stTOS , # h100	wz
+	if_z	wrword	__h100 , __serin
+__serfkeyq_ret
+		ret
+;asm a_serfkey?
+
+\ a_serkey( -- char)
+build_BootOpt :rasm
+		spush
+		jmpret	__serkey_ret , # __serkey
+		jexit
+\
+\ - enter - $C_stTOS - don't care
+\ - exit  - $C_stTOS - char
+\
+__serkey
+		jmpret	__serfkeyq_ret , # __serfkeyq
+	if_nz	jmp	# __serkey
+__serkey_ret
+		ret
+\
+\ enter - $C_stTOS - don't care
+\ exit  - $C_stTOS - char
+\       - zflag    - set if the char is valid
+\
+\
+__serfkeyq
+		rdword	$C_stTOS , __serin
+		test	$C_stTOS , # h100	wz
+	if_z	wrword	__h100 , __serin
+__serfkeyq_ret
+		ret
+;asm a_serkey
+
+\ a_seremit( char -- )
+build_BootOpt :rasm
+		jmpret	__seremit_ret , # __seremit
+		spop
+		jexit
+\
+\ - enter - $C_stTOS - char to emit
+\ - exit  - $C_stTOS - char to emit
+\
+__seremit
+		and	$C_stTOS , # hFF
+\
+		rdword	__reg2 , __serout	wz
+	if_z	jmp	# __seremit_ret
+__poll
+		rdword	__reg1 , __reg2
+		test	__reg1 , # h100	wz
+	if_z	jmp	# __poll
+\
+		wrword	$C_stTOS , __reg2
+__seremit_ret
+		ret
+;asm a_seremit
+
+
+\ a_iofkey? ( chan -- char t/f) get a char from the io channel chan
+build_BootOpt :rasm
+		jmpret	__iofkeyq_ret , # __iofkeyq
+		spush
+		muxz	$C_stTOS , $C_fLongMask
+		jexit
+\
+\ enter - $C_stTOS - index to io channels
+\ exit  - $C_stTOS - char
+\       - zflag    - set if the char is valid
+\
+\
+__iofkeyq
+		shl    $C_stTOS , # 2
+		add    $C_stTOS , par
+ 		rdword __reg1 , $C_stTOS
+		test   __reg1 , # h100	wz
+	if_z	wrword __h100 , $C_stTOS
+		mov    $C_stTOS , __reg1
+__iofkeyq_ret
+		ret
+;asm a_iofkey?
+
+
+\ a_iofemit? ( char chan -- t/f) emit a char to the io channel chan
+build_BootOpt :rasm
+		mov	__reg1 , $C_stTOS
+		spop
+
+		jmpret	__iofemitq_ret , # __iofemitq
+		muxz	$C_stTOS , $C_fLongMask
+		jexit
+\
+\ - enter - $C_stTOS - char
+\         - __reg1 - chan number
+\
+\ - exit  - $C_stTOS - don't care
+\         - zflag - set if ready for a char
+\
+__iofemitq
+		jmpret	__ioemitq_ret , # __ioemitq
+	if_z	wrword	$C_stTOS , __reg2 
+
+__iofemitq_ret
+		ret
+\
+\ - enter - $C_stTOS - don't care
+\         - __reg1 - chan number
+\ - exit  - $C_stTOS - don't care
+\         - zflag - set if ready for a char
+\
+__ioemitq
+		shl	__reg1 , # 2
+		add	__reg1 , par
+		add	__reg1 , # 2
+\
+		rdword	__reg2 , __reg1	wz
+	if_z	jmp	# __ioemitq_ret
+
+		rdword	__reg3 , __reg2
+		test	__reg3 , # h100	wz
+		muxz	__reg4 , $C_fLongMask	nr wz
+
+__ioemitq_ret
+		ret
+;asm a_iofemit?
+
+
+\ a_ioemit? ( chan -- t/f) is the channel ready for a character emit
+build_BootOpt :rasm
+		mov	__reg1 , $C_stTOS
+		jmpret	__ioemitq_ret , # __ioemitq
+		muxz	$C_stTOS , $C_fLongMask
+		jexit
+
+\
+\ - enter - $C_stTOS - don't care
+\         - __reg1 - chan number
+\ - exit  - $C_stTOS - don't care
+\         - zflag - set if ready for a char
+\
+__ioemitq
+		shl	__reg1 , # 2
+		add	__reg1 , par
+		add	__reg1 , # 2
+\
+		rdword	__reg2 , __reg1	wz
+	if_z	jmp	# __ioemitq_ret
+
+		rdword	__reg3 , __reg2
+		test	__reg3 , # h100	wz
+		muxz	__reg4 , $C_fLongMask	nr wz
+
+__ioemitq_ret
+		ret
+;asm a_ioemit?
+
+
+\ a_iobufcount? ( buf#  -- count)
+build_BootOpt :rasm
+
+		jmpret	__iobufcountq_ret , # __iobufcountq
+		jexit
+
+\
+\ - enter - $C_stTOS - buf#
+\ - exit  - $C_stTOS - count
+\         - zflag - set if count is zero
+\
+__iobufcountq
+		shl	$C_stTOS , # 1
+		add	$C_stTOS , __iobuf
+
+		rdbyte	__reg6 , $C_stTOS
+		add	$C_stTOS , # 1
+		rdbyte	__reg5 , $C_stTOS
+
+		sub	__reg6 , __reg5
+		and	__reg6 , __bmask
+		mov	$C_stTOS , __reg6	wz
+__iobufcountq_ret
+		ret
+;asm a_iobufcount?
+
+
+
+\ a_iobufkey? ( buf# -- char t/f)
+build_BootOpt :rasm
+
+		jmpret	__iobufkeyq_ret , # __iobufkeyq
+		spush
+		muxz	$C_stTOS , $C_fLongMask
+		jexit
+
+\
+\ - enter - $C_stTOS - buf#
+\ - exit  - $C_stTOS - char
+\         - zflag - set char is valid
+\ __reg6 - head
+\ __reg5 - tail
+\
+\ __reg4 - head/tail pointer
+\
+__iobufkeyq
+		mov	__reg4 , $C_stTOS
+		shl	__reg4 , # 1
+		add	__reg4 , __iobuf
+
+		rdbyte	__reg6 , __reg4
+		add	__reg4 , # 1
+		rdbyte	__reg5 , __reg4
+
+		cmp	__reg6 , __reg5	wz
+		muxz	__reg3 , $C_fLongMask	nr wz
+	if_nz	jmp	# __iobufkeyq_ret
+
+		mov	__reg3 , $C_stTOS
+		shl	__reg3 , __bshift
+		add	__reg3 , __+offset
+		add	__reg3 , __reg5
+		
+		rdbyte	$C_stTOS , __reg3
+
+		add	__reg5 , # 1
+		and	__reg5 , __bmask
+		wrbyte	__reg5 , __reg4
+__iobufkeyq_ret
+		ret
+
+;asm a_iobufkey?
+
+\ a_iobufemit? ( char buf# -- t/f)
+build_BootOpt :rasm
+		mov	__reg1 , $C_stTOS
+		spop
+		jmpret	__iobufemitq_ret , # __iobufemitq
+		muxz	$C_stTOS , $C_fLongMask
+		jexit
+\
+\ - enter - $C_stTOS - char
+\         - __reg1 - buf#
+\ - exit  - $C_stTOS - don,t care
+\         - zflag - set char is valid
+\ __reg6 - head
+\ __reg5 - tail
+\
+\ __reg4 - head/tail pointer
+\
+__iobufemitq
+		mov	__reg4 , __reg1
+		shl	__reg4 , # 1
+		add	__reg4 , __iobuf
+		rdbyte	__reg6 , __reg4
+		add	__reg4 , # 1
+		rdbyte	__reg5 , __reg4
+
+		mov	__reg2 , __reg6
+		add	__reg2 , # 1
+		and	__reg2 , __bmask
+
+		cmp	__reg2 , __reg5	wz
+		muxz	__reg3 , $C_fLongMask	nr wz
+	if_nz	jmp	# __iobufemitq_ret
+
+
+		mov	__reg3 , __reg1
+		shl	__reg3 , __bshift
+		add	__reg3 , __+offset
+		add	__reg3 , __reg6
+		
+		wrbyte	$C_stTOS , __reg3
+
+		sub	__reg4 , # 1
+		wrbyte	__reg2 , __reg4
+__iobufemitq_ret
+		ret
+;asm a_iobufemit?
+
+
+{
+\ _c2c_serin ( -- ) process input chars from the serial channel
+\ 	     if it is an ack, set the stateflag bit back to 1
+\	     if it is a data byte, buffer it 
+: _c2c_serin
+	begin
+		1 slice
+		begin
+			a_serfkey?
+			if
+				dup hE0 and h40 =
+				if
+					h1F and >m _stateflags@ or _stateflags!
+				else
+					dup hE0 and h60 =
+					if
+						h1F and
+						a_serkey h20 - 0
+						do
+							a_serkey over
+							a_iobufemit? 0=
+							if
+								h9A ERR
+							then
+						loop
+						drop
+					else
+					        h99 ERR
+					then
+				then
+				0
+			else
+				drop
+				-1
+			then
+		until
+	0 until
+;
+
+}
+
+\ a_serin(  -- )
+build_BootOpt :rasm
+__serinlp
+		spush
+__serin_next
+		jmpret	__serfkeyq_ret , # __serfkeyq
+\	if_nz	mov	$C_stTOS , $C_fLongMask
+	if_nz	jmp	# __serinexit
+		
+		mov	__reg2 , $C_stTOS
+		and	__reg2 , # hE0
+
+		mov	__reg1 , $C_stTOS
+		and	__reg1 , # h1F
+
+		cmp	__reg2 , # h40	wz
+	if_ne	jmp	# __serin_notack
+
+		mov	__reg3 , # 1
+		shl	__reg3 , __reg1
+		or	__stateflags , __reg3
+		jmp	# __serin_next
+
+__serin_notack
+		cmp	__reg2 , # h60	wz
+\
+\ not a byte we were expecting, bail
+\
+	if_nz	mov	$C_treg6 , # h99
+	if_nz	jmp	# $C_a_reset
+		
+\		mov	__reg1 , $C_stTOS
+		jmpret	__serkey_ret , # __serkey
+		mov	__lc , $C_stTOS
+		sub	__lc , # h20
+__serin_chars
+		jmpret	__serkey_ret , # __serkey
+		jmpret	__iobufemitq_ret , # __iobufemitq
+\
+\ there is supposed to be room, bail
+\
+	if_nz	mov	$C_treg6 , # h9A
+	if_nz	jmp	# $C_a_reset
+		djnz	__lc , # __serin_chars
+		jmp	# __serin_next
+
+__serinexit
+		spop
+		jexit
+\
+\ - enter - $C_stTOS - don't care
+\ - exit  - $C_stTOS - char
+\
+__serkey
+		jmpret	__serfkeyq_ret , # __serfkeyq
+	if_nz	jmp	# __serkey
+__serkey_ret
+		ret
+\
+\ enter - $C_stTOS - don't care
+\ exit  - $C_stTOS - char
+\       - zflag    - set if the char is valid
+\
+\
+__serfkeyq
+		rdword	$C_stTOS , __serin
+		test	$C_stTOS , # h100	wz
+	if_z	wrword	__h100 , __serin
+__serfkeyq_ret
+		ret
+\
+\ - enter - $C_stTOS - char
+\         - __reg1 - buf#
+\ - exit  - $C_stTOS - don,t care
+\         - zflag - set char is valid
+\ __reg6 - head
+\ __reg5 - tail
+\
+\ __reg4 - head/tail pointer
+\
+__iobufemitq
+		mov	__reg4 , __reg1
+		shl	__reg4 , # 1
+		add	__reg4 , __iobuf
+		rdbyte	__reg6 , __reg4
+		add	__reg4 , # 1
+		rdbyte	__reg5 , __reg4
+
+		mov	__reg2 , __reg6
+		add	__reg2 , # 1
+		and	__reg2 , __bmask
+
+		cmp	__reg2 , __reg5	wz
+		muxz	__reg3 , $C_fLongMask	nr wz
+	if_nz	jmp	# __iobufemitq_ret
+
+
+		mov	__reg3 , __reg1
+		shl	__reg3 , __bshift
+		add	__reg3 , __+offset
+		add	__reg3 , __reg6
+		
+		wrbyte	$C_stTOS , __reg3
+
+		sub	__reg4 , # 1
+		wrbyte	__reg2 , __reg4
+__iobufemitq_ret
+		ret
+;asm a_serin
+
+{
+
+\ _c2c_ioin ( -- ) if the stateflag bit is 1, and there are characters in the buffer
+\		send them, and set the stateflag bit to 0 indicating we are waiting for an acknowledgement
+: _c2c_ioin
+	begin
+		0 slice
+		_MX_NUM_CHAN 0
+		do
+			_stateflags@ i >m and
+			if
+				i _MX_NUM_CHAN + a_iobufcount? dup
+				if
+					dup
+					i h60 + a_seremit h20 + a_seremit
+\ grab up to _MX_BMASK characters
+					0
+					do
+						j _MX_NUM_CHAN + a_iobufkey?
+						if
+							a_seremit
+						else
+							h33 ERR
+						then
+					loop
+					_stateflags@ i >m andn _stateflags!
+				else
+					drop
+				then
+			then
+  		loop
+	0 until
+;
+}
+
+\ a_ioin( -- )
+build_BootOpt :rasm
+		mov	__ioinlc , __numchan
+__ioin
+		mov	__olc , __ioinlc
+		sub	__olc , # 1
+
+		mov	__reg1 , # 1
+		shl	__reg1 , __olc
+		test	__stateflags , __reg1	wz
+	if_z	jmp	# __ioin_next
+
+
+		mov	$C_stTOS , __olc
+		add	$C_stTOS , __numchan
+		jmpret	__iobufcountq_ret , # __iobufcountq
+	if_z	jmp	# __ioin_next
+
+		mov	__lc , $C_stTOS
+
+		mov	$C_stTOS , __olc
+		add	$C_stTOS , # h60
+		jmpret	__seremit_ret , # __seremit
+
+		mov	$C_stTOS , __lc
+		add	$C_stTOS , # h20
+		jmpret	__seremit_ret , # __seremit
+
+
+__ioinlp
+		mov	$C_stTOS , __olc
+		add	$C_stTOS , __numchan
+		jmpret	__iobufkeyq_ret , # __iobufkeyq
+\
+\ should be a char there
+\
+	if_nz	mov	$C_treg6 , # h33
+	if_nz	jmp	# $C_a_reset
+		
+		jmpret	__seremit_ret , # __seremit
+
+		djnz	__lc , # __ioinlp
+
+		mov	__reg1 , # 1
+		shl	__reg1 , __olc
+		andn	__stateflags , __reg1
+__ioin_next
+		djnz	__ioinlc , # __ioin
+	
+__ioin_exit
+
+		jexit
+
+\
+\ - enter - $C_stTOS - char to emit
+\ - exit  - $C_stTOS - char to emit
+\
+__seremit
+		and	$C_stTOS , # hFF
+\
+		rdword	__reg2 , __serout	wz
+	if_z	jmp	# __seremit_ret
+__poll
+		rdword	__reg1 , __reg2
+		test	__reg1 , # h100	wz
+	if_z	jmp	# __poll
+\
+		wrword	$C_stTOS , __reg2
+__seremit_ret
+		ret
+
+
+\
+\ - enter - $C_stTOS - buf#
+\ - exit  - $C_stTOS - count
+\         - zflag - set if count is zero
+\
+__iobufcountq
+		shl	$C_stTOS , # 1
+		add	$C_stTOS , __iobuf
+
+		rdbyte	__reg6 , $C_stTOS
+		add	$C_stTOS , # 1
+		rdbyte	__reg5 , $C_stTOS
+
+		sub	__reg6 , __reg5
+		and	__reg6 , __bmask
+		mov	$C_stTOS , __reg6	wz
+__iobufcountq_ret
+		ret
+\
+\ - enter - $C_stTOS - buf#
+\ - exit  - $C_stTOS - char
+\         - zflag - set char is valid
+\ __reg6 - head
+\ __reg5 - tail
+\
+\ __reg4 - head/tail pointer
+\
+__iobufkeyq
+		mov	__reg4 , $C_stTOS
+		shl	__reg4 , # 1
+		add	__reg4 , __iobuf
+
+		rdbyte	__reg6 , __reg4
+		add	__reg4 , # 1
+		rdbyte	__reg5 , __reg4
+
+		cmp	__reg6 , __reg5	wz
+		muxz	__reg3 , $C_fLongMask	nr wz
+	if_nz	jmp	# __iobufkeyq_ret
+
+		mov	__reg3 , $C_stTOS
+		shl	__reg3 , __bshift
+		add	__reg3 , __+offset
+		add	__reg3 , __reg5
+		
+		rdbyte	$C_stTOS , __reg3
+
+		add	__reg5 , # 1
+		and	__reg5 , __bmask
+		wrbyte	__reg5 , __reg4
+__iobufkeyq_ret
+		ret
+
+;asm a_ioin
+
+
+
+cr hA state andnC!
+
+*/
+
+
+var scode string = `
+fl
+\
+\ serial line protocol - 
+\ b011X_XXXX count cc - X is chan number count is number of characters following + h20
+\ b010Y_YYYY - ack Y is chan number
+\
+
+
+
+lockdict create a_serfkey? forthentry
+$C_a_lxasm w, h11C  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyJQL l, z1SyZSO l, z1SyJQL l, z1riPR6 l, z1SV01X l, z4iPV2 l, z1YVPS0 l, z4Ara2 l,
+z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_serkey forthentry
+$C_a_lxasm w, h11D  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyJQL l, z1SyZ4M l, z1SV01X l, z1SyZ[P l, z1SL04M l, z1SV000 l, z4iPV2 l, z1YVPS0 l,
+z4Ara2 l, z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_seremit forthentry
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyZfM l, z1SyLI[ l, z1SV01X l, z1WyPRy l, z6isy3 l, z1SQ04T l, z4isqF l, z1YVsn0 l,
+z1SQ04P l, z4FPVF l, z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_iofkey? forthentry
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyZfN l, z1SyJQL l, z1riPR6 l, z1SV01X l, zfyPO2 l, z20iPVj l, z4ismB l, z1YVsn0 l,
+z4ArZB l, z2WiPVE l, z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_iofemit? forthentry
+$C_a_lxasm w, h124  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z2WismB l, z1SyLI[ l, z1SyZKO l, z1riPR6 l, z1SV01X l, z1Sy[SR l, z4APVF l, z1SV000 l,
+zfysj2 l, z20isqj l, z20ysj2 l, z6isyE l, z1SQ04Z l, z4it7F l, z1YVt40 l, z1tFtB6 l,
+z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_ioemit? forthentry
+$C_a_lxasm w, h120  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z2WismB l, z1SyZvN l, z1riPR6 l, z1SV01X l, zfysj2 l, z20isqj l, z20ysj2 l, z6isyE l,
+z1SQ04V l, z4it7F l, z1YVt40 l, z1tFtB6 l, z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_iobufcount? forthentry
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyZfL l, z1SV01X l, zfyPO1 l, z20iPV8 l, zitRB l, z20yPO1 l, zitJB l, z24itVI l,
+z1WitV7 l, z2YiPVJ l, z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_iobufkey? forthentry
+$C_a_lxasm w, h129  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1Sy\4N l, z1SyJQL l, z1riPR6 l, z1SV01X l, z2WitBB l, zfyt81 l, z20itF8 l, zitVH l,
+z20yt81 l, zitNH l, z26FtVI l, z1tFt36 l, z1SL04b l, z2Wit3B l, zfit76 l, z20it75 l,
+z20it7I l, ziPVG l, z20ytG1 l, z1WitN7 l, zFtNH l, z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_iobufemit? forthentry
+$C_a_lxasm w, h12C  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z2WismB l, z1SyLI[ l, z1Sy\SO l, z1riPR6 l, z1SV01X l, z2WitFE l, zfyt81 l, z20itF8 l,
+zitVH l, z20yt81 l, zitNH l, z2WisyJ l, z20ysr1 l, z1Wisy7 l, z26FsyI l, z1tFt36 l,
+z1SL04e l, z2Wit7E l, zfit76 l, z20it75 l, z20it7J l, zFPVG l, z24yt81 l, zFsyH l,
+z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_serin forthentry
+$C_a_lxasm w, h149  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z1SyJQL l, z1Sy][k l, z1SL04f l, z2WisuB l, z1WysuW l, z2WismB l, z1WysjV l, z26Vss0 l,
+z1SL04W l, z2Wyt01 l, zfit7E l, z1bisNG l, z1SV04K l, z26VssW l, z2WoQAP l, z1SL02H l,
+z1Sy]4h l, z2WisRB l, z24ysOW l, z1Sy]4h l, z1Syc4o l, z2WoQAQ l, z1SL02H l, z3[ysS] l,
+z1SV04K l, z1SyLI[ l, z1SV01X l, z1Sy][k l, z1SL04h l, z1SV000 l, z4iPV2 l, z1YVPS0 l,
+z4Ara2 l, z1SV000 l, z2WitFE l, zfyt81 l, z20itF8 l, zitVH l, z20yt81 l, zitNH l,
+z2WisyJ l, z20ysr1 l, z1Wisy7 l, z26FsyI l, z1tFt36 l, z1SL058 l, z2Wit7E l, zfit76 l,
+z20it75 l, z20it7J l, zFPVG l, z24yt81 l, zFsyH l, z1SV000 l,
+freedict
+
+
+
+
+lockdict create a_ioin forthentry
+$C_a_lxasm w, h154  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+z2Wisi9 l, z2WisaD l, z24ysW1 l, z2Wysj1 l, zfisqC l, z1YFsNE l, z1SQ04i l, z2WiPVC l,
+z20iPV9 l, z1SybCs l, z1SQ04i l, z2WisRB l, z2WiPVC l, z20yPPW l, z1Sya4k l, z2WiPVB l,
+z20yPOW l, z1Sya4k l, z2WiPVC l, z20iPV9 l, z1SydT2 l, z2WoQ8m l, z1SL02H l, z1Sya4k l,
+z3[ysS\ l, z2Wysj1 l, zfisqC l, z1[isNE l, z3[ysfK l, z1SV01X l, z1WyPRy l, z6isy3 l,
+z1SQ04r l, z4isqF l, z1YVsn0 l, z1SQ04n l, z4FPVF l, z1SV000 l, zfyPO1 l, z20iPV8 l,
+zitRB l, z20yPO1 l, zitJB l, z24itVI l, z1WitV7 l, z2YiPVJ l, z1SV000 l, z2WitBB l,
+zfyt81 l, z20itF8 l, zitVH l, z20yt81 l, zitNH l, z26FtVI l, z1tFt36 l, z1SL05J l,
+z2Wit3B l, zfit76 l, z20it75 l, z20it7I l, ziPVG l, z20ytG1 l, z1WitN7 l, zFtNH l,
+z1SV000 l,
+freedict
+
+
+
+[ifndef $C_rsPtr
+    hCA wconstant $C_rsPtr
+]
+: _stateflags@ h1CA COG@ ;
+: _stateflags! h1CA COG! ;
+\
+\ These constants will be sent by muxserial
+[ifndef _MX_BSHIFT
+d_4	wconstant _MX_BSHIFT
+d_16	wconstant _MX_BSIZE
+d_15	wconstant _MX_BMASK
+d_32	wconstant _MX_NUM_CHAN
+d_128	wconstant _MX_BUF_OFFSET
+]
+\
+\
+\
+0 wconstant _slicearray
+: slice
+	dup
+	$C_rsPtr COG@ 1+ COG@
+	over 2* _slicearray + W!
+	1+ h3 and 2* _slicearray + W@
+	$C_rsPtr COG@ 1+ COG!
+\
+	$C_stTop $C_stPtr COG@ - 3 -
+	dup 1 <>
+	if
+		." ERROR " . ." items on stack -- task " . cr cr cr
+		100 delms
+		reset
+	else
+		2drop
+	then
+;
+\
+\ 0			- _MX_NUM_CHAN * head tail
+\ _MX_BUF_OFFSET	- _MX_NUM_CHAN*2 * 16 byte buffer
+\ _MX_BUF_OFFSET+d_1024	- end
+\
+\
+\
+
+\ _c2c_ioin ( -- ) if the stateflag bit is 1, are characters in the buffer
+\		send them, and set the stateflag bit to 0 indicating we are waiting for an acknowledgement
+: _c2c_ioin
+	begin
+		0 slice
+		a_ioin
+
+	0 until
+;
+\ _c2c_serin ( -- ) process input chars from the serial channel
+\ 	     if it is an ack, set the stateflag bit back to 1
+\	     if it is a data byte, buffer it 
+: _c2c_serin
+	begin
+		1 slice
+		a_serin
+	0 until
+;
+
+
+\ _c2c_ioout ( -- ) process the buffered chars and send an ack, check for input after sending a char
+: _c2c_ioout
+	begin
+		2 slice
+
+		_MX_NUM_CHAN 0
+		do
+			_MX_BMASK 0
+			do
+				j a_ioemit?
+				if
+					j a_iobufkey?
+					if
+						j a_iofemit?
+						if
+							j a_iobufcount? 0=
+							if
+								j h40 + a_seremit
+							then
+						else
+							h9B ERR
+						then
+
+
+						j _MX_NUM_CHAN + a_iobufcount? _MX_BMASK <>
+						if
+							j a_iofkey?
+							if
+								j _MX_NUM_CHAN + a_iobufemit? 0=
+								if
+									h44 ERR
+								then
+							else
+								drop
+							then
+						then
+
+
+					else
+						drop leave
+					then
+				else
+					leave
+				then
+			loop
+		loop
+	0 until
+;
+
+
+\ _c2c_ioinbuf ( -- )  see if there is a byte to accept from the channel in, if there is space, buffer it
+: _c2c_ioinbuf
+	begin
+		3 slice
+		_MX_NUM_CHAN 0
+		do
+			_MX_BMASK 0
+			do
+				j _MX_NUM_CHAN + a_iobufcount? _MX_BMASK =
+				if
+					leave
+				else
+					j a_iofkey?
+					if
+						j _MX_NUM_CHAN + a_iobufemit? 0=
+						if
+							h44 ERR
+						then
+					else
+						drop leave
+					then
+				then
+			loop
+  		loop
+
+
+	0 until
+;
+
+: gos
+	lockdict here W@ _MX_BUF_OFFSET d_1024 + allot freedict
+	dup h1C8 COG! dup _MX_BUF_OFFSET + h1C5 COG!
+	_MX_BUF_OFFSET 0 fill
+\
+\ protocol structure
+\
+\ __mx_serin, __mx_serout, __mx_h100
+\
+	hD8 _p+ h1C2 COG! 
+	hDA _p+ h1C3 COG!
+	h100 h1C4 COG!
+\ buf
+\	_iobuf _MX_BUF_OFFSET + h1C5 COG!
+	_MX_BSHIFT h1C6 COG!
+	_MX_BMASK h1C7 COG!
+\	_iobuf h1C8 COG!
+	_MX_NUM_CHAN h1C9 COG!
+\
+\ flags for each channel, 0 indicates we have sent a byte and are waiting for an ack
+	-1 h1CA COG!
+
+\
+	lockdict here W@ 8 allot freedict c" _slicearray" find
+	if
+		2+ W!
+	else
+		hFC ERR
+	then
+\
+	c" _c2c_ioin" find drop 0 2* _slicearray + W!
+	c" _c2c_serin" find drop 1 2* _slicearray + W!
+	c" _c2c_ioout" find drop 2 2* _slicearray + W!
+	c" _c2c_ioinbuf" find drop 3 2* _slicearray +  W!
+\	
+	1 7 sersetflags
+	cogid iodis
+\
+\ set the cog to busy
+	c" MX_SERIAL" cds W!
+	4 state andnC!
+	hE0 state orC!
+\
+\ set up channels as input to this cog
+	io _MX_NUM_CHAN 4* bounds
+	do
+		h100 i L!
+	4 +loop
+
+	_MX_NUM_CHAN 6 min 0
+	do
+		cogid i i 0 (ioconn)
+	loop
+	_MX_NUM_CHAN 6 >
+	if
+		_MX_NUM_CHAN 4* io + d_6 4* io +
+		do
+			i dup 2+ W!
+		4 +loop
+	then
+\
+\ set up the serial io channel and connect it
+	7 cogio h100 hD8 _p+ L!
+	hD8 _p+ 2dup 2+ W! swap 2+ W!
+\
+\ send a ! then wait for a !
+	h21 a_seremit
+	begin
+		a_serkey
+		h21 =
+	until
+	_c2c_ioin
+;
+
+
+
+`

@@ -1,0 +1,155 @@
+
+ scriptFileName: TEST/scripts/SnetEEpromHTTP.txt
+   logFileName: TEST/results/runLogs/SnetEEpromHTTPRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromHTTPResult.txt
+outputFileName: 
+
+index.htm
+HTTP/1.1 200 Ok
+Cache-Control: public
+Expires: Fri, 25 Dec 2015 05:00:00 GMT
+Last-Modified: Fri, 22 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Content-Length: 311 
+
+<html><head><link rel="shorcut icon" href="/favicon.ico" /><title>index.htm</title></head><body><h1>index.htm</h1><p><a href="testhtm.htm">testhtm.htm - root page for the static pages tests</a></p><p><a href="testfsp.htm">testfsp.htm - root page for the forth server pages tests</a></p></body></html>
+testinvalid.htm
+HTTP/1.1 200 Ok
+Cache-Control: public
+Expires: Fri, 25 Dec 2015 05:00:00 GMT
+Last-Modified: Fri, 22 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Content-Length: 243 
+
+<html><head><title>testinvalid.htm</title></head><body><h1>testinvalid.htm</h1><p><a href="/index.htm">index.htm - the root page</a></p><p><a href="/invalid.htm">invalid.htm</a></p><p><a href="/invalid">invalid</a></p></body></html>
+testgraphic.htm
+HTTP/1.1 200 Ok
+Cache-Control: public
+Expires: Fri, 25 Dec 2015 05:00:00 GMT
+Last-Modified: Fri, 22 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Content-Length: 228 
+
+<html><head><title>testgraphic.htm</title></head><body><h1>testgraphic.htm</h1><p><a href="/index.htm">index.htm - the root page</a></p><p>And of course a gratuitous image</p><p><img src="/test.png"></p></body></html>
+invalid.htm
+HTTP/1.1 404 Not Found
+Expires: Fri, 25 Dec 2015 05:00:00 GMT
+Last-Modified: Fri, 22 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Content-Length: 137 
+
+<html><head><title>Not Found</title></head><body><p><h1>Not Found</h1></p><p><a href="/index.htm">Home</a></p></body></html>
+invalid
+HTTP/1.1 404 Not Found
+Expires: Fri, 25 Dec 2015 05:00:00 GMT
+Last-Modified: Fri, 22 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Content-Length: 137 
+
+<html><head><title>Not Found</title></head><body><p><h1>Not Found</h1></p><p><a href="/index.htm">Home</a></p></body></html>
+testfsp.htm
+HTTP/1.1 200 Ok
+Cache-Control: public
+Expires: Fri, 25 Dec 2015 05:00:00 GMT
+Last-Modified: Fri, 22 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Content-Length: 434 
+
+<html><head><title>testfsp.htm</title></head><body><h1>testfsp.htm</h1><p><a href="/index.htm">index.htm - the root page</a></p><p><a href="testnull.fsp">testnull.fsp - a page with no active elements</a></p><p><a href="testcnt.fsp">testcnt.fsp - a page which display the cnt register</a></p><p><a href="test1.fsp">test1.fsp - a page with forms</a></p><p><a href="time.fsp">time.fsp - a page for time</a></p></body></html>
+test1.fsp
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html><head><title>test1.fsp</title></head><body><p>Running on: 0 SNET COG: 3 <br>REQDATA: length: 0  data: <br></p
+80
+><p><a href="index.htm">Index</a></p><p>FORM1<br><form name="test1form1" action="/test1.fsp" method="get" ><input type="hid
+80
+den" name="version" value="PropForth v5.5 2013Feb20 11:30 1"/>Username: <input type="text" name="user" /><input type="submit" 
+80
+value="Submit" /></form></p><p>FORM2<br><form name="test1form2" action="/test1.fsp" method="get" ><input type="hidden" name
+80
+="version" value="PropForth v5.5 2013Feb20 11:30 1"/>Username: <input type="text" name="user" value="FRED" /><input type="subm
+33
+it" value="Submit" /></form></p></body></html>
+0
+
+
+test1.fsp
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html><head><title>test1.fsp</title></head><body><p>Running on: 0 SNET COG: 3 <br>REQDATA: length: 0  data: <br></p
+80
+><p><a href="index.htm">Index</a></p><p>FORM1<br><form name="test1form1" action="/test1.fsp" method="get" ><input type="hid
+80
+den" name="version" value="PropForth v5.5 2013Feb20 11:30 1"/>Username: <input type="text" name="user" /><input type="submit" 
+80
+value="Submit" /></form></p><p>FORM2<br><form name="test1form2" action="/test1.fsp" method="get" ><input type="hidden" name
+80
+="version" value="PropForth v5.5 2013Feb20 11:30 1"/>Username: <input type="text" name="user" value="FRED" /><input type="subm
+33
+it" value="Submit" /></form></p></body></html>
+0
+
+
+test1.fsp
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html><head><title>test1.fsp</title></head><body><p>Running on: 0 SNET COG: 3 <br>REQDATA: length: 0  data: <br></p
+80
+><p><a href="index.htm">Index</a></p><p>FORM1<br><form name="test1form1" action="/test1.fsp" method="get" ><input type="hid
+80
+den" name="version" value="PropForth v5.5 2013Feb20 11:30 1"/>Username: <input type="text" name="user" /><input type="submit" 
+80
+value="Submit" /></form></p><p>FORM2<br><form name="test1form2" action="/test1.fsp" method="get" ><input type="hidden" name
+80
+="version" value="PropForth v5.5 2013Feb20 11:30 1"/>Username: <input type="text" name="user" value="FRED" /><input type="subm
+33
+it" value="Submit" /></form></p></body></html>
+0
+
+
+test1.fsp
+HTTP/1.1 200 Ok
+Cache-Control: no-cache
+Expires: Sat, 9 Apr 2011 05:00:00 GMT
+Connection: close
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+80
+<html><head><title>test1.fsp</title></head><body><p>Running on: 0 SNET COG: 3 <br>REQDATA: length: 0  data: <br></p
+80
+><p><a href="index.htm">Index</a></p><p>FORM1<br><form name="test1form1" action="/test1.fsp" method="get" ><input type="hid
+80
+den" name="version" value="PropForth v5.5 2013Feb20 11:30 1"/>Username: <input type="text" name="user" /><input type="submit" 
+80
+value="Submit" /></form></p><p>FORM2<br><form name="test1form2" action="/test1.fsp" method="get" ><input type="hidden" name
+80
+="version" value="PropForth v5.5 2013Feb20 11:30 1"/>Username: <input type="text" name="user" value="FRED" /><input type="subm
+33
+it" value="Submit" /></form></p></body></html>
+0
+

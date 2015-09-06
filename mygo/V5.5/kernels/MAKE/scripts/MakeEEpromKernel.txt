@@ -1,0 +1,22 @@
+L MAKE/results/runLogs/MakeEEpromKernelRunLog.txt
+R MAKE/results/resultFiles/MakeEEpromResult.txt
+
+\ Load Dev Kernel
+						r	MAKE/scripts/LoadDevKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load fsrd.f
+						S	MAKE/src/optimize/fs/fsrd.f
+\ Load fswr.f
+						scr fl
+						S	MAKE/src/optimize/fs/fswr.f
+\ Load spinimage.f
+						S	MAKE/src/spinimage.f
+\ echos and prompts off
+						X	hA state orC!
+\ make EEpromKernel.spin
+						O	MAKE/results/outputFiles/EEpromKernel.spin
+						SR	MAKE/results/outputFiles/AsmKernel.spin
+\ spinimage
+	t 3000					X	spinImage
+						CO CR CL

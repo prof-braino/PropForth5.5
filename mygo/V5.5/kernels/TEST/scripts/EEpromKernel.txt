@@ -1,0 +1,43 @@
+L TEST/results/runLogs/EEpromKernelRunLog.txt
+
+\ Initialize eeprom
+			r MAKE/scripts/InitEEprom.txt
+\ Load EEprom Kernel
+			r MAKE/scripts/LoadEEpromKernel.txt
+R TEST/results/resultFiles/EEpromKernelResult.txt
+			r TEST/scripts/BasicFunctionality.txt
+			X fsls
+			X fsrd boot.f
+
+			X \ some simple files for testing
+			X fswrite demo
+			X fsload hello.f
+			X fsload bye.f
+			X fsload aloha.f
+			X ...
+
+			X fswrite hello.f
+			X \ hello ( --)
+			X : hello ." Hello world" cr ;
+			X ...
+
+			X fswrite bye.f
+			X \ bye ( --)
+			X : bye ." Goodbye world" cr ;
+			X ...
+
+			X fswrite aloha.f
+			X \ aloha ( t/f -- ) 
+			X : aloha if ." Hello" else ." Goodbye" then ."  world" cr ;
+			X ...
+
+			X \ end of example files
+
+			X fsls
+
+
+			X fsload demo
+			X 0 aloha
+			X 1 aloha
+
+			CO CR CL

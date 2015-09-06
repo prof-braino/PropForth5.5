@@ -1,0 +1,22 @@
+	t 1000
+
+\ Load term.f and norom.f and mcs.f and mcsnorom.f
+		S MAKE/src/optimize/dev/term.f
+		scr fl
+		S MAKE/src/optimize/dev/norom.f
+		scr fl
+		S MAKE/src/optimize/dev/mcs.f
+		scr fl
+		S MAKE/src/optimize/dev/mcsnorom.f
+
+		X words on
+
+	t 5000	X 0 onboot
+	t 1000	X cog?
+		X 5 0 term
+		X cog?
+		x 10
+		X cog?
+		X
+
+

@@ -1,0 +1,148 @@
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:04.3997815 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromIPTelnet1.txt
+   logFileName: TEST/results/runLogs/SnetEEpromIPTelnet1RunLog.txt
+resultFileName: 
+outputFileName: 
+
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:04.4567848 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromIPTelnet1.txt
+   logFileName: TEST/results/runLogs/SnetEEpromIPTelnet1RunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromIPTelnet1Result.txt
+outputFileName: 
+
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:04.4797861 -0800 PST Connecting to ip addr [192.168.0.129:3021]
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:04.4807862 -0800 PST Connected to ip addr [192.168.0.129:3021]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.5227886 -0800 PST STARTING SCRIPT FILE
+\ Definitions
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.5707913 -0800 PST SEND: [[ifndef stOverflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.6137938 -0800 PST SEND: [: stOverflow d32 0 do i dup . loop ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.6217942 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.6477957 -0800 PST SEND: [[ifndef rsUnderflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.704799 -0800 PST SEND: [: rsUnderflow r> . r> . r> . r> . r> . r> . r> . ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.7127994 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.7378009 -0800 PST SEND: [[ifndef rsOverflow ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.8008045 -0800 PST SEND: [: rsOverflow dup . 1+ c" rsOverflow" find drop execute ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.8088049 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.8298061 -0800 PST SEND: [[ifndef cogdel ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.915811 -0800 PST SEND: [: cogdel cogid 1+ 1 lshift 0 do d_1000 i u* delms i . loop ." delay done~h0D" ; ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.9238115 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.9278117 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.9278117 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:04.9278117 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.3390068 -0800 PST DONE: 
+\ Here+version
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.4920156 -0800 PST SEND: [cr cr here W@ . version W@ .cstr ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.5100166 -0800 PST SEND: [[ifdef cog? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.5210173 -0800 PST SEND: [cog? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.5290177 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.5490189 -0800 PST SEND: [[ifdef build? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.5620196 -0800 PST SEND: [build? ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.5700201 -0800 PST SEND: [] ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.5820207 -0800 PST SEND: [cr cr ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.586021 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.586021 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:08.586021 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:12.2982333 -0800 PST DONE: 
+\ ST Underflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:12.4512421 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:12.4512421 -0800 PST SENDING: cr cr 1 2 3 . . . drop drop drop
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:12.4512421 -0800 PST DONE SENDING waiting for output: cr cr 1 2 3 . . . drop drop drop
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:15.5664202 -0800 PST DONE: cr cr 1 2 3 . . . drop drop drop
+\ ST Overflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:15.7004279 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:15.7004279 -0800 PST SENDING: cr cr stOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:15.7004279 -0800 PST DONE SENDING waiting for output: cr cr stOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:18.8516081 -0800 PST DONE: cr cr stOverflow
+\ RS Underflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:18.9876159 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:18.9876159 -0800 PST SENDING: cr cr rsUnderflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:18.9876159 -0800 PST DONE SENDING waiting for output: cr cr rsUnderflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:22.0807928 -0800 PST DONE: cr cr rsUnderflow
+\ RS Overflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:22.2168006 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:22.2168006 -0800 PST SENDING: cr cr 0 rsOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:22.2168006 -0800 PST DONE SENDING waiting for output: cr cr 0 rsOverflow
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:25.3789815 -0800 PST DONE: cr cr 0 rsOverflow
+\ Math+-
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:25.5719925 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:25.5719925 -0800 PST SENDING: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:25.5719925 -0800 PST DONE SENDING waiting for output: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:28.7551746 -0800 PST DONE: cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+\ Math*/
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:28.9431853 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:28.9431853 -0800 PST SENDING: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:28.9431853 -0800 PST DONE SENDING waiting for output: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:32.1493687 -0800 PST DONE: cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+\ Logical
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:32.3133781 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:32.3133781 -0800 PST SENDING: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:32.3133781 -0800 PST DONE SENDING waiting for output: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:35.4565579 -0800 PST DONE: base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+\ wvariables
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:35.5995661 -0800 PST SEND: [[ifndef build_httpserver ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:35.6535691 -0800 PST SEND: [lockdict cr cr wvariable ttt : d ttt W@ . ; hex ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:35.7045721 -0800 PST SEND: [cr cr 0 ttt W! 23 ttt orC! d 1 ttt andnC! d ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:35.7895769 -0800 PST SEND: [cr cr -1 ttt W! d hAAAA ttt W@ and ttt W! d hFF ttt orC! d hA base W! freedict ]+cr
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:35.7955773 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:35.7955773 -0800 PST SENDING: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:35.7955773 -0800 PST DONE SENDING waiting for output: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:38.9937602 -0800 PST DONE: ]
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:39.0967661 -0800 PST  1000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:39.0967661 -0800 PST SENDING: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:39.0967661 -0800 PST DONE SENDING waiting for output: 
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:42.1169388 -0800 PST DONE: 
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:42.2269451 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromIPTelnet1.txt
+   logFileName: TEST/results/runLogs/SnetEEpromIPTelnet1RunLog.txt
+resultFileName: TEST/results/resultFiles/SnetEEpromIPTelnet1Result.txt
+outputFileName: 
+
+TEST/scripts/BasicFunctionality.txt::2013-02-21 15:26:42.2279452 -0800 PST DONE SCRIPT FILE
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:42.2359456 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:42.2359456 -0800 PST SENDING: fsls
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:42.2359456 -0800 PST DONE SENDING waiting for output: fsls
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:45.28412 -0800 PST DONE: fsls
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:45.4021267 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:45.4021267 -0800 PST SENDING: fsread boot.f
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:45.4021267 -0800 PST DONE SENDING waiting for output: fsread boot.f
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:48.4953037 -0800 PST DONE: fsread boot.f
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:48.6013097 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:48.6013097 -0800 PST Disconnected from ip addr [192.168.0.129:3021]
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:48.624311 -0800 PST Connecting to ip addr [192.168.0.129:3021]
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:48.6253111 -0800 PST Connected to ip addr [192.168.0.129:3021]
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:48.6343116 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:48.6343116 -0800 PST SENDING: cog?
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:48.6343116 -0800 PST DONE SENDING waiting for output: cog?
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:51.7824917 -0800 PST DONE: cog?
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:51.8914979 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:51.8914979 -0800 PST SENDING: fsls
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:51.8914979 -0800 PST DONE SENDING waiting for output: fsls
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:55.0166767 -0800 PST DONE: fsls
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:55.1346834 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:55.1346834 -0800 PST SENDING: fsread boot.f
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:55.1346834 -0800 PST DONE SENDING waiting for output: fsread boot.f
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:58.2518617 -0800 PST DONE: fsread boot.f
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:58.3578678 -0800 PST dis: disconnecting
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:58.3578678 -0800 PST Disconnected from ip addr [192.168.0.129:3021]
+TEST/scripts/SnetEEpromIPTelnet1.txt::2013-02-21 15:26:58.3688684 -0800 PST 
+ scriptFileName: TEST/scripts/SnetEEpromIPTelnet1.txt
+   logFileName: TEST/results/runLogs/SnetEEpromIPTelnet1RunLog.txt
+resultFileName: 
+outputFileName: 
+

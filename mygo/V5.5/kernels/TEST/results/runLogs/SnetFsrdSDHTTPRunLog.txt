@@ -1,0 +1,165 @@
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.3294984 -0800 PST 
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTP.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPRunLog.txt
+resultFileName: 
+outputFileName: 
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.3815014 -0800 PST 
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTP.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPResult.txt
+outputFileName: 
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.3915019 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.3915019 -0800 PST ECHOING: 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.3915019 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.5065085 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.5065085 -0800 PST ECHOING: index.htm 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.5065085 -0800 PST DONE ECHOING: index.htm
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.6245153 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.6255153 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.655517 -0800 PST SEND: [GET /index.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:10:58.7405219 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:01.7366933 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:01.7426936 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:01.7426936 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.7478655 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.7538658 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.7538658 -0800 PST ECHOING: 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.7538658 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.8748728 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.8748728 -0800 PST ECHOING: testinvalid.htm 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.8748728 -0800 PST DONE ECHOING: testinvalid.htm
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.9928795 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:04.9938796 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:05.0298816 -0800 PST SEND: [GET /testinvalid.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:05.1138864 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:08.1100578 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:08.1160581 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:08.1160581 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.12123 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.1272304 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.1272304 -0800 PST ECHOING: 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.1272304 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.2482373 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.2482373 -0800 PST ECHOING: testgraphic.htm 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.2482373 -0800 PST DONE ECHOING: testgraphic.htm
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.366244 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.3672441 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.4032462 -0800 PST SEND: [GET /testgraphic.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:11.4852509 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:14.4834223 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:14.4894227 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:14.4894227 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.4945946 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.5005949 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.5005949 -0800 PST ECHOING: 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.5005949 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.6176016 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.6176016 -0800 PST ECHOING: invalid.htm 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.6176016 -0800 PST DONE ECHOING: invalid.htm
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.7356084 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.7656101 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.7976119 -0800 PST SEND: [GET /invalid.htm HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:17.8816167 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:20.8777881 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:20.8837884 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:20.8837884 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:23.8889603 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:23.8949606 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:23.8949606 -0800 PST ECHOING: 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:23.8949606 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:24.0079671 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:24.0079671 -0800 PST ECHOING: invalid 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:24.0079671 -0800 PST DONE ECHOING: invalid
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:24.1259739 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:24.1269739 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:24.1589757 -0800 PST SEND: [GET /invalid HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:24.2389803 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:27.2361518 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:27.2421521 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:27.2421521 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.247324 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.2533243 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.2533243 -0800 PST ECHOING: 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.2533243 -0800 PST DONE ECHOING: 
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.3683309 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.3683309 -0800 PST ECHOING: test1.fsp 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.3683309 -0800 PST DONE ECHOING: test1.fsp
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.4863377 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.4873377 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.5173394 -0800 PST SEND: [GET /test1.fsp HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:30.7613534 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:33.7575248 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:33.7635251 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:33.7635251 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:36.768697 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:36.7846979 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:36.7846979 -0800 PST ECHOING: test1.fsp 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:36.7846979 -0800 PST DONE ECHOING: test1.fsp
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:36.9027046 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:36.9037047 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:36.9337064 -0800 PST SEND: [GET /test1.fsp HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:37.1797205 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:40.1758919 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:40.1818922 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:40.1818922 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:43.1870641 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:43.203065 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:43.203065 -0800 PST ECHOING: test1.fsp 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:43.203065 -0800 PST DONE ECHOING: test1.fsp
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:43.3210718 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:43.3230719 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:43.3530736 -0800 PST SEND: [GET /test1.fsp HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:43.5970875 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:46.5922589 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:46.5982592 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:46.5982592 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:49.6034311 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:49.619432 -0800 PST  5000 cps  Receive Delay 3s Echo: false Binary: false
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:49.619432 -0800 PST ECHOING: test1.fsp 
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:49.619432 -0800 PST DONE ECHOING: test1.fsp
+
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:49.7374388 -0800 PST Connecting to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:49.741439 -0800 PST Connected to ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:49.7714407 -0800 PST SEND: [GET /test1.fsp HTTP/1.1 ]+cr
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:50.0164547 -0800 PST Remote disconnect from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:53.0126261 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:53.0186264 -0800 PST dis: disconnecting
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:53.0186264 -0800 PST Disconnected from ip addr [192.168.0.129:8080]
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:56.0237983 -0800 PST WAIT DONE
+TEST/scripts/SnetFsrdSDHTTP.txt::2013-02-21 20:11:56.0337989 -0800 PST 
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTP.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPRunLog.txt
+resultFileName: 
+outputFileName: 
+

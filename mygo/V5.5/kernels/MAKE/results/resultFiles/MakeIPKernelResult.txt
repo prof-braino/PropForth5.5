@@ -1,0 +1,236 @@
+
+ scriptFileName: MAKE/scripts/MakeIPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeIPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPKernelResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 13238 
+
+NFA (Forth/Asm Immediate eXecute) Name
+10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeIPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPKernelResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: 977719070 
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/MakeIPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeIPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPKernelResult.txt
+outputFileName: 
+here W@ . cr
+17596 
+Prop0 Cog6 ok
+hA state orC!
+IP Loading 1 2 3 4 5 6 7 8 9 10 11 12 IP Loaded
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ assuming you want to start telnet
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+c" onboot" find drop pfa>nfa 1+ c" onb001" C@++ rot swap cmove
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ onboot ( n1 -- n1)
+Prop0 Cog6 ok
+: onboot
+ onb001 
+\ do not execute if escape has been hit
+ fkey? and fkey? and or h1B <>
+ if
+  startTelnet
+ then
+;
+Prop0 Cog6 ok
+fl
+Prop0 Cog5 ok
+1 wconstant build_spinimage
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lastnfa nfa>lfa W@ wconstant imageLastnfa
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" wlastnfa" find drop pfa>nfa nfa>lfa wconstant imageStart
+Prop0 Cog5 ok
+c" build_spinimage" find drop  pfa>nfa nfa>lfa wconstant imageEnd
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" fstart" find drop wconstant fstartPFA
+Prop0 Cog5 ok
+c" _finit" find drop wconstant _finitPFA
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifdef neverever
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 2*
+.
+.
+]
+Prop0 Cog5 ok
+wvariable numConstantsOfInterest 0 numConstantsOfInterest W!
+Prop0 Cog5 ok
+lockdict wvariable ConstantsOfInterest 100 2* allot freedict
+Prop0 Cog5 ok
+: findConstantsOfInterest
+lastnfa
+begin
+c" $S_" over swap
+npfx
+if
+dup nfa>pfa dup W@ $C_a_doconw =
+if
+2+
+ConstantsOfInterest numConstantsOfInterest W@ 2* + W!
+numConstantsOfInterest W@ 1+ 
+100 min numConstantsOfInterest W!
+else
+drop
+then
+then
+nfa>lfa W@ dup 0=
+until
+
+
+;
+Prop0 Cog5 ok
+: isConstantOfInterest?
+numConstantsOfInterest W@ 0<>
+if
+0 swap
+numConstantsOfInterest W@ 0
+do
+i 2* ConstantsOfInterest + W@ over =
+if
+nip -1 swap leave
+then
+loop
+drop
+else
+drop 0
+then
+; 
+Prop0 Cog5 ok
+: spinImage
+findConstantsOfInterest
+base W@ hex
+lastnfa W@
+here W@ 
+imageEnd here W!
+imageLastnfa wlastnfa W!
+." ~h0D~h0DForthDictStart~h0D~h0D"
+." ~h0D' " imageStart .
+." ~h0D  word $" imageStart W@ .
+imageEnd imageStart 2+
+do
+i _finitPFA =
+if
+." ~h0D~h0D_finitPFA~h0D~h0D  word $" i W@ .
+else
+
+i fstartPFA =
+if
+." ~h0D~h0DfstartPFA~h0D~h0D  word $" i W@ .
+else
+
+i isConstantOfInterest?
+if
+
+." ~h0D~h0D  word dlr"
+i 2- pfa>nfa namelen 1- swap 1+ swap .str
+else
+
+i h1F and 0=
+if
+." ~h0D' " i .
+." ~h0D  word $" i W@ .
+else
+." , $" i W@ .
+thens
+2 +loop
+cr cr
+here W!
+lastnfa W!
+
+memend W@ 2- imageEnd
+."   word "
+do
+i h3F and 0=
+if
+." 0~h0D' " i .
+." ~h0D  word "
+else
+." 0, "
+then
+2 +loop
+." 0~h0D~h0D~h0D"
+base W!  
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: MAKE/scripts/MakeIPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeIPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPKernelResult.txt
+outputFileName: MAKE/results/outputFiles/IPKernel.spin
+
+ scriptFileName: MAKE/scripts/MakeIPKernel.txt
+   logFileName: MAKE/results/runLogs/MakeIPKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeIPKernelResult.txt
+outputFileName: 

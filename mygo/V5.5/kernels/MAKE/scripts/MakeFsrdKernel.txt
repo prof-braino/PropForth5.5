@@ -1,0 +1,22 @@
+L MAKE/results/runLogs/MakeFsrdKernelRunLog.txt
+R MAKE/results/resultFiles/MakeFsrdResult.txt
+
+\ Load BootOptimize Kernel
+						r	MAKE/scripts/LoadBootOptimizeKernel.txt
+\ Here
+						X	here W@ . cr
+\ Load fsrd.f
+						S	MAKE/src/optimize/fs/fsrd.f
+\ Load serial.f
+						scr fl
+						S	MAKE/src/optimize/fs/serial.f
+\ Load spinmaker.f
+						S	MAKE/src/spinmaker.f
+\ echos and prompts off
+						X	hA state orC!
+\ make FsrdKernel.spin
+						O	MAKE/results/outputFiles/FsrdKernel.spin
+						SR	MAKE/results/outputFiles/AsmKernel.spin
+\ spinmaker
+	t 6000					X	-587 spinmaker
+						CO CR CL

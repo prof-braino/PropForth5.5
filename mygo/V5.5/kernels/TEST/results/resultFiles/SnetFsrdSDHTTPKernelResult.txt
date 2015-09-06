@@ -1,0 +1,345 @@
+
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTPKernel.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPKernelResult.txt
+outputFileName: 
+[ifndef rcogx
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_sdfs
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rfsend
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef term
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\ sersetflags ( n2 n1 -- O ) for the serial driver running on cog n1, set the flags to n2
+Prop0 Cog6 ok
+[ifndef sersetflags
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ invert ( n1 -- n2 ) bitwise invert n1
+Prop0 Cog6 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinin ( n1 -- ) set pin # n1 to an input
+Prop0 Cog6 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinout ( n1 -- ) set pin # n1 to an output
+Prop0 Cog6 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinlo ( n1 -- ) set pin # n1 to lo
+Prop0 Cog6 ok
+[ifndef pinlo
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ pinhi ( n1 -- ) set pin # n1 to hi
+Prop0 Cog6 ok
+[ifndef pinhi
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ _snet ( -- ) load the serial driver, and start it on cog 4
+Prop0 Cog6 ok
+[ifndef _snet
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ snet ( -- ) reset the spinnret board, start a serial driver, and connect a terminal
+Prop0 Cog6 ok
+[ifndef snet
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ resnet ( -- ) start a serial driver and connect a terminal to the spinneret board
+Prop0 Cog6 ok
+[ifndef resnet
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ nsnet ( n1 -- ) start a serial driver, send n1 characters
+Prop0 Cog6 ok
+[ifndef nsnet
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+here W@ . cr
+24068 
+Prop0 Cog6 ok
+snet
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+Hit CTL-P to exit term, CTL-Q exit nest1 CTL-R exit nest2 ... CTL-exit nest9
+PropForth v5.5 2013Feb20 11:30 1
+
+
+boot.f - Finding top of eeprom, Top of eeprom at: 65536 
+boot.f - Loading sdcommon.f
+Loading sdcommon.f ...Loaded sdcommon.f
+SNET0 Cog4 ok
+
+boot.f - Loading sdinit.f
+Loading sdinit.f ...Loaded sdinit.f
+SNET0 Cog4 ok
+
+boot.f - Initializing SD card
+boot.f - Loading sdrun.f
+Loading sdrun.f ...Loaded sdrun.f
+SNET0 Cog4 ok
+
+boot.f - Loading sdfs.f
+Loading sdfs.f ...1 2 3 4 5 6 7 8 Loaded sdfs.f
+SNET0 Cog4 ok
+
+boot.f - Running sdboot.f
+SNET0 Cog4 ok
+hA state orC! cr
+
+sdboot.f  -  initializing
+
+sdboot.f  -  Loading usrboot.f
+
+PropForth v5.5 2013Feb20 11:30 1
+SNET0 Cog3 ok
+
+SNET0 Cog3 ok
+c" usrboot.f  -  initializing~h0D~h0D" .cstr
+usrboot.f  -  initializing
+
+SNET0 Cog3 ok
+
+SNET0 Cog3 ok
+1 sd_mount
+SNET0 Cog3 ok
+
+SNET0 Cog3 ok
+fread .sdcardinfo
+
+SDCard size:      1,921,024  Kbytes
+
+File System: sys
+                      Start Block:              1 
+                        End Block:         65,538 
+        File System Size (blocks):         65,537 
+        File System Size  (bytes):         32,768  Kbytes
+
+File System: usr
+                      Start Block:         65,538 
+                        End Block:      3,842,048 
+        File System Size (blocks):      3,776,510 
+        File System Size  (bytes):      1,888,255  Kbytes
+
+SNET0 Cog3 ok
+
+SNET0 Cog3 ok
+c" usrboot.f  -  DONE~h0D~h0D" .cstr
+usrboot.f  -  DONE
+
+SNET0 Cog3 ok
+
+sdboot.f  -  DONE - PropForth Loaded 
+
+SNET0 Cog4 ok
+
+SNET0 Cog4 ok
+
+boot.f - Loading ipconfig.f
+SNET0 Cog4 ok
+
+boot.f - Loading ip.f
+boot.f - Setting IP configuration
+IP Loading 1 2 3 4 5 6 7 8 9 10 11 12 IP Loaded
+SNET0 Cog4 ok
+
+
+
+boot.f - Loading httpserver.f
+SNET0 Cog4 ok
+
+SNET0 Cog4 ok
+
+SNET0 Cog4 ok
+
+SNET0 Cog4 ok
+
+boot.f - Starting telnet Server and http Server
+boot.f - DONE PropForth Loaded
+
+SNET0 Cog5 ok
+
+SNET0 Cog6 ok
+here W@ . cr
+27422 
+SNET0 Cog6 ok
+
+SNET0 Cog6 ok
+
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTPKernel.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPKernelResult.txt
+outputFileName: 
+
+SNET0 Cog6 ok
+
+SNET0 Cog6 ok
+here W@ . cr
+27598 
+SNET0 Cog6 ok
+Prop0 Cog6 ok
+here W@ . cr
+24068 
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/SnetFsrdSDHTTPKernel.txt
+   logFileName: TEST/results/runLogs/SnetFsrdSDHTTPKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/SnetFsrdSDHTTPKernelResult.txt
+outputFileName: 

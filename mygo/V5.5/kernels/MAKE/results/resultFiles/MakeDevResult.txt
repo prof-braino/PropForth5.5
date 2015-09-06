@@ -1,0 +1,1467 @@
+
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 12668 
+
+NFA (Forth/Asm Immediate eXecute) Name
+02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadBootOptimizeKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: -395973378 
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: 
+here W@ . cr
+13238 
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+[ifndef serflags?
+Prop0 Cog5 ok
+: serflags?
+cogio hC8 + L@
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef sersetflags
+Prop0 Cog5 ok
+: sersetflags
+cogio hC8 + L!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef sersendbreak
+Prop0 Cog5 ok
+: sersendbreak
+cogio hC4 + L!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+Prop0 Cog5 ok
+h4D wconstant $C_a_dovarl
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>1IMM
+Prop0 Cog5 ok
+h13 wconstant $C_a__xasm2>1IMM
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>1
+Prop0 Cog5 ok
+h16 wconstant $C_a__xasm2>1
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_doconl
+Prop0 Cog5 ok
+h52 wconstant $C_a_doconl
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_rsTop
+Prop0 Cog5 ok
+h112 wconstant $C_rsTop
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_stTop
+Prop0 Cog5 ok
+hF2 wconstant $C_stTop
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_stTOS
+Prop0 Cog5 ok
+hCB wconstant $C_stTOS
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_rsPtr
+Prop0 Cog5 ok
+hCA wconstant $C_rsPtr
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_stPtr
+Prop0 Cog5 ok
+hC9 wconstant $C_stPtr
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef lasti?
+Prop0 Cog5 ok
+: lasti?
+1 RS@ h2 RS@ 1+ =
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef #C
+Prop0 Cog5 ok
+: #C
+-1 >out W+! pad>out C!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef _nd
+Prop0 Cog5 ok
+: _nd
+base W@ d_40 over <
+if
+d_6
+else
+d_15 over <
+if
+d_8
+else
+d_9 over <
+if
+d_10
+else
+d_7 over <
+if
+d_11
+else
+d_6 over <
+if
+d_12
+else
+d_3 over <
+if
+d_16
+else
+d_32
+thens
+nip
+swap u/mod swap 0<>
+if
+1+
+then
+;
+Prop0 Cog5 ok
+] 
+Prop0 Cog5 ok
+[ifndef _ft
+Prop0 Cog5 ok
+: _ft
+h4 base W@ h_8 h_A between
+if
+1-
+then
+rot2
+<#
+_nd 0
+do
+#
+over i 1+ swap u/mod drop
+0=
+if
+lasti? 0=
+if
+h_5F #C
+then
+then
+loop
+#>
+nip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _bf
+Prop0 Cog5 ok
+: _bf
+4 _ft
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef .byte
+Prop0 Cog5 ok
+: .byte
+h_FF and _bf .cstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _wf
+Prop0 Cog5 ok
+: _wf
+h_FFFF and 2 _ft
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef .word
+Prop0 Cog5 ok
+: .word
+_wf .cstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _lf
+Prop0 Cog5 ok
+: _lf
+1 _ft
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef .long
+Prop0 Cog5 ok
+: .long
+_lf .cstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef xor
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 4-
+Prop0 Cog5 ok
+: 4- _xasm2>1IMM h0004 _cnip h10F _cnip ;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef 2*
+Prop0 Cog5 ok
+: 2* _xasm2>1IMM h0001 _cnip h05F _cnip ; 
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef 4/
+Prop0 Cog5 ok
+: 4/ _xasm2>1IMM h0002 _cnip h077 _cnip ;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef invert
+Prop0 Cog5 ok
+: invert
+-1 xor
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef decimal
+Prop0 Cog5 ok
+: decimal
+hA base W!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef ibound
+Prop0 Cog5 ok
+: ibound
+1 RS@
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _words
+Prop0 Cog5 ok
+: _words 
+0 >r lastnfa ." NFA (Forth/Asm Immediate eXecute) Name"
+begin
+2dup swap dup
+if
+npfx
+else
+2drop -1
+then
+if
+r> dup 0=
+if
+cr
+then
+1+ h3 and >r
+dup .word space dup C@ dup h80 and
+if
+h46 
+else
+h41
+then
+emit dup h40 and
+if
+h49
+else
+h20
+then
+emit h20 and
+if
+h58
+else
+h20
+then
+emit space dup .strname dup C@ namemax and h15 swap - 0 max spaces
+then
+nfa>next dup 0=
+until
+r> 3drop cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef words
+Prop0 Cog5 ok
+: words
+parsenw _words
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pinin
+Prop0 Cog5 ok
+: pinin
+>m invert dira COG@ and dira COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pinout
+Prop0 Cog5 ok
+: pinout
+>m dira COG@ or dira COG!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pinlo
+Prop0 Cog5 ok
+: pinlo
+>m _maskoutlo
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pinhi
+Prop0 Cog5 ok
+: pinhi
+>m _maskouthi
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef px
+Prop0 Cog5 ok
+: px
+swap
+if 
+pinhi
+else
+pinlo
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _sdai
+Prop0 Cog5 ok
+: _sdai
+h1D pinin
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _sdao
+Prop0 Cog5 ok
+: _sdao
+h1D pinout
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _scli
+Prop0 Cog5 ok
+: _scli
+h1C pinin
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _sclo
+Prop0 Cog5 ok
+: _sclo
+h1C pinout
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _sdal
+Prop0 Cog5 ok
+: _sdal
+h20000000 _maskoutlo
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _sdah
+Prop0 Cog5 ok
+: _sdah
+h20000000 _maskouthi
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _scll
+Prop0 Cog5 ok
+: _scll
+h10000000 _maskoutlo
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _sclh
+Prop0 Cog5 ok
+: _sclh
+h10000000 _maskouthi
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _sda?
+Prop0 Cog5 ok
+: _sda?
+h20000000 _maskin
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _eestart
+Prop0 Cog5 ok
+: _eestart
+_sclh _sclo _sdah _sdao _sdal _scll
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _eestop
+Prop0 Cog5 ok
+: _eestop
+_sclh _sdah _scll _scli _sdai
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef 1lock
+Prop0 Cog5 ok
+: 1lock 1 lock ;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef 1unlock
+Prop0 Cog5 ok
+: 1unlock 1 unlock ;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef eewritepage
+Prop0 Cog5 ok
+: eewritepage
+1lock
+1 max rot dup hFF and swap dup h8 rshift hFF and swap h10 rshift h7 and 1 lshift
+_eestart hA0 or _eewrite swap _eewrite or swap _eewrite or
+rot2 bounds
+do
+i C@ _eewrite or
+loop
+_eestop hA delms
+1unlock
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef EW!
+Prop0 Cog5 ok
+: EW!
+swap t0 W! t0 2 eewritepage
+if
+hA ERR
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef saveforth
+Prop0 Cog5 ok
+: saveforth
+c" wlastnfa" find
+if
+version W@ dup C@ + dup C@ 1+ swap C!
+pfa>nfa here W@ swap
+begin dup W@ over EW! 2+ dup h3F and 0= until
+do
+ibound i - h40 min dup i dup rot 
+eewritepage if hA ERR then _p? if h2E emit then
++loop  
+else
+drop
+then
+_p?
+if
+cr
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: st?
+." ST: " $C_stPtr COG@ 2+ dup $C_stTop <
+if
+$C_stTop swap - 0
+do
+$C_stTop 2- i -  COG@ dup 0<
+if
+base W@ hA = if h2D emit negate then
+then
+.long space
+loop
+else
+drop
+then
+cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef sc
+Prop0 Cog5 ok
+: sc
+$C_stTop $C_stPtr COG@ - 3 -
+_p?
+if
+dup .
+." items cleared" cr
+then
+dup 0>
+if
+0
+do
+drop
+loop
+else
+drop
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: _pna
+
+dup .word h3A emit W@ dup .word space pfa>nfa .strname space
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef pfa?
+Prop0 Cog5 ok
+: pfa?
+dup pfa>nfa dup C@ dup h80 and 0= swap namemax and 0<> rot nfa>pfa rot
+if
+W@
+then
+rot = and
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: rs?
+." RS: " $C_rsTop $C_rsPtr COG@ 1+ - 0
+do
+$C_rsTop 1- i - COG@ dup 2- W@ pfa?
+if
+2- _pna
+else
+.long space
+then
+loop
+cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef lock?
+Prop0 Cog5 ok
+: lock?
+h8 0
+do
+_lockarray i + C@
+dup
+h4 rshift
+swap hF and
+." Lock: " i .
+2dup h8 < swap 0> and
+if
+."   Locking cog: " . 
+."   Lock count: " .
+else
+2drop
+then
+cr
+loop
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef variable
+Prop0 Cog5 ok
+: variable
+lockdict create $C_a_dovarl w, 0 l, forthentry freedict
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef constant
+Prop0 Cog5 ok
+: constant
+lockdict create $C_a_doconl w, l, forthentry freedict
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef abs
+Prop0 Cog5 ok
+: abs
+_xasm1>1 h151 _cnip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef andC!
+Prop0 Cog5 ok
+: andC!
+dup C@ rot and swap C!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef rev
+Prop0 Cog5 ok
+: rev
+_xasm2>1 h079 _cnip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef revb
+Prop0 Cog5 ok
+: revb
+h18 rev
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef px?
+Prop0 Cog5 ok
+: px?
+>m _maskin
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef waitcnt
+Prop0 Cog5 ok
+: waitcnt
+_xasm2>1 h1F1 _cnip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef waitpeq
+Prop0 Cog5 ok
+: waitpeq
+_xasm2>0 h1E0 _cnip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef waitpne
+Prop0 Cog5 ok
+: waitpne
+_xasm2>0 h1E8 _cnip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef j
+Prop0 Cog5 ok
+: j
+$C_rsPtr COG@ h5 + COG@
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef u*/mod
+Prop0 Cog5 ok
+: u*/mod
+rot2 um* rot um/mod
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef u*/
+Prop0 Cog5 ok
+: u*/
+rot2 um* rot um/mod nip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef sign
+Prop0 Cog5 ok
+: sign
+xor h80000000 and
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef *
+Prop0 Cog5 ok
+: * um*
+drop
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef */mod
+Prop0 Cog5 ok
+: */mod
+2dup sign >r abs rot dup r> sign
+>r abs rot abs um* rot um/mod r>
+if
+negate swap negate swap
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef */
+Prop0 Cog5 ok
+: */
+*/mod nip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef /mod
+Prop0 Cog5 ok
+: /mod
+2dup sign >r abs swap abs swap u/mod r>
+if
+negate swap negate swap
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef /
+Prop0 Cog5 ok
+: /
+/mod nip
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef (forget)
+Prop0 Cog5 ok
+: (forget)
+dup
+if
+find
+if
+pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+else
+_p?
+if
+.cstr h3F emit cr
+then
+then
+else
+drop
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef forget
+Prop0 Cog5 ok
+: forget
+parsenw (forget)
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef eereadpage 
+Prop0 Cog5 ok
+: eereadpage
+1lock
+1 max rot dup hFF and swap dup
+h8 rshift hFF and swap h10 rshift h7 and
+1 lshift dup >r
+_eestart hA0 or _eewrite swap _eewrite or swap _eewrite or
+_eestart r> hA1 or _eewrite or
+rot2 bounds
+do
+lasti? _eeread i C!
+loop
+_eestop
+1unlock
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef EW@
+Prop0 Cog5 ok
+: EW@
+t0 2 eereadpage
+if
+hB ERR 
+then
+t0 W@
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef EC@
+Prop0 Cog5 ok
+: EC@
+EW@ hFF and
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef (dumpb)
+Prop0 Cog5 ok
+: (dumpb)
+cr over .word space dup .word _ecs bounds
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: (dumpm)
+cr .word _ecs
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef (dumpe)
+Prop0 Cog5 ok
+: (dumpe)
+tbuf h10 bounds
+do
+i C@ .byte space
+loop
+h2 spaces tbuf h10 bounds
+do
+i C@ dup bl h7E between invert if drop h2E then emit
+loop
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef dump
+Prop0 Cog5 ok
+: dump
+(dumpb)
+do
+i  (dumpm)
+i tbuf h10 cmove
+(dumpe)
+h10 +loop
+cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef edump
+Prop0 Cog5 ok
+: edump
+(dumpb)
+do
+i (dumpm)
+i tbuf h10 eereadpage
+if
+tbuf h10 0 fill 
+then
+(dumpe)
+h10 +loop
+cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: cogdump
+cr over .word space dup .word _ecs bounds
+do
+cr i .word _ecs i h4 bounds
+do
+i COG@ .long space
+loop
+h4 +loop
+cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .cogch
+Prop0 Cog5 ok
+: .cogch
+dup -1 =
+if
+2drop ." X(X)"
+else
+<# h29 #C # h28 #C drop # #> .cstr
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef io>coghan
+Prop0 Cog5 ok
+: io>cogchan
+dup $H_cogdata dup $S_cdsz 3 lshift + between
+if
+$H_cogdata - $S_cdsz u/mod h7 and dup cognchan rot h4 u/ min
+else
+drop -1 dup
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: cog?
+h8 0
+do
+." Cog:" i dup . ."  #io chan:" dup cognchan .
+cogcds W@  version W@ C@ over C@ - spaces .cstr
+i cogio i cognchan 0
+do
+i 4* over + 2+ W@ dup 0=
+if
+drop
+else
+space space j i .cogch ." ->" io>cogchan .cogch 
+then
+loop
+drop
+cr
+loop
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef build?
+Prop0 Cog5 ok
+: build?
+cr
+c" build_" _words
+cr
+version W@ .cstr cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef free
+Prop0 Cog5 ok
+: free
+dictend W@ here W@ - . ." bytes free - " par coghere W@ - . ." cog longs free" cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef rnd
+Prop0 Cog5 ok
+: rnd
+cnt COG@ h8 rshift cnt COG@ xor hFF and
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef rndtf
+Prop0 Cog5 ok
+: rndtf
+rnd h7F >
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .conwait
+Prop0 Cog5 ok
+: .conwait
+$S_con cogio h200 0
+do
+dup W@ h100 and
+if
+leave
+then
+loop
+drop
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef .conemit
+Prop0 Cog5 ok
+: .conemit
+.conwait
+$S_con cogio W!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .concstr
+Prop0 Cog5 ok
+: .concstr
+C@++ dup
+if
+bounds
+do
+i C@ .conemit
+loop
+else
+2drop
+then
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .con
+Prop0 Cog5 ok
+: .con <# #s #> .concstr bl .conemit ; ]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .concr
+Prop0 Cog5 ok
+: .concr
+hD .conemit
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .conbyte
+Prop0 Cog5 ok
+: .conbyte
+_bf .concstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .conword
+Prop0 Cog5 ok
+: .conword
+_wf .concstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .conlong
+Prop0 Cog5 ok
+: .conlong
+_lf .concstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef .const?
+Prop0 Cog5 ok
+: .const?
+c" ST: " .concstr $C_stPtr COG@ 2+ dup $C_stTop <
+if
+$C_stTop swap - 0
+do
+$C_stTop 2- i -  COG@
+dup 0<
+if
+base W@ hA = if h2D .conemit negate then
+then
+.conlong bl .conemit
+loop
+else
+drop
+then
+.concr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" onreset" find drop pfa>nfa 1+ c" onre001" C@++ rot swap cmove
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: onreset
+dup onre001
+_p? swap
+dup 0= if c"  ok" else
+dup 1 = if c"  MAIN STACK OVERFLOW" else
+dup h2 = if c"  RETURN STACK OVERFLOW" else
+dup h3 = if c"  MAIN STACK UNDERFLOW" else
+dup h4 = if c"  RETURN STACK UNDERFLOW" else
+dup h5 = if c"  OUT OF FREE COGS" else
+dup h6 = if c"  LOCK COUNT OVERFLOW" else
+dup h7 = if c"  LOCK TIMEOUT" else
+dup h8 = if c"  UNLOCK ERROR" else
+dup h9 = if c"  OUT OF FREE MAIN MEMORY" else
+dup hA = if c"  EEPROM WRITE ERROR" else
+dup hB = if c"  EEPROM READ ERROR" else
+c"  UNKNOWN ERROR "
+thens 
+rot
+if
+_p?
+if
+prop W@ pad ccopy
+propid W@ <# #s #> pad cappend
+c"  Cog" pad cappend
+cogid pad cappendn
+c"  RESET - last status: " pad cappend
+swap <# #s #> pad cappend
+pad cappend
+
+2lock
+.concr c" CON:" .concstr pad .concstr .concr
+cr pad .cstr cr
+2unlock
+padbl
+else
+2drop
+then
+else
+2drop
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl
+Prop0 Cog5 ok
+1 wconstant build_spinimage
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lastnfa nfa>lfa W@ wconstant imageLastnfa
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" wlastnfa" find drop pfa>nfa nfa>lfa wconstant imageStart
+Prop0 Cog5 ok
+c" build_spinimage" find drop  pfa>nfa nfa>lfa wconstant imageEnd
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" fstart" find drop wconstant fstartPFA
+Prop0 Cog5 ok
+c" _finit" find drop wconstant _finitPFA
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifdef neverever
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 2*
+.
+.
+]
+Prop0 Cog5 ok
+wvariable numConstantsOfInterest 0 numConstantsOfInterest W!
+Prop0 Cog5 ok
+lockdict wvariable ConstantsOfInterest 100 2* allot freedict
+Prop0 Cog5 ok
+: findConstantsOfInterest
+lastnfa
+begin
+c" $S_" over swap
+npfx
+if
+dup nfa>pfa dup W@ $C_a_doconw =
+if
+2+
+ConstantsOfInterest numConstantsOfInterest W@ 2* + W!
+numConstantsOfInterest W@ 1+ 
+100 min numConstantsOfInterest W!
+else
+drop
+then
+then
+nfa>lfa W@ dup 0=
+until
+
+
+;
+Prop0 Cog5 ok
+: isConstantOfInterest?
+numConstantsOfInterest W@ 0<>
+if
+0 swap
+numConstantsOfInterest W@ 0
+do
+i 2* ConstantsOfInterest + W@ over =
+if
+nip -1 swap leave
+then
+loop
+drop
+else
+drop 0
+then
+; 
+Prop0 Cog5 ok
+: spinImage
+findConstantsOfInterest
+base W@ hex
+lastnfa W@
+here W@ 
+imageEnd here W!
+imageLastnfa wlastnfa W!
+." ~h0D~h0DForthDictStart~h0D~h0D"
+." ~h0D' " imageStart .
+." ~h0D  word $" imageStart W@ .
+imageEnd imageStart 2+
+do
+i _finitPFA =
+if
+." ~h0D~h0D_finitPFA~h0D~h0D  word $" i W@ .
+else
+
+i fstartPFA =
+if
+." ~h0D~h0DfstartPFA~h0D~h0D  word $" i W@ .
+else
+
+i isConstantOfInterest?
+if
+
+." ~h0D~h0D  word dlr"
+i 2- pfa>nfa namelen 1- swap 1+ swap .str
+else
+
+i h1F and 0=
+if
+." ~h0D' " i .
+." ~h0D  word $" i W@ .
+else
+." , $" i W@ .
+thens
+2 +loop
+cr cr
+here W!
+lastnfa W!
+
+memend W@ 2- imageEnd
+."   word "
+do
+i h3F and 0=
+if
+." 0~h0D' " i .
+." ~h0D  word "
+else
+." 0, "
+then
+2 +loop
+." 0~h0D~h0D~h0D"
+base W!  
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: MAKE/results/outputFiles/DevKernel.spin
+
+ scriptFileName: MAKE/scripts/MakeDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeDevKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeDevResult.txt
+outputFileName: 

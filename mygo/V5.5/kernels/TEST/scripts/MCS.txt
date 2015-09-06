@@ -1,0 +1,17 @@
+	t 1000
+
+\ Load mcs.f
+		X 1 wconstant mcs_dbg
+		scr fl
+		S MAKE/src/optimize/dev/mcs.f
+
+		X test_mcs
+		X d
+		X e 8
+		X f
+		X g
+		X q
+		X
+
+
+

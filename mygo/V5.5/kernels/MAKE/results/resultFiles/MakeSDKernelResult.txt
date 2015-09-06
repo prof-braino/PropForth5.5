@@ -1,0 +1,1706 @@
+
+ scriptFileName: MAKE/scripts/MakeSDKernel.txt
+   logFileName: MAKE/results/runLogs/MakeSDKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDKernelResult.txt
+outputFileName: 
+hA state orC! c" hA state orC!" 5 cogx
+
+here: 13238 
+
+NFA (Forth/Asm Immediate eXecute) Name
+10_510 F   build_BootOpt        02_690 F   build_BootKernel     
+
+PropForth v5.5 2013Feb20 11:30 0
+
+
+
+ scriptFileName: MAKE/scripts/LoadDevKernel.txt
+   logFileName: MAKE/results/runLogs/MakeSDKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDKernelResult.txt
+outputFileName: 
+EEpromUtils Loading 1 2 3 4 5 6 7 8 9 10 11 12 EEpromUtils Loaded
+
+Writing EEPROM:
+1024 2048 3072 4096 5120 6144 7168 8192 
+9216 10240 11264 12288 13312 14336 15360 16384 
+17408 18432 19456 20480 21504 22528 23552 24576 
+25600 26624 27648 28672 29696 30720 31744 32768 
+EEPROM Sum: 977719070 
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+
+ scriptFileName: MAKE/scripts/MakeSDKernel.txt
+   logFileName: MAKE/results/runLogs/MakeSDKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDKernelResult.txt
+outputFileName: 
+here W@ . cr
+17596 
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+c" Loading sdcommon.f ..." .cstr
+Loading sdcommon.f ...Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef variable
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef invert
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinin
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinout
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinlo
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef pinhi
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef px?
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+coghere W@ wconstant v_sdbase
+Prop0 Cog5 ok
+v_sdbase wconstant v_sd_do
+Prop0 Cog5 ok
+v_sd_do 1+ wconstant v_sd_di
+Prop0 Cog5 ok
+v_sd_di 1+ wconstant v_sd_clk
+Prop0 Cog5 ok
+v_sd_clk 1+ wconstant v_currentdir
+Prop0 Cog5 ok
+v_currentdir 1+ wconstant sd_cogbuf
+Prop0 Cog5 ok
+sd_cogbuf h80 + wconstant _sd_cogend
+Prop0 Cog5 ok
+: sd_cogbufclr
+sd_cogbuf h80 bounds
+do
+0 i COG!
+loop
+; 
+Prop0 Cog5 ok
+wvariable _sd_initialized 0 _sd_initialized W!
+Prop0 Cog5 ok
+: sd_lock
+h3 lock
+;
+Prop0 Cog5 ok
+: sd_unlock
+h3 unlock
+;
+Prop0 Cog5 ok
+wvariable _sd_ccs 0 _sd_ccs W!
+Prop0 Cog5 ok
+wvariable _sd_hc 0 _sd_hc W!
+Prop0 Cog5 ok
+variable _sd_maxblock 0 _sd_maxblock L!
+Prop0 Cog5 ok
+[ifndef $S_sd_cs
+Prop0 Cog5 ok
+19 wconstant $S_sd_cs
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef $S_sd_di
+Prop0 Cog5 ok
+20 wconstant $S_sd_di
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef $S_sd_clk
+Prop0 Cog5 ok
+21 wconstant $S_sd_clk
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef $S_sd_do
+Prop0 Cog5 ok
+16 wconstant $S_sd_do
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+: sd_uninit
+_sd_cogend v_sdbase
+do
+0 i COG!
+loop 
+v_sdbase coghere W!
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sd_init
+[ifdef _sd_debug
+.
+.
+.
+]
+_sd_cogend coghere W!
+$S_sd_di  dup pinlo pinout
+$S_sd_clk dup pinlo pinout
+$S_sd_do            pinin
+$S_sd_cs  dup pinlo pinout
+$S_sd_di  >m v_sd_di COG!
+$S_sd_do  >m v_sd_do COG!
+$S_sd_clk >m v_sd_clk COG!
+lockdict
+_sd_initialized W@ 0=
+if
+c" _sd_init" find
+if
+sd_lock
+execute
+-1 _sd_initialized W!
+sd_unlock
+else
+drop
+then
+then
+freedict
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+c" Loaded sdcommon.f~h0D" .cstr
+Loaded sdcommon.f
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create a_shift forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h133  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z20yP[i l, z1SF03C l, z2WyQ88 l, zfyPOO l, z1SV04Q l, z2WyQ8W l, zoyPO1 l, 
+Prop0 Cog5 ok
+z1jix\1 l, z1bix\2 l, z1[ix\2 l, z3[yQCQ l, z1[ix\1 l, z1SyLI[ l, z1SV04h l, z2WyQ88 l, 
+Prop0 Cog5 ok
+z1SV04\ l, z2WyQ8W l, z1SyJQL l, z2WyPO0 l, z1bix\1 l, z1bix\2 l, z1XFb7l l, znyPO1 l, 
+Prop0 Cog5 ok
+z1[ix\2 l, z3[yQCb l, z1[ix\1 l, z1SV01X l, z1SV04M l, z1SV04P l, z1SV04Y l, z1SV04[ l, 
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create mem>cog forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z2WiPmC l, z1SyLIZ l, z8iPeB l, z1KiZJC l, z20yPW1 l, z20yPO4 l, z2WiPZD l, 
+Prop0 Cog5 ok
+z3[yPnM l, z1SyLI[ l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lockdict create cog>mem forthentry
+Prop0 Cog5 ok
+$C_a_lxasm w, h11E  h113  1- tuck - h9 lshift or here W@ alignl h10 lshift or l,
+Prop0 Cog5 ok
+z1SyLIZ l, z2WiPmC l, z1SyLIZ l, z1GiZ3C l, z20yPW1 l, z2WiPeC l, z8FPeB l, z20yPO4 l, 
+Prop0 Cog5 ok
+z3[yPnM l, z1SyLI[ l, z1SV01X l, 
+Prop0 Cog5 ok
+freedict
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+c" Loading sdinit.f ..." .cstr
+Loading sdinit.f ...Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef (forget)
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef forget
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 4/
+.
+.
+]
+Prop0 Cog5 ok
+: _sd_cs_out $S_sd_cs pinout ;
+Prop0 Cog5 ok
+: _sd_di_out $S_sd_di pinout ;
+Prop0 Cog5 ok
+: _sd_clk_out $S_sd_clk pinout ;
+Prop0 Cog5 ok
+: _sd_do_in $S_sd_do pinin ;
+Prop0 Cog5 ok
+: _sd_cs_out_l $S_sd_cs pinlo ;
+Prop0 Cog5 ok
+: _sd_cs_out_h $S_sd_cs pinhi ;
+Prop0 Cog5 ok
+: _sd_di_out_l $S_sd_di pinlo ;
+Prop0 Cog5 ok
+: _sd_di_out_h $S_sd_di pinhi ;
+Prop0 Cog5 ok
+: _sd_clk_out_l $S_sd_clk pinlo ;
+Prop0 Cog5 ok
+: _sd_clk_out_h $S_sd_clk pinhi ;
+Prop0 Cog5 ok
+: _sd_shift_out
+h80 h8 0
+do
+2dup and
+if
+_sd_di_out_h
+else
+_sd_di_out_l
+then
+1 rshift
+_sd_clk_out_l _sd_clk_out_h
+loop
+2drop
+_sd_clk_out_l
+_sd_di_out_l
+;
+Prop0 Cog5 ok
+: _sd_shift_outlong
+dup h18 rshift _sd_shift_out
+dup h10 rshift _sd_shift_out
+dup h8 rshift _sd_shift_out
+_sd_shift_out
+;
+Prop0 Cog5 ok
+: _sd_shift_in
+_sd_di_out_h
+0 h8 0
+do
+1 lshift
+_sd_clk_out_l _sd_clk_out_h
+$S_sd_do px?
+if
+1 or
+then
+loop
+_sd_clk_out_l
+_sd_di_out_l
+; 
+Prop0 Cog5 ok
+: _sd_shift_inlong
+_sd_shift_in h8 lshift
+_sd_shift_in or h8 lshift
+_sd_shift_in or h8 lshift
+_sd_shift_in or
+;
+Prop0 Cog5 ok
+: _sd_readdata
+[ifdef _sd_debug
+.
+.
+]
+h200 min 4/
+0 h4000 0
+do
+_sd_shift_in
+hFE =
+if
+drop -1 leave
+then
+loop
+if
+sd_cogbuf swap bounds
+do
+_sd_shift_inlong i COG!
+loop
+_sd_shift_inlong hFFFF and hFFFF <>
+if
+hA2 ERR
+then
+else
+hA3 ERR
+then
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+: _sd_writedata
+[ifdef _sd_debug
+.
+.
+]
+h200 min h4 max 4/
+hFE _sd_shift_out
+sd_cogbuf swap bounds
+do
+i COG@
+_sd_shift_outlong
+loop
+-1 dup _sd_shift_out _sd_shift_out
+h10000 0
+do
+_sd_shift_in
+dup hFF <>
+if
+leave
+else
+drop
+then 
+loop
+h7 and h5 <>
+if
+hA4 ERR
+then
+h10000 0
+do
+_sd_shift_in
+dup hFF =
+if
+leave
+else
+drop
+then 
+loop
+hFF <>
+if
+hA5 ERR
+then
+;
+Prop0 Cog5 ok
+: _sd_cmdr8
+[ifdef _sd_debug
+.
+.
+]
+_sd_shift_in drop
+h3F and h40 or
+_sd_shift_out
+_sd_shift_outlong
+_sd_shift_out
+-1 h10 0
+do
+_sd_shift_in dup hFF <>
+if
+nip leave
+else
+drop
+then
+loop
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+: _sd_cmdr16
+[ifdef _sd_debug
+.
+.
+]
+_sd_cmdr8 h8 lshift _sd_shift_in or
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+: _sd_cmdr8data
+[ifdef _sd_debug
+.
+.
+]
+_sd_cmdr8
+dup 0=
+if
+swap _sd_readdata
+then
+;
+Prop0 Cog5 ok
+: _sd_cmdr40
+[ifdef _sd_debug
+.
+.
+]
+_sd_cmdr8 _sd_shift_inlong
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+: _sd_init
+[ifdef _sd_debug
+.
+.
+]
+-1 h8 0
+do
+_sd_di_out_h
+_sd_clk_out_h
+_sd_cs_out_h
+h1000 0
+do
+_sd_clk_out_l _sd_clk_out_h
+loop
+_sd_cs_out_l
+h95 0 0 _sd_cmdr8
+1 =
+if
+drop 0 leave
+then
+loop
+if
+hA6 ERR
+then
+-1 h8 0
+do
+h87 h1AA h8 _sd_cmdr40
+h1AA = swap 1 = and
+if
+drop 0 leave
+then
+loop
+if
+hA7 ERR
+then
+-1 h100 0
+do
+1 0 h37 _sd_cmdr8
+drop
+
+1 h40000000 h29 _sd_cmdr8
+0=
+if
+drop 0 leave
+then
+loop
+if
+-1 h100 0
+do
+1 0 h37 _sd_cmdr8
+drop
+1 0 h29 _sd_cmdr8
+0=
+if
+drop 0 leave
+then
+loop
+if
+hA8 ERR
+then
+then
+1 0 h3A _sd_cmdr40
+swap 0<> over h80000000 and 0= or
+if
+hA9 ERR
+then
+h40000000 and 0<> _sd_ccs W!
+
+_sd_ccs W@ 0=
+if
+1 h200 h10 _sd_cmdr8
+if
+hAA ERR
+then
+then
+h10 1 0 h9 _sd_cmdr8data
+if
+hAB ERR
+then
+sd_cogbuf COG@
+h40000000 and
+if
+1 _sd_hc W!
+sd_cogbuf 1+ COG@ h3F and h10 lshift
+sd_cogbuf 2+ COG@ h10 rshift or 1+
+hA lshift _sd_maxblock L! 
+else
+0 _sd_hc W!
+sd_cogbuf 1+ COG@ h10 rshift hF and >m
+sd_cogbuf 1+ COG@ h3FF and h2 lshift
+sd_cogbuf 2+ COG@ h1E rshift or 1+
+sd_cogbuf 2+ COG@ hF rshift h7 and 2+ >m
+u* u* h200 u/ _sd_maxblock L!
+then
+[ifdef _sd_debug
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+;
+Prop0 Cog5 ok
+c" Loaded sdinit.f~h0D" .cstr
+Loaded sdinit.f
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+c" Loading sdrun.f ..." .cstr
+Loading sdrun.f ...Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef 4/
+.
+.
+]
+Prop0 Cog5 ok
+: sd_cogbufclr
+sd_cogbuf h80 bounds
+do
+0 i COG!
+loop
+;
+Prop0 Cog5 ok
+: _sd_shift_out
+0 a_shift
+;
+Prop0 Cog5 ok
+: _sd_shift_outlong
+1 a_shift
+;
+Prop0 Cog5 ok
+: _sd_shift_in
+h2 a_shift
+;
+Prop0 Cog5 ok
+: _sd_shift_inlong
+h3 a_shift
+;
+Prop0 Cog5 ok
+[ifdef _sd_debug
+.
+.
+]
+Prop0 Cog5 ok
+: _sd_readdata
+[ifdef _sd_debug
+.
+.
+.
+]
+h200 min 4/
+0 h4000 0
+do
+_sd_shift_in
+hFE =
+if
+drop -1 leave
+then
+loop
+[ifdef _sd_debug
+.
+.
+]
+if
+sd_cogbuf swap bounds
+do
+_sd_shift_inlong i COG!
+loop
+[ifdef _sd_debug
+.
+.
+]
+_sd_shift_inlong hFFFF and hFFFF <>
+if
+hA2 ERR
+then
+
+else
+hA3 ERR
+then
+[ifdef _sd_debug
+.
+.
+.
+]
+;
+Prop0 Cog5 ok
+: _sd_writedata
+[ifdef _sd_debug
+.
+.
+.
+]
+h200 min h4 max 4/
+hFE _sd_shift_out
+sd_cogbuf swap bounds
+do
+i COG@
+_sd_shift_outlong
+loop
+-1 dup _sd_shift_out _sd_shift_out
+h10000 0
+do
+_sd_shift_in
+dup hFF <>
+if
+leave
+else
+drop
+then 
+loop
+h7 and h5 <>
+if
+hA4 ERR
+then
+[ifdef _sd_debug
+.
+.
+]
+h10000 0
+do
+_sd_shift_in
+dup hFF =
+if
+leave
+else
+drop
+then 
+loop
+hFF <>
+[ifdef _sd_debug
+.
+.
+]
+if
+hA5 ERR
+then
+;
+Prop0 Cog5 ok
+: _sd_cmdr8
+[ifdef _sd_debug
+.
+.
+]
+_sd_shift_in drop
+h3F and h40 or
+_sd_shift_out
+_sd_shift_outlong
+_sd_shift_out
+-1 h10 0
+do
+_sd_shift_in dup hFF <>
+if
+nip leave
+else
+drop
+then
+loop
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+: _sd_cmdr16
+[ifdef _sd_debug
+.
+.
+]
+_sd_cmdr8 8 lshift _sd_shift_in or
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+: _sd_cmdr8data
+[ifdef _sd_debug
+.
+.
+.
+]
+_sd_cmdr8
+dup 0=
+if
+swap _sd_readdata
+then
+;
+Prop0 Cog5 ok
+: _sd_cmdr40
+[ifdef _sd_debug
+.
+.
+]
+_sd_cmdr8 _sd_shift_inlong
+[ifdef _sd_debug
+.
+.
+]
+;
+Prop0 Cog5 ok
+: sd_blockread
+[ifdef _sd_debug
+.
+.
+.
+]
+sd_lock
+h200 1
+rot _sd_ccs W@ 0=
+if
+h9 lshift
+then
+h11
+_sd_cmdr8data
+if
+hAC ERR
+then
+sd_unlock
+[ifdef _sd_debug
+.
+.
+.
+.
+.
+]
+;
+Prop0 Cog5 ok
+: sd_blockwrite
+[ifdef _sd_debug
+.
+.
+.
+]
+sd_lock
+h200 1
+rot _sd_ccs W@ 0=
+if
+h9 lshift
+then
+h18
+[ifdef _sd_debug
+.
+.
+]
+
+_sd_cmdr8
+if
+hAD ERR
+else
+_sd_writedata
+then
+[ifdef _sd_debug
+.
+.
+]
+1 0 hD _sd_cmdr16
+if
+hAE ERR
+then
+sd_unlock
+[ifdef _sd_debug
+.
+.
+.
+.
+]
+;
+Prop0 Cog5 ok
+c" Loaded sdrun.f~h0D" .cstr
+Loaded sdrun.f
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+fl 
+Prop0 Cog5 ok
+c" Loading sdfs.f ..." .cstr
+Loading sdfs.f ...Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 .
+1 Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+2 .
+2 Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+3 .
+3 Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef #C
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef _nf
+Prop0 Cog5 ok
+: _nf
+<# bl #C # # # h2C #C # # # h2C #C # # #  h2C #C # # # #>
+dup C@++ bounds
+do
+i C@ dup isdigit swap todigit 0<> and  
+if
+leave
+
+else
+bl i C!
+then
+loop
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef .num
+Prop0 Cog5 ok
+: .num
+_nf .cstr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef pad>cog
+Prop0 Cog5 ok
+: pad>cog 
+pad swap h20 mem>cog
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef tbuf>cog7
+Prop0 Cog5 ok
+: tbuf>cog7
+tbuf swap h7 mem>cog
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef cog>pad
+Prop0 Cog5 ok
+: cog>pad
+pad swap h20 cog>mem
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef cog>tbuf7
+Prop0 Cog5 ok
+: cog>tbuf7
+tbuf swap h7 cog>mem
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+[ifndef _fnf
+Prop0 Cog5 ok
+: _fnf
+cr ." FILE NOT FOUND" cr
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+4 .
+4 Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sd_mount
+sd_init v_currentdir COG!
+;
+Prop0 Cog5 ok
+: sd_cwd
+v_currentdir COG@ sd_blockread
+sd_cogbuf cog>pad
+;
+Prop0 Cog5 ok
+: _sd_initdir
+sd_cogbuf h80 bounds
+do
+h20202020 i COG!
+loop
+sd_cogbuf h80 bounds
+do
+h20202000 i COG!
+0 i h7 + COG!
+h8 +loop
+1+ h80 bounds
+do
+i sd_blockwrite
+loop
+;
+Prop0 Cog5 ok
+: _sd_alloc
+v_currentdir COG@ sd_blockread
+sd_cogbuf h2E + COG@
+sd_lock
+dup sd_blockread swap
+sd_cogbuf h36 + COG@ tuck
++ dup sd_cogbuf h36 + COG!
+sd_cogbuf h33 + COG@ <
+if
+swap sd_blockwrite
+else
+hFD ERR  
+then
+sd_unlock
+;
+Prop0 Cog5 ok
+: _sd_hash
+tbuf h20 bl fill tbuf ccopy
+0 tbuf h1C bounds
+do
+i L@ xor 
+h4 +loop
+dup h10 rshift xor dup h8  rshift xor h7F and
+;
+Prop0 Cog5 ok
+: _sd_setdirentry
+over _sd_hash
+h80 0
+do
+dup i + h7F and v_currentdir COG@ 1+ +
+sd_lock
+dup sd_blockread
+sd_cogbuf h80 bounds
+do
+i COG@ h20202000 =
+if
+i tbuf>cog7
+rot i h7 + COG!
+dup sd_blockwrite
+0 rot2 leave
+then
+h8 +loop
+sd_unlock
+drop
+over 0=
+if
+leave
+then
+loop
+drop nip
+0<>
+if
+hFE ERR
+then
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+5 .
+5 Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sd_find
+dup _sd_hash -1
+h80 0
+do        
+over i + h7F and v_currentdir COG@ 1+ +
+sd_blockread
+sd_cogbuf h80 bounds
+do
+i COG@ h20202000 =
+if
+drop 0 leave
+else
+i cog>tbuf7 rot dup tbuf cstr=
+if
+rot2 drop i h7 + COG@ leave
+else
+rot2
+then
+then
+h8 +loop
+dup -1 <>
+if
+leave
+then
+loop
+nip nip
+;
+Prop0 Cog5 ok
+: sd_createfile
+over sd_find dup
+if
+nip nip
+dup sd_blockread
+else
+drop
+
+tuck
+_sd_alloc tuck
+_sd_setdirentry
+v_currentdir COG@ sd_blockread
+sd_cogbuf cog>pad
+tbuf pad cappend
+sd_cogbuf pad>cog padbl
+sd_cogbuf h20 + tbuf>cog7
+0 sd_cogbuf h2A + COG! 
+swap sd_cogbuf h2B + COG!
+v_currentdir COG@ sd_cogbuf h2F + COG!
+h20202020 sd_cogbuf h36 + COG!
+dup sd_blockwrite
+then
+;
+Prop0 Cog5 ok
+: sd_createdir
+dup C@++ + 1- C@ h2F <>
+if
+hFA ERR
+then
+dup sd_find dup
+if
+nip
+else
+drop
+sd_lock
+h81 sd_createfile
+dup _sd_initdir
+sd_unlock
+then
+;
+Prop0 Cog5 ok
+: sd_ls
+v_currentdir COG@ 1+ h80 bounds
+do
+i sd_blockread
+sd_cogbuf h80 bounds
+do
+i COG@ h20202000 <>
+if
+i h7 + COG@ .
+tbuf i h7 bounds
+do i COG@ over L! 4+ loop drop
+tbuf .cstr cr
+then
+h8 +loop
+loop
+;
+Prop0 Cog5 ok
+: sd_cd..
+v_currentdir COG@ sd_blockread
+sd_cogbuf h2F + COG@ v_currentdir COG!
+;
+Prop0 Cog5 ok
+: sd_cd
+dup C@++ + 1- C@ h2F <>
+if
+hFA ERR
+then
+sd_find dup 0<>
+if
+v_currentdir COG!
+else
+drop
+then
+;
+Prop0 Cog5 ok
+[ifndef _fsk
+Prop0 Cog5 ok
+: _fsk
+h8 lshift key or
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+6 .
+6 Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sd_write
+0 t0 L!
+over 1+ sd_createfile
+sd_cogbuf h2B + COG@ 1- h200 u* tbuf L!
+dup 1+
+rot
+key _fsk _fsk _fsk
+rot2 bounds
+do
+sd_cogbuf h80 bounds
+do
+pad h80 bounds
+do
+h2E2E2E0D over =
+if
+leave
+else
+dup h18 rshift
+dup emit
+i C!
+t0 L@ dup tbuf L@ <
+if
+1+ t0 L! _fsk
+else
+2drop h2E2E2E0D leave
+then
+then
+loop
+i pad>cog
+h2E2E2E0D over =
+if
+leave
+then
+h20 +loop
+i sd_blockwrite
+h2E2E2E0D over =
+if
+leave
+then
+loop
+drop dup sd_blockread
+t0 L@ sd_cogbuf h2A + COG!
+sd_blockwrite
+padbl
+;
+Prop0 Cog5 ok
+: sd_readblk
+dup
+if
+dup sd_blockread 1+
+sd_cogbuf h2A + COG@
+h200 u/mod
+rot swap
+dup
+if
+2dup bounds
+do
+i sd_blockread
+sd_cogbuf h80 bounds
+do
+i cog>pad
+pad h80 .str
+h20 +loop
+loop
+then
++ sd_blockread
+sd_cogbuf h80 bounds
+do
+i
+cog>pad
+pad over h80 min
+.str
+h80 -
+dup 0 <=
+if
+leave
+then
+h20 +loop
+drop    
+else
+drop
+then
+padbl
+;
+Prop0 Cog5 ok
+: sd_read
+sd_find sd_readblk
+;
+Prop0 Cog5 ok
+: sd_load
+cogid nfcog iolink
+sd_read cr cr
+cogid iounlink
+;
+Prop0 Cog5 ok
+: sd_loadblk
+cogid nfcog iolink
+sd_readblk cr cr
+cogid iounlink
+;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+7 .
+7 Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sd_trunc
+sd_find dup
+if
+dup sd_blockread
+swap sd_cogbuf h2B + COG@ h200 u* min
+sd_cogbuf h2A + COG!
+sd_blockwrite
+else
+drop
+then
+padbl
+;
+Prop0 Cog5 ok
+: sd_stat
+sd_find dup
+if
+sd_blockread
+." File Length:~h09~h09" sd_cogbuf h2A + COG@
+dup h200 u/mod swap if 1+ then .num ."  blocks " .num ."  bytes~h0D"
+." Num Blocks Allocated:~h09" sd_cogbuf h2B + COG@
+dup .num ."  blocks " h200 u* .num ."  bytes~h0D"
+else
+drop
+then
+;
+Prop0 Cog5 ok
+: _readlong
+dup h3 and
+if
+dup h3 + C@ h8 lshift
+over 2+ C@ or h8 lshift
+over 1+ C@ or h8 lshift
+swap C@ or
+else
+L@
+then
+;
+Prop0 Cog5 ok
+: _sd_appendbytes
+dup 0=
+if
+2drop
+else
+t0 W!
+t1 W!
+tbuf W!
+
+t1 W@ h3 and
+if
+h4 t1 W@ h3 and -
+-1 over h3 lshift rshift
+t1 W@ 4/ sd_cogbuf + tuck COG@
+and
+tbuf W@ _readlong t1 W@
+h3 and h3 lshift
+lshift or   
+swap COG!
+dup t1 W+!
+dup tbuf W+!
+negate t0 W+!
+then
+tbuf W@ t1 W@ 4/ sd_cogbuf + t0 W@ h4 u/mod swap
+if
+1+
+then
+bounds
+do
+dup _readlong
+i COG!
+h4 +
+loop
+drop
+tbuf W@ t0 W@ +
+then
+;
+Prop0 Cog5 ok
+8 .
+8 Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+: sd_appendblk
+dup sd_blockread
+over sd_cogbuf h2A + COG@
++ dup sd_cogbuf h2B + COG@ h200 u*
+<
+if
+>r dup >r 1+
+sd_cogbuf h2A + COG@
+h200 u/mod rot +
+begin
+dup >r sd_blockread
+over >r rot swap
+h200 over - r> min
+dup >r _sd_appendbytes r>
+rot swap - 0
+over 0 <= r>
+dup sd_blockwrite
+1+
+swap
+until
+r> dup sd_blockread
+r> sd_cogbuf h2A + COG!
+sd_blockwrite
+then
+drop 3drop
+;
+Prop0 Cog5 ok
+: sd_append
+sd_find dup
+if
+sd_appendblk 
+else
+3drop
+then
+;
+Prop0 Cog5 ok
+: _sd_dn
+C@++ + 1- C@ h2F <>
+if
+." INVALID DIRNAME~h0D"
+0
+else
+-1
+then
+;
+Prop0 Cog5 ok
+: ls sd_ls ;
+Prop0 Cog5 ok
+: cd
+parsenw
+dup 0= 
+if
+drop
+else
+dup _sd_dn
+if
+sd_cd
+else
+drop
+then
+then
+;
+Prop0 Cog5 ok
+: cd.. sd_cd.. ;
+Prop0 Cog5 ok
+: cd/ v_currentdir COG@ sd_blockread sd_cogbuf h2E + COG@ v_currentdir COG! ;
+Prop0 Cog5 ok
+: cwd
+sd_cwd pad .cstr cr padbl
+;
+Prop0 Cog5 ok
+: mkdir
+parsenw dup 0=
+if
+drop
+else
+dup _sd_dn
+if
+sd_createdir drop
+else
+drop
+then
+then
+;
+Prop0 Cog5 ok
+: _sd_fsp
+parsenw dup
+if
+dup sd_find 0=
+if
+drop 0
+then
+then
+;
+Prop0 Cog5 ok
+: fread _sd_fsp dup if sd_read else drop _fnf then ;
+Prop0 Cog5 ok
+: fcreate parsenw dup if swap sd_createfile drop else 2drop then ;
+Prop0 Cog5 ok
+: fwrite parsenw dup if sd_write else 2drop then ;
+Prop0 Cog5 ok
+: fstat _sd_fsp dup if sd_stat else drop _fnf then ;
+Prop0 Cog5 ok
+: fload _sd_fsp dup if sd_load else drop _fnf then ;
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" Loaded sdfs.f~h0D" .cstr
+Loaded sdfs.f
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ assuming you want to mount the filesystem on boot
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+c" onboot" find drop pfa>nfa 1+ c" onb001" C@++ rot swap cmove
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+\ onboot ( n1 -- n1) load the file sd_boot.f
+Prop0 Cog6 ok
+: onboot
+ onb001 1 sd_mount 
+\ do not execute sd_boot.f if escape has been hit
+ fkey? and fkey? and or h1B <>
+ if
+  c" sdboot.f" sd_load
+ then
+;
+Prop0 Cog6 ok
+fl
+Prop0 Cog5 ok
+1 wconstant build_spinimage
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+lastnfa nfa>lfa W@ wconstant imageLastnfa
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" wlastnfa" find drop pfa>nfa nfa>lfa wconstant imageStart
+Prop0 Cog5 ok
+c" build_spinimage" find drop  pfa>nfa nfa>lfa wconstant imageEnd
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+c" fstart" find drop wconstant fstartPFA
+Prop0 Cog5 ok
+c" _finit" find drop wconstant _finitPFA
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifdef neverever
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog5 ok
+[ifndef 2*
+.
+.
+]
+Prop0 Cog5 ok
+wvariable numConstantsOfInterest 0 numConstantsOfInterest W!
+Prop0 Cog5 ok
+lockdict wvariable ConstantsOfInterest 100 2* allot freedict
+Prop0 Cog5 ok
+: findConstantsOfInterest
+lastnfa
+begin
+c" $S_" over swap
+npfx
+if
+dup nfa>pfa dup W@ $C_a_doconw =
+if
+2+
+ConstantsOfInterest numConstantsOfInterest W@ 2* + W!
+numConstantsOfInterest W@ 1+ 
+100 min numConstantsOfInterest W!
+else
+drop
+then
+then
+nfa>lfa W@ dup 0=
+until
+
+
+;
+Prop0 Cog5 ok
+: isConstantOfInterest?
+numConstantsOfInterest W@ 0<>
+if
+0 swap
+numConstantsOfInterest W@ 0
+do
+i 2* ConstantsOfInterest + W@ over =
+if
+nip -1 swap leave
+then
+loop
+drop
+else
+drop 0
+then
+; 
+Prop0 Cog5 ok
+: spinImage
+findConstantsOfInterest
+base W@ hex
+lastnfa W@
+here W@ 
+imageEnd here W!
+imageLastnfa wlastnfa W!
+." ~h0D~h0DForthDictStart~h0D~h0D"
+." ~h0D' " imageStart .
+." ~h0D  word $" imageStart W@ .
+imageEnd imageStart 2+
+do
+i _finitPFA =
+if
+." ~h0D~h0D_finitPFA~h0D~h0D  word $" i W@ .
+else
+
+i fstartPFA =
+if
+." ~h0D~h0DfstartPFA~h0D~h0D  word $" i W@ .
+else
+
+i isConstantOfInterest?
+if
+
+." ~h0D~h0D  word dlr"
+i 2- pfa>nfa namelen 1- swap 1+ swap .str
+else
+
+i h1F and 0=
+if
+." ~h0D' " i .
+." ~h0D  word $" i W@ .
+else
+." , $" i W@ .
+thens
+2 +loop
+cr cr
+here W!
+lastnfa W!
+
+memend W@ 2- imageEnd
+."   word "
+do
+i h3F and 0=
+if
+." 0~h0D' " i .
+." ~h0D  word "
+else
+." 0, "
+then
+2 +loop
+." 0~h0D~h0D~h0D"
+base W!  
+;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: MAKE/scripts/MakeSDKernel.txt
+   logFileName: MAKE/results/runLogs/MakeSDKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDKernelResult.txt
+outputFileName: MAKE/results/outputFiles/SDKernel.spin
+
+ scriptFileName: MAKE/scripts/MakeSDKernel.txt
+   logFileName: MAKE/results/runLogs/MakeSDKernelRunLog.txt
+resultFileName: MAKE/results/resultFiles/MakeSDKernelResult.txt
+outputFileName: 

@@ -1,0 +1,268 @@
+0. Check 
+README.txt ,
+GettingStarted.txt ,
+doc\MultiPropTestSystemHardware.txt
+for any background and configuration information.
+
+1. Connect Propclip to the Propeller Board and load 
+kernels\BootKernel\BootOptimizeKernel\PropForthOptimizeBootKernel.spin
+into eeprom.
+
+Setup Conditions:
+
+Hardware configuration:
+
+Hardware type:
+
+Demo Board: Propeller 5Mhz 32k EEprom
+
+Proto Board: Propeller 5Mhz 64k EEprom,
+		Schmart Board, Professional Development Board, Quick Start Board
+
+Board + SD card
+
+Spinneret - ethernet
+
+
+Multi-Prop
+
+
+Spin File Loaded:
+EEprom State: DONT CARE or file list
+SD state: DONT CARE or file list
+
+Setup Verification:
+
+Begin State:
+
+Functional Test:
+
+
+
+End State:
+ Might be the same as begin state
+ If you can do a reboot and be at begin state.
+
+
+
+
+2. Start teraterm.
+
+
++++
+Reboot
+---
+reboot
+###
+reboot
+Prop0 Cog6 ok
+%%%
+
+
++++
+Here
+---
+here W@ . cr
+###
+here W@ . cr
+13154
+Prop0 Cog6 ok
+%%%
+
++++
+Version
+---
+version W@ .cstr cr
+###
+version W@ .cstr cr
+PropForth v5.0 2012JAN09 14:30 0
+Prop0 Cog6 ok
+%%%
+
+3. paste contents of
+kernels\BootKernel\BootOptimizeKernel\BootOptimizeDevKernel\PropForthDevKernel.f
+into teraterm
+
++++
+Load_PropForthDevKernel.f
+===
+PropForthDevKernel.f
+###
+fl
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+1 wconstant build_DevKernel
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef serflags?
+Prop0 Cog5 ok
+: serflags?
+cogio hC8 + L@
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef sersetflags
+Prop0 Cog5 ok
+: sersetflags
+cogio hC8 + L!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef sersendbreak
+Prop0 Cog5 ok
+: sersendbreak
+cogio hC4 + L!
+;
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a_dovarl
+Prop0 Cog5 ok
+h4D wconstant $C_a_dovarl
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+
+Prop0 Cog5 ok
+[ifndef $C_a__xasm2>1IMM
+Prop0 Cog5 ok
+h13 wconstant $C_a__xasm2>1IMM
+Prop0 Cog5 ok
+]
+Prop0 Cog5 ok
+~~~
+
+
++++
+Run_saveforth
+---
+saveforth
+###
+saveforth
+........................................................................................................................................................................................................................................
+Prop0 Cog6 ok
+%%%
+
+
+
++++
+Reboot1
+---
+reboot
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
+
++++
+BasicStack
+---
+3 2 1 + u*  b_1001 d_99 h_ABC z_1Aa st? sc st?
+###
+3 2 1 + u*  b_1001 d_99 h_ABC z_1Aa st? sc st?
+ST: 0_000_000_009 0_000_000_009 0_000_000_099 0_000_002_748 0_000_004_775
+5 items cleared
+ST:
+Prop0 Cog6 ok
+%%%
+
+
++++
+Reboot2
+---
+reboot
+###
+reboot
+
+CON:Prop0 Cog0 RESET - last status: 0 ok
+
+CON:Prop0 Cog1 RESET - last status: 0 ok
+
+CON:Prop0 Cog2 RESET - last status: 0 ok
+
+CON:Prop0 Cog3 RESET - last status: 0 ok
+
+CON:Prop0 Cog4 RESET - last status: 0 ok
+
+CON:Prop0 Cog5 RESET - last status: 0 ok
+
+CON:Prop0 Cog6 RESET - last status: 0 ok
+
+Prop0 Cog6 RESET - last status: 0 ok
+Prop0 Cog6 ok
+%%%
+
+
++++
+Def_0verflowtest
+---
+: overflowtest 40 0 do i . i loop cr ;
+###
+: overflowtest 40 0 do i loop cr ;
+Prop0 Cog6 ok
+%%%
+
+
++++
+Run_overflowtest
+---
+overflowtest
+###
+overflowtest
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+CON:Prop0 Cog6 RESET - last status: 1 MAIN STACK OVERFLOW
+
+Prop0 Cog6 RESET - last status: 1 MAIN STACK OVERFLOW
+Prop0 Cog6 ok
+%%%
+
+
++++
+Underflow
+---
+44 . .
+###
+44 . .
+44
+CON:Prop0 Cog6 RESET - last status: 3 MAIN STACK UNDERFLOW
+
+Prop0 Cog6 RESET - last status: 3 MAIN STACK UNDERFLOW
+Prop0 Cog6 ok
+%%%
+
+	

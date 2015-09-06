@@ -1,0 +1,106 @@
+
+ scriptFileName: TEST/scripts/BootKernel.txt
+   logFileName: TEST/results/runLogs/BootKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/BootKernelResult.txt
+outputFileName: 
+[ifndef stOverflow 
+Prop0 Cog6 ok
+: stOverflow d32 0 do i dup . loop ; 
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+[ifndef rsUnderflow 
+Prop0 Cog6 ok
+: rsUnderflow r> . r> . r> . r> . r> . r> . r> . ; 
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+[ifndef rsOverflow 
+Prop0 Cog6 ok
+: rsOverflow dup . 1+ c" rsOverflow" find drop execute ; 
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+[ifndef cogdel 
+Prop0 Cog6 ok
+: cogdel cogid 1+ 1 lshift 0 do d_1000 i u* delms i . loop ." delay done~h0D" ; 
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+cr cr here W@ . version W@ .cstr 
+
+
+13812 PropForth v5.5 2013Feb20 11:30 0Prop0 Cog6 ok
+[ifdef cog? 
+.
+.
+]
+Prop0 Cog6 ok
+[ifdef build? 
+.
+.
+]
+Prop0 Cog6 ok
+cr cr 
+
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+cr cr 1 2 3 . . . drop drop drop
+
+
+3 2 1 Prop0 Cog6 ok
+cr cr stOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 Prop0 Cog6 ok
+cr cr rsUnderflow
+
+
+10606 10802 12154 Prop0 Cog6 ok
+cr cr 0 rsOverflow
+
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 Prop0 Cog6 ok
+cr cr d_1234 dup . d_2468 - dup . d-2468 - dup . d_1234 + dup . d-1234 + dup . .
+
+
+1234 -1234 1234 2468 1234 1234 Prop0 Cog6 ok
+cr cr d_99999 d_1234 u* dup . d_5678 u/mod . . d_99900 d_456 u* d_1000 u/ .
+
+
+123398766 21732 4470 45554 Prop0 Cog6 ok
+base W@ -1 hAAAA and hex dup . hFF or . cr base W!
+AAAA AAFF 
+Prop0 Cog6 ok
+[ifndef build_httpserver 
+Prop0 Cog6 ok
+lockdict cr cr wvariable ttt : d ttt W@ . ; hex 
+
+
+Prop0 Cog6 ok
+cr cr 0 ttt W! 23 ttt orC! d 1 ttt andnC! d 
+
+
+23 22 Prop0 Cog6 ok
+cr cr -1 ttt W! d hAAAA ttt W@ and ttt W! d hFF ttt orC! d hA base W! freedict 
+
+
+FFFF AAAA AAFF Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+ scriptFileName: TEST/scripts/BootKernel.txt
+   logFileName: TEST/results/runLogs/BootKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/BootKernelResult.txt
+outputFileName: 
+
+ scriptFileName: TEST/scripts/BootKernel.txt
+   logFileName: TEST/results/runLogs/BootKernelRunLog.txt
+resultFileName: TEST/results/resultFiles/BootKernelResult.txt
+outputFileName: 
