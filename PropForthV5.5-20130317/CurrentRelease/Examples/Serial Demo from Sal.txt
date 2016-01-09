@@ -1,0 +1,19 @@
+fl
+
+\ a simple terminal which interfaces to a serial port
+\ by defining the tx and rx pin as the same, 
+\ it will loopback, and output the data 
+\ ie the characters will echo for verification
+\ did not scope the output, but should work fine at 19200
+\ Sal
+\ term ( n1 -- ) n1 - the cog
+
+: term
+    ." Hit CTL-F to exit comterm" cr
+    cogid swap iolink
+    begin key dup 6 = if drop 1 else emit 0 then until
+    cogid iounlink ;
+
+: demo 7 7 19200 4 startserialcog  10 delms 4 term ;
+
+

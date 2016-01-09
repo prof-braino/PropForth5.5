@@ -1,0 +1,522 @@
+fl
+
+\ 20151224 porodomo demo - because ANYBODY could just BUY a $2.00 kitchen timer...
+\ P2 - work for 23 minutes
+\ P1 - test two minute warning countdown (can resume as minutes when P2 is pressed)
+\ P0 - all LEDS off
+
+\ P3- test flash pattern FF00
+\ P4- test flash pattern F00F
+\ P5- test flash pattern CC33
+\ P6- test flash pattern AA55
+\ P7- test hearthbeat 
+
+\ Button zero is SLEEP function, hardware reset to resume (not implemented)
+
+\ porodomo as several separate tasks:
+\ Task 1 - monitor button pads
+\ Task 2 - process buttons
+\ Task 3 - control LED states
+\ Task 4 - manage porodomo timer
+
+\ Task 6 - support user terminal (default PF kernel)
+\ Task 7 - manage serial comms for terminal (default PF kernel)
+
+\ Task 1 - monitor button pads
+\ charge the buttons so we can detect a touch
+
+\ Task 1 - monitor button pads
+
+\ detect buttons per quickstart touch demo
+\ listen to buttons
+\ if button is detected , start timer 
+\ if button is not detected, zero timer
+\ if time exceeds 1 second, [change state]: (a) turn on 1 second (b) trigger route.
+
+\ Task 2 - debounce buttons
+\ Task 2 - process buttons
+\ if button is detected, display button states
+\ if button is not detected, display porodomo timer.
+
+\ Task 3 - control LED states
+\ Button 7 - idle - heartbeat LED 7
+\ Button 1 - start - count down 23 minutes
+\ Button 2 - two minute warning - count down final 120 seconds
+\ Buttons 3,4,5,6 - alarms - flash attention FF->00 F0->0F CC->33 AA->55  (300 ms)
+\ Button 0 - rest - cylon - 5 minutes
+
+\ Task 4 - manage porodomo timer
+\ Button 7 - idle - heartbeat LED 7
+\ Button 1 - start - count down 23 minutes
+\ Button 2 - two minute warning - count down final 120 seconds
+\ Buttons 3,4,5,6 - alarms - flash attention FF->00 F0->0F CC->33 AA->55  (300 ms)
+\ Button 0 - rest - cylon - 5 minutes
+
+0 wconstant build_porodomo
+
+wvariable ButtonFlag     128 ButtonFlag W! \ word (2 bytes)
+wvariable PrevButtonState \ word (2 bytes)
+variable TimerStart       \ long (4 bytes)
+
+\ ESC? exit to terminal on escape key (terminal diagnostic)
+: ESC? fkey? drop 27 = if st? cogid cogreset then ;
+\ LEDon ( LEDpin - )
+: LEDon dup pinout pinhi  ;
+: LEDoff dup pinlo pinin ESC? ;
+
+: LEDalloff  h00 16 lshift outa COG! ;
+
+\ : sleep 0 ButtonFlag W! LEDalloff ;
+: sleep-low-power
+ \ print message, pause to allow serial driver to output the message before shut down
+        128  ButtonFlag W! LEDalloff
+  ." ~h0D~h0DGOING TO SLEEP~h0D~h0D" 100 delms
+  8 0 do i cogid <> if i cogstop then loop \ shut down all the cogs but this one
+  $S_rxpin pinin \ make sure the serial input pin is an input
+\ n1 0 hubopr drop is the same as a clkset, which writes to the propeller CLK register
+   0 0 hubopr drop \ setting the propeller CLK register to zero, sets the main clock to RCSLOW (13 - 33Khz)
+  $S_rxpin >m dup waitpeq \ wait for the serial line to be high
+  $S_rxpin >m dup waitpne \ wait for the serial line to be lo
+  h_68 0 hubopr drop \ turn on the oscillator and PLL, assumes we have a crystal/resonator of 4 - 16 Mhz
+\ wait at least 10 millisec for the oscillator and pll to stabilize
+  1000 0 do loop \ we are still running with a main clock of 13 - 33Khz, so this loop is longer than 10 ms
+  h_6F 0 hubopr drop \ set the clock to be 16x the crystal
+  0 onboot drop \ and execute the onboot word, this performs the initialization sequence
+  ." ~h0D~h0D AWAKE~h0D~h0D" 100 delms
+;
+
+: sleep 0 ButtonFlag W! LEDalloff  ;
+
+\ =================================================================================================
+
+\ Button3-P19-8 flashFF00 
+: flashFF00 
+  16             \ pin 16 is first of 8 LEDS
+  8 0 do dup pinout 1+ loop drop \ set them to output
+  hFF h00
+  10 0 do swap dup 
+          16 lshift \ shift bits 0-7 left 16 places (to 16-23)
+          outa COG! \ set these as output states
+          65 delms
+  loop
+  2drop 
+;
+
+\ Button4-P20-16 flashF00F 
+: flashF00F 
+  LEDalloff 
+  16             \ pin 16 is first of 8 LEDS
+  8 0 do dup pinout 1+ loop drop \ set them to output
+  hF0 h0F
+  10 0 do swap dup 
+          16 lshift \ shift bits 0-7 left 16 places (to 16-23)
+          outa COG! \ set these as output states
+          65 delms
+  loop
+  2drop 
+;
+
+\ Button5-P21-32 flashCC33 
+: flashCC33
+  LEDalloff 
+  16             \ pin 16 is first of 8 LEDS
+  8 0 do dup pinout 1+ loop drop \ set them to output
+  hCC h33
+  10 0 do swap dup 
+          16 lshift \ shift bits 0-7 left 16 places (to 16-23)
+          outa COG! \ set these as output states
+          65 delms
+  loop
+  2drop 
+;
+
+\ Button6-P22-64 flashAA55 
+:  flashAA55 
+  LEDalloff 
+  16             \ pin 16 is first of 8 LEDS
+  8 0 do dup pinout 1+ loop drop \ set them to output
+  hAA h55
+  10 0 do swap dup 
+          16 lshift \ shift bits 0-7 left 16 places (to 16-23)
+          outa COG! \ set these as output states
+          65 delms
+  loop
+  2drop 
+;
+
+: fadeout 27 0 do dup LEDon  0 RS@ i - delms dup LEDoff i delms loop drop ;
+: fadein  27 0 do dup LEDoff 0 RS@ i - delms dup LEDon  i delms loop drop ;
+
+\  heartbeat \ LED -P23 
+\ :  heartbeat  LEDalloff   23 fadein  23 fadeout ;
+\ :  heartbeat497  cnt COG@  LEDalloff    23 fadein 23 fadeout 497  delms  cnt COG@  swap - . ;
+\ heartbeat tuned to 2 seconds, approx
+:  heartbeat  23 fadein 23 fadeout 497  delms ;
+
+\ HEARTBEAT is 1 fadein/fade out
+\ its should be a separate task
+\ Button7-P23-128 should FLAG the heartbeat, not call it directly
+\ ************************************************* FIX
+
+: LED-alarm 
+  LEDalloff 
+\  10 0 do 
+         flashCC33 \ Button5-P21-32
+         flashF00F \ Button4-P20-16
+         flashAA55 \ Button6-P22-64
+         flashFF00 \ Button3-P19-8
+\  loop 
+         \  heartbeat \ Button7-P23-128 \ call hearbeat
+; \ LED-alarm 
+
+\ cylonfade ( LED - ) fade limity is 20 or 25, maybe 30 == 31 \ 7 
+: cylonfadeout 8 0 do dup LEDon  0 RS@ i - delms dup LEDoff i delms loop drop ;
+: cylonfadein  8 0 do dup LEDoff 0 RS@ i - delms dup LEDon  i delms loop drop ;
+: cylonup 24 16 do 
+          i  1+   16 23 between if i 1+ cylonfadein  then  \ fadein next - is bumpy
+          i  1- 16 23 between if i 1- cylonfadeout then \ fadeout previous
+loop ;
+: cylondn -15 -23 do
+           i abs 1-  16 23 between if i abs 1- cylonfadein then 
+           i abs 1+  16 23 between if i abs 1+ cylonfadeout then \ fade previous 
+loop ;
+
+: cylon   cylonup cylondn ; \ 2 seconds
+
+: cylon5minutes 
+     150 begin \ 30 is 1 minute 150 is 5 minutes
+         cylon 
+         1- dup 0  > invert 
+         ButtonFlag W@ 2 <>  
+       or
+       until
+  drop
+; 
+
+\ ============================================================================
+\ cog 1 - charge buttons 
+\ ===============================================================
+\ Task 1 - charge button pads
+: charge-buttons                \ ( - )  no stack parameters
+	4 state andnC!
+	c" charge-buttons" cds W!
+  begin                       \ start by charging the button pins 0-7
+       h_FF outa COG!         \ prep first 8 pins Hi (1's) 3.3V
+       h_FF dira COG!         \ make first 8 pins outputs  (1's)
+                              \ so now pins are "Charged"
+       h_FF invert dira COG!  \ make first 8 pins inputs
+                              \ if pad is touched, it will discharge to low 
+       11 delms \ 25 50 100 10  let it stay in this state for some milliseconds (delay for milliseconds)
+                \ long enough to be seen, not long enough to flicker
+  0 until       \ do this forever
+;   
+
+  \  c"  charge-buttons  "   1 cogx \ launch in cog 1 for testing
+\ ============================================================================
+\ cog 1 - charge buttons 
+\ ===============================================================
+\ cog 2 - debounce buttons 
+\ ===============================================================
+
+: StartDebounceTimer cnt COG@ TimerStart L! ; \ debounce timer
+: DEBOUNCE? cnt COG@ TimerStart L@ - abs clkfreq 4 rshift > ; \ true if greater than 1 second
+
+\  The ButtonFlag is how we know which mode to operate.
+\  doButtons  ( buttonflags - ) \ to filter multiple button presses, only allow 1 button
+: doButtons 
+           dup 1   = if dup ButtonFlag W! \  16 dup LEDon 1000 delms LEDoff 
+                     then                 \  diagnostic for testing
+           dup 2   = if dup ButtonFlag W! \  17 dup LEDon 1000 delms LEDoff 
+                     then                 \  diagnostic for testing
+           dup 4   = if dup ButtonFlag W! \  18 dup LEDon 1000 delms LEDoff 
+                     then                 \  diagnostic for testing
+           dup 8   = if dup ButtonFlag W! \  19 dup LEDon 1000 delms LEDoff 
+                     then                 \  diagnostic for testing
+           dup 16  = if dup ButtonFlag W! \  20 dup LEDon 1000 delms LEDoff 
+                     then                 \  diagnostic for testing
+           dup 32  = if dup ButtonFlag W! \  21 dup LEDon 1000 delms LEDoff 
+                     then                 \  diagnostic for testing
+           dup 64  = if dup ButtonFlag W! \  22 dup LEDon 1000 delms LEDoff 
+                     then                 \  diagnostic for testing
+           dup 128 = if dup ButtonFlag W! \  23 dup LEDon 1000 delms LEDoff 
+                     then
+\ drop is done in calling routing
+;
+
+\ CheckButtons ( buttonflags - ) \ (stack has current button states)
+: CheckButtons 
+  dup 0 <>                     \ if button presses are detected....    
+  if ."  buttons pressed     " \ note: msg to console only on colsole cog   
+     dup PrevButtonState W@ = 
+     if                        \ if button presses same as last time...
+        DEBOUNCE?              \ has it been a second yet?
+        if doButtons  then  
+     else PrevButtonState W! StartDebounceTimer 0 then    \ button is different, save buttonstates, restart timer
+  else ." no buttons pressed " \ note: msg to console only on colsole cog
+  then
+  drop
+;
+  
+: debounce-buttons      \  from demo-LED \ ( - ) takes no stack parametes  
+    4 state andnC!
+    c" debounce-buttons" cds W!
+    16                             \ pin 16 is first of 8 LEDS
+    8 0 do dup pinout 1+ loop drop \ set them to output
+    begin
+         ina COG@                  \ get the current pins states
+         invert                    \ This makes them off till touched, 
+         h_FF and                  \ filter for only buttons pins 0-7
+         CheckButtons
+   0 until                        \ do this forever   
+; 
+
+\  c"  debounce-buttons "    2 cogx \ launch in cog 2 for testing
+\ ===============================================================
+\ cog2 is debounce buttons
+\ ===============================================================
+
+
+\ ****************************************************************
+\ PORODOMO Cog x
+\ ****************************************************************
+\ word variable porodomo controls OFF (porodomo=0) or ON (porodomo=[passes_remaining])
+
+wvariable porodomo 
+
+: porodomo120sec
+  16             \ pin 16 is first of 8 LEDS
+  8 0 do dup pinout 1+ loop drop \ set them to output
+  st?
+    porodomo W@ 0 > invert if 
+        120 \ 12 
+        porodomo W! 
+    then
+  begin 
+       porodomo W@   dup
+       16 lshift \ shift bits 0-7 left 16 places (to 16-23)
+       outa COG! \ set these as output states
+       1- dup porodomo W! 
+       st?
+       1000 delms \ 250 delms
+       ESC?
+     0 > invert          \ and counting...
+     ButtonFlag W@ 2 <>  \ while this (P1=2) button was last pressed...
+   or  
+  until
+          0 porodomo W! \ turn it off should be 0 not 37
+          LED-alarm 
+   ButtonFlag W@ 2 = if 
+              cylon5minutes 
+   then
+   0  ButtonFlag W! \ end
+   LEDalloff 
+;
+
+\ ==========================================================================================================
+
+
+: Button1-P17-2 porodomo120sec ;
+
+: porodomo23min  
+  16             \ pin 16 is first of 8 LEDS
+  8 0 do dup pinout 1+ loop drop \ set them to output
+  st?
+  porodomo W@ 0 > invert if   23 porodomo W! then
+  begin 
+      porodomo W@ dup
+          16 lshift \ shift bits 0-7 left 16 places (to 16-23)
+          outa COG! \ set these as output states
+          1- dup porodomo W! 
+          st?
+          30 begin         \ 60 
+                  heartbeat  \ is 2 seconds not 1000 delms 
+                  1- dup . ESC? dup 
+                     0 > invert  
+                     ButtonFlag W@ 4 <>  \ while this button (P2=4) was last pressed...
+                  or
+          until drop
+               2 > invert          \ and counting...
+	       ButtonFlag W@ 4 <>  \ while this button (P2=4) was last pressed...
+               or
+          until \ stop when TRUE
+\  12
+          120 
+          porodomo W! \ we stopped at 2 minutes, so set for 120 seconds
+          ButtonFlag W@ 4 = 
+          if 
+            2 ButtonFlag W! \ (p1=2) porodomo120sec
+            else
+            0 ButtonFlag W! \ request to jumped out
+          then 
+; 
+
+: DoPorodomo  porodomo23min ;
+
+: Button2-P18-4  DoPorodomo ;
+
+\ : minute 60 begin 1- dup . ESC? 100 delms dup 0 > invert  until drop ;
+\ test 
+
+\ ****************************************************************
+\ PORODOMO Cog x
+\ ****************************************************************
+\ PORODOMO
+
+\ ===================================================================================
+\ cog 3 button actions
+\ Task 3 - initiate button actions
+\ ===================================================================================
+\ these are run by cog 3, until button state changes. ******************
+\ Task 3 - initiate the action for each button
+\ when a button is detected, do the proper action:
+\ Button 7 - idle - heartbeat LED 7
+\ Button 1 - start - count down 23 minutes
+\ Button 2 - two minute warning - count down final 120 seconds
+\ Buttons 3,4,5,6 - alarms - flash attention FF->00 F0->0F CC->33 AA->55  (300 ms)
+\ Button 0 - rest - cylon - 5 minutes
+
+\ -------------------------------------------------
+\ Button 0 sleep \ cylon
+\ -------------------------------------------------
+
+\ Button0-P16-1 - cylon type sweep
+: Button0-P16-1 
+                 sleep \ cylon 
+;
+\ -------------------------------------------------
+\ Button 0 cylon
+\ -------------------------------------------------
+\ -------------------------------------------------
+\ Button2-P18-4 - 23 minute porodomo timer 
+\ -------------------------------------------------
+
+
+\ -------------------------------------------------
+\ Button3-P19-8 - flash FF->00 
+\ -------------------------------------------------
+: Button3-P19-8 flashFF00 ;
+
+\ -------------------------------------------------
+\ Button4-P20-16 - flash F0->0F
+\ -------------------------------------------------
+: Button4-P20-16 flashF00F ;
+
+
+\ -------------------------------------------------
+\ Button5-P21-32 - flash CC->33
+\ -------------------------------------------------
+: Button5-P21-32 flashCC33 ;
+
+\ -------------------------------------------------
+\ Button6-P22-64 - flash AA->55
+\ -------------------------------------------------
+: Button6-P22-64 flashAA55 ;
+
+
+\ -------------------------------------------------
+\ BUTTON7 - HEARTBEAT
+\ -------------------------------------------------
+\ ************************************************* FIX
+
+: Button7-P23-128 heartbeat ; \  LED -P23 
+\ Button7-P23-128 \ heartbeat LED -P23 
+
+\ =======================================================================
+
+
+: button-actions 
+     4 state andnC! 
+     c" button-actions" cds W!
+  begin   
+     ButtonFlag W@ 
+               dup 128 = if Button7-P23-128 then \ heartbeat
+               dup 64  = if Button6-P22-64 then \  flash AA->55
+               dup 32  = if Button5-P21-32 then \ flash CC->33
+               dup 16  = if Button4-P20-16 then \ flash F0->0F
+               dup 8   = if Button3-P19-8  then \ flash FF->00 
+               dup 4   = if Button2-P18-4 then \ two minute warning 
+               dup 2   = if Button1-P17-2 then \ start - 23 minute count down
+               dup 1   = if Button0-P16-1 then \ idle cylon
+               drop
+\    0 ButtonFlag W!  \ reset button flag to "off"
+  0 until
+; \  c"  button-actions " 3 cogx \ launch in cog 3 for testing
+\ ===================================================================================
+\ cog 3 button actions
+\ Task 3 - initiate button actions
+\ ===================================================================================
+
+\ ===================================================================================
+\ cog x porodomo timer
+\ Task x - porodomo timer
+\ ===================================================================================
+
+\ TASK x - manage porodomo timer
+\ Button2-P18-4 
+
+\ ===================================================================================
+\ cog x porodomo timer
+\ Task x - porodomo timer
+\ ===================================================================================
+
+\  c"  PorodomoTimer " x cogx \ launch in cog x for testing
+\  c"  button-actions " 3 cogx 100 delms \ launch in cog 3 for testing
+\  c"  debounce-buttons "    2 cogx 100 delms \ launch in cog 2 for testing
+\  c"  charge-buttons  "   1 cogx 100 delms \ launch in cog 1 for testing100 delms
+
+{
+\ heartbeat  \ 1000 delms  \ LED -P23 
+\ :  heartbeatN  cnt COG@ swap  LEDalloff    23 fadein  delms  23 fadeout  cnt COG@  swap - . ;
+\ :  heartbeat497  cnt COG@  LEDalloff    23 fadein 23 fadeout 497  delms  cnt COG@  swap - . ;
+
+\ *******************************************************************
+\ DIAGNOSTICs to run in termian cog 6 during testing
+
+\ wvariable ButtonFlag      \ word (2 bytes)
+\ wvariable PrevButtonState \ word (2 bytes)
+\ variable TimerStart       \ long (4 bytes)
+\ porodomo W@ 
+}
+
+{
+: .RAM 
+      ." porodomo=        " porodomo W@        .   ."      "
+      ." ButtonFlag=      " ButtonFlag W@      .   ."      "
+      ." PrevButtonState= " PrevButtonState W@ .   ."      "
+      ." TimerStart=      " TimerStart W@      .   ."      "
+   st?
+;
+}
+
+{
+: test
+       cog? cr ."  Press to to start...."  key drop
+      begin
+           .RAM
+           1000 delms
+           ESC?
+      0 until
+;
+}
+
+: stopspares 0 cogstop 4 cogstop 5 cogstop cog? ;
+
+
+ : onreset1 onreset charge-buttons   ; \ listen to button pads 
+ : onreset2 onreset debounce-buttons   ; \ do something for a button
+ : onreset3 onreset button-actions ; \ light LEDs
+ : onreset6 onreset stopspares 100 delms ; \  0 onboot drop ; 
+\ : onreset6 stopspares ; 
+
+
+\ ===============================================================
+
+saveforth
+
+reboot
+
+
+
+
+
+

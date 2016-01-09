@@ -1,0 +1,33 @@
+* Join the project
+git clone https://github.com/PropForth6/PropForth6.git
+cd PropForth6/
+
+* See the branches
+git branch
+git branch -v
+
+* Start from the 'dev' branch
+git checkout dev
+
+* make a branch for your task 
+git branch YYYYMMDD_topic 
+git checkout YYYYMMDD_topic 
+git log
+
+* sync with team at the start of each day
+git fetch 
+git pull --all
+git status
+
+* Add your changes from today
+git add .
+git status
+
+git commit -m "what I did" 
+
+* share your changes with everybody, requires a git userid
+git push -u --all
+git status
+
+
+

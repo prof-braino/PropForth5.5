@@ -1,0 +1,38 @@
+fl
+
+\ quickstart example of Cylon style LED fade using LOOP
+
+
+: ESC? fkey? drop 27 = if st? cogid cogreset then ; \ to abort a forever loop using ESC key
+: test begin 100 delms  ESC? 0 until ;
+\ LEDon ( LEDpin - )  P8X32A Quickstart LEDs are on io pins 16 to 23
+: LEDon dup pinout pinhi  ;
+: LEDoff dup pinlo pinin ESC? ;  \ reset the cog after turning off LED, when Escape key is detected
+\ : test1 10 0 do cr 0 RS@ .  i . loop ; 
+\ : test2 10 0 do 0 RS@ i -  . loop ;
+\ fade3 ( fadeval -  )    20 or 25, maybe 30 == 31
+\ : test3 100 0 do cr 0 RS@ i - .  i . loop ;
+\ : test4 10 0 do 21 fade3 loop ; 
+\ cylonfade ( LED - ) fade limity is 20 or 25, maybe 30 == 31
+: cylonfadeout 7 0 do dup LEDon  0 RS@ i - delms dup LEDoff i delms loop drop ; \ fade out the LED
+: cylonfadein  7 0 do dup LEDoff 0 RS@ i - delms dup LEDon  i delms loop drop ; \ fade in  the LED
+: cylonup 24 16 do \ for io pin 16 to 23
+          i  1+   16 23 between if i 1+ cylonfadein  then  \ if next pin is in range,  fadein next
+          i  1- 16 23 between if i 1- cylonfadeout then \ if previous is in range, fadeout previous
+loop ;
+
+: cylondn -15 -23 do  \ for io pin 16 to 23 (to count down from 23 we count up from -23 and take abs value)
+           i abs 1-  16 23 between if i abs 1- cylonfadein then \ if next pin is in range, fade in
+           i abs 1+  16 23 between if i abs 1+ cylonfadeout then \ if previous pin is in range, fade out
+loop ;
+
+: cylon begin cylonup cylondn 0 until ; \ loop forever
+: go cylon ; \ go is faster to type then cylon
+: onreset3 onreset go  ;  \ on power up, execute go word on cog 3
+
+
+
+
+
+
+
