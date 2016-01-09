@@ -6,7 +6,19 @@ You probably want to delete or otherwise remove /mygo directory
 
 PropForth 5.5 was originally posted on google code https://code.google.com/p/propforth/
 
-Since then, google code migrated to GitHub. And I get to migrate PF5.5 to github. Which is cool, git and github are much better way to operate, and I need to learn these anyway. 
+Install PropForth5.5 kernel firmware to valid Prop hardware:
+1. Locate /PropForthV5.5-20130317/CurrentRelease/PropForth/ DevKernel.spin
+2. Install firmware:
+   - Windows: Load DevKernel.spin as you would any other valid spin file. Ddefault memory model (32K RAM, 32K-64K EEPROM)
+   - Linux/OSX - Use OpenSpin to generate DevKernel.EEPROM (documented elsewhere)
+               - Use proploader to load the DevKernel.EEPROM image to prop (documented elsewhere)
+               - see /PropForthV5.5-20130317/CurrentRelease/load-devkernel.sh (loader script)
+
+
+Migration Notes:load-devkernel.sh
+
+Google code migrated to GitHub. 
+
 
 The PF5.5 package on google code contained a single zip file. This presented all the standard propforth 5.5 kernels and extensions in a hopefully straightforward manner. 
 
