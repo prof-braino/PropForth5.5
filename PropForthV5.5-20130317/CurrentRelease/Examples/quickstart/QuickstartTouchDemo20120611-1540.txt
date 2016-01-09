@@ -1,0 +1,54 @@
+\ 20120611 Braino
+
+\  REMEMBER to ADD 100K ohm resistor across 33-38 as pull up for "No prop found" issue
+\ http://forums.parallax.com/showthread.php?137928-PropGCC-SimpleIDE&p=1094355&viewfull=1#post1094355
+
+fl
+
+{
+  This demo has two parts:  
+       1. Scan the resistive pads (buttons)
+       2. light the LED for each touched pad
+
+  This source code is loaded via the interpreter running on cog6
+  The source code file also serves as an execution script;
+  After loading the source code to the forth dictionary,
+  cog6 does saveforth which writes the new extended dictionary to EEPROM
+  and finally does the reboot below
+  20120611 added some comments, took out lines that seemed unneeded 
+ 
+}  / decimal / remember the default base is decimal in dev kernal, hex in boot kenel
+
+: scan-buttons                \ ( - )  no stack parameters
+  begin                       \ start by charging the button pins 0-7
+       h_FF outa COG!         \ prep first 8 pins Hi (1's) 3.3V
+       h_FF dira COG!         \ make first 8 pins outputs  (1's)
+                              \ so now pins are "Charged"
+       h_FF invert dira COG!  \ make first 8 pins inputs
+                              \ if pad is touched, it will discharge to low 
+       11 delms \ 25 50 100 10  let it stay in this state for some milliseconds (delay for milliseconds)
+                \ long enough to be seen, not long enough to flicker
+  0 until       \ do this forever
+; \ c"  scan_pads " 3 cogx  \ launch in cog 3 for testing
+
+: demo-LED \ ( - ) takes no stack parametes  
+        16             \ pin 16 is first of 8 LEDS
+        8 0 do dup pinout 1+ loop drop \ set them to output
+        begin
+             ina COG@  \ get the current pins states
+             invert    \ This makes them off till touched, 
+                       \ comment out the invert to see "on till touched"  
+             h_FF and  \ filter for only buttons pins 0-7
+             16 lshift \ shift bits 0-7 left 16 places (to 16-23)
+             outa COG! \ set these as output states
+        0 until        \ do this forever   
+; \ c"  demo-LED " 4 cogx \ launch in cog 4 for testing
+
+: onreset3 onreset demo-LED ; \ run LED demo on cog3 upon reset after onreset routine
+: onreset4 onreset scan-buttons ; \ run button demo on cog 4 upon reset  after onreset routine
+
+          \ The saveforth words save the current image to eeprom
+saveforth \ comment this line for testing
+          \ the reboot automatically causes the onreset words to execute
+reboot    \ comment this line for testing
+          \ make sure there is CR at the end of the script file

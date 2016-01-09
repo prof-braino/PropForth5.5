@@ -1,0 +1,109 @@
+[CODE]
+
+\  Duane C Johnson Extensions 20120414
+\ please review and submit comments to the forum discussion
+\ ie use google to search for the string 
+\ forum.parallax.com: propforth 
+
+fl
+\ --------------- words added to PropForth -----------------
+hex
+: fence ;
+0 wvariable baseold
+\ .hex ( n -- ) emit a single hex digit
+: .hex F and 30 + dup 39 > if 7 + then emit ;
+\ Display functions
+\ .bn ( n1 n2 -- ) emit n1 as an n2 (1 to 32) place binary number
+: .bn dup 0 do 2dup 20 swap - rev 1 i lshift and if ." 1" else ." 0" then loop 2drop ;
+\ .dn ( n1 n2 -- ) emit n1 as an n2 place decimal number
+: .dn dup >r 0 do A u/mod loop drop r> 0 do .hex loop ;
+\ .hn ( n1 n2 -- ) emit n1 as an n2 place hex number
+: .hn dup >r 0 do 10 u/mod loop drop r> 0 do .hex loop ;
+\ ------------------- ascii escape sequences ------------------
+\ ascii escape sequences start with ESC
+\ Clearly Plagerized from "prof_braino"
+: esc     1B emit ; \ ESCAPE
+: csi esc 5B emit ; \ [
+: capK      ." K" ; \ capital K
+: smallm    ." m" ; \ small m
+\ .digits ( n -  ." emit as decimal characters" ) for AT  convert 0-99 for emit
+: .digits dup 9 > if 2 else 1 then .dn  ;
+\ at  ( x y - ) put cursor at x ; y   line / column from upper left corner
+: at csi .digits ." ;" .digits ." f" ;
+: home       csi ." 1;1f" ;
+: clear      csi ." 2J"   ;
+: preclear   csi ." 1J"   ;
+: postclear  csi ." 0J"   ;
+: cls home clear ;
+: clear-eol  csi 0 .digits capK ;
+: clear-bol  csi 1 .digits capK ;
+: clear-line csi 2 .digits capK ;
+\ attributes esc[d#;d#m   = csi d#;d#m
+: atoff      csi 30 emit smallm ; \ 0 off
+: bold       csi 31 emit smallm ; \ 1 bold
+\ : faint    csi 32 emit smallm ; \ 2 faint ?
+\ : italic   csi 33 emit smallm ; \ 3 italic ?
+: underscore csi 34 emit smallm ; \ 4 underscore (mono) ?
+\ : sblink   csi 35 emit smallm ; \ 5 slow blink PINK
+\ : fblink   csi 36 emit smallm ; \ 6 fast blink
+: reverse    csi 37 emit smallm ; \ 7 reverse
+\ : conceal  csi 38 emit smallm ; \ 8 conceal
+\ : crossout csi 39 emit smallm ; \ 9 crossed out ?
+\ there are more...
+\ ( n -- ) Curser movements
+: cup        csi    .digits ." A" ; \ up
+: cdown      csi    .digits ." B" ; \ down
+: cforward   csi    .digits ." C" ; \ forward
+: cback      csi    .digits ." D" ; \ backward
+: csave      csi            ." s" ; \ save    position
+: crestore   csi            ." u" ; \ restore position
+\ ( -- ) graphics mode Color attributes Forground/Background
+: black      csi 1E .digits smallm ;
+: onblack    csi 28 .digits smallm ;
+: red        csi 1F .digits smallm ;
+: onred      csi 29 .digits smallm ;
+: green      csi 20 .digits smallm ;
+: ongreen    csi 2A .digits smallm ;
+: yellow     csi 21 .digits smallm ;
+: onyellow   csi 2B .digits smallm ;
+: blue       csi 22 .digits smallm ;
+: onblue     csi 2C .digits smallm ;
+: magenta    csi 23 .digits smallm ;
+: onmagenta  csi 2D .digits smallm ;
+: cyan       csi 24 .digits smallm ;
+: oncyan     csi 2E .digits smallm ;
+: white      csi 25 .digits smallm ;
+: onwhite    csi 2F .digits smallm ;
+\ ----------------- end ascii escape sequences ----------------
+\ .sx ( -- ) prints out the stack with a letter tag on the end
+: .sx ." ST: " $C_stPtr COG@ 2+ dup $C_stTop < if $C_stTop swap - 0 do $C_stTop 2- i - COG@
+  .long space loop else drop then ;            \ removed cr from end of the word st?
+: .s0 .sx ." <0" cr ; : .s1 .sx ." <1" cr ; : .s2 .sx ." <2" cr ; : .s3 .sx ." <3" cr ;
+: .s4 .sx ." <4" cr ; : .s5 .sx ." <5" cr ; : .s6 .sx ." <6" cr ; : .s7 .sx ." <7" cr ;
+: .s8 .sx ." <8" cr ; : .s9 .sx ." <9" cr ; : .sA .sx ." <A" cr ; : .sB .sx ." <B" cr ;
+: .sC .sx ." <C" cr ; : .sD .sx ." <D" cr ; : .sE .sx ." <E" cr ; : .sF .sx ." <F" cr ;
+: .sG .sx ." <G" cr ; : .sH .sx ." <H" cr ; : .sI .sx ." <I" cr ; : .sJ .sx ." <J" cr ;
+\ ------------------------------------------------------------- 
+\ .sd ( -- ) prints out the stack as 10 place decimal numbers
+: .sd ." STD:" $C_stPtr COG@ 2+ dup $C_stTop < if $C_stTop
+  swap - 0 do $C_stTop 2- i - COG@ A .dn space loop else drop then cr ;
+\ .sh ( -- ) prints out the stack in hex
+: .sh ." STH:" base W@ baseold W! hex .sx cr baseold W@ base W! ;
+\ cb ( -- ) clear TeraTerm scroll buffer assuming TeraTerm is set to 512 lines
+: cb 1FD 0 do cr loop bold blue 0 0 at clear ;
+\ pins ( -- ) samples the current status of all the io pins and prints them to the terminal
+: pins?
+  20 0 do ."  "   i 2 .dn loop cr
+  20 0 do i px? if ."  HI" else ."  LO" then loop cr
+  20 0 do dira COG@ i rshift 1 and if ."  OT" else ."  IN" then loop cr ;
+\ fence
+: fence ;
+
+decimal
+
+\ ---------------------- Forget Things ------------------------
+\ Forget back to fence, redo fence, and list the words
+forget fence : fence ; cb words
+\ Forget back to fence, and list the words
+forget fence cb words
+[/CODE]

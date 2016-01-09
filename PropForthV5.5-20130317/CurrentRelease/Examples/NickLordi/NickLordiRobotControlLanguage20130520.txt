@@ -1,0 +1,356 @@
+{
+  PropForth  Robot Control Language  LitleRobot(TM) Version 1.0  5/2013
+                         Nicholas G. Lordi 
+
+   This document describes the PropForth Robot Control word set for the LittleRobot
+   project.  The robot control commands are defined to minimize the number
+   of key strokes, facillitating its use by young children.
+
+   My LittleRobot will include the following hardware:
+
+      1. eeZeeProp (prop plug required for initial programming)
+      2. 4 AAA Li 1.5V batteries
+      3. Traco power TSR1-2450 (5V) regulator
+      4. 2 - 28BYJ-48 5VDC Step Motor + driver
+      5. 2 - 2.75 inch wheels
+      6. 1 Ping Sensor center front
+      7. Bluetooth module connected to pins 30 & 31
+
+   The PropForth v5.5 developers version is installed on the eeZeeProp eeprom.
+   The robot control word set is downloaded and saveforth executed. Four cogs are used
+   by the program. Execute START to initialize parameters and start all driver cogs.
+ 
+       Cog 1  Lstart - left wheel driver
+       Cog 2  Wstart - right wheel driver
+       Cog 3  Pstart - ping driver
+       Cog 4  Vstart - calculate wheel velocities
+
+     DEFAULT initializes parameters - executed by START.
+   
+     n1 STOP, where n1 is 1 - 4 to stop a specific cog.
+
+     Lstart, Rstart, etc., to restart a stopped cog.
+
+   The stepper motor drivers operate in the half step mode, but are designed
+   to record only 512 steps per revolution. See rc_rwheel & rc_lwheel words. 
+  
+      (To Be Completed)   
+
+}
+
+\ Robot Control Word Set Start
+: (PFRCLR) ;
+
+\  motor controller pin assignments
+
+12 wconstant LA  \ left wheel
+13 wconstant LB
+14 wconstant LC
+15 wconstant LD
+
+16 wconstant RA  \ right wheel 
+17 wconstant RB
+18 wconstant RC
+19 wconstant RD
+
+8 wconstant CPG     \ center ping
+
+\ cog register addresses
+
+h1F8	wconstant ctra
+
+h1F9	wconstant ctrb
+
+h1FA	wconstant frqa
+
+h1FB	wconstant frqb
+
+h1FC	wconstant phsa
+
+h1FD	wconstant phsb
+
+h_1000_0000 CPG  + constant CPG1mode
+h_2000_0000 CPG  + constant CPG2mode
+
+\ variables
+
+variable lfstep
+variable lbstep
+variable rfstep
+variable rbstep
+
+
+variable rfvel
+variable lfvel
+variable rbvel
+variable lbvel
+
+wvariable cdist
+
+wvariable ldly
+wvariable rdly
+
+wvariable ci
+
+\ flags
+wvariable ?rstp
+wvariable ?lstp
+wvariable ?rfb
+wvariable ?lfb
+wvariable ?cpg
+wvariable ?stp
+
+
+
+\ user constants - 2.75 inch wheel diameter  4.5 inch between wheels
+
+88   wconstant wcirc  \ wheel circumference in 0.1 inch units
+512  wconstant counts \ number of counts per wheel rotation
+58   wconstant ctin   \ counts per inch 
+141  wconstant rdiam  \ rotation diameter in 0.1 inch units
+282  wconstant tdiam  \ turn diameter in 0.1 inches
+250  wconstant dt     \ time in ms used to calculate wheel velocities
+ 
+
+
+\ utilities
+
+: WTO  \ ( n1 -- <name> ) change wconstant value to n1
+    ' 2+ W! ; 
+: TO   \ ( n1 -- <name> ) change constant value to n1
+    ' 4+ L! ;
+
+   
+: DEFAULT
+     9 ldly W! 9 rdly W!  8 ?cpg W!  0 ?stp W! 
+     0 ?lstp W!  0 ?rstp W!  -1 ?lfb W!  -1 ?rfb W!
+     0 lfstep L!  0 lbstep L!  0 rfstep L!  0 rbstep L! 
+     9 ci W! 0 cdist W! ;
+
+: DLY \ ( n1 n2 -- ) set right & left step delays in msec
+    rdly W!  ldly W!  ;
+
+: SPD \ ( n1 -- ) set current speed index
+    ci W!  ;
+
+: STEPS \ ( -- ) display current step counts: left front back  right front back  
+    lfstep L@ . space lbstep L@ . space rfstep L@ . space rbstep L@ . cr  ;
+
+: clrSTEPS  \ ( -- )  reset step counts to zero
+    0 lfstep L!  0 lbstep L!  0 rfstep L!  0 rbstep L!  ;
+
+: VEL \ ( -- ) displaycurrent  wheel velocities: left front back  right front back 
+   lfvel L@ . space lbvel L@ . space rfvel L@ . space rbvel L@ . cr ;
+
+  
+: H  \ halt robot
+   -1 ?rstp W!  -1 ?lstp W!  ;
+
+: G  \ go - continue motion after a stop
+    0 ?rstp W!  0 ?lstp W!  ;
+
+: rc_lwheel
+     LA pinout LA pinlo LB pinout LB pinlo LC pinout LC pinlo 
+     LD pinout LD pinhi   
+   begin
+     ?lstp W@  if LA pinlo LB pinlo LC pinlo LD pinhi  else
+      ?lfb W@ if 
+       LC pinhi 1 delms LD pinlo 1 delms LB pinhi 1 delms LC pinlo 1 delms 
+       LA pinhi 1 delms LB pinlo 1 delms LD pinhi 1 delms LA pinlo ldly W@ delms
+       lfstep L@ 1+ lfstep L!
+      else
+       LA pinhi 1 delms LD pinlo 1 delms LB pinhi 1 delms LA pinlo 1 delms 
+       LC pinhi 1 delms LB pinlo 1 delms LD pinhi 1 delms LC pinlo ldly W@ delms      
+       lbstep L@ 1+ lbstep L!        
+     thens    
+   0 until ;
+
+: rc_rwheel
+    RA pinout RA pinlo RB pinout RB pinlo RC pinout RC pinlo 
+    RD pinout RD pinhi     
+   begin
+    ?rstp W@ if RA pinlo RB pinlo RC pinlo RD pinhi  else
+     ?rfb W@ if
+      RA pinhi 1 delms RD pinlo 1 delms RB pinhi 1 delms RA pinlo 1 delms 
+      RC pinhi 1 delms RB pinlo 1 delms RD pinhi 1 delms RC pinlo rdly W@ delms      
+      rfstep L@ 1+ rfstep L!        
+     else
+      RC pinhi 1 delms RD pinlo 1 delms RB pinhi 1 delms RC pinlo 1 delms 
+      RA pinhi 1 delms RB pinlo 1 delms RD pinhi 1 delms RA pinlo rdly W@ delms
+      rbstep L@ 1+ rbstep L!  
+     thens     
+   0 until ;
+
+: rc_steps
+    begin
+
+      lfstep L@ rfstep L@ dt delms lfstep L@ rfstep L@ rot 
+      - abs 2/ rfvel L!  - abs 2/ lfvel L!
+
+      lbstep L@ rbstep L@ dt delms lbstep L@ rbstep L@ rot 
+      - abs 2/ rbvel L!  - abs 2/ lbvel L!
+
+    0 until  ;
+
+: rc_ping    
+    1 frqa COG!  
+    begin
+      CPG pinout CPG1mode ctra COG!
+      -400 phsa COG!
+      CPG pinin CPG2mode ctra COG!
+      0 phsa COG!  30 delms
+      phsa COG@ 11800 /  cdist W!
+      ?stp W@ 0= if
+       cdist W@ ?cpg W@ < if  H -1 ?stp W! thens
+          
+    0 until ;
+
+
+  
+
+: Lstart
+    1 cogreset 20 delms  c" rc_lwheel" 1 cogx  10 delms  ;
+
+: Rstart
+    2 cogreset 20 delms  c" rc_rwheel" 2 cogx  10 delms  ;
+
+: Pstart
+    3 cogreset 20 delms  c" rc_ping" 3 cogx  10 delms  ;
+
+: Vstart
+    4 cogreset 20 delms  c" rc_steps" 4 cogx  10 delms  ;
+
+: START
+   DEFAULT  Lstart Rstart Pstart Vstart ;
+
+: STOP
+    cogstop  ;
+
+\ calibration tables - adjust values as required for different cases 
+
+\ Values in this table are step delay times (msec) - aprox. range 1 - 12 rpm
+wvariable spd() 160 w, 80 w, 40 w, 20 w, 15 w, 10 w, 6 w, 4 w, 2 w, 0 w,
+
+\ Values in this table are no. step counts corresponding to no. degrees:
+\    5 10 15 30 45 60 75 90 105 120
+wvariable deg() 12 w, 23 w, 35 w, 70 w, 140 w, 175 w, 209 w, 279 w, 349 w, 419 w,
+
+\ Values in this table are no. step counts corresponding to inches traveled:
+\    3 6 9 12 15 18 21 24 27 30
+wvariable inch() 174 w, 348 w, 522 w, 696 w, 870 w, 1044 w, 1218 w, 1392 w, 1566 w, 1740 w,
+
+\ Values in this table are seconds .
+wvariable sec() 1 w, 2 w, 5 w, 10 w, 20 w, 30 w, 40 w, 60 w, 90 w, 120 w,
+ 
+
+: S() \ ( n1  -- n ) places index n1 spd() on stack
+   dup 9 > if drop 9 then  2* 2+ spd() + W@  ;
+
+: D() \ ( n1  -- n ) places index n1 deg() on stack
+   dup 9 > if drop 9 then  2* 2+ deg() + W@  ;
+
+: I() \ ( n1  -- n ) places index n1 inch() on stack
+   dup 9 > if drop 9 then  2* 2+ inch() + W@  ;
+
+: W() \ ( n1  -- n ) places index n1 sec() on stack
+   dup 9 > if drop 9 then  2* 2+ sec() + W@  ;
+
+
+\ general robot motion commands
+
+: W  \ ( n1 -- ) waits n1 seconds
+   W() 1000 * delms ; 
+
+: PING  \ ( n1 -- )  sets ping reference to index n1 inches
+   I() ?cpg W! ;
+
+: run  \ ( n1 n2 -- ) where n1 & n2 are the left & right wheel speed indices ( 0 - 9 )
+    S() swap S() DLY 0 ?stp W! 0 ?lstp W!  0 ?rstp W!  ;
+
+: TC \ ( n1 n2 -- ) where n1 ( left wheel) and n2 ( right wheel ) can take values 
+     \              -9 (backward motion) to ( (forward motion) 
+    dup 0> ?rfb W! abs swap dup 0> ?lfb W! abs run  ; 
+
+
+: F  \ ( n1 -- ) goes forward 
+   dup run -1 ?lfb W!  -1 ?rfb W!  ;
+
+: B \ ( n1 -- ) goes backward
+   dup run 0 ?lfb W!  0 ?rfb W!  ;
+
+: C \ ( n1 -- ) rotates clockwise
+   dup run -1 ?lfb W!  0 ?rfb W!  ;
+
+: CC \ ( n1 -- ) rotates counter clockwise
+   dup run 0 ?lfb W!  -1 ?rfb W!  ;
+
+: TR \ ( n1 -- ) turns right
+    dup run  ?lfb W! -1 ?rstp W! ;
+
+: TL \ ( n1 -- ) turns left
+    dup run  -1 ?rfb W! -1 ?lstp W! ;
+
+: ftst
+    begin dup lfstep L@ - 0< until H drop ;
+
+: btst
+    begin dup lbstep L@ - 0< until H drop ;
+
+: rtst
+    begin dup rfstep L@ - 0< until H drop 
+
+
+: GF  \ ( n1 -- ) goes forward n1 inches at ci speed
+    I() lfstep L@ + ci W@ F ftst ;
+
+: GB  \ ( n1 -- ) goes backward n1 inches at ci speed
+    I() lbstep L@ + ci W@ B btst ;
+
+: GC  \ ( n1 -- ) rotates right n1 degrees at ci speed
+    D() lfstep L@ + ci W@ C ftst ;
+
+: GCC \ ( n1 -- ) rotates left n1 degress at ci speed
+    D() rfstep L@ + ci W@ CC rtst ;
+
+: GTR  \ ( n1 -- ) turns right n1 degrees at ci speed
+    D() 2* lfstep L@ + ci W@ TR ftst  ;
+
+: GTL  \ ( n1 -- ) turns left n1 degrees at ci speed
+    D() 2* lbstep L@ + ci W@ TL rtst  ;
+
+
+
+
+
+ 
+   
+
+
+    
+
+
+ 
+
+
+
+
+
+
+
+
+
+   
+   
+    
+
+
+
+
+
+   
+
+
+
+
+
+ 

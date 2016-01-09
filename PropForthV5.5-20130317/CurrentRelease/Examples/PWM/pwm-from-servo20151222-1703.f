@@ -42,18 +42,13 @@ h1FD	wconstant phsb
 
 \
 \ Servo motors are controlled by a pulse width modulation (pwm).
+\ ---convert to LED ----
 \ Every 20 milliseconds a pulse of length 0.75 milliseconds 
 \ to 2.25 millseconds determines the position of the servo motor.
-\
-\ Example1: 0.75ms
-\ ---_____________________________________________________________________________---________
-\
-\ Example2: 1.5ms
-\ ------__________________________________________________________________________------_____
-\
-\ Example3: 2.25ms
-\ ---------_______________________________________________________________________---------__
-\
+
+\ generic LED handle DutyCycle/10 (1-10 Khz) for 1.333% continuous current.
+\ if continuous current is 20mA, if should handle pulses of 30mA,
+\  if the pulse is  0.00001 seconds or .01 millisecond or 10 microseconds. 
 \
 \ Each servo motor requires calibration, so we will set the absolute minimum to 0.5 ms and the
 \ absolute maximum to 2.5 ms. Depending on the servos you are using, you may want to adjust these
@@ -111,7 +106,9 @@ h1FD	wconstant phsb
 \ This constant defines the number of times per second a pulse is generated
 \ for the servo motor.
 \
+
 d_50 wconstant sm_cyclefreq
+\ --- d_10 wconstant sm_cyclefreq
 
 \
 \ The number of clock cycles in one pulse sequence of 20ms
@@ -370,10 +367,12 @@ lockdict variable sm_maxhitime d_124 allot freedict	\ 32 longs
 		i sm_hitime _sm_idx L!
 	loop
 
-	1 cogreset h_10 delms c" 0 sm_servo" 1 cogx
-\	1 cogreset h_10 delms c" d_16  sm_servo" 2 cogx
+\	1 cogreset h_10 delms c" 0 sm_servo" 1 cogx
+	1 cogreset h_10 delms c" d_16  sm_servo" 2 cogx
 	10 delms
 ;
 
+\ 3 sm_servo \ cog 3 for servos
 
-
+
+

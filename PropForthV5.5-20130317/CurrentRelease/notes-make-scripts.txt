@@ -1,0 +1,11 @@
+20151220 make scripts to load the kernel from the command line in Linux
+
+use opensipn to compile a xxx.spin files into xxx.eeprom
+
+use propeller-load to load the xxx.eeprom to the prop board
+
+see load-devkernel.sh
+
+
+
+
