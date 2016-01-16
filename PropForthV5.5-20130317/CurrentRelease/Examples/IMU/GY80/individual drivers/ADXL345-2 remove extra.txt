@@ -1,0 +1,323 @@
+fl
+
+1 wconstant build_ADXL345
+
+\ ADXL.XYZDATA  needs 2 addittional words, 4 bytes
+\ x=0 offset y=+2 offset z =+4 offset
+wvariable ADXL.XYZDATA 4 allot
+
+\ _ADXLs ( addr -- )  ALT ADDRESS pin ground (ADXL Pin 12 from datasheet) 
+: _ADXLs
+\       _eestart h3A _eewrite swap _eewrite or \ ALT ADDRESS pin high 0x3A for a write
+        _eestart hA6 _eewrite swap _eewrite or \ grounding  0xA6 for a write
+        if              h44 ERR         then ;
+
+\ _ADXLr   ( addr -- )  \  ALT ADDRESS pin (Pin 12)
+: _ADXLr
+\   _ADXLs  _eestart h3B  _eewrite  \ ALT ADDRESS pin high 0x3B for a read
+        _ADXLs _eestart hA7 _eewrite \ grounding 0xA7 for a read 
+        if              h45 ERR         then ;
+
+\ _ADXLr8 ( addr - U8 )  register read
+: _ADXLr8 
+               _ADXLr  -1 _eeread _eestop 
+;
+
+\ don't all the individual register addresses unless changing defaults
+\ so far defaults are fine, so comment out the unnecessary items 20140405
+\ in fact, we are doing a multi-read, so we only need the FIRST data register,
+\  which is dataX0 at address hex 32
+
+\ _ADXL.DEVID ( -- ID:xE5 ) \ Register 0x00 DEVID (Read Only) fixed device ID code of 0xE5 (345 octal).
+\ : ADXL.DEVID          h00   ;
+\ : ADXL.THRESH_TAP     h1D   ;
+\ : ADXL.OFSX           h1E   ;
+\ : ADXL.OFSY           h1F   ;
+\ : ADXL.OFSZ           h20   ;
+\ : ADXL.DUR            h21   ;
+\ : ADXL.Latent         h22   ;
+\ : ADXL.Window         h23   ;
+\ : ADXL.THRESH_ACT     h24   ;
+\ : ADXL.THRESH_INACT   h25   ;
+\ : ADXL.TIME_INACT     h26   ;
+\ : ADXL.ACT_INACT_CTL  h27   ;
+\ : ADXL.THRESH_FF      h28   ;
+\ : ADXL.TIME_FF        h29   ;
+\ : ADXL.TAP_AXES       h2A   ;
+\ : ADXL.ACT_TAP_STATUS h2B   ;
+\ : ADXL.BW_RATE        h2C   ;
+\ : ADXL.POWER_CT       h2D   ;
+\ : ADXL.INT_ENABLE     h2E   ;
+\ : ADXL.INT_MAP        h2F   ;
+\ : ADXL.INT_SOURCE     h30   ;
+\ : ADXL.DATA_FORMAT    h31   ;
+: ADXL.DATAX0         h32   ;
+\ : ADXL.DATAX1         h33   ;
+\ : ADXL.DATAY0         h34   ;
+\ : ADXL.DATAY1         h35   ;
+\ : ADXL.DATAZ0         h36   ;
+\ : ADXL.DATAZ1         h37   ;
+\ : ADXL.FIFO_CTL       h38   ;
+\ : ADXL.FIFO_STATUS    h39   ;
+\ quite a space savings!
+
+
+{
+\ for debug, remove this code from dictionary and save space
+: ADXL_dump
+
+ ADXL.DEVID        _ADXLr8     ." _ADXL.DEVID               " . cr
+ ADXL.THRESH_TAP    _ADXLr8    ."   _ADXL.THRESH_TAP     "  . cr
+ ADXL.OFSX         _ADXLr8     ."   _ADXL.OFSX           "  . cr
+ ADXL.OFSY         _ADXLr8     ."   _ADXL.OFSY           "  . cr
+ ADXL.OFSZ         _ADXLr8     ."   _ADXL.OFSZ           "  . cr
+ ADXL.DUR           _ADXLr8    ."   _ADXL.DUR            "  . cr
+ ADXL.Latent        _ADXLr8    ."   _ADXL.Latent         "  . cr
+ ADXL.Window         _ADXLr8   ."   _ADXL.Window         "  . cr
+ ADXL.THRESH_ACT     _ADXLr8   ."   _ADXL.THRESH_ACT     "  . cr
+ ADXL.THRESH_INACT   _ADXLr8   ."   _ADXL.THRESH_INACT   "  . cr
+ ADXL.TIME_INACT      _ADXLr8  ."   _ADXL.TIME_INACT     "  . cr
+ ADXL.ACT_INACT_CTL   _ADXLr8  ."   _ADXL.ACT_INACT_CTL  "  . cr
+ ADXL.THRESH_FF       _ADXLr8  ."   _ADXL.THRESH_FF      "  . cr
+ ADXL.TIME_FF         _ADXLr8  ."   _ADXL.TIME_FF        "  . cr
+ ADXL.TAP_AXES       _ADXLr8   ."   _ADXL.TAP_AXES       "  . cr
+ ADXL.ACT_TAP_STATUS  _ADXLr8  ."   _ADXL.ACT_TAP_STATUS "  . cr
+ ADXL.BW_RATE         _ADXLr8  ."   _ADXL.BW_RATE          "  . cr
+ ADXL.POWER_CT       _ADXLr8   ."   _ADXL.POWER_CT       "  . cr
+ ADXL.INT_ENABLE     _ADXLr8   ."   _ADXL.INT_ENABLE     "  . cr
+ ADXL.INT_MAP        _ADXLr8   ."   _ADXL.INT_MAP        "  . cr
+ ADXL.INT_SOURCE    _ADXLr8    ."   _ADXL.INT_SOURCE       "  . cr
+ ADXL.DATA_FORMAT   _ADXLr8    ."   _ADXL.DATA_FORMAT    "  . cr
+ ADXL.DATAX0        _ADXLr8    ."   _ADXL.DATAX0         "  . 3 spaces cr
+ ADXL.DATAX1        _ADXLr8    ."   _ADXL.DATAX1         "  . 3 spaces cr
+ ADXL.DATAY0        _ADXLr8    ."   _ADXL.DATAY0         "  . 3 spaces cr
+ ADXL.DATAY1         _ADXLr8   ."   _ADXL.DATAY1         "  . 3 spaces cr
+ ADXL.DATAZ0         _ADXLr8   ."   _ADXL.DATAZ0         "  . 3 spaces cr
+ ADXL.DATAZ1         _ADXLr8   ."   _ADXL.DATAZ1         "  . 3 spaces cr
+ ADXL.FIFO_CTL      _ADXLr8    ."   _ADXL.FIFO_CTL       "  . 3 spaces cr
+ ADXL.FIFO_STATUS    _ADXLr8   ."   _ADXL.FIFO_STATUS    "  . 3 spaces cr
+;
+}
+
+\  In case we want to store (!) to change any registers.
+\ we don't yet, since we are using defaults 20140405
+
+{
+: !THRESH_TAP     ADXL.THRESH_TAP _ADXLs _eewrite _eestop if h47 ERR then ;
+: !OFSX           ADXL.OFSX _ADXLs _eewrite _eestop if h47 ERR then ;
+: !OFSY           ADXL.OFSY _ADXLs _eewrite _eestop if h47 ERR then ;
+: !OFSZ           ADXL.OFSZ _ADXLs _eewrite _eestop if h47 ERR then ;
+\ !DUR tap duration - 625 us/LBS; 0=DISABLE Taps
+: !DUR            ADXL.DUR _ADXLs _eewrite _eestop if h47 ERR then ;
+\ !Latent window before double tap, 1.25 ms /LSB 0=disable double tap
+: !Latent         ADXL.Latent _ADXLs _eewrite _eestop if h47 ERR then ;
+\ !window when second tap can happen
+: !Window         ADXL.Window _ADXLs _eewrite _eestop if h47 ERR then ;
+: !THRESH_ACT     ADXL.THRESH_ACT   _ADXLs _eewrite _eestop if h47 ERR then ; 
+: !THRESH_INACT   ADXL.THRESH_INACT  _ADXLs _eewrite _eestop if h47 ERR then ;
+: !TIME_INACT     ADXL.TIME_INACT    _ADXLs _eewrite _eestop if h47 ERR then ;
+: !ACT_INACT_CTL  ADXL.ACT_INACT_CTL _ADXLs _eewrite _eestop if h47 ERR then ;
+: !THRESH_FF      ADXL.THRESH_FF     _ADXLs _eewrite _eestop if h47 ERR then ;
+: !TIME_FF        ADXL.TIME_FF       _ADXLs _eewrite _eestop if h47 ERR then ;
+: !TAP_AXES       ADXL.TAP_AXES      _ADXLs _eewrite _eestop if h47 ERR then ;
+: !ACT_TAP_STATUS ADXL.ACT_TAP_STATUS _ADXLs _eewrite _eestop if h47 ERR then ;
+: !BW_RATE        ADXL.BW_RATE       _ADXLs _eewrite _eestop if h47 ERR then ;
+: !POWER_CT       ADXL.POWER_CT      _ADXLs _eewrite _eestop if h47 ERR then ;
+: !INT_ENABLE     ADXL.INT_ENABLE    _ADXLs _eewrite _eestop if h47 ERR then ;
+: !INT_MAP        ADXL.INT_MAP       _ADXLs _eewrite _eestop if h47 ERR then ;
+: !INT_SOURCE     ADXL.INT_SOURCE    _ADXLs _eewrite _eestop if h47 ERR then ;
+: !DATA_FORMAT    ADXL.DATA_FORMAT   _ADXLs _eewrite _eestop if h47 ERR then ;
+: !DATAX0         ADXL.DATAX0        _ADXLs _eewrite _eestop if h47 ERR then ;
+: !DATAX1         ADXL.DATAX1        _ADXLs _eewrite _eestop if h47 ERR then ;
+: !DATAY0         ADXL.DATAY0        _ADXLs _eewrite _eestop if h47 ERR then ;
+: !DATAY1         ADXL.DATAY1        _ADXLs _eewrite _eestop if h47 ERR then ;
+: !DATAZ0         ADXL.DATAZ0        _ADXLs _eewrite _eestop if h47 ERR then ;
+: !DATAZ1         ADXL.DATAZ1        _ADXLs _eewrite _eestop if h47 ERR then ;
+: !FIFO_CTL       ADXL.FIFO_CTL      _ADXLs _eewrite _eestop if h47 ERR then ;
+: !FIFO_STATUS    ADXL.FIFO_STATUS   _ADXLs _eewrite _eestop if h47 ERR then ;
+}
+
+
+\ configure accelerometer:
+\ 
+
+{
+ \ defaults are ok at power up - don't need this code20140405 
+: ADXL.default \ config interupts before enable
+       h00 !THRESH_TAP \ 15.6 mg/LSB
+       h00 !OFSX       \ 15.6 mg/LSB
+       h00 !OFSZ       \ 15.6 mg/LSB
+       h00 !OFSZ       \ 15.6 mg/LSB
+       h00 !DUR        \ time above thresh_tap to be TAP     
+       h00 !Latent     \ delay before look for second tap     
+       h00 !Window     \  to see second tap   1.25 ms/LSB   
+       h00 !THRESH_ACT  \ activity above 62.5 mg/LSB
+       h00 !THRESH_INACT  \ inactivity below 62.5 mg/LSB  
+       h00 !TIME_INACT     \ delay till inactive 1 sec/LSB 
+b0000_0000 !ACT_INACT_CTL   \ AC, all enabled
+       h00 !THRESH_FF       \ free fall
+       h00 !TIME_FF    \ time till free fall   5 ms/LSB   
+       h00 !TAP_AXES   \ suppress if shaking     
+\ !ACT_TAP_STATUS   \ read only 
+       h0A !BW_RATE \  800 sample rate     
+b0000_1000 !POWER_CT  \ stay awake, measure, awake      
+b0000_0000 !INT_ENABLE \ configure interupts before enable!     
+       h00 !INT_MAP  \  all interupts to pin 1       
+\ !INT_SOURCE   \ which interupt went off   
+       h00 !DATA_FORMAT \     
+\ !DATAX0  \ read only        
+\ !DATAX1  \ read only          
+\ !DATAY0  \ read only
+\ !DATAY1  \ read only          
+\ !DATAZ0  \ read only          
+\ !DATAZ1  \ read only          
+b0000_0000  !FIFO_CTL \ streamFIFO, INT1,  7 samples to watermark     
+\ !FIFO_STATUS     \read only
+;
+}
+
+{
+\ dont need to change anything, don't need this code 20140405
+: ADXL.configure \ config interupts before enable
+       h3F !THRESH_TAP \ 15.6 mg/LSB
+       h00 !OFSX       \ 15.6 mg/LSB
+       h00 !OFSZ       \ 15.6 mg/LSB
+       h00 !OFSZ       \ 15.6 mg/LSB
+       h3F !DUR        \ time above thresh_tap to be TAP     
+       h3F !Latent     \ delay before look for second tap     
+       h3F !Window     \  to see second tap   1.25 ms/LSB   
+       h3F !THRESH_ACT  \ activity above 62.5 mg/LSB
+       h3F !THRESH_INACT  \ inactivity below 62.5 mg/LSB  
+       h3F !TIME_INACT     \ delay till inactive 1 sec/LSB 
+b1111_1111 !ACT_INACT_CTL   \ AC, all enabled
+       h3F !THRESH_FF       \ free fall
+       h3F !TIME_FF    \ time till free fall   5 ms/LSB   
+       h0F !TAP_AXES   \ suppress if shaking     
+\ !ACT_TAP_STATUS   \ read only 
+       h0D !BW_RATE \  800 sample rate     
+b0000_0111 !POWER_CT  \ stay awake, idle, sleep      
+b1111_1100 !INT_ENABLE \ configure interupts before enable!     
+       h00 !INT_MAP  \  all interupts to pin 1       
+\ !INT_SOURCE   \ which interupt went off   
+       h00 !DATA_FORMAT \     
+\ !DATAX0  \ read only        
+\ !DATAX1  \ read only          
+\ !DATAY0  \ read only
+\ !DATAY1  \ read only          
+\ !DATAZ0  \ read only          
+\ !DATAZ1  \ read only          
+b1000_0111  !FIFO_CTL \ streamFIFO, INT1,  7 samples to watermark     
+\ !FIFO_STATUS     \read only
+;
+}
+
+{
+\ defaults are ok, removing this code 20140405
+: ADXL.initialize
+       h3F !THRESH_TAP \ 15.6 mg/LSB
+       h00 !OFSX       \ 15.6 mg/LSB
+       h00 !OFSZ       \ 15.6 mg/LSB
+       h00 !OFSZ       \ 15.6 mg/LSB
+       h3F !DUR        \ time above thresh_tap to be TAP     
+       h3F !Latent     \ delay before look for second tap     
+       h3F !Window     \  to see second tap   1.25 ms/LSB   
+       h3F !THRESH_ACT  \ activity above 62.5 mg/LSB
+       h3F !THRESH_INACT  \ inactivity below 62.5 mg/LSB  
+       h3F !TIME_INACT     \ delay till inactive 1 sec/LSB 
+b1111_1111 !ACT_INACT_CTL   \ AC, all enabled
+       h3F !THRESH_FF       \ free fall
+       h3F !TIME_FF    \ time till free fall   5 ms/LSB   
+       h0F !TAP_AXES   \ suppress if shaking     
+\ !ACT_TAP_STATUS   \ read only 
+       h0D !BW_RATE \  800 sample rate     
+b0000_1011 !POWER_CT  \ stay awake, MEASURE,       
+b1111_1100 !INT_ENABLE \ configure interupts before enable!     
+       h00 !INT_MAP  \  all interupts to pin 1       
+\ !INT_SOURCE   \ which interupt went off   
+       h00 !DATA_FORMAT \     
+\ !DATAX0  \ read only        
+\ !DATAX1  \ read only          
+\ !DATAY0  \ read only
+\ !DATAY1  \ read only          
+\ !DATAZ0  \ read only          
+\ !DATAZ1  \ read only          
+b1000_0111  !FIFO_CTL \ streamFIFO, INT1,  7 samples to watermark     
+\ !FIFO_STATUS     \read only
+;
+}
+
+
+\ _ADXLrXYZ is the funtion that reads all the ADXL data and puts it on the stack
+\ _ADXLrXYZ ( -- X16 Y16 Z16 status ) read x y z and fifostatus regesters in one go
+: _ADXLrXYZ
+             ADXL.DATAX0 
+             _ADXLr
+           \ DATAx0 is least significant byte; DATAx1 is the most significant byte
+             0 _eeread  0 _eeread 8 lshift or 
+           \ DATAy0 is least significant byte; DATAy1 is the most significant byte
+             0 _eeread  0 _eeread 8 lshift or 
+           \ DATAz0 is least significant byte; DATAz1 is the most significant byte
+             0 _eeread  0 _eeread 8 lshift or 
+             0 _eeread drop \ FIFO_CTL 
+             -1 _eeread     \ FIFO_STATUS
+             _eestop 
+             ;
+
+\ The remainder of the code is for debugging,
+\ remove from here to the end
+
+: esc h_1B emit ;
+: csi esc h_5B emit ;
+: m ." m" ;    
+: smallf ." f" ; 
+: K ." K" ;
+: semicolon ." ;" ;
+
+\ v>c convert a value ( 0-9 ) for a digit character for emit 
+: v>c h_30 + emit ;
+\ .digits ( n -  ." emit as DECIMAL characters" ) for AT  convert 0-99 for emit
+: .digits 
+          dup h_9 > if h_0A u/mod v>c then \ greater than 9 mod decimal 10
+          v>c ;
+\ AT  ( x y - ) put cursor at x,y
+: AT csi .digits semicolon .digits smallf ;
+
+: home       csi ." 1;1f" ;
+: clear      csi ." 2J" ; 
+: preclear   csi ." 1J" ;
+: postclear  csi ." 0J" ;
+: cls home clear  ;
+: clear-eol  csi h_0 .digits K ;
+: clear-bol  csi h_1 .digits K ;
+: clear-line csi h_2 .digits K ;
+
+: .signed dup h7FFF > if hFFFF - then ;
+
+\ draw the data on the terminal screen
+\ .xyz (--) \ diagnostic to dispay the data as fast as the screen allows
+: .xyz 
+      cls
+\ removed initialization code, not needed 20140405
+\     ADXL.default  \ defaults are ok at power up 20140405
+\     ADXL.configure  \ configure interupts, sleep
+\     ADXL.initialize \ start interupts, measure
+
+\ remove dump command when debug is complete
+\ it works, so we don't need to watch all the registers
+\       2 10 AT  ADXL_dump
+
+
+      begin 
+           _ADXLrXYZ 
+           2 7 AT ." FIFO Status:"  . 3 spaces
+           2 6 AT ."  z=" .signed  . 3 spaces
+           2 5 AT ."  y=" .signed . 3 spaces
+           2 4 AT ."  x=" .signed . 3 spaces
+
+\          2 10 AT  ADXL_dump
+
+      fkey? if h1B = else drop 0 then until 
+\      2 10 AT  ADXL_dump
+;
+
+

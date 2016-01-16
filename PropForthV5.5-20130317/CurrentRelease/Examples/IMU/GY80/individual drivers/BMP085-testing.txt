@@ -1,0 +1,64 @@
+fl 
+
+10 wconstant average 
+
+\ averaged_temp ( - ) average 300 sample of temperature
+: averaged_temp 
+        0  average 0 do  
+                  bmpTemp 
+                  \ st? 
+                  + 
+               loop
+          average /
+;
+
+\ averaged_press ( - ) average 300 sample of temperature
+: averaged_press 
+         0  average 0 do  
+                    bmpPressure 
+                    \ st? 
+                    + 
+                    loop
+          average /
+;
+
+: esc h_1B emit ;
+: csi esc h_5B emit ;
+: m ." m" ;    
+: smallf ." f" ; 
+: K ." K" ;
+: semicolon ." ;" ;
+
+\ v>c convert a value ( 0-9 ) for a digit character for emit 
+: v>c h_30 + emit ;
+\ .digits ( n -  ." emit as DECIMAL characters" ) for AT  convert 0-99 for emit
+: .digits 
+          dup h_9 > if h_0A u/mod v>c then \ greater than 9 mod decimal 10
+          v>c ;
+\ AT  ( x y - ) put cursor at x,y
+: AT csi .digits semicolon .digits smallf ;
+
+: home       csi ." 1;1f" ;
+: clear      csi ." 2J" ; 
+: preclear   csi ." 1J" ;
+: postclear  csi ." 0J" ;
+: cls home clear  ;
+
+
+\ bmp_ave ( - ) \ average of 300 samples
+: bmp_ave 
+;
+         
+
+: bmp_loop
+  cls
+
+2 5 AT ." TEMPERATURE PRESSURE ALTITUDE "
+  111 0 do 2 7 AT
+          averaged_temp . 
+          averaged_press .
+          101325 bmpPressure
+  postclear
+        loop
+;
+

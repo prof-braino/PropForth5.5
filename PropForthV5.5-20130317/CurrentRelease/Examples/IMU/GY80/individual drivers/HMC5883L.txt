@@ -1,0 +1,111 @@
+fl
+
+1 wconstant build_HMC5883L
+
+
+\ _HMCs ( addr -- )
+: _HMCs 
+_eestart h3C _eewrite swap _eewrite or  if              h3C ERR         then 
+;
+
+\ _HMCr ( addr -- )
+: _HMCr         
+_HMCs _eestart h3D _eewrite     if              h3D ERR         then 
+;
+
+\ _HMCr24 ( addr -- u24)
+: _HMCr24       
+_HMCr 0 _eeread 8 lshift 0 _eeread or 8 lshift -1 _eeread or _eestop 
+;
+
+\ _HMCr16 ( addr -- u16)
+: _HMCr16       _HMCr 0 _eeread 8 lshift -1 _eeread or _eestop ;
+
+\ _HMCr8 ( addr -- u8)
+ : _HMCr8       _HMCr -1  _eeread  _eestop ;
+
+\ _HMCID ( -- chipid_version)
+: .HMCID
+    ." HMC5883L ID: "  \        h0A _HMCr8  emit        h0B _HMCr8  emit        h0C _HMCr8  emit
+        h0A _HMCr 0 _eeread  emit 0 _eeread emit -1 _eeread  emit _eestop  space cr ;
+
+: _HMC_dump   decimal   13 0 do cr i  . i _HMCr8 . loop ; 
+
+: _HMC_ConfA    h00 _HMCs _eewrite _eestop      if h46 ERR      then ;
+: _HMC_ConfB    h01 _HMCs _eewrite _eestop      if h46 ERR      then ;
+: _HMC_mode     h02 _HMCs _eewrite _eestop      if h46 ERR      then ;
+
+\ Configuration register A 01111000 = h78 or 120
+\               8 samples = 11  
+\ Outputrate 75hz =           110
+\  no bias offset =              00
+
+: Fast_sample h78 _HMC_ConfA ;
+
+\ _HMCrXZY ( addr -- Xu16 Zu16 Yu16)
+: _HMCrXZY      
+       h03 _HMCr \ starting with X hi
+           0 _eeread 8 lshift 0 _eeread or 
+           0 _eeread 8 lshift 0 _eeread or 
+           0 _eeread 8 lshift -1 _eeread or 
+           _eestop 
+
+;
+
+: esc h_1B emit ;
+: csi esc h_5B emit ;
+: m ." m" ;    
+: smallf ." f" ; 
+: K ." K" ;
+: semicolon ." ;" ;
+
+\ v>c convert a value ( 0-9 ) for a digit character for emit 
+: v>c h_30 + emit ;
+\ .digits ( n -  ." emit as DECIMAL characters" ) for AT  convert 0-99 for emit
+: .digits 
+          dup h_9 > if h_0A u/mod v>c then \ greater than 9 mod decimal 10
+          v>c ;
+\ AT  ( x y - ) put cursor at x,y
+: AT csi .digits semicolon .digits smallf ;
+
+: home       csi ." 1;1f" ;
+: clear      csi ." 2J" ; 
+: preclear   csi ." 1J" ;
+: postclear  csi ." 0J" ;
+: cls home clear  ;
+: clear-eol  csi h_0 .digits K ;
+
+
+: .HMCrXZY      
+       h00 _HMC_mode \ continuous mode
+       Fast_sample
+
+
+  4 4 AT   h02 _HMCr 0 _eeread ." mode:" . 3 spaces \ starting with mode
+  7 5 AT   0 _eeread 8 lshift 0 _eeread or ." X:" . 3 spaces
+  7 6 AT   0 _eeread 8 lshift 0 _eeread or ." Z:" . 3 spaces 
+  7 7 AT   0 _eeread 8 lshift 0 _eeread or ." Y:" . 3 spaces 
+  2 8 AT  -1 _eeread  ." Status:" .  3 spaces 
+             _eestop 
+;
+
+
+: XZY   
+     cls
+     0 
+     begin  
+          1+ dup 9 3 AT . 2 spaces 
+          .HMCrXZY  
+          fkey? if h1B = else drop 0 then 
+     until 
+;
+
+
+: test
+  begin 
+       st? 
+      fkey? if h1B = else drop 0 then until 
+;
+
+
+

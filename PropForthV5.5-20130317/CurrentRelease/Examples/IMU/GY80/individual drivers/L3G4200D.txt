@@ -1,0 +1,309 @@
+fl
+
+
+1 wconstant build_L3G4200D
+
+
+[ifdef L3G_debug
+wvariable L3G_debug 1 L3G_debug W!
+]
+
+[ifdef L3G_debug
+: L3G_reset _sdah _sdao _sclh _sclo h10 0 do _scll _sclh loop _scli _sdai ;
+]
+
+\ 0 - 3
+wvariable _L3GOss 3 _L3GOss W!
+
+\ _L3Gs ( addr -- )
+: _L3Gs
+ _eestart hD2 _eewrite swap _eewrite or \ [SDO = VDD]
+\       _eestart hD0 _eewrite swap _eewrite or \ [SDO = GND]
+        if
+                h44 ERR
+        then
+;
+
+\ _L3Gr ( addr -- )
+: _L3Gr
+        _L3Gs _eestart hD3 _eewrite  \ [SDO = VDD]
+\       _L3Gs _eestart hD1 _eewrite \ [SDO = GND]
+        if
+                h45 ERR
+        then
+;
+
+ \   _L3Gcrw ( c -- )
+ \ : _L3Gcrw hF4 _L3Gs _eewrite _eestop if h46 ERR then ;
+
+\ _L3Gw8 ( u8 Addr -- ) \ write one byte
+: _L3Gw8
+       _L3Gs _eewrite or _eestop
+       
+        if
+                h44 ERR
+        then
+;
+
+\ ==================================
+
+: _L3Gr8
+       _L3Gr -1 _eeread _eestop
+;
+
+: _L3Gr88
+       _L3Gr 0 _eeread -1 _eeread _eestop
+;
+
+\ _L3Gr16 ( addr -- u16) \ int is Hi Lo
+: _L3Gr16int  
+        _L3Gr 0 _eeread 8 lshift -1 _eeread or _eestop
+;
+
+\ _L3Gr16xyz ( addr -- u16 ) \ xyz are lo hi
+: _L3Gr16xyz 
+        _L3Gr 0 _eeread -1 _eeread 8 lshift or _eestop
+;
+
+
+
+\ _L3G.ID ( -- chipid_version:11010011 hD3  d211)
+: _L3G.ID
+        h0F _L3Gr8
+;
+
+: L3G.WHO_AM_I      h0F    ; \ readonly = xD3 
+
+: L3G.CTRL_REG1     h20   ; \ default = x07
+: L3G.CTRL_REG2     h21   ; \ default = x0 
+: L3G.CTRL_REG3     h22   ; \ default = x0
+: L3G.CTRL_REG4     h23   ; \ default = x0
+: L3G.CTRL_REG5     h24   ; \ default = x0
+: L3G.REFERENCE     h25   ; \ default = x0
+: L3G.OUT_TEMP      h26    ; \ readonly
+: L3G.STATUS_REG    h27    ; \ readonly
+: L3G.OUT_X_L       h28    ; \ readonly
+: L3G.OUT_X_H       h29    ; \ readonly
+: L3G.OUT_Y_L       h2A    ; \ readonly
+: L3G.OUT_Y_H       h2B    ; \ readonly
+: L3G.OUT_Z_L       h2C    ; \ readonly
+: L3G.OUT_Z_H       h2D    ; \ readonly
+: L3G.FIFO_CTRL_REG h2E   ; \ default = x0
+: L3G.FIFO_SRC_REG  h2F   ; \ readonly
+: L3G.INT1_CFG      h30   ; \ default = x0
+: L3G.INT1_SRC      h31   ; \ readonly
+: L3G.INT1_TSH_XH   h32   ; \ default = x0
+: L3G.INT1_TSH_XL   h33   ; \ default = x0
+: L3G.INT1_TSH_YH   h34   ; \ default = x0
+: L3G.INT1_TSH_YL   h35   ; \ default = x0
+: L3G.INT1_TSH_ZH   h36   ; \ default = x0
+: L3G.INT1_TSH_ZL   h37   ; \ default = x0
+: L3G.INT1_DURATION h38   ; \ default = x0
+
+: autoINC h80 or ;
+
+
+\  temperature is 1 C per digit 
+\ 0 =-40C 125 = 85c
+\  60D = h3C = 20C = expected test reading in the lab = h3C (3A-3F)
+
+
+\ @L3G.xyz16 ( - temperature8 status8 x16 y16 z16 FIFO_src ) \ low, high
+: @L3G.xyz16  
+             L3G.OUT_TEMP 
+             autoINC
+\             hA6 
+             _L3Gr  
+             0 _eeread                    \ temperature 
+             0 _eeread                    \ status    
+             0 _eeread 0 _eeread 8 lshift or \ x
+             0 _eeread 0 _eeread 8 lshift or \ y
+             0 _eeread 0 _eeread 8 lshift or \ z
+             0 _eeread  drop \ FIFO ctl
+            -1 _eeread \ FIFO src
+
+\ If FIFO, not used, remove last two
+            
+;
+
+\ _U16signed32 ( U16 -- s32) convert unsigned word to signed long
+: _U16signed32
+                dup h8000 and if hFFFF0000 or then
+;
+
+\ L3G.dump ( -) \ read all registers and pring as unsigned 8 to screen
+: L3G.dump
+
+ \ L3G.WHO_AM_I      _L3Gr ." L3G.WHO_AM_I:" -1 _eeread  . cr     
+
+  L3G.CTRL_REG1    
+   autoINC
+\    hA0
+  _L3Gr 
+
+." L3G.CTRL_REG1:" 0 _eeread  . cr   
+." L3G.CTRL_REG2:" 0 _eeread  . cr   
+." L3G.CTRL_REG3:" 0 _eeread  . cr
+." L3G.CTRL_REG4:" 0 _eeread  . cr
+." L3G.CTRL_REG5:" 0 _eeread  . cr
+." L3G.REFERENCE:" 0 _eeread  . cr
+." L3G.OUT_TEMP:" 0 _eeread  . cr
+." L3G.STATUS_REG:" 0 _eeread  . cr
+." L3G.OUT_X_L:" 0 _eeread  . cr
+." L3G.OUT_X_H:" 0 _eeread  . cr
+." L3G.OUT_Y_L:" 0 _eeread  . cr
+." L3G.OUT_Y_H:" 0 _eeread  . cr
+." L3G.OUT_Z_L:" 0 _eeread  . cr
+." L3G.OUT_Z_H:" 0 _eeread  . cr
+." L3G.FIFO_CTRL_REG:" 0 _eeread  . cr
+." L3G.FIFO_SRC_REG:" 0 _eeread  . cr
+." L3G.INT1_CFG:" 0 _eeread  . cr
+." L3G.INT1_SRC:" 0 _eeread  . cr
+." L3G.INT1_TSH_XH:" 0 _eeread  . cr
+." L3G.INT1_TSH_XL:" 0 _eeread  . cr
+." L3G.INT1_TSH_YH:" 0 _eeread  . cr
+." L3G.INT1_TSH_YL:" 0 _eeread  . cr
+." L3G.INT1_TSH_ZH:" 0 _eeread  . cr
+." L3G.INT1_TSH_ZL:" 0 _eeread  . cr
+." L3G.INT1_DURATION:" -1 _eeread  . cr
+  _eestop
+;
+
+
+\ this section is ANSI control codes for testing
+\ this should not be present in the final driver,
+\ as this driver would run on a background cog, not the user interface
+
+: esc h_1B emit ;
+: csi esc h_5B emit ;
+: m ." m" ;    
+: smallf ." f" ; 
+: K ." K" ;
+: semicolon ." ;" ;
+
+\ v>c convert a value ( 0-9 ) for a digit character for emit 
+: v>c h_30 + emit ;
+\ .digits ( n -  ." emit as DECIMAL characters" ) for AT  convert 0-99 for emit
+: .digits 
+          dup h_9 > if h_0A u/mod v>c then \ greater than 9 mod decimal 10
+          v>c ;
+\ AT  ( x y - ) put cursor at x,y
+: AT csi .digits semicolon .digits smallf ;
+
+: home       csi ." 1;1f" ;
+: clear      csi ." 2J" ; 
+: preclear   csi ." 1J" ;
+: postclear  csi ." 0J" ;
+: cls home clear  ;
+: clear-eol  csi h_0 .digits K ;
+: clear-bol  csi h_1 .digits K ;
+: clear-line csi h_2 .digits K ;
+
+\  end of ANSI support
+
+: test
+      cls
+      begin
+           home  
+           L3G.dump
+      fkey? if h1B = else drop 0 then until 
+;
+
+: xyx16
+       L3G.OUT_TEMP 
+       autoINC
+             _L3Gr  
+2 4 AT  0 _eeread   . ." C"  \ temperature 
+2 5 AT  0 _eeread  . ." :stat"                  \ status    
+2 6 AT  ." X:" 0 _eeread 0 _eeread 8 lshift or
+        _U16signed32 . clear-eol \ x
+2 7 AT  ." Y:" 0 _eeread 0 _eeread 8 lshift or 
+        _U16signed32 . clear-eol \ y
+2 8 AT  ." Z:" 0 _eeread 0 _eeread 8 lshift or 
+         _U16signed32 . clear-eol \ z
+2 9 AT  ." FIFO:"  0 _eeread  drop \ FIFO ctl
+            -1 _eeread  . clear-eol \ FIFO src
+;
+
+
+: .xyz
+      cls
+      begin
+           xyx16  
+      fkey? if h1B = else drop 0 then until 
+;
+
+
+\ stream, no watermark 
+
+{
+
+\ did not finsh this yet
+\ no need until ready for app
+
+\ this section define setting any setable registers
+\ : !L3G.WHO_AM_I      h0F    ; \ readonly = xD3 
+
+: !L3G.CTRL_REG1     h20 !L3G8   ; \ default = x07
+: !L3G.CTRL_REG2     h21 !L3G8  ; \ default = x0 
+: !L3G.CTRL_REG3     h22 !L3G8  ; \ default = x0
+: !L3G.CTRL_REG4     h23 !L3G8  ; \ default = x0
+: !L3G.CTRL_REG5     h24 !L3G8  ; \ default = x0
+: !L3G.REFERENCE     h25 !L3G8  ; \ default = x0
+
+\ : !L3G.OUT_TEMP      h26    ; \ readonly
+\ : !L3G.STATUS_REG    h27    ; \ readonly
+\ : !L3G.OUT_X_L       h28    ; \ readonly
+\ : !L3G.OUT_X_H       h29    ; \ readonly
+\ : !L3G.OUT_Y_L       h2A    ; \ readonly
+\ : !L3G.OUT_Y_H       h2B    ; \ readonly
+\ : !L3G.OUT_Z_L       h2C    ; \ readonly
+\ : !L3G.OUT_Z_H       h2D    ; \ readonly
+
+: !L3G.FIFO_CTRL_REG h2E  !L3G8 ; \ default = x0
+
+\ : !L3G.FIFO_SRC_REG  h2F   ; \ readonly
+
+: !L3G.INT1_CFG      h30  !L3G8 ; \ default = x0
+
+\ : !L3G.INT1_SRC      h31   ; \ readonly
+
+: !L3G.INT1_TSH_XH   h32  !L3G8 ; \ default = x0
+: !L3G.INT1_TSH_XL   h33  !L3G8 ; \ default = x0
+: !L3G.INT1_TSH_YH   h34  !L3G8 ; \ default = x0
+: !L3G.INT1_TSH_YL   h35  !L3G8 ; \ default = x0
+: !L3G.INT1_TSH_ZH   h36  !L3G8 ; \ default = x0
+: !L3G.INT1_TSH_ZL   h37  !L3G8 ; \ default = x0
+: !L3G.INT1_DURATION h38  !L3G8 ; \ default = x0
+
+
+\ CONFIGURE THE DEVICE
+
+\ no change required from defaults 
+: L3G.CONFIGURE
+
+
+b1111_1111 !L3G.CTRL_REG1 \ max speed, power on
+b0010_0000 !L3G.CTRL_REG2 \ max ?
+b0000_0000 !L3G.CTRL_REG3 \ idsable interupts (default)
+b0000_0000 !L3G.CTRL_REG4 \ continuous, LSB lowest, CHECK FULL SCALE
+b0000_0000 !L3G.CTRL_REG5 \ boot, no FIFO, no HiPass, def INT 
+h00 !L3G.REFERENCE    
+
+
+h00 !L3G.FIFO_CTRL_REG \ bypass
+
+b0000_0000 !L3G.INT1_CFG  \     
+
+
+h00  !L3G.INT1_TSH_XH  \ interupt threshold 0
+h00  !L3G.INT1_TSH_XL  \ interupt threshold 0 
+h00  !L3G.INT1_TSH_YH     \ interupt threshold 0
+h00  !L3G.INT1_TSH_YL     \ interupt threshold 0
+h00  !L3G.INT1_TSH_ZH     \ interupt threshold 0
+h00  !L3G.INT1_TSH_ZL     \ interupt threshold 0
+h00 !L3G.INT1_DURATION   \ interupt min threshold 0
+
+;
+}
+
