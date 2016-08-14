@@ -1,0 +1,12 @@
+click on
+
+/home/braino/PropForth5.5/PropForthV5.5-20130317/CurrentRelease
+
+load-devkernel.sh
+
+to load the latest devkernel. 
+
+This was compiler on linux mint 17.1 and the same commpiled image still works afte the reinstall of 17.3
+
+
+

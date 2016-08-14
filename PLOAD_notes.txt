@@ -1,0 +1,26 @@
+PLOAD is an image load routine for the P8X32A Parallax Propeller chip.
+This routine will load an executable binary image to the prop chip.
+An executable image file is for example a compile spin file.
+The pload routine is suitable as a replacement for the propellent.exe program, providing the code does not change.
+
+PLOAD is part of the propgcc compiler package, but is subject to change.
+
+These instructions worked in May 2016, and should be ok as this part of the code appears stable.
+
+$ mkdir ploadlib
+$ cd ploadlib/
+$ wget https://raw.githubusercontent.com/parallaxinc/propgcc/master/loader/src/PLoadLib.c
+$ wget https://raw.githubusercontent.com/parallaxinc/propgcc/master/loader/src/PLoadLib.h
+$ wget https://raw.githubusercontent.com/parallaxinc/propgcc/master/loader/src/osint.h
+$ wget https://raw.githubusercontent.com/parallaxinc/propgcc/master/loader/src/osint_linux.c
+$ gcc -Wall -O3 -DMAIN -o pload PLoadLib.c osint_linux.c
+$ ./pload
+usage: pload <port> <filename> [-pN]
+
+./pload /dev/ttyUSB0 SPINimage.eeprom -p3
+
+specifically:
+
+./pload /dev/ttyUSB0 PF5.5DevKernel.eeprom -p3
+
+
